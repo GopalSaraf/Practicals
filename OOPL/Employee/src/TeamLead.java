@@ -77,7 +77,7 @@ public class TeamLead extends Employee{
     }
 
     private Double getNetSalaryAmt() {
-        return getBasicPay() + getDAAmt() + getHRAAmt() - getClubAmt() - getPFAmt();
+        return getGrossSalaryAmt() - getClubAmt() - getPFAmt();
     }
 
     private Double getGrossSalaryAmt() {

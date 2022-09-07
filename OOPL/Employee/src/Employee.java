@@ -134,8 +134,4 @@ public class Employee {
         empCount++;
     }
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
 }
