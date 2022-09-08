@@ -1,20 +1,16 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
-
-struct Student {
-    string name;
-    int rollNo;
-    float sgpa;
-};
-
-bool compareNames(Student student1, Student student2) {
-    return student1.name < student2.name;
-}
 
 class Students {
    private:
+    struct Student {
+        string name;
+        int rollNo;
+        float sgpa;
+    };
+
     vector<Student> classStudents;
     vector<int> rollNos;
 
@@ -42,39 +38,38 @@ class Students {
     }
 
     void sortStudentsByName(vector<Student> &students) {
-        sort(students.begin(), students.end(), compareNames);
+        sort(students.begin(), students.end(),
+             [](Student student1, Student student2) -> bool {
+                 return student1.name < student2.name;
+             });
     }
 
     vector<Student> searchSGPA(float sgpa) {
         vector<Student> searchedStudents;
         for (Student student : classStudents) {
-            if (student.sgpa == sgpa)
-                searchedStudents.push_back(student);
+            if (student.sgpa == sgpa) searchedStudents.push_back(student);
         }
         return searchedStudents;
     }
 
-    int searchNameBinary(vector<Student> students, string name, int low, int high) {
+    int searchNameBinary(vector<Student> students, string name, int low,
+                         int high) {
         while (low <= high) {
             int mid = low + (high - low) / 2;
 
-            if (students[mid].name == name)
-                return mid;
+            if (students[mid].name == name) return mid;
 
             if (students[mid].name < name)
                 low = mid + 1;
-            
+
             else
                 high = mid - 1;
         }
         return -1;
     }
 
-    public:
-
-    vector<Student> getClassStudents() {
-        return classStudents;
-    }
+   public:
+    vector<Student> getClassStudents() { return classStudents; }
 
     void takeStudentsInput() {
         int noOfStudents;
@@ -130,7 +125,7 @@ class Students {
             printStudent(student);
         }
         cout << endl;
-    } 
+    }
 
     void sortStudents() {
         char option;
@@ -164,7 +159,7 @@ class Students {
 
     void searchStudentBySGPA() {
         float reqSGPA;
-        cout << endl << "Enter SGPA you want to search for > " ;
+        cout << endl << "Enter SGPA you want to search for > ";
         cin >> reqSGPA;
         cout << endl;
 
@@ -172,45 +167,49 @@ class Students {
         int noOfStudents = searchedStudents.size();
 
         switch (noOfStudents) {
-        case 0:
-            cout << "No student got SGPA of " << reqSGPA << endl;
-            break;
-        case 1:
-            cout << "Only 1 student got SGPA of " << reqSGPA << " : " << endl;
-            printStudents(searchedStudents);
-            break;
-        default:
-            cout << noOfStudents << " got SGPA of " << reqSGPA << " : " << endl;
-            printStudents(searchedStudents);
-            break;
+            case 0:
+                cout << "No student got SGPA of " << reqSGPA << endl;
+                break;
+            case 1:
+                cout << "Only 1 student got SGPA of " << reqSGPA << " : "
+                     << endl;
+                printStudents(searchedStudents);
+                break;
+            default:
+                cout << noOfStudents << " got SGPA of " << reqSGPA << " : "
+                     << endl;
+                printStudents(searchedStudents);
+                break;
         }
         cout << endl;
     }
 
     void searchStudentsByName() {
         string reqName;
-        cout << endl << "Enter name you want to search for > " ;
+        cout << endl << "Enter name you want to search for > ";
         cin >> reqName;
         cout << endl;
 
         sortStudentsByName(classStudents);
-        int searchedStudent = searchNameBinary(classStudents, reqName, 0, classStudents.size() - 1);
+        int searchedStudent = searchNameBinary(classStudents, reqName, 0,
+                                               classStudents.size() - 1);
 
         switch (searchedStudent) {
-        case 1:
-            cout << "Only 1 student is of name " << reqName << " : " << endl;
-            printStudent(classStudents[searchedStudent]);
-            cout << endl;
-            break;
-        
-        case -1:
-            cout << "No student with name " << reqName << endl;
-            break;
+            case 1:
+                cout << "Only 1 student is of name " << reqName << " : "
+                     << endl;
+                printStudent(classStudents[searchedStudent]);
+                cout << endl;
+                break;
 
-        default:
-            cout << "Student details of name " << reqName << " : " << endl;
-            printStudent(classStudents[searchedStudent]);
-            break;
+            case -1:
+                cout << "No student with name " << reqName << endl;
+                break;
+
+            default:
+                cout << "Student details of name " << reqName << " : " << endl;
+                printStudent(classStudents[searchedStudent]);
+                break;
         }
         cout << endl;
     }
@@ -219,10 +218,9 @@ class Students {
 int main() {
     Students students;
     students.takeStudentsInput();
-    
+
     bool wantContinue = true;
     while (wantContinue) {
-
         char option;
         cout << "Choose an option : " << endl;
         cout << "a - Sort students by SGPA or Roll numbers" << endl;
@@ -234,27 +232,27 @@ int main() {
         cout << endl;
 
         switch (option) {
-        case 'a':
-            students.sortStudents();
-            break;
-        
-        case 'b':
-            students.searchStudentBySGPA();
-            break;
-        
-        case 'c':
-            students.searchStudentsByName();
-            break;
-        
-        case 'd':
-            cout << "Exiting program..." << endl;
-            wantContinue = false;
-            break;
-        
-        default:
-            cout << "Incorrect option... Try again." << endl;
-            cout << "Option > ";
-            cin >> option; 
+            case 'a':
+                students.sortStudents();
+                break;
+
+            case 'b':
+                students.searchStudentBySGPA();
+                break;
+
+            case 'c':
+                students.searchStudentsByName();
+                break;
+
+            case 'd':
+                cout << "Exiting program..." << endl;
+                wantContinue = false;
+                break;
+
+            default:
+                cout << "Incorrect option... Try again." << endl;
+                cout << "Option > ";
+                cin >> option;
         }
     }
 }
