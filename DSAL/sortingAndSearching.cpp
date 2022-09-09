@@ -12,7 +12,6 @@ class Students {
     };
 
     vector<Student> classStudents;
-    vector<int> rollNos;
 
    public:
     void takeStudentsInput() {
@@ -38,10 +37,8 @@ class Students {
                     break;
                 } else {
                     cout << rollNo
-                         << " is already used previously. Roll number can "
-                            "not "
-                            "be "
-                            "repeated. "
+                         << " is already used previously. Roll number can not "
+                            "be repeated."
                          << endl;
                     cout << "Enter valid roll number for student " << i
                          << " > ";
@@ -205,6 +202,8 @@ class Students {
         student1 = student2;
         student2 = temp;
     }
+
+    vector<int> rollNos;
 
     bool isValidRollNo(int rollNoToCheck) {
         for (int rollNo : rollNos)
