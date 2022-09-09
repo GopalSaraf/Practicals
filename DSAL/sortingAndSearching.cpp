@@ -118,8 +118,8 @@ class Students {
         cin >> reqName;
         cout << endl;
 
-        int searchedStudent = searchNameBinarySearch(classStudents, reqName, 0,
-                                                     classStudents.size() - 1);
+        int searchedStudent =
+            searchNameBinarySearch(reqName, 0, classStudents.size() - 1);
 
         switch (searchedStudent) {
             case 1:
@@ -152,16 +152,15 @@ class Students {
         }
     }
 
-    int searchNameBinarySearch(vector<Student> students, string name, int low,
-                               int high) {
+    int searchNameBinarySearch(string name, int low, int high) {
         sortStudentsByName(classStudents);
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
 
-            if (students[mid].name == name) return mid;
+            if (classStudents[mid].name == name) return mid;
 
-            if (students[mid].name < name)
+            if (classStudents[mid].name < name)
                 low = mid + 1;
 
             else
