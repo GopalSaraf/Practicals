@@ -14,63 +14,7 @@ class Students {
     vector<Student> classStudents;
     vector<int> rollNos;
 
-    bool isValidRollNo(int rollNoToCheck) {
-        for (int rollNo : rollNos)
-            if (rollNoToCheck == rollNo) return false;
-        rollNos.push_back(rollNoToCheck);
-        return true;
-    }
-
-    void swapStudents(Student &student1, Student &student2) {
-        Student temp = student1;
-        student1 = student2;
-        student2 = temp;
-    }
-
-    void sortStudentsArray(vector<Student> &students, bool bySGPA) {
-        for (int i = 0; i < students.size() - 1; i++) {
-            for (int j = 0; j < students.size() - i - 1; j++) {
-                if ((bySGPA && students[j].sgpa > students[j + 1].sgpa) ||
-                    (!bySGPA && students[j].rollNo > students[j + 1].rollNo))
-                    swapStudents(students[j], students[j + 1]);
-            }
-        }
-    }
-
-    void sortStudentsByName(vector<Student> &students) {
-        sort(students.begin(), students.end(),
-             [](Student student1, Student student2) -> bool {
-                 return student1.name < student2.name;
-             });
-    }
-
-    vector<Student> searchSGPA(float sgpa) {
-        vector<Student> searchedStudents;
-        for (Student student : classStudents) {
-            if (student.sgpa == sgpa) searchedStudents.push_back(student);
-        }
-        return searchedStudents;
-    }
-
-    int searchNameBinary(vector<Student> students, string name, int low,
-                         int high) {
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-
-            if (students[mid].name == name) return mid;
-
-            if (students[mid].name < name)
-                low = mid + 1;
-
-            else
-                high = mid - 1;
-        }
-        return -1;
-    }
-
    public:
-    vector<Student> getClassStudents() { return classStudents; }
-
     void takeStudentsInput() {
         int noOfStudents;
         cout << "How many students are there in class > ";
@@ -111,20 +55,6 @@ class Students {
         cout << endl;
 
         classStudents = students;
-    }
-
-    void printStudent(Student student) {
-        cout << endl;
-        cout << "Student name            :   " << student.name << endl;
-        cout << "Student roll number     :   " << student.rollNo << endl;
-        cout << "Student SGPA            :   " << student.sgpa << endl;
-    }
-
-    void printStudents(vector<Student> students) {
-        for (Student student : students) {
-            printStudent(student);
-        }
-        cout << endl;
     }
 
     void sortStudents() {
@@ -213,14 +143,84 @@ class Students {
         }
         cout << endl;
     }
+
+   private:
+    void sortStudentsArray(vector<Student> &students, bool bySGPA) {
+        for (int i = 0; i < students.size() - 1; i++) {
+            for (int j = 0; j < students.size() - i - 1; j++) {
+                if ((bySGPA && students[j].sgpa > students[j + 1].sgpa) ||
+                    (!bySGPA && students[j].rollNo > students[j + 1].rollNo))
+                    swapStudents(students[j], students[j + 1]);
+            }
+        }
+    }
+
+    int searchNameBinary(vector<Student> students, string name, int low,
+                         int high) {
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (students[mid].name == name) return mid;
+
+            if (students[mid].name < name)
+                low = mid + 1;
+
+            else
+                high = mid - 1;
+        }
+        return -1;
+    }
+
+    vector<Student> searchSGPA(float sgpa) {
+        vector<Student> searchedStudents;
+        for (Student student : classStudents) {
+            if (student.sgpa == sgpa) searchedStudents.push_back(student);
+        }
+        return searchedStudents;
+    }
+
+    void sortStudentsByName(vector<Student> &students) {
+        sort(students.begin(), students.end(),
+             [](Student student1, Student student2) -> bool {
+                 return student1.name < student2.name;
+             });
+    }
+
+    void printStudent(Student student) {
+        cout << endl;
+        cout << "Student name            :   " << student.name << endl;
+        cout << "Student roll number     :   " << student.rollNo << endl;
+        cout << "Student SGPA            :   " << student.sgpa << endl;
+    }
+
+    void printStudents(vector<Student> students) {
+        for (Student student : students) {
+            printStudent(student);
+        }
+        cout << endl;
+    }
+
+    void swapStudents(Student &student1, Student &student2) {
+        Student temp = student1;
+        student1 = student2;
+        student2 = temp;
+    }
+
+    bool isValidRollNo(int rollNoToCheck) {
+        for (int rollNo : rollNos)
+            if (rollNoToCheck == rollNo) return false;
+        rollNos.push_back(rollNoToCheck);
+        return true;
+    }
+
+    vector<Student> getClassStudents() { return classStudents; }
 };
 
 int main() {
     Students students;
     students.takeStudentsInput();
 
-    bool wantContinue = true;
-    while (wantContinue) {
+    while (true) {
         char option;
         cout << "Choose an option : " << endl;
         cout << "a - Sort students by SGPA or Roll numbers" << endl;
@@ -246,13 +246,10 @@ int main() {
 
             case 'd':
                 cout << "Exiting program..." << endl;
-                wantContinue = false;
-                break;
+                exit(0);
 
             default:
                 cout << "Incorrect option... Try again." << endl;
-                cout << "Option > ";
-                cin >> option;
         }
     }
 }
