@@ -79,3 +79,5 @@ hs_err_pid*
 *
 !*.c
 !Makefile
+
+.gitignore
