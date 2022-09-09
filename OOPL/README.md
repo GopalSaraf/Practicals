@@ -1,6 +1,5 @@
 # Problem Statements
 
-<br><br>
 
 ## 1
 
