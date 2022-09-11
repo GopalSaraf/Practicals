@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class AssistantProjectManager extends Employee{
     private Double basicPay;
     private final Scanner sc = new Scanner(System.in);
+    
     public AssistantProjectManager(String name, String mobileNo, String mailID, String address, double basicPay) {
         super(name, mobileNo, address, mailID);
         this.basicPay = basicPay;
