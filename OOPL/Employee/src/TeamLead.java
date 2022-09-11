@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class TeamLead extends Employee{
     private Double basicPay;
     private final Scanner sc = new Scanner(System.in);
+    
     public TeamLead(String name, String mobileNo, String mailID, String address, double basicPay) {
         super(name, mobileNo, address, mailID);
         this.basicPay = basicPay;
