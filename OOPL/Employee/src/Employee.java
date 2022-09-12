@@ -66,10 +66,6 @@ public class Employee {
 
     private void setName() {
         System.out.print("Enter name of employee (" + empNo + ") > ");
-        if (!validation) {
-            this.name = sc.nextLine();
-            return;
-        }
         while (true) {
             this.name = sc.nextLine();
             if (!isValidName(this.name)) {
@@ -80,10 +76,6 @@ public class Employee {
 
     private void setMobileNo() {
         System.out.print("Enter mobile number of " + getName() + " > ");
-        if (!validation) {
-            this.mobileNo = sc.next();
-            return;
-        }
         while (true) {
             this.mobileNo = sc.next();
             if (!isValidMobile(this.mobileNo)) {
@@ -100,10 +92,6 @@ public class Employee {
 
     private void setMailID() {
         System.out.print("Enter Email ID of " + getName() + " > ");
-        if (!validation) {
-            this.mailID = sc.next();
-            return;
-        }
         while (true) {
             this.mailID = sc.next();
             if (!isValidMail(this.mailID)) {
@@ -113,14 +101,17 @@ public class Employee {
     }
 
     private boolean isValidName(String name) {
+        if (!validation) return true;
         return name.matches("^[\\p{L} .'-]+$");
     }
 
     private boolean isValidMobile(String mobileNo) {
+        if (!validation) return true;
         return mobileNo.matches("[0-9]{10}");
     }
 
     private boolean isValidMail(String mailID) {
+        if (!validation) return true;
         return mailID.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)"+
                 "*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
     }
