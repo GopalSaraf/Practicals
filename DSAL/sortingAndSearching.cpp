@@ -1,21 +1,34 @@
+// Problem Statement :
+// Consider a student database of SEIT class. Database contains different fields
+// of every student like Roll No, Name and SGPA.
+// a) Design a roll call list, arrange list of students according to roll
+// numbers in ascending order(Use Bubble Sort)
+// b) Arrange list of students alphabetically. (Use Insertion sort)
+// c) Arrange list of students to find out first ten toppers from a class.
+// (Use Quick sort)
+// d) Search students according to SGPA. If more than one student
+// having same SGPA, then print list of all students having same SGPA.
+// e) Search a particular student according to name using binary search without
+// recursion. (All the student records having the presence of search key should
+// be displayed)
+
 #include <algorithm>
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
-class Students {
+class Students {  // Class to contain students data
    private:
-    struct Student {
+    struct Student {  // Student struct
         string name;
         int rollNo;
         float sgpa;
     };
 
-    vector<Student> classStudents;
+    vector<Student> classStudents;  // Class students array
 
    public:
-    void takeStudentsInput() {
+    void takeStudentsInput() {  // To take students data inputs
         int noOfStudents;
         cout << "How many students are there in class > ";
         cin >> noOfStudents;
@@ -33,7 +46,7 @@ class Students {
             cin >> rollNo;
 
             while (true) {
-                if (isValidRollNo(rollNo)) {
+                if (isValidRollNo(rollNo)) {  // Validating roll number
                     students[i - 1].rollNo = rollNo;
                     break;
                 } else {
@@ -55,7 +68,7 @@ class Students {
         classStudents = students;
     }
 
-    void sortStudents() {
+    void sortStudents() {  // Function to handle bubble sort
         char option;
         cout << "On which basis you want to sort students ? " << endl;
         cout << "a - SGPA" << endl;
@@ -85,7 +98,7 @@ class Students {
         printStudents(classStudents);
     }
 
-    void searchStudentBySGPA() {
+    void searchStudentBySGPA() {  // Funtion to handle linear search of SGPA
         float reqSGPA;
         cout << endl << "Enter SGPA you want to search for > ";
         cin >> reqSGPA;
@@ -112,7 +125,7 @@ class Students {
         cout << endl;
     }
 
-    void searchStudentsByName() {
+    void searchStudentsByName() {  // Function to handle binary search of name
         string reqName;
         cout << endl << "Enter name you want to search for > ";
         cin >> reqName;
@@ -143,6 +156,7 @@ class Students {
 
    private:
     void sortStudentsArray(vector<Student> &students, bool bySGPA) {
+        // Bubble Sort of students based on SGPA or roll number
         for (int i = 0; i < students.size() - 1; i++) {
             for (int j = 0; j < students.size() - i - 1; j++) {
                 if ((bySGPA && students[j].sgpa > students[j + 1].sgpa) ||
@@ -152,7 +166,16 @@ class Students {
         }
     }
 
+    vector<Student> searchSGPA(float sgpa) {  // Linear search of SGPA
+        vector<Student> searchedStudents;
+        for (Student student : classStudents) {
+            if (student.sgpa == sgpa) searchedStudents.push_back(student);
+        }
+        return searchedStudents;
+    }
+
     int searchNameBinarySearch(string name, int low, int high) {
+        // Binary search of name
         sortStudentsByName(classStudents);
 
         while (low <= high) {
@@ -169,14 +192,6 @@ class Students {
         return -1;
     }
 
-    vector<Student> searchSGPA(float sgpa) {
-        vector<Student> searchedStudents;
-        for (Student student : classStudents) {
-            if (student.sgpa == sgpa) searchedStudents.push_back(student);
-        }
-        return searchedStudents;
-    }
-
     void sortStudentsByName(vector<Student> &students) {
         sort(students.begin(), students.end(),
              [](Student student1, Student student2) -> bool {
@@ -184,7 +199,7 @@ class Students {
              });
     }
 
-    void printStudent(Student student) {
+    void printStudent(Student student) {  // To print student data
         cout << endl;
         cout << "Student name            :   " << student.name << endl;
         cout << "Student roll number     :   " << student.rollNo << endl;
@@ -199,6 +214,7 @@ class Students {
     }
 
     void swapStudents(Student &student1, Student &student2) {
+        // To swap two students (For bubble sort)
         Student temp = student1;
         student1 = student2;
         student2 = temp;
@@ -206,19 +222,19 @@ class Students {
 
     vector<int> rollNos;
 
-    bool isValidRollNo(int rollNoToCheck) {
+    bool isValidRollNo(int rollNoToCheck) {  // Roll number validation
         for (int rollNo : rollNos)
             if (rollNoToCheck == rollNo) return false;
         rollNos.push_back(rollNoToCheck);
         return true;
     }
 
-    vector<Student> getClassStudents() { return classStudents; }
+    vector<Student> getClassStudents() { return classStudents; }  // Getter
 };
 
 int main() {
-    Students students;
-    students.takeStudentsInput();
+    Students students;             // Class students object
+    students.takeStudentsInput();  // Taking input
 
     while (true) {
         char option;
