@@ -26,14 +26,14 @@ public class Employee {
         this("", "", "", "");
     }
 
-    public void getData() {
+    public void getData() { // To get employee data input
         setName();
         setMobileNo();
         setMailID();
         setAddress();
     }
 
-    public void display() {
+    public void display() { // To display employee details
         System.out.println();
         System.out.println("-------- Employee Information --------");
         System.out.println();
@@ -64,23 +64,25 @@ public class Employee {
         return mailID;
     }
 
-    private void setName() {
+    private void setName() { // To validate and set employee name
         System.out.print("Enter name of employee (" + empNo + ") > ");
         while (true) {
             this.name = sc.nextLine();
             if (!isValidName(this.name)) {
                 System.out.print("Enter valid name of employee (" + empNo + ") > ");
-            } else break;
+            } else
+                break;
         }
     }
 
-    private void setMobileNo() {
+    private void setMobileNo() { // // To validate and set employee mobile number
         System.out.print("Enter mobile number of " + getName() + " > ");
         while (true) {
             this.mobileNo = sc.next();
             if (!isValidMobile(this.mobileNo)) {
                 System.out.print("Enter valid mobile number of " + getName() + " > ");
-            } else break;
+            } else
+                break;
         }
     }
 
@@ -90,38 +92,42 @@ public class Employee {
         this.address = sc.nextLine();
     }
 
-    private void setMailID() {
+    private void setMailID() { // To validate and set employee mail ID
         System.out.print("Enter Email ID of " + getName() + " > ");
         while (true) {
             this.mailID = sc.next();
             if (!isValidMail(this.mailID)) {
                 System.out.print("Enter valid Email ID of " + getName() + " > ");
-            } else break;
+            } else
+                break;
         }
     }
 
-    private boolean isValidName(String name) {
-        if (!validation) return true;
+    private boolean isValidName(String name) { // Name validation
+        if (!validation)
+            return true;
         return name.matches("^[\\p{L} .'-]+$");
     }
 
-    private boolean isValidMobile(String mobileNo) {
-        if (!validation) return true;
+    private boolean isValidMobile(String mobileNo) { // Mobile number validation
+        if (!validation)
+            return true;
         return mobileNo.matches("[0-9]{10}");
     }
 
-    private boolean isValidMail(String mailID) {
-        if (!validation) return true;
-        return mailID.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)"+
+    private boolean isValidMail(String mailID) { // Mail ID validation
+        if (!validation)
+            return true;
+        return mailID.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)" +
                 "*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() { // To generate employee ID
         return Objects.hash(empNo * empNo);
     }
 
-    private static void incrementEmployee() {
+    private static void incrementEmployee() { // To increment employee count
         empCount++;
     }
 

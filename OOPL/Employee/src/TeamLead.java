@@ -2,10 +2,10 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class TeamLead extends Employee{
+public class TeamLead extends Employee {
     private Double basicPay;
     private final Scanner sc = new Scanner(System.in);
-    
+
     public TeamLead(String name, String mobileNo, String mailID, String address, double basicPay) {
         super(name, mobileNo, address, mailID);
         this.basicPay = basicPay;
@@ -40,7 +40,7 @@ public class TeamLead extends Employee{
         System.out.println();
     }
 
-    private void setBasicPay() {
+    private void setBasicPay() { // To set and validate basic pay amount
         System.out.print("Enter Basic Pay of " + getName() + " > ");
         while (true) {
             if (sc.hasNextDouble()) {
@@ -85,9 +85,9 @@ public class TeamLead extends Employee{
         return getBasicPay() + getDAAmt() + getHRAAmt();
     }
 
-    private String currency(Double money) {
+    private String currency(Double money) { // To get proper currency format
         Locale india = new Locale("hi", "IN");
-        NumberFormat dollarFormat = NumberFormat.getCurrencyInstance(india);
-        return dollarFormat.format(money);
+        NumberFormat rupeesFormat = NumberFormat.getCurrencyInstance(india);
+        return rupeesFormat.format(money);
     }
 }

@@ -1,15 +1,20 @@
+// Problem Statement :
+// Design a class ‘Complex’ with data members for real and imaginary part.
+// Provide default and parameterized constructors. Write a program to perform
+// arithmetic operations of two complex numbers.
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ComplexNumber complexNumber1 = new ComplexNumber();
-        ComplexNumber complexNumber2 = new ComplexNumber();
-        Scanner sc = new Scanner(System.in);
+        var complexNumber1 = new ComplexNumber(); // First complex number
+        var complexNumber2 = new ComplexNumber(); // Second complex number
+        var sc = new Scanner(System.in);
 
         System.out.println("Welcome to Complex Calculator Program!");
 
         while (true) {
-            System.out.println("\nCOMPLEX OPERATIONS : ");
+            System.out.println("\nCOMPLEX OPERATIONS : "); // Menu for user
             System.out.println("a - Addition");
             System.out.println("b - Subtraction");
             System.out.println("c - Multiplication");
@@ -19,6 +24,7 @@ public class Main {
             char option = sc.next().charAt(0);
 
             if (option == 'a' || option == 'b' || option == 'c' || option == 'd') {
+                // Will take input only if option is either 'a' or 'b' or 'c' or ‘d'
                 complexNumber1.takeInput("first");
                 complexNumber2.takeInput("second");
                 System.out.println();
@@ -28,23 +34,23 @@ public class Main {
             }
 
             switch (option) {
-                case 'a' -> {
-                    ComplexNumber addedComplexNumber = complexNumber1.add(complexNumber2);
+                case 'a' -> { // Addition
+                    var addedComplexNumber = complexNumber1.add(complexNumber2);
                     System.out.println("Addition of two numbers is : " + addedComplexNumber);
                 }
-                case 'b' -> {
-                    ComplexNumber subtractedComplexNumber = complexNumber1.subtract(complexNumber2);
+                case 'b' -> { // Subtraction
+                    var subtractedComplexNumber = complexNumber1.subtract(complexNumber2);
                     System.out.println("Subtraction of two numbers is : " + subtractedComplexNumber);
                 }
-                case 'c' -> {
-                    ComplexNumber multipliedComplexNumber = complexNumber1.multiply(complexNumber2);
+                case 'c' -> { // Multiplication
+                    var multipliedComplexNumber = complexNumber1.multiply(complexNumber2);
                     System.out.println("Multiplication of two numbers is : " + multipliedComplexNumber);
                 }
-                case 'd' -> {
-                    ComplexNumber dividedComplexNumber = complexNumber1.divide(complexNumber2);
+                case 'd' -> { // Division
+                    var dividedComplexNumber = complexNumber1.divide(complexNumber2);
                     System.out.println("Division of two numbers is : " + dividedComplexNumber);
                 }
-                case 'e' -> {
+                case 'e' -> { // Exit program
                     System.out.println("Exiting program...");
                     sc.close();
                     System.exit(0);
@@ -55,5 +61,3 @@ public class Main {
         }
     }
 }
-
-
