@@ -44,7 +44,6 @@ class Queue {
     int deQueue() {  // Function to delete element from Circular Queue
         if (front == -1) {
             cout << endl << "Queue is Empty" << endl;
-            ;
             return INT_MIN;
         }
 
@@ -74,11 +73,11 @@ class Queue {
         cout << endl << "Elements in Circular Queue are: " << endl;
         cout << "[ ";
 
-        if (rear >= front) {
+        if (rear >= front)
             for (int i = front; i <= rear; i++) cout << arr[i] << " ";
-        } else {
-            for (int i = front; i < size; i++) cout << arr[i] << " ";
 
+        else {
+            for (int i = front; i < size; i++) cout << arr[i] << " ";
             for (int i = 0; i <= rear; i++) cout << arr[i] << " ";
         }
         cout << "]" << endl;
