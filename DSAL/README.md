@@ -21,7 +21,7 @@ e. Search a particular student according to name using binary search without rec
 
 ### [Circular Queue using Array](https://github.com/GopalSaraf/SE_Labs/blob/main/DSAL/circularQueue.cpp)
 
-Implement Circular Queue using Array. Perform following operations on it.
+Implement Circular Queue using Array. Perform following operations on it.  
 a) Insertion (Enqueue)  
 b) Deletion (Dequeue)  
 c) Display  
