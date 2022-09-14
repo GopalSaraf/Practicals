@@ -22,3 +22,15 @@ Add Basic Pay (BP) as the member of all the inherited classes with 97% of BP as 
 Generate pay slips for the employees with their gross and net salary.
 
 <hr>
+
+## 3
+
+### [Polymorphism](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/Polymorphism)
+
+Identify commonalities and differences between Publication, Book and Magazine classes.
+Title, Price, Copies are common instance variables and saleCopy is common method. The
+differences are, Book class has author and orderCopies(). Magazine Class has orderQty,
+Currentissue, reciveissue(). Write a program to find how many copies of the given books are
+ordered and display total sale of publication.
+
+<hr>
