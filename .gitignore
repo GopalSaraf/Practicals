@@ -76,6 +76,8 @@ hs_err_pid*
 # Built Visual Studio Code Extensions
 *.vsix
 
-*
+
 !*.c
 !Makefile
+
+.idea
