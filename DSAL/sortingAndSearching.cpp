@@ -238,8 +238,8 @@ class Students {  // Class to contain students data
 
     bool isValidRollNo(int rollNo) {  // Roll number validation
         if (rollNo <= 0) return false;
-        for (int rollNo : rollNos)
-            if (rollNo == rollNo) return false;
+        for (int rollN : rollNos)
+            if (rollN == rollNo) return false;
         rollNos.push_back(rollNo);
         return true;
     }
