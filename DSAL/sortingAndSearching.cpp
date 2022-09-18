@@ -60,8 +60,22 @@ class Students {  // Class to contain students data
                 }
             }
 
+            float sgpa;
             cout << "Enter SGPA of student " << i << " > ";
-            cin >> students[i - 1].sgpa;
+            cin >> sgpa;
+
+            while (true) {
+                if (isValidSGPA(sgpa)) {  // Validating sgpa
+                    students[i - 1].sgpa = sgpa;
+                    break;
+                } else {
+                    cout << sgpa
+                         << " is invalid. SGPA should be between 0 to 10."
+                         << endl;
+                    cout << "Enter valid SGPA for student " << i << " > ";
+                    cin >> sgpa;
+                }
+            }
         }
         cout << endl;
 
@@ -222,11 +236,16 @@ class Students {  // Class to contain students data
 
     vector<int> rollNos;
 
-    bool isValidRollNo(int rollNoToCheck) {  // Roll number validation
+    bool isValidRollNo(int rollNo) {  // Roll number validation
+        if (rollNo <= 0) return false;
         for (int rollNo : rollNos)
-            if (rollNoToCheck == rollNo) return false;
-        rollNos.push_back(rollNoToCheck);
+            if (rollNo == rollNo) return false;
+        rollNos.push_back(rollNo);
         return true;
+    }
+
+    bool isValidSGPA(float sgpa) {  // SGPA validation
+        return (sgpa >= 0 && sgpa <= 10);
     }
 
     vector<Student> getClassStudents() { return classStudents; }  // Getter
