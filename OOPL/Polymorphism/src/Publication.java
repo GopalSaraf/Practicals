@@ -1,9 +1,15 @@
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Publication {
-    private String title; // Title of the publication
-    private double price; // Price of the publication
-    private int copies; // copies of the publication
+    
+    protected String title; // Title of the publication
+    
+    protected double price; // Price of the publication
+    
+    protected int copies; // copies of the publication
+    
     public Scanner sc = new Scanner(System.in);
 
     Publication(String title, double price, int copies) {
@@ -18,19 +24,15 @@ public class Publication {
 
     public void getData() {
         System.out.print("Enter title : ");
-        this.title = sc.nextLine();
+        setTitle(sc.nextLine());
         System.out.print("Enter price : ");
-        this.price = sc.nextDouble();
+        setPrice(sc.nextDouble());
         System.out.print("Enter number of copies : ");
-        this.copies = sc.nextInt();
+        setCopies(sc.nextInt());
     }
 
-    public void sellCopy(int qty) {
-        System.out.println("Total Publication sell: $" + (qty * this.getPrice()));
-    }
-
-    public void sellCopy() {
-        this.sellCopy(this.getCopies());
+    public static void getTotalSell() {
+        System.out.println("Total Publication sell: " + currency(Book.totalBookSell + Magazine.totalMagazineSell));
     }
 
     public void setTitle(String title) {
@@ -59,5 +61,11 @@ public class Publication {
 
     public int getCopies() {
         return this.copies;
+    }
+
+    public static String currency(Double money) { // To get proper currency format
+        Locale india = new Locale("hi", "IN");
+        NumberFormat rupeesFormat = NumberFormat.getCurrencyInstance(india);
+        return rupeesFormat.format(money);
     }
 }
