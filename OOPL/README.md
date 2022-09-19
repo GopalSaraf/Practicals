@@ -29,8 +29,8 @@ Generate pay slips for the employees with their gross and net salary.
 
 Identify commonalities and differences between Publication, Book and Magazine classes.
 Title, Price, Copies are common instance variables and saleCopy is common method. The
-differences are, Book class has author and orderCopies(). Magazine Class has orderQty,
-Currentissue, reciveissue(). Write a program to find how many copies of the given books are
+differences are, Book class has author and orderCopies. Magazine Class has orderQty,
+Currentissue, reciveissue. Write a program to find how many copies of the given books are
 ordered and display total sale of publication.
 
 <hr>
