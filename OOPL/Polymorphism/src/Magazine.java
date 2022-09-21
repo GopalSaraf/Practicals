@@ -1,6 +1,10 @@
 public class Magazine extends Publication {
+
     private int orderQty;
+
     private String currIssue;
+
+    protected static double totalMagazineSell = 0; // Magazine sell
 
     Magazine(String title, double price, int copies, int orderQty, String currIssue) {
         super(title, price, copies);
@@ -16,22 +20,17 @@ public class Magazine extends Publication {
     public void getData() {
         super.getData();
         System.out.print("Enter order quantity : ");
-        this.orderQty = sc.nextInt();
+        setOrderQty(sc.nextInt());
+        sc.nextLine();
         System.out.print("Enter current Issue : ");
-        this.currIssue = sc.nextLine();
-    }
-
-    public void sellCopy(int qty) {
-        System.out.println("Total Magazine sell: $" + (qty * getPrice()));
+        setCurrIssue(sc.nextLine());
     }
 
     public void sellCopy() {
-        this.sellCopy(getCopies());
-    }
-
-    public void recNewIssue(String pNewIssue) {
-        setCopies(orderQty);
-        currIssue = pNewIssue;
+        System.out.println("Ordered magazine " + getTitle());
+        double amount = getCopies() * getPrice();
+        System.out.println("Magazine sell: " + currency(amount));
+        totalMagazineSell += amount;
     }
 
     public void setCurrIssue(String issue) {
@@ -42,11 +41,8 @@ public class Magazine extends Publication {
         this.orderQty = copies;
     }
 
-    public String getCurrIssue() {
-        return this.currIssue;
+    public static void getTotalSell() {
+        System.out.println("Total book sell is " + currency(totalMagazineSell));
     }
 
-    public int getOrderQty() {
-        return this.orderQty;
-    }
 }
