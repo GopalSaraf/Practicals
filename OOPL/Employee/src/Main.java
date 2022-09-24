@@ -8,6 +8,8 @@
 // as DA, 10 % of BP as HRA, 12% of BP as PF, 0.1% of BP for staff club fund.
 // Generate pay slips for the employees with their gross and net salary.
 
+// Program by : 23168 Gopal Saraf
+
 import java.util.Scanner;
 
 public class Main {

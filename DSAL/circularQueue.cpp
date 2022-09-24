@@ -5,6 +5,8 @@
 // b) Deletion (Dequeue)
 // c) Display queue
 
+// Program by : 23168 Gopal Saraf
+
 #include <climits>
 #include <iostream>
 using namespace std;

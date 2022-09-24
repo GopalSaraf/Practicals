@@ -28,3 +28,11 @@ c) Display
 (Note: Handle queue full condition by considering a fixed size of a queue.)
 
 <hr>
+
+## 3
+
+### [Stack as ADT](https://github.com/GopalSaraf/SE_Labs/tree/main/DSAL/stack.cpp)
+
+Implement stack as an abstract data type using singly linked list and
+use this ADT for conversion of infix expression to postfix, prefix and
+evaluation of postfix and prefix expression.
