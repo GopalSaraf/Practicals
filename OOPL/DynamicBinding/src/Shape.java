@@ -22,5 +22,7 @@ abstract class Shape {
         this.breadth = breadth;
     }
 
+    abstract public void takeDimensions();
+
     abstract public void computeArea();
 }
