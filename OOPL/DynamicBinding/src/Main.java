@@ -29,13 +29,13 @@ public class Main {
 
             switch (option) {
                 case 'a' -> {
-                    Triangle triangle = new Triangle();     // Triangle object
+                    Shape triangle = new Triangle();        // Triangle object
                     triangle.takeDimensions();              // Taking dimensions
                     System.out.println();
                     triangle.computeArea();                 // Computing area
                 }
                 case 'b' -> {
-                    Rectangle rectangle = new Rectangle();  // Rectangle object
+                    Shape rectangle = new Rectangle();      // Rectangle object
                     rectangle.takeDimensions();             // Taking dimensions
                     System.out.println();
                     rectangle.computeArea();                // Computing area
