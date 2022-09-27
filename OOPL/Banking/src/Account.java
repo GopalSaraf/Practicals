@@ -1,7 +1,7 @@
 import java.text.NumberFormat;
 import java.util.*;
 
-public class Account extends Customer{
+public class Account extends Customer {
     private static final Map<Integer, Integer> passwords = new HashMap<Integer, Integer>();
     private static final Set<Integer> accountIDs = new HashSet<Integer>();
     private int accountNo;

@@ -37,7 +37,8 @@ public class CurrentAccount extends Account {
             return;
         }
         if (isValidDeposit(depositAmount) == 2) {
-            System.out.println("Invalid amount (Minimum balance in account should be " + minBalance + ") .. Deposit failed!");
+            System.out.println(
+                    "Invalid amount (Minimum balance in account should be " + minBalance + ") .. Deposit failed!");
             return;
         }
         depositAmount(depositAmount);
@@ -52,11 +53,13 @@ public class CurrentAccount extends Account {
             return;
         }
         if (isValidWithdraw(withdrawAmount) == 2) {
-            System.out.println("Invalid amount (Minimum balance in account should be " + minBalance + ") .. Withdrawal failed!");
+            System.out.println(
+                    "Invalid amount (Minimum balance in account should be " + minBalance + ") .. Withdrawal failed!");
             return;
         }
         if (isValidWithdraw(withdrawAmount) == 3) {
-            System.out.println("Invalid amount (Maximum balance of withdrawal should be " + withdrawLimit + ") .. Withdrawal failed!");
+            System.out.println("Invalid amount (Maximum balance of withdrawal should be " + withdrawLimit
+                    + ") .. Withdrawal failed!");
             return;
         }
         withdrawAmount(withdrawAmount);
@@ -64,15 +67,20 @@ public class CurrentAccount extends Account {
     }
 
     private int isValidDeposit(double depositAmt) {
-        if (depositAmt <= 0) return 1;
-        if (getBalance() + depositAmt < minBalance) return 2;
+        if (depositAmt <= 0)
+            return 1;
+        if (getBalance() + depositAmt < minBalance)
+            return 2;
         return 0;
     }
 
     private int isValidWithdraw(double withdrawAmt) {
-        if (withdrawAmt <= 0) return 1;
-        if (getBalance() - withdrawAmt < minBalance) return 2;
-        if (withdrawAmt > withdrawLimit) return 3;
+        if (withdrawAmt <= 0)
+            return 1;
+        if (getBalance() - withdrawAmt < minBalance)
+            return 2;
+        if (withdrawAmt > withdrawLimit)
+            return 3;
         return 0;
     }
 }

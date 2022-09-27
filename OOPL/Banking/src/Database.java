@@ -11,8 +11,7 @@ public final class Database {
             "balance", 2,
             "name", 3,
             "age", 4,
-            "mobileNo", 5
-    );
+            "mobileNo", 5);
     private static final int noOfColumns = columns.size();
 
     public static void addAccount(int id, int password, double balance, String name, int age, String mobileNo) {
@@ -31,8 +30,8 @@ public final class Database {
                     .append(mobileNo)
                     .append("\n");
             pw.close();
+        } catch (Exception ignored) {
         }
-        catch (Exception ignored) {}
     }
 
     public static void updateBalance(int id, double newBalance) {
@@ -47,8 +46,7 @@ public final class Database {
                     for (int i = 0; i < noOfColumns; i++) {
                         if (i == columns.get("balance")) {
                             row.append(newBalance).append(",");
-                        }
-                        else {
+                        } else {
                             row.append(data[i]);
                             if (!(i == noOfColumns - 1)) {
                                 row.append(",");
@@ -63,8 +61,8 @@ public final class Database {
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
             pw.print(sb);
             pw.close();
+        } catch (Exception ignored) {
         }
-        catch (Exception ignored) {}
     }
 
     public static Map<String, String> getAccountInfo(int id) {
@@ -75,8 +73,7 @@ public final class Database {
                     "balance", "",
                     "name", "",
                     "age", "",
-                    "mobileNo", ""
-            ));
+                    "mobileNo", ""));
             BufferedReader br = new BufferedReader(new FileReader(path));
             String stream;
             while ((stream = br.readLine()) != null) {
@@ -90,8 +87,8 @@ public final class Database {
                     return accountDetails;
                 }
             }
+        } catch (Exception ignored) {
         }
-        catch (Exception ignored) {}
         return null;
     }
 }
