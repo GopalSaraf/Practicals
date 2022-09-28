@@ -1,30 +1,38 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Database.addAccount(1, 123, 1000, "Name1", 20, "1234");
-        Database.addAccount(2, 234, 2000, "Name2", 19, "5678");
+        Scanner sc = new Scanner(System.in);
+        Bank bank = new Bank();
+        char option;
 
-        var map = Database.getAccountInfo(2);
+        while (true) {
+            System.out.println("Please choose an option from below :");
+            System.out.println("a - Create new account");
+            System.out.println("b - Login to your account");
+            System.out.println("c - Exit program");
+            System.out.println();
+            System.out.print("Your Choice [a/b/c] > ");
+            option = sc.next().charAt(0);
 
-        assert map != null;
-        String[] key = map.keySet().toArray(new String[0]);
-
-        String[] value = map.values().toArray(new String[0]);
-
-        for (int i = 0; i < map.size(); i++) {
-            System.out.println("{" + key[i] + "=" + value[i] + "}");
-        }
-
-        Database.updateBalance(2, 5000);
-
-        var mapp = Database.getAccountInfo(2);
-
-        assert mapp != null;
-        String[] keyy = mapp.keySet().toArray(new String[0]);
-
-        String[] valuee = mapp.values().toArray(new String[0]);
-
-        for (int i = 0; i < mapp.size(); i++) {
-            System.out.println("{" + keyy[i] + "=" + valuee[i] + "}");
+            switch (option) {
+                case 'a' -> {
+                    bank.createAccount();
+                }
+                case 'b' -> {
+                    bank.accountLogin();
+                }
+                case 'c' -> {
+                    System.out.println("Exiting Program...");
+                    sc.close();
+                    System.exit(0);
+                }
+                default -> {
+                    System.out.println();
+                    System.out.println("Incorrect Option. Try again...");
+                    System.out.println();
+                }
+            }
         }
     }
 }
