@@ -14,14 +14,11 @@ public class Main {
             System.out.println();
             System.out.print("Your Choice [a/b/c] > ");
             option = sc.next().charAt(0);
+            System.out.println();
 
             switch (option) {
-                case 'a' -> {
-                    bank.createAccount();
-                }
-                case 'b' -> {
-                    bank.accountLogin();
-                }
+                case 'a' -> bank.createAccount();
+                case 'b' -> bank.accountLogin();
                 case 'c' -> {
                     System.out.println("Exiting Program...");
                     sc.close();

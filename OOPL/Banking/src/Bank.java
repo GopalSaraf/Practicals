@@ -24,16 +24,19 @@ public class Bank {
             case 'a' -> {
                 SavingAccount savAcc = new SavingAccount();
                 savAcc.setData();
+                savAcc = null;
             }
             case 'b' -> {
                 CurrentAccount currAcc = new CurrentAccount();
                 currAcc.setData();
+                currAcc = null;
             }
             default -> {
                 System.out.println("Incorrect option.");
                 System.out.println();
             }
         }
+        System.gc();
     }
 
     public void accountLogin() {
@@ -47,30 +50,20 @@ public class Bank {
             System.out.println("c - Withdraw money");
             System.out.println("d - Get available balance");
             System.out.println("e - Get profile");
-            System.out.println("f - Logout");
+            System.out.println("f - Update profile");
+            System.out.println("g - Logout");
             System.out.println();
-            System.out.print("Your Choice [a/b/c/d/e] > ");
+            System.out.print("Your Choice [a/b/c/d/e/f/g] > ");
             option = sc.next().charAt(0);
 
             switch (option) {
-                case 'a' -> {
-                    loginAcc.transfer();
-                }
-                case 'b' -> {
-                    loginAcc.deposit();
-                }
-                case 'c' -> {
-                    loginAcc.withdraw();
-                }
-                case 'd' -> {
-                    loginAcc.showBalance();
-                }
-                case 'e' -> {
-                    loginAcc.getData();
-                }
-                case 'f' -> {
-                    loginAcc.logout();
-                }
+                case 'a' -> loginAcc.transfer();
+                case 'b' -> loginAcc.deposit();
+                case 'c' -> loginAcc.withdraw();
+                case 'd' -> loginAcc.showBalance();
+                case 'e' -> loginAcc.getData();
+                case 'f' -> loginAcc.updateProfile();
+                case 'g' -> loginAcc.logout();
                 default -> {
                     System.out.println();
                     System.out.println("Incorrect Option. Try again...");

@@ -82,4 +82,41 @@ public final class LoginHandle {
     private int getPasswordForAcc(int accNo) {
         return Integer.parseInt(Objects.requireNonNull(Database.getAccountInfo(accNo)).get("password"));
     }
+
+    public void updateProfile() {
+        char option;
+        System.out.println();
+        System.out.println("Please choose what do you want to update :");
+        System.out.println("a - Name");
+        System.out.println("b - Age");
+        System.out.println("c - Mobile number");
+        System.out.println("d - None of these");
+        System.out.println();
+        System.out.print("Your Choice [a/b/c] > ");
+        option = sc.next().charAt(0);
+        System.out.println();
+
+        switch (option) {
+            case 'a' -> {
+                account.setName();
+                System.out.println();
+                System.out.println("Name updated SUCCESSFULLY.");
+            }
+            case 'b' -> {
+                account.setAge();
+                System.out.println();
+                System.out.println("Age updated SUCCESSFULLY.");
+            }
+            case 'c' -> {
+                account.setMobileNo();
+                System.out.println();
+                System.out.println("Mobile number updated SUCCESSFULLY.");
+            }
+            case 'd' -> System.out.println("Updating skipped.");
+            default -> System.out.println("Incorrect Option. Try again...");
+
+        }
+        account.updateInfo();
+    }
+
 }

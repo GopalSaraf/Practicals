@@ -28,7 +28,7 @@ public class Customer {
         System.out.println();
     }
 
-    private void setName() {
+    protected void setName() {
         System.out.print("Enter your name > ");
         while (true) {
             this.name = sc.nextLine();
@@ -39,23 +39,23 @@ public class Customer {
         }
     }
 
-    private void setAge() {
-        System.out.print("Enter age of " + getName() + " > ");
+    protected void setAge() {
+        System.out.print("Enter your age > ");
         while (true) {
             this.age = sc.nextInt();
             if (!Valid.isValidAge(this.age)) {
-                System.out.print("Enter valid age of " + getName() + " > ");
+                System.out.print("Enter valid age > ");
             } else
                 break;
         }
     }
 
-    private void setMobileNo() {
-        System.out.print("Enter mobile number of " + getName() + " > ");
+    protected void setMobileNo() {
+        System.out.print("Enter your mobile number > ");
         while (true) {
             this.mobileNo = sc.next();
             if (!Valid.isValidMobile(this.mobileNo)) {
-                System.out.print("Enter valid mobile number of " + getName() + " > ");
+                System.out.print("Enter valid mobile number > ");
             } else
                 break;
         }
