@@ -14,16 +14,16 @@ using namespace std;
 class Queue {
     int rear, front;  // Initialize front and rear
     int size;         // Circular Queue size
-    int *arr;         // Array to hold data
+    string *arr;      // Array to hold data
 
    public:
     Queue(int s) {
         front = rear = -1;
         size = s;
-        arr = new int[s];
+        arr = new string[s];
     }
 
-    void enQueue(int value) {  // Function to create Circular queue
+    void enQueue(string value) {  // Function to create Circular queue
         if ((front == 0 && rear == size - 1) ||
             (rear == (front - 1) % (size - 1))) {
             cout << endl << "Queue is Full" << endl;
@@ -43,14 +43,14 @@ class Queue {
         cout << endl << value << " added in queue" << endl;
     }
 
-    int deQueue() {  // Function to delete element from Circular Queue
+    string deQueue() {  // Function to delete element from Circular Queue
         if (front == -1) {
-            cout << endl << "Queue is Empty" << endl;
-            return INT_MIN;
+            cout << "Queue is Empty" << endl;
+            return "";
         }
 
-        int data = arr[front];
-        arr[front] = -1;
+        string data = arr[front];
+        arr[front] = "";
 
         if (front == rear) {
             front = -1;
@@ -68,11 +68,11 @@ class Queue {
 
     void displayQueue() {  // Function displaying the elements of Circular Queue
         if (front == -1) {
-            cout << endl << "Queue is Empty" << endl;
+            cout << "Queue is Empty" << endl;
             return;
         }
 
-        cout << endl << "Elements in Circular Queue are: " << endl;
+        cout << "Elements in Circular Queue are: ";
         cout << "[ ";
 
         if (rear >= front)
@@ -94,6 +94,7 @@ int main() {
 
     while (true) {
         char option;
+        string element;
         cout << endl << "Choose an option : " << endl;
         cout << "a - Enqueue the queue" << endl;
         cout << "b - Dequeue the queue" << endl;
@@ -105,15 +106,16 @@ int main() {
 
         switch (option) {
             case 'a':  // Enqueue element
-                int element;
-                cout << "Enter element you want to insert in queue > ";
+                cout << "Enter name you want to insert in queue > ";
                 cin >> element;
                 queue.enQueue(element);
                 break;
 
             case 'b':  // Dequeue
-                cout << "Deleted element from queue " << queue.deQueue()
-                     << endl;
+                element = queue.deQueue();
+                if (element != "") {
+                    cout << "Deleted name from queue : " << element << endl;
+                }
                 break;
 
             case 'c':  // Display queue
@@ -125,7 +127,8 @@ int main() {
                 exit(0);
 
             default:
-                cout << "Incorrect option. Try again..." << endl << endl;
+                cout << "Incorrect option. Try again..." << endl;
+                break;
         }
     }
     return 0;
