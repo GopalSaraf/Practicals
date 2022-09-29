@@ -87,4 +87,8 @@ public class Account extends Customer {
     public void setPassword(int password) {
         this.password = password;
     }
+
+    public void updateInfo() {
+        Database.updateAccount(getAccountNo(), getName(), getAge(), getMobileNo());
+    }
 }

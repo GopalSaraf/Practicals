@@ -14,7 +14,6 @@ public class CurrentAccount extends Account {
         while (getBalance() < getMinBalance()) {
             deposit();
         }
-        System.out.println();
         System.out.print("Your current account is created SUCCESSFULLY. ");
         System.out.println("Your account number is " + getAccountNo() + ".");
         System.out.println();
@@ -55,4 +54,5 @@ public class CurrentAccount extends Account {
     public int getWithdrawLimit() {
         return 1_00_000;
     }
+
 }

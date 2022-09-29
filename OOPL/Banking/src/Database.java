@@ -13,7 +13,8 @@ public final class Database {
             "balance", 3,
             "name", 4,
             "age", 5,
-            "mobileNo", 6);
+            "mobileNo", 6
+    );
     private static final int noOfColumns = columns.size();
 
     public static void addAccount(int accNo, int password, String type, double balance, String name, int age,
@@ -122,12 +123,48 @@ public final class Database {
                     StringBuilder row = new StringBuilder();
                     for (int i = 0; i < noOfColumns; i++) {
                         if (i == columns.get("balance")) {
-                            row.append(newBalance).append(",");
+                            row.append(newBalance);
                         } else {
                             row.append(data[i]);
-                            if (!(i == noOfColumns - 1)) {
-                                row.append(",");
-                            }
+                        }
+                        if (!(i == noOfColumns - 1)) {
+                            row.append(",");
+                        }
+                    }
+                    sb.append(row).append("\n");
+                } else {
+                    sb.append(stream).append("\n");
+                }
+            }
+            PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
+            pw.print(sb);
+            pw.close();
+        } catch (Exception ignored) {
+        }
+    }
+
+    public static void updateAccount(int accNo, String name, int age, String mobileNo) {
+        StringBuffer sb = new StringBuffer();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(path));
+            String stream;
+            while ((stream = br.readLine()) != null) {
+                String[] data = stream.split(",");
+                if (accNo == Integer.parseInt(data[columns.get("accNo")])) {
+                    StringBuilder row = new StringBuilder();
+                    for (int i = 0; i < noOfColumns; i++) {
+                        if (i == columns.get("name")) {
+                            row.append(name);
+                        } else if (i == columns.get("age")) {
+                            row.append(age);
+                        } else if (i == columns.get("mobileNo")) {
+                            row.append(mobileNo);
+                        }
+                        else {
+                            row.append(data[i]);
+                        }
+                        if (!(i == noOfColumns - 1)) {
+                            row.append(",");
                         }
                     }
                     sb.append(row).append("\n");
