@@ -83,3 +83,5 @@ hs_err_pid*
 
 /DSAL/*/*
 !/DSAL/*/*.cpp
+!/DSAL/*/*.h
+
