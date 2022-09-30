@@ -1,4 +1,8 @@
+package Accounts;
+
 import java.util.*;
+import Database.Database;
+import Helper.Valid;
 
 public class Account extends Customer {
     private int accountNo;
@@ -6,7 +10,7 @@ public class Account extends Customer {
     private double balance;
     private final Scanner sc = new Scanner(System.in);
 
-    Account(String name, int age, String mobileNo, double balance) {
+    public Account(String name, int age, String mobileNo, double balance) {
         super(name, age, mobileNo);
         this.balance = balance;
     }

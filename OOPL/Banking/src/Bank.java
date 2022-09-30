@@ -1,3 +1,5 @@
+import Accounts.*;
+import Helper.LoginHandle;
 import java.util.Scanner;
 
 public class Bank {
@@ -13,8 +15,8 @@ public class Bank {
         char accountType;
         System.out.println();
         System.out.println("Choose which account type you want to create : ");
-        System.out.println("a - Saving Account");
-        System.out.println("b - Current Account");
+        System.out.println("a - Saving Accounts.Account");
+        System.out.println("b - Current Accounts.Account");
         System.out.println();
         System.out.print("Your option [a/b] > ");
         accountType = sc.next().charAt(0);

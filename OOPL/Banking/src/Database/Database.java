@@ -1,7 +1,8 @@
+package Database;
+
+import Accounts.*;
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public final class Database {
     private static final String path = "accounts.txt";

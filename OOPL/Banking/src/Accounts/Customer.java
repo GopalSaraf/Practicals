@@ -1,3 +1,6 @@
+package Accounts;
+
+import Helper.Valid;
 import java.util.Scanner;
 
 public class Customer {
@@ -20,7 +23,7 @@ public class Customer {
 
     public void getData() {
         System.out.println();
-        System.out.println("-------- Customer Information --------");
+        System.out.println("-------- Accounts.Customer Information --------");
         System.out.println();
         System.out.println("Name           :  " + getName());
         System.out.println("Age            :  " + getAge());
@@ -28,7 +31,7 @@ public class Customer {
         System.out.println();
     }
 
-    protected void setName() {
+    public void setName() {
         System.out.print("Enter your name > ");
         while (true) {
             this.name = sc.nextLine();
@@ -39,7 +42,7 @@ public class Customer {
         }
     }
 
-    protected void setAge() {
+    public void setAge() {
         System.out.print("Enter your age > ");
         while (true) {
             this.age = sc.nextInt();
@@ -50,7 +53,7 @@ public class Customer {
         }
     }
 
-    protected void setMobileNo() {
+    public void setMobileNo() {
         System.out.print("Enter your mobile number > ");
         while (true) {
             this.mobileNo = sc.next();

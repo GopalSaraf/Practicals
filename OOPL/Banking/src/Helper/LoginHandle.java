@@ -1,3 +1,8 @@
+package Helper;
+
+import Accounts.Account;
+import Database.Database;
+
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -6,7 +11,7 @@ public final class LoginHandle {
     private boolean isLoggedIn = false;
     private final Scanner sc = new Scanner(System.in);
 
-    LoginHandle() {
+    public LoginHandle() {
         accInit();
         if (isConnectionActive()) {
             System.out.println();
@@ -50,7 +55,6 @@ public final class LoginHandle {
 
     private void accInit() {
         int accNo, userPassword, dbPassword, wrongCounts, noOfChances = 3;
-        System.out.println();
         System.out.print("Enter your account number : ");
         accNo = sc.nextInt();
         if (!Database.isAccountExist(accNo)) {
