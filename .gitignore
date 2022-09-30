@@ -81,5 +81,5 @@ hs_err_pid*
 
 .idea
 
-/DSAL/*
-!/DSAL/*.cpp
+/DSAL/*/*
+!/DSAL/*/*.cpp

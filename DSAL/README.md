@@ -1,7 +1,7 @@
 # Problem Statements
 <hr>
 
-## 1. [Sorting and searching](https://github.com/GopalSaraf/SE_Labs/blob/main/DSAL/sortingAndSearching.cpp)
+## 1. [Sorting and searching](https://github.com/GopalSaraf/SE_Labs/blob/main/DSAL/Assignment1)
 
 Consider a student database of SEIT class (at least 15 records). 
 Database contains different fields of every student like Roll No, Name and SGPA. (array of structure)  
@@ -14,7 +14,7 @@ e) Search a particular student according to name using binary search without rec
 
 <hr>
 
-## 2. [Circular Queue using Array](https://github.com/GopalSaraf/SE_Labs/blob/main/DSAL/circularQueue.cpp)
+## 2. [Circular Queue using Array](https://github.com/GopalSaraf/SE_Labs/blob/main/DSAL/Assignment2)
 
 Implement Circular Queue using Array. Perform following operations on it.  
 a) Insertion (Enqueue)  
@@ -25,7 +25,7 @@ c) Display
 
 <hr>
 
-## 3. [Stack as ADT](https://github.com/GopalSaraf/SE_Labs/tree/main/DSAL/stack.cpp)
+## 3. [Stack as ADT](https://github.com/GopalSaraf/SE_Labs/tree/main/DSAL/Assignment3)
 
 Implement stack as an abstract data type using singly linked list and
 use this ADT for conversion of infix expression to postfix, prefix and
