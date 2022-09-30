@@ -10,7 +10,7 @@
 #include <locale>
 #include <unordered_map>
 
-#include "stack.h"
+#include "stack.h"  // importing header file
 using namespace std;
 
 class Convert {
@@ -154,8 +154,8 @@ int main() {
                 result = Evaluate::postfixEvaluation(convertedExpression);
                 cout << endl
                      << "Converted postfix expression : " << convertedExpression
-                     << endl;
-                cout << "Evaluation of postfix expression : " << result << endl
+                     << endl
+                     << "Evaluation of postfix expression : " << result << endl
                      << endl;
                 break;
 
@@ -165,8 +165,8 @@ int main() {
                 result = Evaluate::prefixEvaluation(convertedExpression);
                 cout << endl
                      << "Converted prefix expression : " << convertedExpression
-                     << endl;
-                cout << "Evaluation of prefix expression : " << result << endl
+                     << endl
+                     << "Evaluation of prefix expression : " << result << endl
                      << endl;
                 break;
 

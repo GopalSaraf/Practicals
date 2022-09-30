@@ -1,7 +1,10 @@
+// Header file implementing template for stack using linked list
+
 #include <iostream>
 using namespace std;
 
 template <class Var>
+
 class Node {  // Node for linked list
    public:
     Var data;
@@ -24,6 +27,7 @@ class Node {  // Node for linked list
 };
 
 template <class Var>
+
 class LinkedList {  // Linked list class
 
     Node<Var>* head;  // initializing head of linked list
@@ -60,7 +64,7 @@ class LinkedList {  // Linked list class
         if (head == NULL)  // Checking is linked list empty
             return '\0';
 
-        return head->data;  // Returning first element
+        return head->data;
     }
 
     void display() {  // To display linked list
@@ -82,6 +86,7 @@ class LinkedList {  // Linked list class
 };
 
 template <class Var>
+
 class Stack {  // Stack class
     LinkedList<Var> stack =
         LinkedList<Var>();  // Initializing stack as linked list
@@ -92,13 +97,11 @@ class Stack {  // Stack class
     }
 
     Var pop() {  // Pop method
-        Var data = stack.deleteNodeFromFront();
-        return data;
+        return stack.deleteNodeFromFront();
     }
 
     Var peek() {  // Peek method
-        Var data = stack.getFirstElement();
-        return data;
+        return stack.getFirstElement();
     }
 
     void display() {  // To display stack
