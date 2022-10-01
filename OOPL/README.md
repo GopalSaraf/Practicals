@@ -1,7 +1,7 @@
 # Problem Statements
 <hr>
 
-## 1. [Classes and object](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/ComplexNumbers)
+## 1. [Classes and object](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/Assignment1)
 
 Design a class ‘Complex’ with data members for real and imaginary part. 
 Provide default and parameterized constructors. 
@@ -9,7 +9,7 @@ Write a program to perform arithmetic operations of two complex numbers.
 
 <hr>
 
-## 2. [Inheritance](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/Employee)
+## 2. [Inheritance](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/Assignment2)
 
 Design and develop inheritance for a given case study, identify objects and relationships and implement inheritance wherever applicable. 
 Employee class has Emp_name, Emp_id, Address, Mail_id, and Mobile_no as members. 
@@ -19,7 +19,7 @@ Generate pay slips for the employees with their gross and net salary.
 
 <hr>
 
-## 3. [Polymorphism](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/Polymorphism)
+## 3. [Polymorphism](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/Assignment3)
 
 Identify commonalities and differences between Publication, Book and Magazine classes.
 Title, Price, Copies are common instance variables and saleCopy is common method. The
@@ -29,7 +29,7 @@ ordered and display total sale of publication.
 
 <hr>
 
-## 4. [Dynamic Binding](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/DynamicBinding)
+## 4. [Dynamic Binding](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/Assignment4)
 
 Design a base class shape with two double type values and member functions to input the data and compute_area() for calculating area of figure. Derive two classes’ triangle and rectangle. Make compute_area() as abstract function and redefine this function in the derived class to suit their requirements. Write a program that accepts dimensions of triangle/rectangle and display calculated area. Implement dynamic binding for given case study.
 
