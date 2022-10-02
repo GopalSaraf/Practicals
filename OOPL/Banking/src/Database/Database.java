@@ -14,8 +14,7 @@ public final class Database {
             "balance", 3,
             "name", 4,
             "age", 5,
-            "mobileNo", 6
-    );
+            "mobileNo", 6);
     private static final int noOfColumns = columns.size();
 
     public static void addAccount(int accNo, int password, String type, double balance, String name, int age,
@@ -160,8 +159,7 @@ public final class Database {
                             row.append(age);
                         } else if (i == columns.get("mobileNo")) {
                             row.append(mobileNo);
-                        }
-                        else {
+                        } else {
                             row.append(data[i]);
                         }
                         if (!(i == noOfColumns - 1)) {

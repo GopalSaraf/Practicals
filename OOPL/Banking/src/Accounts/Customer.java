@@ -3,6 +3,8 @@ package Accounts;
 import Helper.Valid;
 import java.util.Scanner;
 
+import static Helper.Valid.*;
+
 public class Customer {
     private String name;
     private int age;
@@ -35,7 +37,7 @@ public class Customer {
         System.out.print("Enter your name > ");
         while (true) {
             this.name = sc.nextLine();
-            if (!Valid.isValidName(this.name)) {
+            if (!isValidName(this.name)) {
                 System.out.print("Enter valid name > ");
             } else
                 break;
@@ -46,7 +48,7 @@ public class Customer {
         System.out.print("Enter your age > ");
         while (true) {
             this.age = sc.nextInt();
-            if (!Valid.isValidAge(this.age)) {
+            if (!isValidAge(this.age)) {
                 System.out.print("Enter valid age > ");
             } else
                 break;
@@ -57,7 +59,7 @@ public class Customer {
         System.out.print("Enter your mobile number > ");
         while (true) {
             this.mobileNo = sc.next();
-            if (!Valid.isValidMobile(this.mobileNo)) {
+            if (!isValidMobile(this.mobileNo)) {
                 System.out.print("Enter valid mobile number > ");
             } else
                 break;
