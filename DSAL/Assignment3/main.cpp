@@ -97,9 +97,35 @@ class Evaluate {
             }
         };
 
+        auto isAlphaValues = [](string postfixStr) -> bool {
+            for (char ch : postfixStr) {
+                if (isalpha(ch)) return true;
+            }
+            return false;
+        };
+
+        auto charToValuesInput =
+            [](string postfixStr) -> unordered_map<char, float> {
+            unordered_map<char, float> charToFloatValue;
+            float value;
+            for (char ch : postfixStr) {
+                if (isalpha(ch)) {
+                    cout << "Enter value you want to replace with " << ch
+                         << " > ";
+                    cin >> value;
+                    charToFloatValue[ch] = value;
+                }
+            }
+            return charToFloatValue;
+        };
+
+        unordered_map<char, float> charToFloatValues;
+        if (isAlphaValues(postfix))
+            charToFloatValues = charToValuesInput(postfix);
+
         for (char cha : postfix) {
             if (isalpha(cha))  // If found 'a' - 'z' OR 'A' - 'Z'
-                return 0;
+                stack.push(charToFloatValues[cha]);
             else if (isnumber(cha))
                 stack.push((float)cha - '0');
             else {
@@ -151,10 +177,12 @@ int main() {
             case 'a':
                 expression = takeExpression("postfix");
                 convertedExpression = Convert::infixToPostfix(expression);
-                result = Evaluate::postfixEvaluation(convertedExpression);
                 cout << endl
                      << "Converted postfix expression : " << convertedExpression
                      << endl
+                     << endl;
+                result = Evaluate::postfixEvaluation(convertedExpression);
+                cout << endl
                      << "Evaluation of postfix expression : " << result << endl
                      << endl;
                 break;
@@ -162,10 +190,12 @@ int main() {
             case 'b':
                 expression = takeExpression("prefix");
                 convertedExpression = Convert::infixToPrefix(expression);
-                result = Evaluate::prefixEvaluation(convertedExpression);
                 cout << endl
                      << "Converted prefix expression : " << convertedExpression
                      << endl
+                     << endl;
+                result = Evaluate::prefixEvaluation(convertedExpression);
+                cout << endl
                      << "Evaluation of prefix expression : " << result << endl
                      << endl;
                 break;
