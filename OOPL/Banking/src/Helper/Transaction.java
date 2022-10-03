@@ -68,7 +68,14 @@ public final class Transaction {
                 try {
                     if (isValidTransfer(sender, transferAmount)) {
                         sender.withdrawAmount(transferAmount);
+
+                        sender.updateAccountBalance();
+                        receiver.updateAccountBalance();
+
                         receiver.depositAmount(transferAmount);
+
+                        sender.updateAccountBalance();
+                        receiver.updateAccountBalance();
 
                         System.out.println();
                         System.out.println("Balance transferred. Available balance : " + currency(sender.getBalance()));

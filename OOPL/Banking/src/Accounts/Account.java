@@ -2,12 +2,17 @@ package Accounts;
 
 import java.util.*;
 import Database.Database;
+import Helper.ForgetPasswordHandler;
 import Helper.Valid;
 
 public class Account extends Customer {
     private int accountNo;
     private int password;
     private double balance;
+
+    private char forgotPasswordID;
+    private String forgotPasswordAns;
+
     private final Scanner sc = new Scanner(System.in);
 
     public Account(String name, int age, String mobileNo, double balance) {
@@ -20,6 +25,7 @@ public class Account extends Customer {
         super.setData();
         generateAccNo();
         generatePassword();
+        forgotPasswordHandler();
     }
 
     @Override
@@ -55,14 +61,27 @@ public class Account extends Customer {
         }
     }
 
-    public void deposit() {
+    public void forgotPasswordHandler() {
+        var qusAndAns = ForgetPasswordHandler.askQus();
+        setForgotPasswordID(qusAndAns.qusID);
+        setForgotPasswordAns(qusAndAns.answer);
     }
 
-    public void withdraw() {
+    public void updateInfoInDatabase() {
+        Database.updateAccount(getAccountNo(), getPassword(), getName(), getAge(), getMobileNo());
     }
 
-    public void transfer() {
+    public void updateAccountBalance() {
+        var account = Database.getAccount(getAccountNo());
+        assert account != null;
+        balance = account.getBalance();
     }
+
+    public void deposit() {}
+
+    public void withdraw() {}
+
+    public void transfer() {}
 
     public int getAccountNo() {
         return accountNo;
@@ -80,6 +99,14 @@ public class Account extends Customer {
         return 0;
     }
 
+    public char getForgotPasswordID() {
+        return forgotPasswordID;
+    }
+
+    public String getForgotPasswordAns() {
+        return forgotPasswordAns;
+    }
+
     public int getWithdrawLimit() {
         return 0;
     }
@@ -92,7 +119,11 @@ public class Account extends Customer {
         this.password = password;
     }
 
-    public void updateInfo() {
-        Database.updateAccount(getAccountNo(), getName(), getAge(), getMobileNo());
+    public void setForgotPasswordID(char forgotPasswordID) {
+        this.forgotPasswordID = forgotPasswordID;
+    }
+
+    public void setForgotPasswordAns(String forgotPasswordAns) {
+        this.forgotPasswordAns = forgotPasswordAns;
     }
 }

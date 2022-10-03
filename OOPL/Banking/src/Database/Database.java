@@ -1,6 +1,8 @@
 package Database;
 
 import Accounts.*;
+import Helper.ForgetPasswordHandler.QusAnsPair;
+
 import java.io.*;
 import java.util.*;
 
@@ -14,11 +16,13 @@ public final class Database {
             "balance", 3,
             "name", 4,
             "age", 5,
-            "mobileNo", 6);
+            "mobileNo", 6,
+            "forgotPasswordID", 7,
+            "forgotPasswordAns", 8);
     private static final int noOfColumns = columns.size();
 
     public static void addAccount(int accNo, int password, String type, double balance, String name, int age,
-            String mobileNo) {
+            String mobileNo, char forgotPasswordID, String forgotPasswordAns) {
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
             pw.append(String.valueOf(accNo))
@@ -34,6 +38,10 @@ public final class Database {
                     .append(String.valueOf(age))
                     .append(",")
                     .append(mobileNo)
+                    .append(",")
+                    .append(forgotPasswordID)
+                    .append(",")
+                    .append(forgotPasswordAns)
                     .append("\n");
             pw.close();
         } catch (Exception ignored) {
@@ -54,7 +62,9 @@ public final class Database {
                 acc.getBalance(),
                 acc.getName(),
                 acc.getAge(),
-                acc.getMobileNo());
+                acc.getMobileNo(),
+                acc.getForgotPasswordID(),
+                acc.getForgotPasswordAns());
     }
 
     public static Map<String, String> getAccountInfo(int accNo) {
@@ -66,7 +76,9 @@ public final class Database {
                     "balance", "",
                     "name", "",
                     "age", "",
-                    "mobileNo", ""));
+                    "mobileNo", "",
+                    "forgotPasswordID", "",
+                    "forgotPasswordAns", ""));
             BufferedReader br = new BufferedReader(new FileReader(path));
             String stream;
             while ((stream = br.readLine()) != null) {
@@ -89,27 +101,25 @@ public final class Database {
         Map<String, String> accountInfo = getAccountInfo(accNo);
         if (accountInfo == null)
             return null;
+        Account acc;
         int password = Integer.parseInt(accountInfo.get("password"));
         double balance = Double.parseDouble(accountInfo.get("balance"));
         String name = accountInfo.get("name");
         int age = Integer.parseInt(accountInfo.get("age"));
         String mobileNo = accountInfo.get("mobileNo");
-        if (Objects.equals(accountInfo.get("type"), "saving")) {
-            SavingAccount savAcc = new SavingAccount(name, age, mobileNo, balance);
-            savAcc.setAccountNo(accNo);
-            savAcc.setPassword(password);
-            return savAcc;
-        } else if (Objects.equals(accountInfo.get("type"), "current")) {
-            CurrentAccount currAcc = new CurrentAccount(name, age, mobileNo, balance);
-            currAcc.setAccountNo(accNo);
-            currAcc.setPassword(password);
-            return currAcc;
-        } else {
-            Account acc = new Account(name, age, mobileNo, balance);
-            acc.setAccountNo(accNo);
-            acc.setPassword(password);
-            return acc;
-        }
+        char forgotPasswordID = accountInfo.get("forgotPasswordID").charAt(0);
+        String forgotPasswordAns = accountInfo.get("forgotPasswordAns");
+        if (Objects.equals(accountInfo.get("type"), "saving"))
+            acc = new SavingAccount(name, age, mobileNo, balance);
+        else if (Objects.equals(accountInfo.get("type"), "current"))
+            acc = new CurrentAccount(name, age, mobileNo, balance);
+        else
+            acc = new Account(name, age, mobileNo, balance);
+        acc.setAccountNo(accNo);
+        acc.setPassword(password);
+        acc.setForgotPasswordID(forgotPasswordID);
+        acc.setForgotPasswordAns(forgotPasswordAns);
+        return acc;
     }
 
     public static void updateBalance(int accNo, double newBalance) {
@@ -143,7 +153,7 @@ public final class Database {
         }
     }
 
-    public static void updateAccount(int accNo, String name, int age, String mobileNo) {
+    public static void updateAccount(int accNo, int password, String name, int age, String mobileNo) {
         StringBuffer sb = new StringBuffer();
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
@@ -153,7 +163,9 @@ public final class Database {
                 if (accNo == Integer.parseInt(data[columns.get("accNo")])) {
                     StringBuilder row = new StringBuilder();
                     for (int i = 0; i < noOfColumns; i++) {
-                        if (i == columns.get("name")) {
+                        if (i == columns.get("password")) {
+                            row.append(password);
+                        } else if (i == columns.get("name")) {
                             row.append(name);
                         } else if (i == columns.get("age")) {
                             row.append(age);
@@ -191,5 +203,18 @@ public final class Database {
         } catch (Exception ignored) {
         }
         return false;
+    }
+
+    public static int getPasswordForAcc(int accNo) {
+        return Integer.parseInt(Objects.requireNonNull(getAccountInfo(accNo)).get("password"));
+    }
+
+    public static QusAnsPair getForgotQusAndAns(int accNo) {
+        Map<String, String> accountInfo = getAccountInfo(accNo);
+        if (accountInfo == null)
+            return null;
+        char forgotPasswordID = accountInfo.get("forgotPasswordID").charAt(0);
+        String forgotPasswordAns = accountInfo.get("forgotPasswordAns");
+        return new QusAnsPair(forgotPasswordID, forgotPasswordAns);
     }
 }

@@ -63,7 +63,7 @@ public final class LoginHandle {
             System.out.println();
             return;
         }
-        dbPassword = getPasswordForAcc(accNo);
+        dbPassword = Database.getPasswordForAcc(accNo);
         wrongCounts = 0;
         while (wrongCounts < noOfChances) {
             System.out.print("Enter your password ");
@@ -79,12 +79,35 @@ public final class LoginHandle {
             wrongCounts++;
         }
         System.out.println();
-        System.out.println("Maximum incorrect password exceeded. Try again later...");
+        char forgotPassword;
+        System.out.print("Did you forget your password ? [Y/n] > ");
+        forgotPassword = sc.next().charAt(0);
         System.out.println();
-    }
-
-    private int getPasswordForAcc(int accNo) {
-        return Integer.parseInt(Objects.requireNonNull(Database.getAccountInfo(accNo)).get("password"));
+        if (forgotPassword == 'n' || forgotPassword == 'N') {
+            System.out.println("Login Unsuccessful.");
+        } else if (forgotPassword == 'y' || forgotPassword == 'Y') {
+            String answer;
+            var qusAndAns = Database.getForgotQusAndAns(accNo);
+            assert qusAndAns != null;
+            System.out.print(ForgetPasswordHandler.getQuestionByID(qusAndAns.qusID) + " > ");
+            sc.nextLine();
+            answer = sc.nextLine();
+            System.out.println();
+            if (Objects.equals(answer, qusAndAns.answer)) {
+                Account acc = Database.getAccount(accNo);
+                assert acc != null;
+                acc.generatePassword();
+                acc.updateInfoInDatabase();
+                System.out.println();
+                System.out.println("Password updated SUCCESSFULLY.");
+            } else {
+                System.out.println("Wrong answer given.");
+                System.out.println("Login Unsuccessful.");
+            }
+        } else {
+            System.out.println("Login Unsuccessful.");
+        }
+        System.out.println();
     }
 
     public void updateProfile() {
@@ -120,7 +143,7 @@ public final class LoginHandle {
             default -> System.out.println("Incorrect Option. Try again...");
 
         }
-        account.updateInfo();
+        account.updateInfoInDatabase();
     }
 
 }

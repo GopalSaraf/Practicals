@@ -28,10 +28,10 @@ public class CurrentAccount extends Account {
     @Override
     public void getData() {
         super.getData();
-        System.out.println("-------- Accounts.Account Information --------");
+        System.out.println("-------- Account Information --------");
         System.out.println();
-        System.out.println("Accounts.Account type   :  Current Accounts.Account");
-        System.out.println("Accounts.Account Number :  " + getAccountNo());
+        System.out.println("Account type   :  Current Account");
+        System.out.println("Account Number :  " + getAccountNo());
         System.out.println("Balance        :  " + Transaction.currency(getBalance()));
         System.out.println();
         System.out.println("------------------**------------------");
