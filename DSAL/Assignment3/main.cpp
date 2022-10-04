@@ -74,6 +74,7 @@ class Convert {
 };
 
 class Evaluate {
+    static inline bool isPrefixOperation = false;
    public:
     static float postfixEvaluation(string postfix) {
         float result, value1, value2;
@@ -116,6 +117,7 @@ class Evaluate {
                     charToFloatValue[ch] = value;
                 }
             }
+            cout << endl;
             return charToFloatValue;
         };
 
@@ -126,12 +128,13 @@ class Evaluate {
         for (char cha : postfix) {
             if (isalpha(cha))  // If found 'a' - 'z' OR 'A' - 'Z'
                 stack.push(charToFloatValues[cha]);
-            else if (isnumber(cha))
+            else if (isdigit(cha))
                 stack.push((float)cha - '0');
             else {
                 value1 = stack.pop();
                 value2 = stack.pop();
-                result = calculate(value1, value2, cha);  // Calculating
+                if (isPrefixOperation) result = calculate(value1, value2, cha);  // Calculating
+                else result = calculate(value2, value1, cha);
                 stack.push(result);
             }
         }
@@ -146,6 +149,7 @@ class Evaluate {
         };
 
         string postfix = reverseString(prefix);
+        isPrefixOperation = true;
         return postfixEvaluation(postfix);
     }
 };
@@ -182,8 +186,7 @@ int main() {
                      << endl
                      << endl;
                 result = Evaluate::postfixEvaluation(convertedExpression);
-                cout << endl
-                     << "Evaluation of postfix expression : " << result << endl
+                cout << "Evaluation of postfix expression : " << result << endl
                      << endl;
                 break;
 
@@ -195,8 +198,7 @@ int main() {
                      << endl
                      << endl;
                 result = Evaluate::prefixEvaluation(convertedExpression);
-                cout << endl
-                     << "Evaluation of prefix expression : " << result << endl
+                cout << "Evaluation of prefix expression : " << result << endl
                      << endl;
                 break;
 
