@@ -17,11 +17,12 @@ public final class Transaction {
         System.out.println();
         boolean isFirstDeposit = account.getBalance() < account.getMinBalance();
         System.out.print("Enter amount you want to deposit > ");
-        double depositAmount = sc.nextDouble();
+        String depositAmountStr = sc.next();
         System.out.println();
 
         try {
-            if (isValidDeposit(account, depositAmount)) {
+            if (isValidDeposit(account, depositAmountStr)) {
+                double depositAmount = Double.parseDouble(depositAmountStr);
                 account.depositAmount(depositAmount);
                 if (!isFirstDeposit)
                     System.out.println("Balance deposited. Available balance : " + currency(account.getBalance()));
@@ -34,11 +35,12 @@ public final class Transaction {
     public static void withdraw(Account account) {
         System.out.println();
         System.out.print("Enter amount you want to withdraw > ");
-        double withdrawAmount = sc.nextDouble();
+        String withdrawAmountStr = sc.next();
         System.out.println();
 
         try {
-            if (isValidWithdraw(account, withdrawAmount)) {
+            if (isValidWithdraw(account, withdrawAmountStr)) {
+                double withdrawAmount = Double.parseDouble(withdrawAmountStr);
                 account.withdrawAmount(withdrawAmount);
                 System.out.println("Balance withdrawal. Available balance : " + currency(account.getBalance()));
             }
@@ -63,10 +65,11 @@ public final class Transaction {
 
             if (option == 'Y' || option == 'y') {
                 System.out.print("Enter amount you want to transfer > ");
-                double transferAmount = sc.nextDouble();
+                String transferAmountStr = sc.next();
 
                 try {
-                    if (isValidTransfer(sender, transferAmount)) {
+                    if (isValidTransfer(sender, transferAmountStr)) {
+                        double transferAmount = Double.parseDouble(transferAmountStr);
                         sender.withdrawAmount(transferAmount);
 
                         sender.updateAccountBalance();

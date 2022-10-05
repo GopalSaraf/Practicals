@@ -53,12 +53,14 @@ public class Account extends Customer {
     }
 
     public void generatePassword() {
+        String passwordStr;
         System.out.print("Enter a password you want to use (between 1000 to 9999) > ");
-        password = sc.nextInt();
-        while (!Valid.isValidPassword(password)) {
+        passwordStr = sc.next();
+        while (!Valid.isValidPassword(passwordStr)) {
             System.out.print("Enter valid password (between 1000 to 9999) > ");
-            password = sc.nextInt();
+            passwordStr = sc.next();
         }
+        password = Integer.parseInt(passwordStr);
     }
 
     public void forgotPasswordHandler() {

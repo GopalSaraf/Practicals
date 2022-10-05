@@ -1,6 +1,5 @@
 package Accounts;
 
-import Helper.Valid;
 import java.util.Scanner;
 
 import static Helper.Valid.*;
@@ -45,14 +44,16 @@ public class Customer {
     }
 
     public void setAge() {
+        String ageStr;
         System.out.print("Enter your age > ");
         while (true) {
-            this.age = sc.nextInt();
-            if (!isValidAge(this.age)) {
+            ageStr = sc.next();
+            if (!isValidAge(ageStr)) {
                 System.out.print("Enter valid age > ");
             } else
                 break;
         }
+        age = Integer.parseInt(ageStr);
     }
 
     public void setMobileNo() {
