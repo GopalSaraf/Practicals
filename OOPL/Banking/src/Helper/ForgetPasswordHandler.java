@@ -8,16 +8,6 @@ public class ForgetPasswordHandler {
     private static final Map<Character, String> questions = new HashMap<>();
     private static final Scanner sc = new Scanner(System.in);
 
-    public static class QusAnsPair {
-        public char qusID;
-        public String answer;
-
-        public QusAnsPair(char qusID, String answer) {
-            this.qusID = qusID;
-            this.answer = answer;
-        }
-    }
-
     private static void setQuestions() {
         questions.put('a', "What is your mother's maiden name?");
         questions.put('b', "What was the make and model of your first car?");
@@ -68,5 +58,15 @@ public class ForgetPasswordHandler {
         if (questions.containsKey(qusID))
             return questions.get(qusID);
         return "";
+    }
+
+    public static class QusAnsPair {
+        public char qusID;
+        public String answer;
+
+        public QusAnsPair(char qusID, String answer) {
+            this.qusID = qusID;
+            this.answer = answer;
+        }
     }
 }

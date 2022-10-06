@@ -5,10 +5,10 @@ import java.util.Scanner;
 import static Helper.Valid.*;
 
 public class Customer {
+    private final Scanner sc = new Scanner(System.in);
     private String name;
     private int age;
     private String mobileNo;
-    private final Scanner sc = new Scanner(System.in);
 
     Customer(String name, int age, String mobileNo) {
         this.name = name;

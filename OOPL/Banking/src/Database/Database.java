@@ -1,10 +1,14 @@
 package Database;
 
-import Accounts.*;
+import Accounts.Account;
+import Accounts.CurrentAccount;
+import Accounts.SavingAccount;
 import Helper.ForgetPasswordHandler.QusAnsPair;
 
 import java.io.*;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public final class Database {
     private static final String path = "accounts.txt";
@@ -22,7 +26,7 @@ public final class Database {
     private static final int noOfColumns = columns.size();
 
     public static void addAccount(int accNo, int password, String type, double balance, String name, int age,
-            String mobileNo, char forgotPasswordID, String forgotPasswordAns) {
+                                  String mobileNo, char forgotPasswordID, String forgotPasswordAns) {
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
             pw.append(String.valueOf(accNo))

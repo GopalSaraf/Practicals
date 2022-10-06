@@ -1,19 +1,18 @@
 package Accounts;
 
-import java.util.*;
 import Database.Database;
 import Helper.ForgetPasswordHandler;
 import Helper.Valid;
 
+import java.util.Scanner;
+
 public class Account extends Customer {
+    private final Scanner sc = new Scanner(System.in);
     private int accountNo;
     private int password;
     private double balance;
-
     private char forgotPasswordID;
     private String forgotPasswordAns;
-
-    private final Scanner sc = new Scanner(System.in);
 
     public Account(String name, int age, String mobileNo, double balance) {
         super(name, age, mobileNo);
@@ -79,14 +78,21 @@ public class Account extends Customer {
         balance = account.getBalance();
     }
 
-    public void deposit() {}
+    public void deposit() {
+    }
 
-    public void withdraw() {}
+    public void withdraw() {
+    }
 
-    public void transfer() {}
+    public void transfer() {
+    }
 
     public int getAccountNo() {
         return accountNo;
+    }
+
+    public void setAccountNo(int accountNo) {
+        this.accountNo = accountNo;
     }
 
     public double getBalance() {
@@ -97,6 +103,10 @@ public class Account extends Customer {
         return password;
     }
 
+    public void setPassword(int password) {
+        this.password = password;
+    }
+
     public int getMinBalance() {
         return 0;
     }
@@ -105,27 +115,19 @@ public class Account extends Customer {
         return forgotPasswordID;
     }
 
-    public String getForgotPasswordAns() {
-        return forgotPasswordAns;
-    }
-
-    public int getWithdrawLimit() {
-        return 0;
-    }
-
-    public void setAccountNo(int accountNo) {
-        this.accountNo = accountNo;
-    }
-
-    public void setPassword(int password) {
-        this.password = password;
-    }
-
     public void setForgotPasswordID(char forgotPasswordID) {
         this.forgotPasswordID = forgotPasswordID;
     }
 
+    public String getForgotPasswordAns() {
+        return forgotPasswordAns;
+    }
+
     public void setForgotPasswordAns(String forgotPasswordAns) {
         this.forgotPasswordAns = forgotPasswordAns;
+    }
+
+    public int getWithdrawLimit() {
+        return 0;
     }
 }

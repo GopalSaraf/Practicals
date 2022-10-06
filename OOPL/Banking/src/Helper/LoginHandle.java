@@ -7,9 +7,9 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public final class LoginHandle {
+    private final Scanner sc = new Scanner(System.in);
     private Account account;
     private boolean isLoggedIn = false;
-    private final Scanner sc = new Scanner(System.in);
 
     public LoginHandle() {
         accInit();
