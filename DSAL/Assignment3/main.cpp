@@ -75,6 +75,7 @@ class Convert {
 
 class Evaluate {
     static inline bool isPrefixOperation = false;
+
    public:
     static float postfixEvaluation(string postfix) {
         float result, value1, value2;
@@ -111,6 +112,8 @@ class Evaluate {
             float value;
             for (char ch : postfixStr) {
                 if (isalpha(ch)) {
+                    if (charToFloatValue.find(ch) != charToFloatValue.end())
+                        continue;
                     cout << "Enter value you want to replace with " << ch
                          << " > ";
                     cin >> value;
@@ -133,8 +136,10 @@ class Evaluate {
             else {
                 value1 = stack.pop();
                 value2 = stack.pop();
-                if (isPrefixOperation) result = calculate(value1, value2, cha);  // Calculating
-                else result = calculate(value2, value1, cha);
+                if (isPrefixOperation)
+                    result = calculate(value1, value2, cha);  // Calculating
+                else
+                    result = calculate(value2, value1, cha);
                 stack.push(result);
             }
         }
