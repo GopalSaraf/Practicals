@@ -1,1 +1,1 @@
-![Banking](https://user-images.githubusercontent.com/83419951/194320553-b1b78058-8aca-47f0-bf2b-9e8061e66ab2.png)
+![Banking](https://user-images.githubusercontent.com/83419951/194322938-6891ade6-850f-4ee2-a76e-767566f56c05.png)
