@@ -35,6 +35,12 @@ Design a base class shape with two double type values and member functions to in
 
 <hr>
 
+## 5. [Interface](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/Assignment5)
+
+Design and develop a context for given case study and implement an interface for Vehicles Consider the example of vehicles like bicycle, car, and bike. All Vehicles have common functionalities such as Gear Change, Speed up and apply breaks . Make an interface and put all these common functionalities. Bicycle, Bike, Car classes should be implemented for all these functionalities in their own class in their own way.
+
+<hr>
+
 ## Case Study - [Banking](https://github.com/GopalSaraf/SE_Labs/tree/main/OOPL/Banking)
 
 Using concepts of Object Oriented programming develop solution of Banking system having following operations :
