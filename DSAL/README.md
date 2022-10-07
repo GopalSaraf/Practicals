@@ -1,6 +1,6 @@
 # Data structures and algorithms lab
 
-### Find the lab manual here: [Data Structures and Algorithms Lab Manual](DSFL.pdf)
+### Find the lab manual here: [Data Structures and Algorithms Lab Manual](DSAL.pdf)
 
 ## Table of Contents for Assignments
 
