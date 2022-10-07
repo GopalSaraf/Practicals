@@ -1,0 +1,185 @@
+Enter size of queue > 5
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > a
+
+Enter name you want to insert in queue > Fianna
+
+Fianna added in queue
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > a
+
+Enter name you want to insert in queue > Jessy
+
+Jessy added in queue
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > a
+
+Enter name you want to insert in queue > Niki
+
+Niki added in queue
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > a
+
+Enter name you want to insert in queue > Coleen
+
+Coleen added in queue
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > a
+
+Enter name you want to insert in queue > Cori
+
+Cori added in queue
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > c
+
+Elements in Circular Queue are: [ Fianna Jessy Niki Coleen Cori ]
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > a
+
+Enter name you want to insert in queue > Mosh
+
+Queue is Full
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > b
+
+Deleted name from queue : Fianna
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > b
+
+Deleted name from queue : Jessy
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > a
+
+Enter name you want to insert in queue > Mosh
+
+Mosh added in queue
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > c
+
+Elements in Circular Queue are: [ Niki Coleen Cori Mosh ]
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > b
+
+Deleted name from queue : Niki
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > b
+
+Deleted name from queue : Coleen
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > b
+
+Deleted name from queue : Cori
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > b
+
+Deleted name from queue : Mosh
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > b
+
+Queue is Empty
+
+Choose an option : 
+a - Enqueue the queue
+b - Dequeue the queue
+c - Display the queue
+e - Exit the program
+
+Your Option > e
+
+Exiting program...

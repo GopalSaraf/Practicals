@@ -36,6 +36,7 @@
 /DSAL/*/*
 !/DSAL/*/*.cpp
 !/DSAL/*/*.h
+!/DSAL/*/*.txt
 
 
 # Java

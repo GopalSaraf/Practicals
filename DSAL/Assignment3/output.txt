@@ -1,0 +1,97 @@
+Choose an option : 
+a - Convert expression to postfix and Evaluate
+b - Convert expression to prefix and Evaluate
+c - Exit program
+Option > a
+
+Enter expression you want to convert in postfix > 8 - 2 + ( 3 * 4 ) / 2 ^ 2
+
+Converted postfix expression : 82-34*22^/+
+
+Evaluation of postfix expression : 9
+
+Choose an option : 
+a - Convert expression to postfix and Evaluate
+b - Convert expression to prefix and Evaluate
+c - Exit program
+Option > a
+
+Enter expression you want to convert in postfix > a + b * ( c ^ d - e )
+
+Converted postfix expression : abcd^e-*+
+
+Enter value you want to replace with a > 4
+Enter value you want to replace with b > 6
+Enter value you want to replace with c > 2
+Enter value you want to replace with d > 3
+Enter value you want to replace with e > 5
+
+Evaluation of postfix expression : 22
+
+Choose an option : 
+a - Convert expression to postfix and Evaluate
+b - Convert expression to prefix and Evaluate
+c - Exit program
+Option > a
+
+Enter expression you want to convert in postfix > 1 + a / 2 * 4 - b
+
+Converted postfix expression : 1a2/4*+b-
+
+Enter value you want to replace with a > 2
+Enter value you want to replace with b > 1
+
+Evaluation of postfix expression : 4
+
+Choose an option : 
+a - Convert expression to postfix and Evaluate
+b - Convert expression to prefix and Evaluate
+c - Exit program
+Option > b
+
+Enter expression you want to convert in prefix > 8 - 2 + ( 3 * 4 ) / 2 ^ 2
+
+Converted prefix expression : -8+2/*34^22
+
+Evaluation of prefix expression : 9
+
+Choose an option : 
+a - Convert expression to postfix and Evaluate
+b - Convert expression to prefix and Evaluate
+c - Exit program
+Option > b
+
+Enter expression you want to convert in prefix > a + b * ( c ^ d - e )     
+
+Converted prefix expression : +a*b-^cde
+
+Enter value you want to replace with e > 5
+Enter value you want to replace with d > 3
+Enter value you want to replace with c > 2
+Enter value you want to replace with b > 6
+Enter value you want to replace with a > 4
+
+Evaluation of prefix expression : 22
+
+Choose an option : 
+a - Convert expression to postfix and Evaluate
+b - Convert expression to prefix and Evaluate
+c - Exit program
+Option > b
+
+Enter expression you want to convert in prefix > 1 + a / 2 * 4 - b
+
+Converted prefix expression : +1-/a*24b
+
+Enter value you want to replace with b > 1
+Enter value you want to replace with a > 2
+
+Evaluation of prefix expression : 4
+
+Choose an option : 
+a - Convert expression to postfix and Evaluate
+b - Convert expression to prefix and Evaluate
+c - Exit program
+Option > c
+
+Exiting program...

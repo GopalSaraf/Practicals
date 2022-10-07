@@ -1,0 +1,218 @@
+How many students are there in class > 10
+
+Enter name of student 1 > Zech
+Enter roll number of student 1 > 9
+Enter SGPA of student 1 > 7.83
+
+Enter name of student 2 > Warner
+Enter roll number of student 2 > 1
+Enter SGPA of student 2 > 7.45
+
+Enter name of student 3 > Mosh
+Enter roll number of student 3 > 7
+Enter SGPA of student 3 > 8
+
+Enter name of student 4 > Berny
+Enter roll number of student 4 > 10
+Enter SGPA of student 4 > 6.05
+
+Enter name of student 5 > Otis
+Enter roll number of student 5 > 5
+Enter SGPA of student 5 > 8
+
+Enter name of student 6 > Celisse
+Enter roll number of student 6 > 3
+Enter SGPA of student 6 > 9.38
+
+Enter name of student 7 > Katerina
+Enter roll number of student 7 > 6
+Enter SGPA of student 7 > 7.75
+
+Enter name of student 8 > Eustacia
+Enter roll number of student 8 > 2
+Enter SGPA of student 8 > 8.5
+
+Enter name of student 9 > John
+Enter roll number of student 9 > 4
+Enter SGPA of student 9 > 9.97
+
+Enter name of student 10 > Bryanty
+Enter roll number of student 10 > 8
+Enter SGPA of student 10 > 6.63
+
+Choose an option : 
+a - Sort students by SGPA or Roll numbers
+b - Search students by SGPA
+c - Search students by name
+d - Exit program
+Option > a
+
+On which basis you want to sort students ? 
+a - SGPA
+b - Roll numbers
+Option > a
+
+Students sorted by SGPA :
+
+Student name            :   Berny
+Student roll number     :   10
+Student SGPA            :   6.05
+
+Student name            :   Bryanty
+Student roll number     :   8
+Student SGPA            :   6.63
+
+Student name            :   Warner
+Student roll number     :   1
+Student SGPA            :   7.45
+
+Student name            :   Katerina
+Student roll number     :   6
+Student SGPA            :   7.75
+
+Student name            :   Zech
+Student roll number     :   9
+Student SGPA            :   7.83
+
+Student name            :   Mosh
+Student roll number     :   7
+Student SGPA            :   8
+
+Student name            :   Otis
+Student roll number     :   5
+Student SGPA            :   8
+
+Student name            :   Eustacia
+Student roll number     :   2
+Student SGPA            :   8.5
+
+Student name            :   Celisse
+Student roll number     :   3
+Student SGPA            :   9.38
+
+Student name            :   John
+Student roll number     :   4
+Student SGPA            :   9.97
+
+Choose an option : 
+a - Sort students by SGPA or Roll numbers
+b - Search students by SGPA
+c - Search students by name
+d - Exit program
+Option > a
+
+On which basis you want to sort students ? 
+a - SGPA
+b - Roll numbers
+Option > b
+
+Students sorted by Roll numbers :
+
+Student name            :   Warner
+Student roll number     :   1
+Student SGPA            :   7.45
+
+Student name            :   Eustacia
+Student roll number     :   2
+Student SGPA            :   8.5
+
+Student name            :   Celisse
+Student roll number     :   3
+Student SGPA            :   9.38
+
+Student name            :   John
+Student roll number     :   4
+Student SGPA            :   9.97
+
+Student name            :   Otis
+Student roll number     :   5
+Student SGPA            :   8
+
+Student name            :   Katerina
+Student roll number     :   6
+Student SGPA            :   7.75
+
+Student name            :   Mosh
+Student roll number     :   7
+Student SGPA            :   8
+
+Student name            :   Bryanty
+Student roll number     :   8
+Student SGPA            :   6.63
+
+Student name            :   Zech
+Student roll number     :   9
+Student SGPA            :   7.83
+
+Student name            :   Berny
+Student roll number     :   10
+Student SGPA            :   6.05
+
+Choose an option : 
+a - Sort students by SGPA or Roll numbers
+b - Search students by SGPA
+c - Search students by name
+d - Exit program
+Option > b
+
+Enter SGPA you want to search for > 7.75
+
+Only 1 student got SGPA of 7.75 : 
+
+Student name            :   Katerina
+Student roll number     :   6
+Student SGPA            :   7.75
+
+Choose an option : 
+a - Sort students by SGPA or Roll numbers
+b - Search students by SGPA
+c - Search students by name
+d - Exit program
+Option > b
+
+Enter SGPA you want to search for > 8
+
+2 got SGPA of 8 : 
+
+Student name            :   Otis
+Student roll number     :   5
+Student SGPA            :   8
+
+Student name            :   Mosh
+Student roll number     :   7
+Student SGPA            :   8
+
+Choose an option : 
+a - Sort students by SGPA or Roll numbers
+b - Search students by SGPA
+c - Search students by name
+d - Exit program
+Option > c
+
+Enter name you want to search for > Mosh
+
+Student details of name Mosh : 
+
+Student name            :   Mosh
+Student roll number     :   7
+Student SGPA            :   8
+
+Choose an option : 
+a - Sort students by SGPA or Roll numbers
+b - Search students by SGPA
+c - Search students by name
+d - Exit program
+Option > c
+
+Enter name you want to search for > Rayn
+
+No student with name Rayn
+
+Choose an option : 
+a - Sort students by SGPA or Roll numbers
+b - Search students by SGPA
+c - Search students by name
+d - Exit program
+Option > d
+
+Exiting program...
