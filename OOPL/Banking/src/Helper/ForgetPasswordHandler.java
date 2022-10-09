@@ -5,7 +5,19 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ForgetPasswordHandler {
+
+    public static class QusAnsPair {
+        public char qusID;
+        public String answer;
+
+        public QusAnsPair(char qusID, String answer) {
+            this.qusID = qusID;
+            this.answer = answer;
+        }
+    }
+
     private static final Map<Character, String> questions = new HashMap<>();
+
     private static final Scanner sc = new Scanner(System.in);
 
     private static void setQuestions() {
@@ -58,15 +70,5 @@ public class ForgetPasswordHandler {
         if (questions.containsKey(qusID))
             return questions.get(qusID);
         return "";
-    }
-
-    public static class QusAnsPair {
-        public char qusID;
-        public String answer;
-
-        public QusAnsPair(char qusID, String answer) {
-            this.qusID = qusID;
-            this.answer = answer;
-        }
     }
 }

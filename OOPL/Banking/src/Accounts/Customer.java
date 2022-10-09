@@ -24,7 +24,7 @@ public class Customer {
 
     public void getData() {
         System.out.println();
-        System.out.println("-------- Accounts.Customer Information --------");
+        System.out.println("-------- Customer Information --------");
         System.out.println();
         System.out.println("Name           :  " + getName());
         System.out.println("Age            :  " + getAge());
@@ -38,8 +38,7 @@ public class Customer {
             this.name = sc.nextLine();
             if (!isValidName(this.name)) {
                 System.out.print("Enter valid name > ");
-            } else
-                break;
+            } else break;
         }
     }
 
@@ -50,8 +49,7 @@ public class Customer {
             ageStr = sc.next();
             if (!isValidAge(ageStr)) {
                 System.out.print("Enter valid age > ");
-            } else
-                break;
+            } else break;
         }
         age = Integer.parseInt(ageStr);
     }
@@ -62,8 +60,7 @@ public class Customer {
             this.mobileNo = sc.next();
             if (!isValidMobile(this.mobileNo)) {
                 System.out.print("Enter valid mobile number > ");
-            } else
-                break;
+            } else break;
         }
     }
 
