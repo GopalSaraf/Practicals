@@ -1,6 +1,6 @@
 # Object oriented programming lab
 
-### Find the lab manual here: [Object oriented programming lab Manual](OOPL.pdf)
+### Find the lab manual here: [Object Oriented Programming Lab Manual](OOPL.pdf)
 
 ## Table of Contents for Assignments
 
