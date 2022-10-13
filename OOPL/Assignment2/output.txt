@@ -1,0 +1,79 @@
+Choose type of employee to generate pay slip : 
+a - Project Manager
+b - Assistant Project Manager
+c - Team Leader
+d - Programmer
+e - Exit Program
+
+Your Choice > a
+Enter name of employee (1) > Warner David
+Enter mobile number of Warner David > 9022727721
+Enter Email ID of Warner David > warner@mail.com
+Enter address of Warner David > warner's address here
+Enter Basic Pay of Warner David > 90000 
+
+-------- Employee Information --------
+
+ID            :  32
+Name          :  Warner David
+Mobile Number :  9022727721
+Mail ID       :  warner@mail.com
+Address       :  warner's address here
+Employee type :  Project Manager
+
+-------------- Pay Slip --------------
+
+Basic Pay     :  ₹90,000.00
+DA Amount     :  ₹87,300.00
+PF Amount     :  ₹10,800.00
+HRA Amount    :  ₹9,000.00
+Club Amount   :  ₹90.00
+Gross Salary  :  ₹186,300.00
+Net Salary    :  ₹175,410.00
+
+------------------**------------------
+
+Choose type of employee to generate pay slip : 
+a - Project Manager
+b - Assistant Project Manager
+c - Team Leader
+d - Programmer
+e - Exit Program
+
+Your Choice > d
+Enter name of employee (2) > John Mosh
+Enter mobile number of John Mosh > 9146268610
+Enter Email ID of John Mosh > johnmosh@mail.com
+Enter address of John Mosh > John's address here
+Enter Basic Pay of John Mosh > 75000 
+
+-------- Employee Information --------
+
+ID            :  35
+Name          :  John Mosh
+Mobile Number :  9146268610
+Mail ID       :  johnmosh@mail.com
+Address       :  John's address here
+Employee type :  Programmer
+
+-------------- Pay Slip --------------
+
+Basic Pay     :  ₹75,000.00
+DA Amount     :  ₹72,750.00
+PF Amount     :  ₹9,000.00
+HRA Amount    :  ₹7,500.00
+Club Amount   :  ₹75.00
+Gross Salary  :  ₹155,250.00
+Net Salary    :  ₹146,175.00
+
+------------------**------------------
+
+Choose type of employee to generate pay slip : 
+a - Project Manager
+b - Assistant Project Manager
+c - Team Leader
+d - Programmer
+e - Exit Program
+
+Your Choice > e
+Exiting Program...

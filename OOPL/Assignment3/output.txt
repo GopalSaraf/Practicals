@@ -1,0 +1,113 @@
+Choose an option : 
+a - Order a book
+b - Order a magazine
+c - Total book sell
+d - Total magazine sell
+e - Total publication sell
+f - Exit program
+
+Your Choice > a
+Enter title : Deep Work
+Enter price : 250
+Enter number of copies : 50
+Enter author : Cal Newport
+
+Ordered book Deep Work
+Book sell: ₹12,500.00
+
+Choose an option : 
+a - Order a book
+b - Order a magazine
+c - Total book sell
+d - Total magazine sell
+e - Total publication sell
+f - Exit program
+
+Your Choice > a
+Enter title : Start With Why
+Enter price : 400
+Enter number of copies : 30
+Enter author : Simon Sinek
+
+Ordered book Start With Why
+Book sell: ₹12,000.00
+
+Choose an option : 
+a - Order a book
+b - Order a magazine
+c - Total book sell
+d - Total magazine sell
+e - Total publication sell
+f - Exit program
+
+Your Choice > c
+Total book sell is ₹24,500.00
+
+Choose an option : 
+a - Order a book
+b - Order a magazine
+c - Total book sell
+d - Total magazine sell
+e - Total publication sell
+f - Exit program
+
+Your Choice > b
+Enter title : Business India
+Enter price : 200
+Enter number of copies : 10
+Enter order quantity : 10
+Enter current Issue : June 
+
+Ordered magazine Business India
+Magazine sell: ₹2,000.00
+
+Choose an option : 
+a - Order a book
+b - Order a magazine
+c - Total book sell
+d - Total magazine sell
+e - Total publication sell
+f - Exit program
+
+Your Choice > b
+Enter title : Banking Frontiers
+Enter price : 70
+Enter number of copies : 30
+Enter order quantity : 30
+Enter current Issue : May
+
+Ordered magazine Banking Frontiers
+Magazine sell: ₹2,100.00
+
+Choose an option : 
+a - Order a book
+b - Order a magazine
+c - Total book sell
+d - Total magazine sell
+e - Total publication sell
+f - Exit program
+
+Your Choice > d
+Total book sell is ₹4,100.00
+
+Choose an option : 
+a - Order a book
+b - Order a magazine
+c - Total book sell
+d - Total magazine sell
+e - Total publication sell
+f - Exit program
+
+Your Choice > e
+Total Publication sell: ₹28,600.00
+
+Choose an option : 
+a - Order a book
+b - Order a magazine
+c - Total book sell
+d - Total magazine sell
+e - Total publication sell
+f - Exit program
+
+Your Choice > f
+Exiting Program...

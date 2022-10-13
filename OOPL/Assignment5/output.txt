@@ -1,0 +1,288 @@
+Please choose an option from below :
+a - Start a bike
+b - Start a car
+c - Exit program
+
+Your Choice [a/b/c] > a
+
+Bike started.
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > a
+
+Incremented bike gear.
+
+Current Bike Speed : 0 KM / hr
+Current Bike Gear  : 1
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > b
+
+Enter speed by which you want to increment > 20
+
+Bike speed incremented by 20 KM / hr
+
+Current Bike Speed : 20 KM / hr
+Current Bike Gear  : 1
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > a
+
+Incremented bike gear.
+
+Current Bike Speed : 20 KM / hr
+Current Bike Gear  : 2
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > b
+
+Enter speed by which you want to increment > 25
+
+Can't increment speed of bike.
+You are in 2 gear whose max speed is 40 KM / hr.
+You can increment upto 20 KM / hr in 2 gear.
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > b
+
+Enter speed by which you want to increment > 20
+
+Bike speed incremented by 20 KM / hr
+
+Current Bike Speed : 40 KM / hr
+Current Bike Gear  : 2
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > a
+
+Incremented bike gear.
+
+Current Bike Speed : 40 KM / hr
+Current Bike Gear  : 3
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > a
+
+Can't increment gear.
+You have to increase speed by at least 1 KM / hr to increment gear.
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > b
+
+Enter speed by which you want to increment > 25
+
+Bike speed incremented by 25 KM / hr
+
+Current Bike Speed : 65 KM / hr
+Current Bike Gear  : 3
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > a
+
+Incremented bike gear.
+
+Current Bike Speed : 65 KM / hr
+Current Bike Gear  : 4
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > b
+
+Enter speed by which you want to increment > 30
+
+Bike speed incremented by 30 KM / hr
+
+Current Bike Speed : 95 KM / hr
+Current Bike Gear  : 4
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > a
+
+Incremented bike gear.
+
+Current Bike Speed : 95 KM / hr
+Current Bike Gear  : 5
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > b
+
+Enter speed by which you want to increment > 30
+
+Bike speed incremented by 30 KM / hr
+
+Current Bike Speed : 125 KM / hr
+Current Bike Gear  : 5
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > a
+
+Can't increment gear.
+Bike is having max 5 gears.
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > c
+
+Enter speed by which you want to decrement > 50
+
+Speed decremented by 50 KM / hr
+
+Current Bike Speed : 75 KM / hr
+Current Bike Gear  : 4
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > d
+
+Bike is in high gears. Decrease speed and then stop the bike.
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > c
+
+Enter speed by which you want to decrement > 20
+
+Speed decremented by 20 KM / hr
+
+Current Bike Speed : 55 KM / hr
+Current Bike Gear  : 3
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > e
+
+Current Bike Speed : 55 KM / hr
+Current Bike Gear  : 3
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > c
+
+Enter speed by which you want to decrement > 50
+
+Speed decremented by 50 KM / hr
+
+Current Bike Speed : 5 KM / hr
+Current Bike Gear  : 1
+
+Please an operation :
+a - Increment a gear of Bike
+b - Increase speed of Bike
+c - Apply brakes of Bike
+d - Stop the Bike
+e - Show status of Bike
+
+Your Choice [a/b/c/d] > d
+
+Bike stopped.
+
+Please choose an option from below :
+a - Start a bike
+b - Start a car
+c - Exit program
+
+Your Choice [a/b/c] > c
+
+Exiting Program...

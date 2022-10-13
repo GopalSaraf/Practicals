@@ -1,0 +1,158 @@
+Welcome to Complex Calculator Program!
+
+COMPLEX OPERATIONS : 
+a - Addition
+b - Subtraction
+c - Multiplication
+d - Division
+e - Exit program
+
+Enter your choice : a
+
+Enter real value of first complex number > 1
+Enter imaginary value of first complex number > 2
+
+Enter real value of second complex number > 3
+Enter imaginary value of second complex number > -7
+
+First complex number is : 1 + i 2
+Second complex number is : 3 - i 7
+
+Addition of two numbers is : 4 - i 5
+
+
+COMPLEX OPERATIONS : 
+a - Addition
+b - Subtraction
+c - Multiplication
+d - Division
+e - Exit program
+
+Enter your choice : b
+
+Enter real value of first complex number > -4.5
+Enter imaginary value of first complex number > 8
+
+Enter real value of second complex number > 3
+Enter imaginary value of second complex number > -10
+
+First complex number is : -4.50 + i 8
+Second complex number is : 3 - i 10
+
+Subtraction of two numbers is : -7.50 + i 18
+
+
+COMPLEX OPERATIONS : 
+a - Addition
+b - Subtraction
+c - Multiplication
+d - Division
+e - Exit program
+
+Enter your choice : c
+
+Enter real value of first complex number > 3
+Enter imaginary value of first complex number > 5
+
+Enter real value of second complex number > 8
+Enter imaginary value of second complex number > 4
+
+First complex number is : 3 + i 5
+Second complex number is : 8 + i 4
+
+Multiplication of two numbers is : 4 + i 52
+
+
+COMPLEX OPERATIONS : 
+a - Addition
+b - Subtraction
+c - Multiplication
+d - Division
+e - Exit program
+
+Enter your choice : d
+
+Enter real value of first complex number > 6
+Enter imaginary value of first complex number > 7
+
+Enter real value of second complex number > 8
+Enter imaginary value of second complex number > 9
+
+First complex number is : 6 + i 7
+Second complex number is : 8 + i 9
+
+Division of two numbers is : 0.77 + i 0.01
+
+
+COMPLEX OPERATIONS : 
+a - Addition
+b - Subtraction
+c - Multiplication
+d - Division
+e - Exit program
+
+Enter your choice : b
+
+Enter real value of first complex number > 1
+Enter imaginary value of first complex number > 2
+
+Enter real value of second complex number > -1
+Enter imaginary value of second complex number > 2
+
+First complex number is : 1 + i 2
+Second complex number is : -1 + i 2
+
+Subtraction of two numbers is : 2
+
+
+COMPLEX OPERATIONS : 
+a - Addition
+b - Subtraction
+c - Multiplication
+d - Division
+e - Exit program
+
+Enter your choice : a
+
+Enter real value of first complex number > 1
+Enter imaginary value of first complex number > 1
+
+Enter real value of second complex number > -1
+Enter imaginary value of second complex number > -1
+
+First complex number is : 1 + i 1
+Second complex number is : -1 - i 1
+
+Addition of two numbers is : 0
+
+
+COMPLEX OPERATIONS : 
+a - Addition
+b - Subtraction
+c - Multiplication
+d - Division
+e - Exit program
+
+Enter your choice : b
+
+Enter real value of first complex number > 2
+Enter imaginary value of first complex number > 4
+
+Enter real value of second complex number > 2
+Enter imaginary value of second complex number > 2
+
+First complex number is : 2 + i 4
+Second complex number is : 2 + i 2
+
+Subtraction of two numbers is :  i 2
+
+
+COMPLEX OPERATIONS : 
+a - Addition
+b - Subtraction
+c - Multiplication
+d - Division
+e - Exit program
+
+Enter your choice : e
+Exiting program...

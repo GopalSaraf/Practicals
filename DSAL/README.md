@@ -14,8 +14,8 @@
 
 ## Table of Contents for Output files
 
-|               Output File Name               |         Description          |
-| :------------------------------------------: | :--------------------------: |
-| [Assignment1 Output](Assignment1/output.txt) | Output file for Assignment 1 |
-| [Assignment2 Output](Assignment2/output.txt) | Output file for Assignment 2 |
-| [Assignment3 Output](Assignment3/output.txt) | Output file for Assignment 3 |
+|               Output File Name               | Description                                |
+| :------------------------------------------: | :----------------------------------------- |
+| [Assignment1 Output](Assignment1/output.txt) | Output file for Sorting and searching      |
+| [Assignment2 Output](Assignment2/output.txt) | Output file for Circular Queue using Array |
+| [Assignment3 Output](Assignment3/output.txt) | Output file for Stack as ADT               |

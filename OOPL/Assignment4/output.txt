@@ -1,0 +1,32 @@
+Choose an option
+a - Compute area of triangle
+b - Compute area of rectangle
+c - Quit program
+
+Your Option > a
+
+Enter base of triangle > 10
+Enter height of triangle > 5
+
+Area of triangle is 25.0
+
+Choose an option
+a - Compute area of triangle
+b - Compute area of rectangle
+c - Quit program
+
+Your Option > b
+
+Enter length of rectangle > 10
+Enter breadth of rectangle > 5
+
+Area of rectangle is 50.0
+
+Choose an option
+a - Compute area of triangle
+b - Compute area of rectangle
+c - Quit program
+
+Your Option > c
+
+Exiting...

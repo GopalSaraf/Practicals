@@ -17,10 +17,10 @@
 
 ## Table of Contents for Output files
 
-|               Output File Name               |         Description          |
-| :------------------------------------------: | :--------------------------: |
-| [Assignment1 Output](Assignment1/output.txt) | Output file for Assignment 1 |
-| [Assignment2 Output](Assignment2/output.txt) | Output file for Assignment 2 |
-| [Assignment3 Output](Assignment3/output.txt) | Output file for Assignment 3 |
-| [Assignment4 Output](Assignment4/output.txt) | Output file for Assignment 4 |
-| [Assignment5 Output](Assignment5/output.txt) | Output file for Assignment 5 |
+|               Output File Name               | Description                        |
+| :------------------------------------------: | :--------------------------------- |
+| [Assignment1 Output](Assignment1/output.txt) | Output file for Classes and object |
+| [Assignment2 Output](Assignment2/output.txt) | Output file for Inheritance        |
+| [Assignment3 Output](Assignment3/output.txt) | Output file for Polymorphism       |
+| [Assignment4 Output](Assignment4/output.txt) | Output file for Dynamic Binding    |
+| [Assignment5 Output](Assignment5/output.txt) | Output file for Interface          |
