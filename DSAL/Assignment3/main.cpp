@@ -14,12 +14,12 @@
 using namespace std;
 
 class Convert {
+   private:
     static inline unordered_map<char, int> priority = {
         {'+', 1}, {'-', 1}, {'*', 2}, {'/', 2}, {'^', 3}, {'(', 0}, {NULL, 0},
     };  // Priority of operators
 
-   public:
-    static string infixToPostfix(string infix) {
+    static string convert(string infix, bool isPostfix) {
         Stack<char> stack;
         string postfix = "";
         for (char cha : infix) {
@@ -37,7 +37,10 @@ class Convert {
                         postfix += ope;
                     }
                 } else {
-                    if (priority.at(cha) > priority.at(stack.peek()))
+                    if ((isPostfix &&
+                         priority.at(cha) > priority.at(stack.peek())) ||
+                        (!isPostfix &&
+                         priority.at(cha) >= priority.at(stack.peek())))
                         stack.push(cha);  // Priority check and pushing
                     else {
                         while (priority.at(cha) <= priority.at(stack.peek()))
@@ -51,6 +54,9 @@ class Convert {
         while (stack.peek()) postfix += stack.pop();
         return postfix;
     }
+
+   public:
+    static string infixToPostfix(string infix) { return convert(infix, true); }
 
     static string infixToPrefix(string infix) {
         auto reverseString = [](string str) -> string {  // To reverse string
@@ -69,15 +75,13 @@ class Convert {
             else
                 modifiedRevStr += cha;
         }
-        return reverseString(infixToPostfix(modifiedRevStr));
+        return reverseString(convert(modifiedRevStr, false));
     }
 };
 
 class Evaluate {
-    static inline bool isPrefixOperation = false;
-
-   public:
-    static float postfixEvaluation(string postfix) {
+   private:
+    static float evaluation(string postfix, bool isPostfix) {
         float result, value1, value2;
         Stack<float> stack;
 
@@ -136,14 +140,19 @@ class Evaluate {
             else {
                 value1 = stack.pop();
                 value2 = stack.pop();
-                if (isPrefixOperation)
-                    result = calculate(value1, value2, cha);  // Calculating
+                if (isPostfix)
+                    result = calculate(value2, value1, cha);  // Calculating
                 else
-                    result = calculate(value2, value1, cha);
+                    result = calculate(value1, value2, cha);
                 stack.push(result);
             }
         }
         return stack.pop();
+    }
+
+   public:
+    static float postfixEvaluation(string postfix) {
+        return evaluation(postfix, true);
     }
 
     static float prefixEvaluation(string prefix) {
@@ -154,8 +163,7 @@ class Evaluate {
         };
 
         string postfix = reverseString(prefix);
-        isPrefixOperation = true;
-        return postfixEvaluation(postfix);
+        return evaluation(postfix, false);
     }
 };
 
@@ -170,6 +178,7 @@ int main() {
              << " > ";
         cin.ignore();
         getline(cin, exp);
+        cout << endl;
         return exp;
     };
 
@@ -186,8 +195,7 @@ int main() {
             case 'a':
                 expression = takeExpression("postfix");
                 convertedExpression = Convert::infixToPostfix(expression);
-                cout << endl
-                     << "Converted postfix expression : " << convertedExpression
+                cout << "Converted postfix expression : " << convertedExpression
                      << endl
                      << endl;
                 result = Evaluate::postfixEvaluation(convertedExpression);
@@ -198,8 +206,7 @@ int main() {
             case 'b':
                 expression = takeExpression("prefix");
                 convertedExpression = Convert::infixToPrefix(expression);
-                cout << endl
-                     << "Converted prefix expression : " << convertedExpression
+                cout << "Converted prefix expression : " << convertedExpression
                      << endl
                      << endl;
                 result = Evaluate::prefixEvaluation(convertedExpression);
