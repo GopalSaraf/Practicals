@@ -6,19 +6,23 @@ import java.util.Scanner;
 
 public class ForgetPasswordHandler {
 
-    public static class QusAnsPair {
-        public char qusID;
-        public String answer;
-
-        public QusAnsPair(char qusID, String answer) {
-            this.qusID = qusID;
-            this.answer = answer;
-        }
-    }
+    public static int minNoOfQus = 3;
 
     private static final Map<Character, String> questions = new HashMap<>();
 
     private static final Scanner sc = new Scanner(System.in);
+
+    public static class QusAnsPair {
+        public static String separator = "&";
+        public String qusIDs;
+        public String answers;
+
+        public QusAnsPair(String qusIDs, String answers) {
+            this.qusIDs = qusIDs;
+            this.answers = answers;
+        }
+
+    }
 
     private static void setQuestions() {
         questions.put('a', "What is your mother's maiden name?");
@@ -40,16 +44,58 @@ public class ForgetPasswordHandler {
 
     public static QusAnsPair askQus() {
         setQuestions();
-        char questionID;
-        String answer;
+        var myQuestions = questions;
+        int qusNo = 1;
+        StringBuilder questionIDs = new StringBuilder();
+        StringBuilder answers = new StringBuilder();
         System.out.println();
-        System.out.println("Choose which security question (In case you forgot password) to answer.");
+
+        System.out.println("Following questions are asked due to if in case you forgot password.");
+        while (qusNo <= minNoOfQus) {
+            var qusAndAns = askOneQus(myQuestions, qusNo);
+            questionIDs.append(qusAndAns.qusIDs);
+            answers.append(qusAndAns.answers);
+            if (qusNo != minNoOfQus) {
+                questionIDs.append(QusAnsPair.separator);
+                answers.append(QusAnsPair.separator);
+            }
+            myQuestions.remove(qusAndAns.qusIDs.charAt(0));
+            qusNo++;
+        }
+
+        char wantToContinue;
+        while (true) {
+            System.out.println();
+            System.out.print("Do you want to continue asking more questions? [Y/n] > ");
+            wantToContinue = sc.next().charAt(0);
+
+            if (wantToContinue == 'n' || wantToContinue == 'N')
+                break;
+            else if (wantToContinue == 'y' || wantToContinue == 'Y') {
+                var qusAndAns = askOneQus(myQuestions, qusNo);
+                questionIDs.append(QusAnsPair.separator).append(qusAndAns.qusIDs);
+                answers.append(QusAnsPair.separator).append(qusAndAns.answers);
+                myQuestions.remove(qusAndAns.qusIDs.charAt(0));
+                qusNo++;
+            } else {
+                System.out.println();
+                System.out.println("Incorrect option chosen. Try again.");
+            }
+        }
+
+        return new QusAnsPair(questionIDs.toString(), answers.toString());
+    }
+
+    private static QusAnsPair askOneQus(Map<Character, String> myQuestions, int qusNo) {
         System.out.println();
-        for (Map.Entry<Character, String> question : questions.entrySet()) {
+        System.out.println("Choose security question " + qusNo + " > ");
+        System.out.println();
+        for (Map.Entry<Character, String> question : myQuestions.entrySet()) {
             System.out.println(question.getKey() + " - " + question.getValue());
         }
         System.out.println();
         System.out.print("Enter your choice > ");
+        char questionID;
         while (true) {
             questionID = sc.next().charAt(0);
             if (questions.containsKey(questionID))
@@ -59,10 +105,10 @@ public class ForgetPasswordHandler {
         System.out.println();
         System.out.print(questions.get(questionID) + " > ");
         sc.nextLine();
-        answer = sc.nextLine();
+        String answer = sc.nextLine();
         System.out.println();
         System.out.println("Answer saved SUCCESSFULLY.");
-        return new QusAnsPair(questionID, answer);
+        return new QusAnsPair(Character.toString(questionID), answer);
     }
 
     public static String getQuestionByID(char qusID) {

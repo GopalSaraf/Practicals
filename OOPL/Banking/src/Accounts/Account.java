@@ -11,7 +11,7 @@ public class Account extends Customer {
     private int accountNo;
     private int password;
     private double balance;
-    private char forgotPasswordID;
+    private String forgotPasswordIDs;
     private String forgotPasswordAns;
 
     public Account(String name, int age, String mobileNo, double balance) {
@@ -64,8 +64,8 @@ public class Account extends Customer {
 
     public void forgotPasswordHandler() {
         var qusAndAns = ForgetPasswordHandler.askQus();
-        setForgotPasswordID(qusAndAns.qusID);
-        setForgotPasswordAns(qusAndAns.answer);
+        setForgotPasswordIDs(qusAndAns.qusIDs);
+        setForgotPasswordAns(qusAndAns.answers);
     }
 
     public void updateInfoInDatabase() {
@@ -111,12 +111,12 @@ public class Account extends Customer {
         return 0;
     }
 
-    public char getForgotPasswordID() {
-        return forgotPasswordID;
+    public String getForgotPasswordIDs() {
+        return forgotPasswordIDs;
     }
 
-    public void setForgotPasswordID(char forgotPasswordID) {
-        this.forgotPasswordID = forgotPasswordID;
+    public void setForgotPasswordIDs(String forgotPasswordIDs) {
+        this.forgotPasswordIDs = forgotPasswordIDs;
     }
 
     public String getForgotPasswordAns() {

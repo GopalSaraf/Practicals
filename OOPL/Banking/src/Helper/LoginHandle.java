@@ -78,30 +78,44 @@ public final class LoginHandle {
             }
             wrongCounts++;
         }
-        System.out.println();
+        forgetPasswordReset(accNo);
+    }
+
+    private void forgetPasswordReset(int accNo) {
         char forgotPassword;
+        System.out.println();
         System.out.print("Did you forget your password ? [Y/n] > ");
         forgotPassword = sc.next().charAt(0);
         System.out.println();
         if (forgotPassword == 'n' || forgotPassword == 'N') {
             System.out.println("Login Unsuccessful.");
         } else if (forgotPassword == 'y' || forgotPassword == 'Y') {
+            sc.nextLine();
+            int correctCounts = 0;
             String answer;
             var qusAndAns = Database.getForgotQusAndAns(accNo);
             assert qusAndAns != null;
-            System.out.print(ForgetPasswordHandler.getQuestionByID(qusAndAns.qusID) + " > ");
-            sc.nextLine();
-            answer = sc.nextLine();
-            System.out.println();
-            if (Objects.equals(answer, qusAndAns.answer)) {
+            String[] questionIDs = qusAndAns.qusIDs.split(ForgetPasswordHandler.QusAnsPair.separator);
+            String[] answers = qusAndAns.answers.split(ForgetPasswordHandler.QusAnsPair.separator);
+
+            for (int i = 0; i < questionIDs.length; i++) {
+                System.out.print(ForgetPasswordHandler.getQuestionByID(questionIDs[i].charAt(0)) + " > ");
+                answer = sc.nextLine();
+                if (Objects.equals(answer, answers[i])) correctCounts++;
+                if (correctCounts == ForgetPasswordHandler.minNoOfQus) break;
+            }
+
+            if (correctCounts >= ForgetPasswordHandler.minNoOfQus) {
                 Account acc = Database.getAccount(accNo);
                 assert acc != null;
+                System.out.println();
                 acc.generatePassword();
                 acc.updateInfoInDatabase();
                 System.out.println();
                 System.out.println("Password updated SUCCESSFULLY.");
             } else {
-                System.out.println("Wrong answer given.");
+                System.out.println();
+                System.out.println("Wrong answers given.");
                 System.out.println("Login Unsuccessful.");
             }
         } else {

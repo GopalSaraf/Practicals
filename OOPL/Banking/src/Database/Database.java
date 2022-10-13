@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public final class Database {
-    private static final String path = "accounts.txt";
+    private static final String path = "accounts.csv";
     private static final File file = new File(path);
     private static final Map<String, Integer> columns = Map.of(
             "accNo", 0,
@@ -21,12 +21,12 @@ public final class Database {
             "name", 4,
             "age", 5,
             "mobileNo", 6,
-            "forgotPasswordID", 7,
+            "forgotPasswordIDs", 7,
             "forgotPasswordAns", 8);
     private static final int noOfColumns = columns.size();
 
     public static void addAccount(int accNo, int password, String type, double balance, String name, int age,
-                                  String mobileNo, char forgotPasswordID, String forgotPasswordAns) {
+                                  String mobileNo, String forgotPasswordIDs, String forgotPasswordAns) {
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
             pw.append(String.valueOf(accNo))
@@ -43,7 +43,7 @@ public final class Database {
                     .append(",")
                     .append(mobileNo)
                     .append(",")
-                    .append(forgotPasswordID)
+                    .append(forgotPasswordIDs)
                     .append(",")
                     .append(forgotPasswordAns)
                     .append("\n");
@@ -67,7 +67,7 @@ public final class Database {
                 acc.getName(),
                 acc.getAge(),
                 acc.getMobileNo(),
-                acc.getForgotPasswordID(),
+                acc.getForgotPasswordIDs(),
                 acc.getForgotPasswordAns());
     }
 
@@ -81,7 +81,7 @@ public final class Database {
                     "name", "",
                     "age", "",
                     "mobileNo", "",
-                    "forgotPasswordID", "",
+                    "forgotPasswordIDs", "",
                     "forgotPasswordAns", ""));
             BufferedReader br = new BufferedReader(new FileReader(path));
             String stream;
@@ -111,7 +111,7 @@ public final class Database {
         String name = accountInfo.get("name");
         int age = Integer.parseInt(accountInfo.get("age"));
         String mobileNo = accountInfo.get("mobileNo");
-        char forgotPasswordID = accountInfo.get("forgotPasswordID").charAt(0);
+        String forgotPasswordIDs = accountInfo.get("forgotPasswordIDs");
         String forgotPasswordAns = accountInfo.get("forgotPasswordAns");
         if (Objects.equals(accountInfo.get("type"), "saving"))
             acc = new SavingAccount(name, age, mobileNo, balance);
@@ -121,7 +121,7 @@ public final class Database {
             acc = new Account(name, age, mobileNo, balance);
         acc.setAccountNo(accNo);
         acc.setPassword(password);
-        acc.setForgotPasswordID(forgotPasswordID);
+        acc.setForgotPasswordIDs(forgotPasswordIDs);
         acc.setForgotPasswordAns(forgotPasswordAns);
         return acc;
     }
@@ -217,8 +217,8 @@ public final class Database {
         Map<String, String> accountInfo = getAccountInfo(accNo);
         if (accountInfo == null)
             return null;
-        char forgotPasswordID = accountInfo.get("forgotPasswordID").charAt(0);
+        String forgotPasswordIDs = accountInfo.get("forgotPasswordIDs");
         String forgotPasswordAns = accountInfo.get("forgotPasswordAns");
-        return new QusAnsPair(forgotPasswordID, forgotPasswordAns);
+        return new QusAnsPair(forgotPasswordIDs, forgotPasswordAns);
     }
 }
