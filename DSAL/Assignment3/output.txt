@@ -51,7 +51,7 @@ Option > b
 
 Enter expression you want to convert in prefix > 8 - 2 + ( 3 * 4 ) / 2 ^ 2
 
-Converted prefix expression : -8+2/*34^22
+Converted prefix expression : +-82/*34^22
 
 Evaluation of prefix expression : 9
 
@@ -61,7 +61,7 @@ b - Convert expression to prefix and Evaluate
 c - Exit program
 Option > b
 
-Enter expression you want to convert in prefix > a + b * ( c ^ d - e )     
+Enter expression you want to convert in prefix > a + b * ( c ^ d - e )    
 
 Converted prefix expression : +a*b-^cde
 
@@ -81,7 +81,7 @@ Option > b
 
 Enter expression you want to convert in prefix > 1 + a / 2 * 4 - b
 
-Converted prefix expression : +1-/a*24b
+Converted prefix expression : +1-*/a24b
 
 Enter value you want to replace with b > 1
 Enter value you want to replace with a > 2
