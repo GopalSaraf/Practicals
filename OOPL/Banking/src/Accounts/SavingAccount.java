@@ -1,7 +1,7 @@
 package Accounts;
 
-import Database.Database;
-import Helper.Transaction;
+import CustomerHelper.Transactions;
+import Database.AccountsDatabase;
 
 public class SavingAccount extends Account {
 
@@ -22,7 +22,7 @@ public class SavingAccount extends Account {
         System.out.print("Your saving account is created SUCCESSFULLY. ");
         System.out.println("Your account number is " + getAccountNo() + ".");
         System.out.println();
-        Database.addAccount(this);
+        AccountsDatabase.addAccount(this);
     }
 
     @Override
@@ -32,32 +32,39 @@ public class SavingAccount extends Account {
         System.out.println();
         System.out.println("Account type   :  Saving Account");
         System.out.println("Account Number :  " + getAccountNo());
-        System.out.println("Balance        :  " + Transaction.currency(getBalance()));
+        System.out.println("Opened at      :  " + getOpeningDateTime());
+        System.out.println("Balance        :  " + Transactions.currency(getBalance()));
         System.out.println();
         System.out.println("------------------**------------------");
     }
 
     @Override
     public void deposit() {
-        Transaction.deposit(this);
+        Transactions.deposit(this);
     }
 
     @Override
     public void withdraw() {
-        Transaction.withdraw(this);
+        Transactions.withdraw(this);
     }
 
     @Override
     public void transfer() {
-        Transaction.transfer(this);
+        Transactions.transfer(this);
     }
 
+    @Override
     public int getMinBalance() {
         return 3_000;
     }
 
+    @Override
     public int getWithdrawLimit() {
         return 20_000;
     }
 
+    @Override
+    public String type() {
+        return "Saving";
+    }
 }

@@ -1,69 +1,106 @@
-package Helper;
+package CustomerHelper;
 
 import Accounts.Account;
-import Database.Database;
+import Database.AccountsDatabase;
 
 import java.util.Objects;
 import java.util.Scanner;
 
-public final class LoginHandle {
+public final class CustomerLogin {
     private final Scanner sc = new Scanner(System.in);
     private Account account;
     private boolean isLoggedIn = false;
 
-    public LoginHandle() {
-        accInit();
-        if (isConnectionActive()) {
+    public CustomerLogin() {
+        login();
+    }
+
+    public void handle() {
+        char option;
+        while (isConnectionActive()) {
             System.out.println();
-            System.out.print("SUCCESSFULLY LOGGED IN. ");
-            System.out.println("Welcome " + account.getName() + ".");
+            System.out.println("Please choose an option from below :");
+            System.out.println("a - Transfer money");
+            System.out.println("b - Deposit money");
+            System.out.println("c - Withdraw money");
+            System.out.println("d - Show available balance");
+            System.out.println("e - Show profile");
+            System.out.println("f - Show bank statement");
+            System.out.println("g - Update profile");
+            System.out.println("h - Logout");
+            System.out.println();
+            System.out.print("Your Choice [a/b/c/d/e/f/g/h] > ");
+            option = sc.next().charAt(0);
+
+            switch (option) {
+                case 'a' -> this.transfer();
+                case 'b' -> this.deposit();
+                case 'c' -> this.withdraw();
+                case 'd' -> this.showBalance();
+                case 'e' -> this.getData();
+                case 'f' -> this.getStatement();
+                case 'g' -> this.updateProfile();
+                case 'h' -> this.logout();
+                default -> {
+                    System.out.println();
+                    System.out.println("Incorrect Option. Try again...");
+                }
+            }
         }
     }
 
-    public boolean isConnectionActive() {
+    private boolean isConnectionActive() {
         return isLoggedIn;
     }
 
-    public void deposit() {
+    private void deposit() {
         account.deposit();
     }
 
-    public void withdraw() {
+    private void withdraw() {
         account.withdraw();
     }
 
-    public void transfer() {
+    private void transfer() {
         account.transfer();
     }
 
-    public void showBalance() {
+    private void showBalance() {
         System.out.println();
-        System.out.println("Available balance : " + Transaction.currency(account.getBalance()));
+        System.out.println("Available balance : " + Transactions.currency(account.getBalance()));
     }
 
-    public void getData() {
+    private void getData() {
         account.getData();
     }
 
-    public void logout() {
-        System.out.println();
-        account = null;
-        isLoggedIn = false;
-        System.out.println("SUCCESSFULLY LOGGED OUT.");
-        System.out.println();
+    private void getStatement() {
+        account.getStatement();
     }
 
-    private void accInit() {
+    private void updateProfile() {
+        account.updateAccount();
+    }
+
+    private void login() {
         int accNo, userPassword, dbPassword, wrongCounts, noOfChances = 3;
         System.out.print("Enter your account number : ");
-        accNo = sc.nextInt();
-        if (!Database.isAccountExist(accNo)) {
+        while (true) {
+            String accNoStr = sc.next();
+            try {
+                accNo = Integer.parseInt(accNoStr);
+                break;
+            } catch (Exception exception) {
+                System.out.print("Enter valid account number : ");
+            }
+        }
+        if (!AccountsDatabase.isAccountExist(accNo)) {
             System.out.println();
             System.out.println("Sorry, No account with account number " + accNo);
             System.out.println();
             return;
         }
-        dbPassword = Database.getPasswordForAcc(accNo);
+        dbPassword = AccountsDatabase.getPasswordForAcc(accNo);
         wrongCounts = 0;
         while (wrongCounts < noOfChances) {
             System.out.print("Enter your password ");
@@ -72,8 +109,11 @@ public final class LoginHandle {
             System.out.print(": ");
             userPassword = sc.nextInt();
             if (userPassword == dbPassword) {
-                account = Database.getAccount(accNo);
+                account = AccountsDatabase.getAccount(accNo);
                 isLoggedIn = true;
+                System.out.println();
+                System.out.print("SUCCESSFULLY LOGGED IN. ");
+                System.out.println("Welcome " + account.getName() + ".");
                 return;
             }
             wrongCounts++;
@@ -93,7 +133,7 @@ public final class LoginHandle {
             sc.nextLine();
             int correctCounts = 0;
             String answer;
-            var qusAndAns = Database.getForgotQusAndAns(accNo);
+            var qusAndAns = AccountsDatabase.getForgotQusAndAns(accNo);
             assert qusAndAns != null;
             String[] questionIDs = qusAndAns.qusIDs.split(ForgetPasswordHandler.QusAnsPair.separator);
             String[] answers = qusAndAns.answers.split(ForgetPasswordHandler.QusAnsPair.separator);
@@ -106,7 +146,7 @@ public final class LoginHandle {
             }
 
             if (correctCounts >= ForgetPasswordHandler.minNoOfQus) {
-                Account acc = Database.getAccount(accNo);
+                Account acc = AccountsDatabase.getAccount(accNo);
                 assert acc != null;
                 System.out.println();
                 acc.generatePassword();
@@ -124,40 +164,11 @@ public final class LoginHandle {
         System.out.println();
     }
 
-    public void updateProfile() {
-        char option;
+    private void logout() {
         System.out.println();
-        System.out.println("Please choose what do you want to update :");
-        System.out.println("a - Name");
-        System.out.println("b - Age");
-        System.out.println("c - Mobile number");
-        System.out.println("d - None of these");
+        account = null;
+        isLoggedIn = false;
+        System.out.println("SUCCESSFULLY LOGGED OUT.");
         System.out.println();
-        System.out.print("Your Choice [a/b/c] > ");
-        option = sc.next().charAt(0);
-        System.out.println();
-
-        switch (option) {
-            case 'a' -> {
-                account.setName();
-                System.out.println();
-                System.out.println("Name updated SUCCESSFULLY.");
-            }
-            case 'b' -> {
-                account.setAge();
-                System.out.println();
-                System.out.println("Age updated SUCCESSFULLY.");
-            }
-            case 'c' -> {
-                account.setMobileNo();
-                System.out.println();
-                System.out.println("Mobile number updated SUCCESSFULLY.");
-            }
-            case 'd' -> System.out.println("Updating skipped.");
-            default -> System.out.println("Incorrect Option. Try again...");
-
-        }
-        account.updateInfoInDatabase();
     }
-
 }

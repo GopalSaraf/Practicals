@@ -2,7 +2,7 @@ package Accounts;
 
 import java.util.Scanner;
 
-import static Helper.Valid.*;
+import static CustomerHelper.Valid.*;
 
 public class Customer {
     private final Scanner sc = new Scanner(System.in);
