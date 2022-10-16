@@ -1,9 +1,14 @@
 package Accounts;
 
-import Database.Database;
-import Helper.ForgetPasswordHandler;
-import Helper.Valid;
+import BankHelper.TableFormat;
+import CustomerHelper.ForgetPasswordHandler;
+import CustomerHelper.Transactions;
+import CustomerHelper.Valid;
+import Database.AccountsDatabase;
+import Database.TransactionsDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Account extends Customer {
@@ -14,9 +19,34 @@ public class Account extends Customer {
     private String forgotPasswordIDs;
     private String forgotPasswordAns;
 
+    private String openingDateTime;
+
     public Account(String name, int age, String mobileNo, double balance) {
         super(name, age, mobileNo);
         this.balance = balance;
+    }
+
+    public static void createAccount() {
+        Scanner sc = new Scanner(System.in);
+        char accountType;
+        Account acc = null;
+        System.out.println("Choose which account type you want to create : ");
+        System.out.println("a - Saving Account");
+        System.out.println("b - Current Account");
+        System.out.println();
+        System.out.print("Your option [a/b] > ");
+        accountType = sc.next().charAt(0);
+        System.out.println();
+
+        switch (accountType) {
+            case 'a' -> acc = new SavingAccount();
+            case 'b' -> acc = new CurrentAccount();
+            default -> System.out.println("Incorrect option.\n");
+        }
+
+        if (acc != null) acc.setData();
+        acc = null;
+        System.gc();
     }
 
     @Override
@@ -34,12 +64,12 @@ public class Account extends Customer {
 
     public void depositAmount(double amount) {
         balance += amount;
-        Database.updateBalance(getAccountNo(), getBalance());
+        AccountsDatabase.updateBalance(getAccountNo(), getBalance());
     }
 
     public void withdrawAmount(double amount) {
         balance -= amount;
-        Database.updateBalance(getAccountNo(), getBalance());
+        AccountsDatabase.updateBalance(getAccountNo(), getBalance());
     }
 
     private void generateAccNo() {
@@ -69,13 +99,70 @@ public class Account extends Customer {
     }
 
     public void updateInfoInDatabase() {
-        Database.updateAccount(getAccountNo(), getPassword(), getName(), getAge(), getMobileNo());
+        AccountsDatabase.updateAccount(getAccountNo(), getPassword(), getName(), getAge(), getMobileNo());
     }
 
     public void updateAccountBalance() {
-        var account = Database.getAccount(getAccountNo());
+        var account = AccountsDatabase.getAccount(getAccountNo());
         assert account != null;
         balance = account.getBalance();
+    }
+
+    public void getStatement() {
+        var transactions = TransactionsDatabase.getTransactions(getAccountNo(), true);
+
+        List<String> headersList = new ArrayList<>();
+        headersList.add("Date & Time");
+        headersList.add("Details");
+        headersList.add("Deposits");
+        headersList.add("Withdrawals");
+        headersList.add("Balance");
+
+        List<List<String>> rowsList = new ArrayList<>();
+
+        for (Transactions.Transaction transaction : transactions) {
+            rowsList.add(transaction.getTransactionList());
+        }
+
+        System.out.println("Your bank statement : ");
+
+        TableFormat.show(headersList, rowsList);
+    }
+
+    public void updateAccount() {
+        char option;
+        System.out.println();
+        System.out.println("Please choose what do you want to update :");
+        System.out.println("a - Name");
+        System.out.println("b - Age");
+        System.out.println("c - Mobile number");
+        System.out.println("d - None of these");
+        System.out.println();
+        System.out.print("Your Choice [a/b/c] > ");
+        option = sc.next().charAt(0);
+        System.out.println();
+
+        switch (option) {
+            case 'a' -> {
+                setName();
+                System.out.println();
+                System.out.println("Name updated SUCCESSFULLY.");
+            }
+            case 'b' -> {
+                setAge();
+                System.out.println();
+                System.out.println("Age updated SUCCESSFULLY.");
+            }
+            case 'c' -> {
+                setMobileNo();
+                System.out.println();
+                System.out.println("Mobile number updated SUCCESSFULLY.");
+            }
+            case 'd' -> System.out.println("Updating skipped.");
+            default -> System.out.println("Incorrect Option. Try again...");
+
+        }
+        updateInfoInDatabase();
     }
 
     public void deposit() {
@@ -127,7 +214,24 @@ public class Account extends Customer {
         this.forgotPasswordAns = forgotPasswordAns;
     }
 
+    public String getOpeningDateTime() {
+        return openingDateTime;
+    }
+
+    public void setOpeningDateTime(String openingDateTime) {
+        this.openingDateTime = openingDateTime;
+    }
+
     public int getWithdrawLimit() {
         return 0;
+    }
+
+    public String type() {
+        return "Account";
+    }
+
+    @Override
+    public String toString() {
+        return getAccountNo() + " " + getName();
     }
 }

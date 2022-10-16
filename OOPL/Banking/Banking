@@ -1,0 +1,253 @@
+classDiagram
+direction BT
+class Account {
+  + Account(String, int, String, double) 
+  - int accountNo
+  - double balance
+  - String forgotPasswordAns
+  - int password
+  - String openingDateTime
+  - String forgotPasswordIDs
+  + updateInfoInDatabase() void
+  + updateAccountBalance() void
+  + setData() void
+  + updateAccount() void
+  + forgotPasswordHandler() void
+  + toString() String
+  + createAccount() void
+  - generateAccNo() void
+  + generatePassword() void
+  + transfer() void
+  + getStatement() void
+  + withdraw() void
+  + depositAmount(double) void
+  + type() String
+  + deposit() void
+  + getData() void
+  + withdrawAmount(double) void
+   double balance
+   int password
+   int accountNo
+   int withdrawLimit
+   String forgotPasswordIDs
+   String forgotPasswordAns
+   String openingDateTime
+   int minBalance
+}
+class AccountException {
+  + AccountException(String) 
+  + AccountException(Exception) 
+   String shortMessage
+}
+class AccountsDatabase {
+  + AccountsDatabase() 
+  + getAccount(int) Account?
+  + isAccountExist(int) boolean
+  + getForgotQusAndAns(int) QusAnsPair?
+  + addAccount(int, int, String, double, String, int, String, String, String, String) void
+  + addAccount(Account) void
+  + updateBalance(int, double) void
+  + getAccountInfo(int) Map~String, String~?
+  + getPasswordForAcc(int) int
+  + updateAccount(int, int, String, int, String) void
+   List~Account~ allAccounts
+}
+class Bank {
+  ~ Bank() 
+  + createAccount() void
+  + accountLogin() void
+  + bankEmployeeLogin() void
+}
+class BankLogin {
+  + BankLogin() 
+  - getStatement() void
+  - updateInfo() void
+  - login() void
+  - logout() void
+  + handle() void
+  - bankInfo() void
+  - getRecentTransactions() void
+   Account? customerAccount
+   boolean connectionActive
+}
+class CurrentAccount {
+  + CurrentAccount() 
+  + CurrentAccount(String, int, String, double) 
+  + getData() void
+  + deposit() void
+  + setData() void
+  + withdraw() void
+  + transfer() void
+  + type() String
+   int minBalance
+   int withdrawLimit
+}
+class Customer {
+  ~ Customer(String, int, String) 
+  - String name
+  - int age
+  - String mobileNo
+  + setData() void
+  + setAge() void
+  + setName() void
+  + getData() void
+  + setMobileNo() void
+   String name
+   int age
+   String mobileNo
+}
+class CustomerLogin {
+  + CustomerLogin() 
+  - transfer() void
+  - withdraw() void
+  + handle() void
+  - logout() void
+  - getStatement() void
+  - showBalance() void
+  - deposit() void
+  - login() void
+  - getData() void
+  - updateProfile() void
+  - forgetPasswordReset(int) void
+   boolean connectionActive
+}
+class ForgetPasswordHandler {
+  + ForgetPasswordHandler() 
+  + askQus() QusAnsPair
+  - setQuestions() void
+  - askOneQus(Map~Character, String~, int) QusAnsPair
+  + getQuestionByID(char) String
+}
+class InsufficientFundException {
+  + InsufficientFundException(String) 
+  + InsufficientFundException() 
+   String shortMessage
+}
+class InvalidValueException {
+  + InvalidValueException(String) 
+  + InvalidValueException() 
+   String shortMessage
+}
+class LoginHandle {
+  + LoginHandle() 
+  - showBalance() void
+  - forgetPasswordReset(int) void
+  - updateProfile() void
+  - getStatement() void
+  - transfer() void
+  + handle() void
+  - withdraw() void
+  - deposit() void
+  - getData() void
+  - login() void
+  - logout() void
+   boolean connectionActive
+}
+class Main {
+  + Main() 
+  + main(String[]) void
+}
+class NegativeAmountException {
+  + NegativeAmountException(String) 
+  + NegativeAmountException() 
+   String shortMessage
+}
+class QusAnsPair {
+  + QusAnsPair(String, String) 
+}
+class SavingAccount {
+  + SavingAccount() 
+  + SavingAccount(String, int, String, double) 
+  + type() String
+  + transfer() void
+  + withdraw() void
+  + getData() void
+  + deposit() void
+  + setData() void
+   int minBalance
+   int withdrawLimit
+}
+class TableFormat {
+  + TableFormat() 
+  - fillCell(StringBuilder, String, int, Map~Integer, Integer~) void
+  + show(List~String~, List~List~String~~) void
+  - getMaximumWidhtofTable(List~String~, List~List~String~~) Map~Integer, Integer~
+  - getOptimumCellPadding(int, int, Map~Integer, Integer~, int) int
+  - fillSpace(StringBuilder, int) void
+  - createRowLine(StringBuilder, int, Map~Integer, Integer~) void
+}
+class TableFormat {
+  + TableFormat() 
+  - fillCell(StringBuilder, String, int, Map~Integer, Integer~) void
+  - createRowLine(StringBuilder, int, Map~Integer, Integer~) void
+  - getOptimumCellPadding(int, int, Map~Integer, Integer~, int) int
+  - fillSpace(StringBuilder, int) void
+  + show(List~String~, List~List~String~~) void
+  - getMaximumWidhtofTable(List~String~, List~List~String~~) Map~Integer, Integer~
+}
+class Transaction {
+  + Transaction(String, String, String, String, String, String, String, String) 
+  + Transaction(int, String, String, double, double, double, String, String) 
+  + Transaction(int, LocalDateTime, String, double, double, double, String, String) 
+   List~String~ transactionList
+   List~String~ allTransactionList
+}
+class Transactions {
+  + Transactions() 
+  + deposit(Account) void
+  + transfer(Account) void
+  + withdraw(Account) void
+  + currency(double) String
+}
+class TransactionsDatabase {
+  + TransactionsDatabase() 
+  + addTransaction(Transaction) void
+  + addTransaction(int, String, String, double, double, double, String, String) void
+  + getTransactions(int, boolean) List~Transaction~
+   List~Transaction~ allTransactions
+}
+class Valid {
+  + Valid() 
+  + isValidAge(String) boolean
+  + isValidWithdraw(Account, String) boolean
+  + isValidMobile(String) boolean
+  + isValidPassword(String) boolean
+  + isValidDeposit(Account, String) boolean
+  + isValidName(String) boolean
+  + isValidAccNo(int) boolean
+  + isValidTransfer(Account, String) boolean
+}
+class WithdrawLimitException {
+  + WithdrawLimitException(String) 
+  + WithdrawLimitException() 
+   String shortMessage
+}
+
+Account  ..>  CurrentAccount : «create»
+Account  -->  Customer 
+Account  ..>  SavingAccount : «create»
+AccountsDatabase  ..>  Account : «create»
+AccountsDatabase  ..>  CurrentAccount : «create»
+AccountsDatabase  ..>  QusAnsPair : «create»
+AccountsDatabase  ..>  SavingAccount : «create»
+Bank  ..>  BankLogin : «create»
+Bank  ..>  CustomerLogin : «create»
+BankLogin  ..>  InvalidValueException : «create»
+CurrentAccount  -->  Account 
+CustomerLogin "1" *--> "account 1" Account 
+ForgetPasswordHandler  ..>  QusAnsPair : «create»
+InsufficientFundException  -->  AccountException 
+InvalidValueException  -->  AccountException 
+LoginHandle "1" *--> "account 1" Account 
+Main  ..>  Bank : «create»
+NegativeAmountException  -->  AccountException 
+ForgetPasswordHandler  -->  QusAnsPair 
+SavingAccount  -->  Account 
+Transactions  -->  Transaction 
+Transactions  ..>  Transaction : «create»
+TransactionsDatabase  ..>  Transaction : «create»
+Valid  ..>  InsufficientFundException : «create»
+Valid  ..>  InvalidValueException : «create»
+Valid  ..>  NegativeAmountException : «create»
+Valid  ..>  WithdrawLimitException : «create»
+WithdrawLimitException  -->  AccountException 

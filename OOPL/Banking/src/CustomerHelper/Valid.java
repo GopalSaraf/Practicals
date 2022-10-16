@@ -1,7 +1,7 @@
-package Helper;
+package CustomerHelper;
 
 import Accounts.Account;
-import Database.Database;
+import Database.AccountsDatabase;
 import ExceptionHandling.*;
 
 public final class Valid {
@@ -38,7 +38,7 @@ public final class Valid {
     }
 
     public static boolean isValidAccNo(int accNo) {
-        return !Database.isAccountExist(accNo);
+        return !AccountsDatabase.isAccountExist(accNo);
     }
 
     public static boolean isValidDeposit(Account account, String depositAmtStr) throws AccountException {
@@ -46,12 +46,12 @@ public final class Valid {
         try {
             depositAmt = Double.parseDouble(depositAmtStr);
         } catch (Exception ignored) {
-            throw new AccountException(new InvalidValueException("Invalid amount entered."));
+            throw new InvalidValueException("Invalid amount entered.");
         }
         if (depositAmt <= 0)
-            throw new AccountException(new NegativeAmountException("Invalid amount (Amount should be greater than 0) .. Deposit failed!"));
+            throw new NegativeAmountException("Invalid amount (Amount should be greater than 0) .. Deposit failed!");
         if (account.getBalance() + depositAmt < account.getMinBalance())
-            throw new AccountException(new InsufficientFundException("Invalid amount (Minimum balance in account should be " + account.getMinBalance() + ") .. Deposit failed!"));
+            throw new InsufficientFundException("Invalid amount (Minimum balance in account should be " + account.getMinBalance() + ") .. Deposit failed!");
         return true;
     }
 
@@ -60,14 +60,14 @@ public final class Valid {
         try {
             withdrawAmt = Double.parseDouble(withdrawAmtStr);
         } catch (Exception ignored) {
-            throw new AccountException(new InvalidValueException("Invalid amount entered."));
+            throw new InvalidValueException("Invalid amount entered.");
         }
         if (withdrawAmt <= 0)
-            throw new AccountException(new NegativeAmountException("Invalid amount (Amount should be greater than 0) .. Withdrawal failed!"));
+            throw new NegativeAmountException("Invalid amount (Amount should be greater than 0) .. Withdrawal failed!");
         if (account.getBalance() - withdrawAmt < account.getMinBalance())
-            throw new AccountException(new InsufficientFundException("Invalid amount (Minimum balance in account should be " + account.getMinBalance() + ") .. Withdrawal failed!"));
+            throw new InsufficientFundException("Invalid amount (Minimum balance in account should be " + account.getMinBalance() + ") .. Withdrawal failed!");
         if (withdrawAmt > account.getWithdrawLimit())
-            throw new AccountException(new WithdrawLimitException("Invalid amount (Maximum balance of withdrawal should be " + account.getWithdrawLimit() + ") .. Withdrawal failed!"));
+            throw new WithdrawLimitException("Invalid amount (Maximum balance of withdrawal should be " + account.getWithdrawLimit() + ") .. Withdrawal failed!");
         return true;
     }
 
@@ -76,12 +76,12 @@ public final class Valid {
         try {
             transferAmt = Double.parseDouble(transferAmtStr);
         } catch (Exception ignored) {
-            throw new AccountException(new InvalidValueException("Invalid amount entered."));
+            throw new InvalidValueException("Invalid amount entered.");
         }
         if (transferAmt <= 0)
-            throw new AccountException(new NegativeAmountException("Invalid amount (Amount should be greater than 0) .. Transfer failed!"));
+            throw new NegativeAmountException("Invalid amount (Amount should be greater than 0) .. Transfer failed!");
         if (account.getBalance() - transferAmt < account.getMinBalance())
-            throw new AccountException(new InsufficientFundException("Invalid amount (Minimum balance in account should be " + account.getMinBalance() + ") .. Transfer failed!"));
+            throw new InsufficientFundException("Invalid amount (Minimum balance in account should be " + account.getMinBalance() + ") .. Transfer failed!");
         return true;
     }
 }

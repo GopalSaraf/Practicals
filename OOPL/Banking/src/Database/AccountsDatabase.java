@@ -3,18 +3,19 @@ package Database;
 import Accounts.Account;
 import Accounts.CurrentAccount;
 import Accounts.SavingAccount;
-import Helper.ForgetPasswordHandler.QusAnsPair;
+import CustomerHelper.ForgetPasswordHandler.QusAnsPair;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
-public final class Database {
-    private static final String path = "accounts.csv";
-    private static final File file = new File(path);
-    private static final Map<String, Integer> columns = Map.of(
-            "accNo", 0,
+public final class AccountsDatabase {
+    private static final String accountsPath = "./src/Database/accounts.csv";
+    private static final File accountsFile = new File(accountsPath);
+
+    private static final Map<String, Integer> accountsColumns = Map.of(
+            "accountNo", 0,
             "password", 1,
             "type", 2,
             "balance", 3,
@@ -22,14 +23,16 @@ public final class Database {
             "age", 5,
             "mobileNo", 6,
             "forgotPasswordIDs", 7,
-            "forgotPasswordAns", 8);
-    private static final int noOfColumns = columns.size();
+            "forgotPasswordAns", 8,
+            "datetime", 9
+    );
+    private static final int noOfColumns = accountsColumns.size();
 
-    public static void addAccount(int accNo, int password, String type, double balance, String name, int age,
-                                  String mobileNo, String forgotPasswordIDs, String forgotPasswordAns) {
+    public static void addAccount(int accountNo, int password, String type, double balance, String name, int age,
+                                  String mobileNo, String forgotPasswordIDs, String forgotPasswordAns, String datetime) {
         try {
-            PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
-            pw.append(String.valueOf(accNo))
+            PrintWriter pw = new PrintWriter(new FileOutputStream(accountsFile, true));
+            pw.append(String.valueOf(accountNo))
                     .append(",")
                     .append(String.valueOf(password))
                     .append(",")
@@ -46,6 +49,8 @@ public final class Database {
                     .append(forgotPasswordIDs)
                     .append(",")
                     .append(forgotPasswordAns)
+                    .append(",")
+                    .append(datetime)
                     .append("\n");
             pw.close();
         } catch (Exception ignored) {
@@ -53,28 +58,24 @@ public final class Database {
     }
 
     public static void addAccount(Account acc) {
-        String type = "";
-        if (acc instanceof SavingAccount) {
-            type = "saving";
-        } else if (acc instanceof CurrentAccount) {
-            type = "current";
-        }
         addAccount(
                 acc.getAccountNo(),
                 acc.getPassword(),
-                type,
+                acc.type(),
                 acc.getBalance(),
                 acc.getName(),
                 acc.getAge(),
                 acc.getMobileNo(),
                 acc.getForgotPasswordIDs(),
-                acc.getForgotPasswordAns());
+                acc.getForgotPasswordAns(),
+                acc.getOpeningDateTime()
+        );
     }
 
-    public static Map<String, String> getAccountInfo(int accNo) {
+    public static Map<String, String> getAccountInfo(int accountNo) {
         try {
             Map<String, String> accountDetails = new HashMap<>(Map.of(
-                    "accNo", "",
+                    "accountNo", "",
                     "password", "",
                     "type", "",
                     "balance", "",
@@ -82,15 +83,17 @@ public final class Database {
                     "age", "",
                     "mobileNo", "",
                     "forgotPasswordIDs", "",
-                    "forgotPasswordAns", ""));
-            BufferedReader br = new BufferedReader(new FileReader(path));
+                    "forgotPasswordAns", "",
+                    "datetime", ""
+            ));
+            BufferedReader br = new BufferedReader(new FileReader(accountsPath));
             String stream;
             while ((stream = br.readLine()) != null) {
                 String[] data = stream.split(",");
-                if (accNo == Integer.parseInt(data[columns.get("accNo")])) {
+                if (accountNo == Integer.parseInt(data[accountsColumns.get("accountNo")])) {
                     for (int i = 0; i < noOfColumns; i++) {
                         String key = accountDetails.keySet().toArray(new String[0])[i];
-                        String value = data[columns.get(key)];
+                        String value = data[accountsColumns.get(key)];
                         accountDetails.put(key, value);
                     }
                     return accountDetails;
@@ -101,8 +104,8 @@ public final class Database {
         return null;
     }
 
-    public static Account getAccount(int accNo) {
-        Map<String, String> accountInfo = getAccountInfo(accNo);
+    public static Account getAccount(int accountNo) {
+        Map<String, String> accountInfo = getAccountInfo(accountNo);
         if (accountInfo == null)
             return null;
         Account acc;
@@ -113,30 +116,32 @@ public final class Database {
         String mobileNo = accountInfo.get("mobileNo");
         String forgotPasswordIDs = accountInfo.get("forgotPasswordIDs");
         String forgotPasswordAns = accountInfo.get("forgotPasswordAns");
+        String datetime = accountInfo.get("datetime");
         if (Objects.equals(accountInfo.get("type"), "saving"))
             acc = new SavingAccount(name, age, mobileNo, balance);
         else if (Objects.equals(accountInfo.get("type"), "current"))
             acc = new CurrentAccount(name, age, mobileNo, balance);
         else
             acc = new Account(name, age, mobileNo, balance);
-        acc.setAccountNo(accNo);
+        acc.setAccountNo(accountNo);
         acc.setPassword(password);
         acc.setForgotPasswordIDs(forgotPasswordIDs);
         acc.setForgotPasswordAns(forgotPasswordAns);
+        acc.setOpeningDateTime(datetime);
         return acc;
     }
 
-    public static void updateBalance(int accNo, double newBalance) {
+    public static void updateBalance(int accountNo, double newBalance) {
         StringBuffer sb = new StringBuffer();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
+            BufferedReader br = new BufferedReader(new FileReader(accountsPath));
             String stream;
             while ((stream = br.readLine()) != null) {
                 String[] data = stream.split(",");
-                if (accNo == Integer.parseInt(data[columns.get("accNo")])) {
+                if (accountNo == Integer.parseInt(data[accountsColumns.get("accountNo")])) {
                     StringBuilder row = new StringBuilder();
                     for (int i = 0; i < noOfColumns; i++) {
-                        if (i == columns.get("balance")) {
+                        if (i == accountsColumns.get("balance")) {
                             row.append(newBalance);
                         } else {
                             row.append(data[i]);
@@ -150,30 +155,30 @@ public final class Database {
                     sb.append(stream).append("\n");
                 }
             }
-            PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
+            PrintWriter pw = new PrintWriter(new FileOutputStream(accountsFile, false));
             pw.print(sb);
             pw.close();
         } catch (Exception ignored) {
         }
     }
 
-    public static void updateAccount(int accNo, int password, String name, int age, String mobileNo) {
+    public static void updateAccount(int accountNo, int password, String name, int age, String mobileNo) {
         StringBuffer sb = new StringBuffer();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
+            BufferedReader br = new BufferedReader(new FileReader(accountsPath));
             String stream;
             while ((stream = br.readLine()) != null) {
                 String[] data = stream.split(",");
-                if (accNo == Integer.parseInt(data[columns.get("accNo")])) {
+                if (accountNo == Integer.parseInt(data[accountsColumns.get("accountNo")])) {
                     StringBuilder row = new StringBuilder();
                     for (int i = 0; i < noOfColumns; i++) {
-                        if (i == columns.get("password")) {
+                        if (i == accountsColumns.get("password")) {
                             row.append(password);
-                        } else if (i == columns.get("name")) {
+                        } else if (i == accountsColumns.get("name")) {
                             row.append(name);
-                        } else if (i == columns.get("age")) {
+                        } else if (i == accountsColumns.get("age")) {
                             row.append(age);
-                        } else if (i == columns.get("mobileNo")) {
+                        } else if (i == accountsColumns.get("mobileNo")) {
                             row.append(mobileNo);
                         } else {
                             row.append(data[i]);
@@ -187,20 +192,26 @@ public final class Database {
                     sb.append(stream).append("\n");
                 }
             }
-            PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
+            PrintWriter pw = new PrintWriter(new FileOutputStream(accountsFile, false));
             pw.print(sb);
             pw.close();
         } catch (Exception ignored) {
         }
     }
 
-    public static boolean isAccountExist(int accNo) {
+    /**
+     * To check if account exist in database or not
+     *
+     * @param accountNo A {@code int} Account number
+     * @return A {@code boolean} value {@code true} if account exist with given account number else {@code false}
+     */
+    public static boolean isAccountExist(int accountNo) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
+            BufferedReader br = new BufferedReader(new FileReader(accountsPath));
             String stream;
             while ((stream = br.readLine()) != null) {
                 String[] data = stream.split(",");
-                if (accNo == Integer.parseInt(data[columns.get("accNo")])) {
+                if (accountNo == Integer.parseInt(data[accountsColumns.get("accountNo")])) {
                     return true;
                 }
             }
@@ -209,16 +220,31 @@ public final class Database {
         return false;
     }
 
-    public static int getPasswordForAcc(int accNo) {
-        return Integer.parseInt(Objects.requireNonNull(getAccountInfo(accNo)).get("password"));
+    public static int getPasswordForAcc(int accountNo) {
+        return Integer.parseInt(Objects.requireNonNull(getAccountInfo(accountNo)).get("password"));
     }
 
-    public static QusAnsPair getForgotQusAndAns(int accNo) {
-        Map<String, String> accountInfo = getAccountInfo(accNo);
+    public static QusAnsPair getForgotQusAndAns(int accountNo) {
+        Map<String, String> accountInfo = getAccountInfo(accountNo);
         if (accountInfo == null)
             return null;
         String forgotPasswordIDs = accountInfo.get("forgotPasswordIDs");
         String forgotPasswordAns = accountInfo.get("forgotPasswordAns");
         return new QusAnsPair(forgotPasswordIDs, forgotPasswordAns);
+    }
+
+    public static List<Account> getAllAccounts() {
+        List<Account> accounts = new ArrayList<>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(accountsPath));
+            String stream;
+            while ((stream = br.readLine()) != null) {
+                String[] data = stream.split(",");
+                int accNo = Integer.parseInt(data[accountsColumns.get("accountNo")]);
+                accounts.add(getAccount(accNo));
+            }
+        } catch (Exception ignored) {
+        }
+        return accounts;
     }
 }
