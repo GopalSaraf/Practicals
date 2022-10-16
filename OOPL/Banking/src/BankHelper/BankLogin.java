@@ -78,7 +78,7 @@ public class BankLogin {
             rowsList.add(row);
 
             totalBalance += account.getBalance();
-            if (Objects.equals(account.type().toLowerCase(), "saving"))
+            if (Objects.equals(account.type(), Account.SAVING))
                 savingAccountCount++;
             else
                 currentAccountCount++;
@@ -88,7 +88,7 @@ public class BankLogin {
         System.out.println();
         System.out.println("Current bank balance : " + Transactions.currency(totalBalance));
         System.out.println();
-        System.out.println("Currently active accounts : " + savingAccountCount + currentAccountCount);
+        System.out.println("Currently active accounts : " + (savingAccountCount + currentAccountCount));
         System.out.println("Active saving accounts : " + savingAccountCount);
         System.out.println("Active current accounts : " + currentAccountCount);
         System.out.println();
@@ -139,7 +139,9 @@ public class BankLogin {
         List<List<String>> rowsList = new ArrayList<>();
 
         for (Transactions.Transaction transaction : transactions) {
-            rowsList.add(transaction.getAllTransactionList());
+            var transactionDetails = transaction.getAllTransactionList();
+            transactionDetails.add(0, String.valueOf(transaction.accountNo));
+            rowsList.add(transactionDetails);
         }
 
         System.out.println("Recent bank transactions : ");
@@ -177,7 +179,6 @@ public class BankLogin {
         isLoggedIn = true;
         System.out.println();
         System.out.println("Successfully logged in.");
-        System.out.println();
     }
 
     private void logout() {

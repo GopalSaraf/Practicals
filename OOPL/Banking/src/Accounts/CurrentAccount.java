@@ -65,6 +65,6 @@ public class CurrentAccount extends Account {
 
     @Override
     public String type() {
-        return "Current";
+        return Account.CURRENT;
     }
 }

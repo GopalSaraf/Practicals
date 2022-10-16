@@ -6,8 +6,6 @@ import Accounts.SavingAccount;
 import CustomerHelper.ForgetPasswordHandler.QusAnsPair;
 
 import java.io.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public final class AccountsDatabase {
@@ -117,9 +115,9 @@ public final class AccountsDatabase {
         String forgotPasswordIDs = accountInfo.get("forgotPasswordIDs");
         String forgotPasswordAns = accountInfo.get("forgotPasswordAns");
         String datetime = accountInfo.get("datetime");
-        if (Objects.equals(accountInfo.get("type"), "saving"))
+        if (Objects.equals(accountInfo.get("type"), Account.SAVING))
             acc = new SavingAccount(name, age, mobileNo, balance);
-        else if (Objects.equals(accountInfo.get("type"), "current"))
+        else if (Objects.equals(accountInfo.get("type"), Account.CURRENT))
             acc = new CurrentAccount(name, age, mobileNo, balance);
         else
             acc = new Account(name, age, mobileNo, balance);

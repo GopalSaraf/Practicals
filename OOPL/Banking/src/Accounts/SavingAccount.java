@@ -65,6 +65,6 @@ public class SavingAccount extends Account {
 
     @Override
     public String type() {
-        return "Saving";
+        return Account.SAVING;
     }
 }

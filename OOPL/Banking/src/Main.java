@@ -34,23 +34,4 @@ public class Main {
             }
         }
     }
-
-//    public static void main(String[] args){
-//        var trans = TransactionsDatabase.getTransactions(5678);
-//
-//        List<String> headersList = new ArrayList<>();
-//        headersList.add("Date & Time");
-//        headersList.add("Transaction");
-//        headersList.add("Debit");
-//        headersList.add("Credit");
-//        headersList.add("Balance");
-//
-//        List<List<String>> rowsList = new ArrayList<>();
-//
-//        for (Transactions.Transaction tran : trans) {
-//            rowsList.add(tran.getTransactionList());
-//        }
-//
-//        Statement.show(headersList, rowsList);
-//    }
 }

@@ -1,5 +1,7 @@
 package Accounts;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import static CustomerHelper.Valid.*;
@@ -9,6 +11,8 @@ public class Customer {
     private String name;
     private int age;
     private String mobileNo;
+    private String openingDateTime;
+
 
     Customer(String name, int age, String mobileNo) {
         this.name = name;
@@ -17,6 +21,9 @@ public class Customer {
     }
 
     public void setData() {
+        DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        openingDateTime = LocalDateTime.now().format(DATE_TIME_FORMATTER);
+
         setName();
         setAge();
         setMobileNo();
@@ -74,5 +81,13 @@ public class Customer {
 
     public String getMobileNo() {
         return mobileNo;
+    }
+
+    public String getOpeningDateTime() {
+        return openingDateTime;
+    }
+
+    public void setOpeningDateTime(String openingDateTime) {
+        this.openingDateTime = openingDateTime;
     }
 }

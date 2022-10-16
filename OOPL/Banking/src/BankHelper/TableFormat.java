@@ -6,7 +6,7 @@ import java.util.Map;
 
 public final class TableFormat {
 
-    private static final int PADDING_SIZE = 4;
+    private static final int PADDING_SIZE = 2;
     private static final String NEW_LINE = "\n";
     private static final String TABLE_JOINT_SYMBOL = "+";
     private static final String TABLE_V_SPLIT_SYMBOL = "|";

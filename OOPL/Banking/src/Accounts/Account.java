@@ -19,7 +19,9 @@ public class Account extends Customer {
     private String forgotPasswordIDs;
     private String forgotPasswordAns;
 
-    private String openingDateTime;
+    public static final String ACCOUNT = "Account";
+    public static final String SAVING = "Saving";
+    public static final String CURRENT = "Current";
 
     public Account(String name, int age, String mobileNo, double balance) {
         super(name, age, mobileNo);
@@ -55,6 +57,7 @@ public class Account extends Customer {
         generateAccNo();
         generatePassword();
         forgotPasswordHandler();
+
     }
 
     @Override
@@ -214,20 +217,12 @@ public class Account extends Customer {
         this.forgotPasswordAns = forgotPasswordAns;
     }
 
-    public String getOpeningDateTime() {
-        return openingDateTime;
-    }
-
-    public void setOpeningDateTime(String openingDateTime) {
-        this.openingDateTime = openingDateTime;
-    }
-
     public int getWithdrawLimit() {
         return 0;
     }
 
     public String type() {
-        return "Account";
+        return Account.ACCOUNT;
     }
 
     @Override
