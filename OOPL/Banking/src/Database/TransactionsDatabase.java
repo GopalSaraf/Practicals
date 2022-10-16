@@ -121,7 +121,7 @@ public final class TransactionsDatabase {
                         )
                 );
             }
-
+            br.close();
         } catch (Exception ignored) {
         }
         return transactions;
