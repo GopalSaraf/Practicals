@@ -89,6 +89,13 @@ public final class Transactions {
 
         Account receiver = AccountsDatabase.getAccount(recAccNo);
         assert receiver != null;
+
+        if (sender.getAccountNo() == receiver.getAccountNo()) {
+            System.out.println();
+            System.out.println("Sorry, You can't transfer to your own.");
+            return;
+        }
+
         System.out.println();
         System.out.println("Confirm the name of receiver : " + receiver.getName());
         System.out.print("Do you want to continue transfer [Y/n] > ");

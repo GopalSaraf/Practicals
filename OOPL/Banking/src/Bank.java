@@ -2,8 +2,6 @@ import Accounts.Account;
 import BankHelper.BankLogin;
 import CustomerHelper.CustomerLogin;
 
-import java.util.Scanner;
-
 public class Bank {
 
     Bank() {

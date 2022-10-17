@@ -8,7 +8,7 @@ public class ForgetPasswordHandler {
 
     public static int minNoOfQus = 3;
 
-    private static final Map<Character, String> questions = new HashMap<>();
+    public static final Map<Character, String> questions = new HashMap<>();
 
     private static final Scanner sc = new Scanner(System.in);
 

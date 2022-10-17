@@ -20,7 +20,6 @@ public final class TableFormat {
 
         Map<Integer, Integer> columnMaxWidthMapping = getMaximumWidhtofTable(headersList, rowsList);
 
-        stringBuilder.append(NEW_LINE);
         createRowLine(stringBuilder, headersList.size(), columnMaxWidthMapping);
         stringBuilder.append(NEW_LINE);
 
