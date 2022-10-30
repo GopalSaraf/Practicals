@@ -1,4 +1,4 @@
-package BankHelper;
+package Helper.BankHelper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +12,6 @@ public final class TableFormat {
     private static final String TABLE_V_SPLIT_SYMBOL = "|";
     private static final String TABLE_H_SPLIT_SYMBOL = "-";
 
-
     public static void show(List<String> headersList, List<List<String>> rowsList) {
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -23,7 +22,6 @@ public final class TableFormat {
         createRowLine(stringBuilder, headersList.size(), columnMaxWidthMapping);
         stringBuilder.append(NEW_LINE);
 
-
         for (int headerIndex = 0; headerIndex < headersList.size(); headerIndex++) {
             fillCell(stringBuilder, headersList.get(headerIndex), headerIndex, columnMaxWidthMapping);
         }
@@ -31,7 +29,6 @@ public final class TableFormat {
         stringBuilder.append(NEW_LINE);
 
         createRowLine(stringBuilder, headersList.size(), columnMaxWidthMapping);
-
 
         for (List<String> row : rowsList) {
 
@@ -57,7 +54,8 @@ public final class TableFormat {
         }
     }
 
-    private static void createRowLine(StringBuilder stringBuilder, int headersListSize, Map<Integer, Integer> columnMaxWidthMapping) {
+    private static void createRowLine(StringBuilder stringBuilder, int headersListSize,
+            Map<Integer, Integer> columnMaxWidthMapping) {
         for (int i = 0; i < headersListSize; i++) {
             if (i == 0) {
                 stringBuilder.append(TABLE_JOINT_SYMBOL);
@@ -69,7 +67,6 @@ public final class TableFormat {
             stringBuilder.append(TABLE_JOINT_SYMBOL);
         }
     }
-
 
     private static Map<Integer, Integer> getMaximumWidhtofTable(List<String> headersList, List<List<String>> rowsList) {
         Map<Integer, Integer> columnMaxWidthMapping = new HashMap<>();
@@ -84,7 +81,6 @@ public final class TableFormat {
                 columnMaxWidthMapping.put(columnIndex, headersList.get(columnIndex).length());
             }
         }
-
 
         for (List<String> row : rowsList) {
 
@@ -103,11 +99,11 @@ public final class TableFormat {
             }
         }
 
-
         return columnMaxWidthMapping;
     }
 
-    private static int getOptimumCellPadding(int cellIndex, int datalength, Map<Integer, Integer> columnMaxWidthMapping, int cellPaddingSize) {
+    private static int getOptimumCellPadding(int cellIndex, int datalength, Map<Integer, Integer> columnMaxWidthMapping,
+            int cellPaddingSize) {
         if (datalength % 2 != 0) {
             datalength++;
         }
@@ -119,7 +115,8 @@ public final class TableFormat {
         return cellPaddingSize;
     }
 
-    private static void fillCell(StringBuilder stringBuilder, String cell, int cellIndex, Map<Integer, Integer> columnMaxWidthMapping) {
+    private static void fillCell(StringBuilder stringBuilder, String cell, int cellIndex,
+            Map<Integer, Integer> columnMaxWidthMapping) {
 
         int cellPaddingSize = getOptimumCellPadding(cellIndex, cell.length(), columnMaxWidthMapping, PADDING_SIZE);
 
@@ -139,4 +136,3 @@ public final class TableFormat {
 
     }
 }
-

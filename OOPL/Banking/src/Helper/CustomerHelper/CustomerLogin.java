@@ -1,7 +1,8 @@
-package CustomerHelper;
+package Helper.CustomerHelper;
 
 import Accounts.Account;
 import Database.AccountsDatabase;
+import Helper.BankHelper.Transactions;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -141,8 +142,10 @@ public final class CustomerLogin {
             for (int i = 0; i < questionIDs.length; i++) {
                 System.out.print(ForgetPasswordHandler.getQuestionByID(questionIDs[i].charAt(0)) + " > ");
                 answer = sc.nextLine();
-                if (Objects.equals(answer, answers[i])) correctCounts++;
-                if (correctCounts == ForgetPasswordHandler.minNoOfQus) break;
+                if (Objects.equals(answer, answers[i]))
+                    correctCounts++;
+                if (correctCounts == ForgetPasswordHandler.minNoOfQus)
+                    break;
             }
 
             if (correctCounts >= ForgetPasswordHandler.minNoOfQus) {

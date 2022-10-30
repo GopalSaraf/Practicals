@@ -1,7 +1,6 @@
-package BankHelper;
+package Helper.BankHelper;
 
 import Accounts.Account;
-import CustomerHelper.Transactions;
 import Database.AccountsDatabase;
 import Database.TransactionsDatabase;
 import ExceptionHandling.InvalidValueException;
@@ -99,7 +98,8 @@ public class BankLogin {
 
     private void getStatement() {
         var customerAcc = getCustomerAccount();
-        if (customerAcc == null) return;
+        if (customerAcc == null)
+            return;
 
         var transactions = TransactionsDatabase.getTransactions(customerAcc.getAccountNo(), false);
 
@@ -151,7 +151,8 @@ public class BankLogin {
 
     private void updateInfo() {
         var customerAcc = getCustomerAccount();
-        if (customerAcc == null) return;
+        if (customerAcc == null)
+            return;
         customerAcc.updateAccount();
     }
 

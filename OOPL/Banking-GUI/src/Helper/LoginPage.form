@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Helper.LoginPage">
+  <grid id="27dc6" binding="LoginPage" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="1158" height="562"/>
+    </constraints>
+    <properties>
+      <background color="-2588"/>
+    </properties>
+    <border type="empty"/>
+    <children>
+      <grid id="52d50" binding="upper_left" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <background color="-2588"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="3dc1e" class="javax.swing.JLabel" binding="logo" custom-create="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="1a555" binding="upper_right" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="0" bottom="0" right="100"/>
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <background color="-2588"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="feeaa" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="4" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <focusable value="false"/>
+              <font name="Avenir Next" size="72" style="1"/>
+              <foreground color="-13232038"/>
+              <iconTextGap value="4"/>
+              <inheritsPopupMenu value="false"/>
+              <text value="PICT"/>
+            </properties>
+          </component>
+          <component id="c4016" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Avenir Next" size="72" style="1"/>
+              <foreground color="-4422424"/>
+              <text value="BANK"/>
+            </properties>
+          </component>
+          <hspacer id="13a96">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
+      <grid id="7b60e" binding="lower_right" layout-manager="GridLayoutManager" row-count="11" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="100" right="100"/>
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <background color="-2588"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="e75cc" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="99" height="16"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="Avenir Next" size="18" style="1"/>
+              <foreground color="-9022310"/>
+              <text value="Username OR"/>
+            </properties>
+          </component>
+          <component id="bd565" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="99" height="16"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="Avenir Next" size="18" style="1"/>
+              <foreground color="-9022310"/>
+              <text value="Account Number"/>
+            </properties>
+          </component>
+          <component id="4eaf5" class="javax.swing.JTextField" binding="accNoTF">
+            <constraints>
+              <grid row="3" column="4" row-span="2" col-span="2" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
+                <preferred-size width="250" height="15"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <dropMode value="USE_SELECTION"/>
+              <editable value="true"/>
+              <font name="Avenir Next" size="16"/>
+              <foreground color="-7111230"/>
+              <horizontalAlignment value="10"/>
+              <inheritsPopupMenu value="false"/>
+              <margin top="2" left="6" bottom="2" right="6"/>
+              <text value="Username OR Account Number"/>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="e9f7a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="99" height="16"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="Avenir Next" size="18" style="1"/>
+              <foreground color="-9022310"/>
+              <text value="Password "/>
+            </properties>
+          </component>
+          <component id="1880f" class="javax.swing.JPasswordField" binding="passwordPF">
+            <constraints>
+              <grid row="7" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
+                <preferred-size width="250" height="15"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="Avenir Next" size="16"/>
+              <foreground color="-7111230"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="4b386" class="javax.swing.JButton" binding="loginBtn">
+            <constraints>
+              <grid row="9" column="2" row-span="1" col-span="4" vsize-policy="4" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="50"/>
+                <preferred-size width="300" height="20"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-198424"/>
+              <font name="Avenir Next" size="20" style="1"/>
+              <foreground color="-9022310"/>
+              <hideActionText value="false"/>
+              <text value="LOGIN"/>
+            </properties>
+            <clientProperties>
+              <html.disable class="java.lang.Boolean" value="false"/>
+            </clientProperties>
+          </component>
+          <component id="ccaf6" class="javax.swing.JLabel" binding="forgetPassword">
+            <constraints>
+              <grid row="8" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="50" height="30"/>
+              </grid>
+            </constraints>
+            <properties>
+              <autoscrolls value="true"/>
+              <background color="-2588"/>
+              <enabled value="true"/>
+              <font name="Avenir Next" size="12"/>
+              <foreground color="-9022310"/>
+              <inheritsPopupMenu value="false"/>
+              <opaque value="true"/>
+              <text value="Forget Password ?"/>
+              <visible value="true"/>
+            </properties>
+          </component>
+          <component id="fe035" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Avenir Next" size="24" style="1"/>
+              <foreground color="-7111174"/>
+              <text value="LOGIN TO YOUR ACCOUNT"/>
+            </properties>
+          </component>
+          <component id="d9f9f" class="javax.swing.JLabel" binding="createAccount">
+            <constraints>
+              <grid row="10" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-6409"/>
+              <font name="Avenir Next" size="12"/>
+              <foreground color="-9022310"/>
+              <text value="Don't have an account ? Create Account"/>
+            </properties>
+          </component>
+          <component id="d7342" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="16" style="1"/>
+              <foreground color="-9022310"/>
+              <text value=":"/>
+            </properties>
+          </component>
+          <component id="22b57" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="16" style="1"/>
+              <foreground color="-9022310"/>
+              <text value=":"/>
+            </properties>
+          </component>
+          <hspacer id="647f5">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="e3792">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="406b0" class="javax.swing.JLabel" binding="errorMsg">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="-1" height="15"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-2588"/>
+              <font name="Avenir Next" size="20" style="1"/>
+              <foreground color="-4253939"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <vspacer id="a1b10">
+            <constraints>
+              <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <preferred-size width="160" height="14"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <component id="df0af" class="javax.swing.JLabel" binding="userIcon" custom-create="true">
+            <constraints>
+              <grid row="3" column="1" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="1f4ae" class="javax.swing.JLabel" binding="passIcon" custom-create="true">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="e6f18" class="javax.swing.JLabel" binding="forgetUsername">
+            <constraints>
+              <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="50" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <autoscrolls value="true"/>
+              <background color="-2588"/>
+              <enabled value="true"/>
+              <font name="Avenir Next" size="12"/>
+              <foreground color="-9022310"/>
+              <inheritsPopupMenu value="false"/>
+              <opaque value="true"/>
+              <text value="Forget Username ?"/>
+              <visible value="true"/>
+            </properties>
+          </component>
+          <vspacer id="b95c">
+            <constraints>
+              <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+        </children>
+      </grid>
+      <grid id="30f49" binding="lower_left" layout-manager="GridLayoutManager" row-count="11" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="30" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-2588"/>
+          <foreground color="-6409"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="bffb0" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="16" style="1"/>
+              <foreground color="-13232038"/>
+              <text value="  Useful Information :"/>
+            </properties>
+          </component>
+          <component id="ad76e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="14" style="0"/>
+              <foreground color="-13232038"/>
+              <text value="- If you are new user, click on create"/>
+            </properties>
+          </component>
+          <component id="170c9" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="14" style="0"/>
+              <foreground color="-13232038"/>
+              <text value="   remember your password."/>
+            </properties>
+          </component>
+          <component id="5e7c9" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="14" style="0"/>
+              <foreground color="-13232038"/>
+              <text value="- Click on forget password if you don't"/>
+            </properties>
+          </component>
+          <component id="45899" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="14" style="0"/>
+              <foreground color="-13232038"/>
+              <text value="- Username and Password are case sensitive."/>
+            </properties>
+          </component>
+          <component id="1adc6" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="14" style="0"/>
+              <foreground color="-13232038"/>
+              <text value="- Enter valid username OR password."/>
+            </properties>
+          </component>
+          <component id="86069" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="14" style="0"/>
+              <foreground color="-13232038"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="ea9f0" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-9022310"/>
+              <font name="Avenir Next" size="14" style="0"/>
+              <foreground color="-13232038"/>
+              <text value="   account to create new account."/>
+            </properties>
+          </component>
+          <hspacer id="9e9cf">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="abcde">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <vspacer id="dd010">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="8ba70">
+            <constraints>
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="8b113">
+            <constraints>
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <hspacer id="2fdea">
+            <constraints>
+              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

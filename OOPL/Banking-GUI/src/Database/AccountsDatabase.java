@@ -3,7 +3,7 @@ package Database;
 import Accounts.Account;
 import Accounts.CurrentAccount;
 import Accounts.SavingAccount;
-import Helper.CustomerHelper.ForgetPasswordHandler.QusAnsPair;
+//import Helper.CustomerHelper.ForgetPasswordHandler.QusAnsPair;
 
 import java.io.*;
 import java.util.*;
@@ -220,14 +220,14 @@ public final class AccountsDatabase {
         return Integer.parseInt(Objects.requireNonNull(getAccountInfo(accountNo)).get("password"));
     }
 
-    public static QusAnsPair getForgotQusAndAns(int accountNo) {
-        Map<String, String> accountInfo = getAccountInfo(accountNo);
-        if (accountInfo == null)
-            return null;
-        String forgotPasswordIDs = accountInfo.get("forgotPasswordIDs");
-        String forgotPasswordAns = accountInfo.get("forgotPasswordAns");
-        return new QusAnsPair(forgotPasswordIDs, forgotPasswordAns);
-    }
+//    public static QusAnsPair getForgotQusAndAns(int accountNo) {
+//        Map<String, String> accountInfo = getAccountInfo(accountNo);
+//        if (accountInfo == null)
+//            return null;
+//        String forgotPasswordIDs = accountInfo.get("forgotPasswordIDs");
+//        String forgotPasswordAns = accountInfo.get("forgotPasswordAns");
+//        return new QusAnsPair(forgotPasswordIDs, forgotPasswordAns);
+//    }
 
     public static List<Account> getAllAccounts() {
         List<Account> accounts = new ArrayList<>();

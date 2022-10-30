@@ -1,4 +1,4 @@
-package CustomerHelper;
+package Helper.CustomerHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,7 +65,8 @@ public class ForgetPasswordHandler {
 
         char wantToContinue;
         while (true) {
-            if (myQuestions.isEmpty()) break;
+            if (myQuestions.isEmpty())
+                break;
             System.out.println();
             System.out.print("Do you want to continue asking more questions? [Y/n] > ");
             wantToContinue = sc.next().charAt(0);

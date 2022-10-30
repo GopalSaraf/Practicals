@@ -1,4 +1,4 @@
-package CustomerHelper;
+package Helper.BankHelper;
 
 import Accounts.Account;
 import Database.AccountsDatabase;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static CustomerHelper.Valid.*;
+import static Helper.CustomerHelper.Valid.*;
 
 public final class Transactions {
 
@@ -165,8 +165,7 @@ public final class Transactions {
         public static final String FAIL = "Unsuccessful";
         public static final String PROCESSING = "Processing";
 
-        private static final DateTimeFormatter DATE_TIME_FORMATTER =
-                DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
         public int accountNo;
         public String dateTime;
@@ -179,7 +178,7 @@ public final class Transactions {
         public String reason;
 
         public Transaction(int accountNo, String dateTime, String transaction, double depositAmount,
-                           double withdrawAmount, double balance, String status, String reason) {
+                double withdrawAmount, double balance, String status, String reason) {
             this.accountNo = accountNo;
             this.dateTime = dateTime;
             this.transaction = transaction;
@@ -191,13 +190,13 @@ public final class Transactions {
         }
 
         public Transaction(int accountNo, LocalDateTime dateTime, String transaction, double depositAmount,
-                           double withdrawAmount, double balance, String status, String reason) {
+                double withdrawAmount, double balance, String status, String reason) {
             this(accountNo, dateTime.format(DATE_TIME_FORMATTER), transaction,
                     depositAmount, withdrawAmount, balance, status, reason);
         }
 
         public Transaction(String accountNo, String dateTime, String transaction, String depositAmount,
-                           String withdrawAmount, String balance, String status, String reason) {
+                String withdrawAmount, String balance, String status, String reason) {
             this(
                     Integer.parseInt(accountNo),
                     dateTime,
@@ -206,8 +205,7 @@ public final class Transactions {
                     Double.parseDouble(withdrawAmount),
                     Double.parseDouble(balance),
                     status,
-                    reason
-            );
+                    reason);
         }
 
         public List<String> getTransactionList() {

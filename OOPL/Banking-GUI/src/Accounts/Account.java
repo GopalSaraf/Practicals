@@ -56,14 +56,14 @@ public class Account extends Customer {
     /**
      * {@code String} forget password question IDs.
      * IDs are separated by
-     * {@value Helper.CustomerHelper.ForgetPasswordHandler.QusAnsPair#separator}.
-     * What are IDs and questions? - {@link ForgetPasswordHandler#questions}.
+     * {@value Helper.CustomerHelper.ForgetPasswordHandler#separator}.
+     * What are IDs and questions? - .
      */
     private String forgotPasswordIDs;
     /**
      * {@code String} forget password answers.
      * Answers are separated by
-     * {@value Helper.CustomerHelper.ForgetPasswordHandler.QusAnsPair#separator}.
+     * {@value Helper.CustomerHelper.ForgetPasswordHandler#separator}.
      */
     private String forgotPasswordAns;
 
@@ -195,9 +195,9 @@ public class Account extends Customer {
      * This is done with help of {@link ForgetPasswordHandler} Class.
      */
     public void forgotPasswordHandler() {
-        var qusAndAns = ForgetPasswordHandler.askQus();
-        setForgotPasswordIDs(qusAndAns.qusIDs);
-        setForgotPasswordAns(qusAndAns.answers);
+//        var qusAndAns = ForgetPasswordHandler.askQus();
+//        setForgotPasswordIDs(qusAndAns.qusIDs);
+//        setForgotPasswordAns(qusAndAns.answers);
     }
 
     /**
@@ -363,7 +363,7 @@ public class Account extends Customer {
      *
      * @param forgotPasswordIDs {@code String} forget password IDs to set
      *                          (Separated by
-     *                          {@value ForgetPasswordHandler.QusAnsPair#separator})
+     *                          {@value ForgetPasswordHandler#separator})
      */
     public void setForgotPasswordIDs(String forgotPasswordIDs) {
         this.forgotPasswordIDs = forgotPasswordIDs;
@@ -383,7 +383,7 @@ public class Account extends Customer {
      *
      * @param forgotPasswordAns {@code String} forget password answers to set
      *                          (Separated by
-     *                          {@value ForgetPasswordHandler.QusAnsPair#separator})
+     *                          {@value ForgetPasswordHandler#separator})
      */
     public void setForgotPasswordAns(String forgotPasswordAns) {
         this.forgotPasswordAns = forgotPasswordAns;
