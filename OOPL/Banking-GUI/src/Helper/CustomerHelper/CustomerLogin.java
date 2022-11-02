@@ -38,9 +38,9 @@ public final class CustomerLogin {
                 case 'b' -> this.deposit();
                 case 'c' -> this.withdraw();
                 case 'd' -> this.showBalance();
-                case 'e' -> this.getData();
+//                case 'e' -> this.getData();
                 case 'f' -> this.getStatement();
-                case 'g' -> this.updateProfile();
+//                case 'g' -> this.updateProfile();
                 case 'h' -> this.logout();
                 default -> {
                     System.out.println();
@@ -71,17 +71,17 @@ public final class CustomerLogin {
         System.out.println("Available balance : " + Transactions.currency(account.getBalance()));
     }
 
-    private void getData() {
-        account.getData();
-    }
+//    private void getData() {
+//        account.getData();
+//    }
 
     private void getStatement() {
         account.getStatement();
     }
 
-    private void updateProfile() {
-        account.updateAccount();
-    }
+//    private void updateProfile() {
+//        account.updateAccount();
+//    }
 
     private void login() {
         int accNo, userPassword, dbPassword, wrongCounts, noOfChances = 3;

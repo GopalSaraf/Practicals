@@ -10,9 +10,9 @@ public class Bank {
         System.out.println();
     }
 
-    public void createAccount() {
-        Account.createAccount();
-    }
+//    public void createAccount() {
+//        Account.createAccount();
+//    }
 
     public void accountLogin() {
         new CustomerLogin().handle();

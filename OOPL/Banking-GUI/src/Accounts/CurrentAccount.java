@@ -22,8 +22,8 @@ public class CurrentAccount extends Account {
      * @param mobileNo A {@code String} holding mobile number of the customer.
      * @param balance  A {@code double} holding the account balance.
      */
-    public CurrentAccount(String name, int age, String mobileNo, double balance) {
-        super(name, age, mobileNo, balance);
+    public CurrentAccount(String name, String dateOfBirth, String mobileNo, String emailID, double balance) {
+        super(name, dateOfBirth, mobileNo, emailID, balance);
     }
 
     /**
@@ -31,41 +31,7 @@ public class CurrentAccount extends Account {
      * to default values.
      */
     public CurrentAccount() {
-        this("", 18, "0000000000", 0);
-    }
-
-    /**
-     * This method is for taking data input from the user.
-     * First it will call {@link Account#setData()} to take input.
-     * Then it will call {@link CurrentAccount#deposit()} method to deposit money in
-     * the account.
-     * Finally, it will add the account to the database through
-     * {@link AccountsDatabase#addAccount(Account)}.
-     */
-    @Override
-    public void setData() {
-        super.setData();
-        while (getBalance() < getMinBalance()) {
-            deposit();
-        }
-        System.out.printf(CURRENT_ACCOUNT_CREATED, getAccountNo());
-        AccountsDatabase.addAccount(this);
-    }
-
-    /**
-     * This method will print all the information of current account.
-     * First it will call {@link Account#getData()} and then it will print
-     * account number, account opening date and time and balance in account.
-     */
-    @Override
-    public void getData() {
-        super.getData();
-        System.out.println(PRINT_ACCOUNT_INFO);
-        System.out.printf(PRINT_ACCOUNT_TYPE, "Current");
-        System.out.printf(PRINT_ACCOUNT_NUMBER, getAccountNo());
-        System.out.printf(PRINT_OPENING_TIME, getOpeningDateTime());
-        System.out.printf(PRINT_BALANCE, Transactions.currency(getBalance()));
-        System.out.println(PRINT_ENDING);
+        this("", "", "", "", 0);
     }
 
     /**

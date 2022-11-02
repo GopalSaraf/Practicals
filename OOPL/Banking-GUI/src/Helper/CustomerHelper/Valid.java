@@ -6,7 +6,7 @@ import ExceptionHandling.*;
 
 public final class Valid {
 
-    private static final boolean validation = true;
+    private static final boolean validation = false;
 
     public static boolean isValidName(String name) { // Name validation
         if (!validation)
@@ -43,6 +43,11 @@ public final class Valid {
     }
 
     public static boolean isValidUsername(String username) {
+        if (!AccountsDatabase.isUsernameUnique(username))
+            return false;
+        if (!validation)
+            return true;
+
         /*
         Regex username explanation :
 
@@ -66,12 +71,8 @@ public final class Valid {
     }
 
     public static boolean isValidPassword(String passwordStr) {
-//        try {
-//            int password = Integer.parseInt(passwordStr);
-//            return password >= 1000 && password <= 9999;
-//        } catch (Exception ignored) {
-//            return false;
-//        }
+        if (!validation)
+            return true;
 
         /*
         Regex password explanation :

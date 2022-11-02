@@ -73,7 +73,7 @@ public class BankLogin {
             row.add(account.getName());
             row.add(account.getOpeningDateTime());
             row.add(account.getMobileNo());
-            row.add(String.valueOf(account.getAge()));
+//            row.add(String.valueOf(account.getAge()));
             rowsList.add(row);
 
             totalBalance += account.getBalance();
@@ -153,7 +153,7 @@ public class BankLogin {
         var customerAcc = getCustomerAccount();
         if (customerAcc == null)
             return;
-        customerAcc.updateAccount();
+//        customerAcc.updateAccount();
     }
 
     private void login() {

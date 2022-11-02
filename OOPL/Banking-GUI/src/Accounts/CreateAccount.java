@@ -68,6 +68,7 @@ public class CreateAccount extends JFrame {
     private JButton forgetToNextBtn;
     private JLabel nextError;
     private JLabel questionError;
+    private JPanel finalPage;
     private ForgetPasswordHandler forgetPasswordHandler;
     private String forgetPasswordIDs;
     private String forgetPasswordAns;
@@ -321,6 +322,5 @@ public class CreateAccount extends JFrame {
         ansIcon1 = new JLabel(new ImageIcon("images/logos/answer.png"));
         ansIcon2 = new JLabel(new ImageIcon("images/logos/answer.png"));
         ansIcon3 = new JLabel(new ImageIcon("images/logos/answer.png"));
-
     }
 }
