@@ -6,6 +6,7 @@ import Helper.GUIHelper.MyMouseListener;
 import Helper.GUIHelper.PageChangeListener;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MainPage extends JFrame {
     private JPanel MainPage;
@@ -45,8 +46,10 @@ public class MainPage extends JFrame {
     }
 
     private void addMouseListeners() {
-        loginBtn.addMouseListener(new MyMouseListener());
-        createAccBtn.addMouseListener(new MyMouseListener());
+        MyMouseListener btnMouseListener = new MyMouseListener(
+                new Color(118, 84, 154), new Color(54, 24, 90), 20, 22);
+        loginBtn.addMouseListener(btnMouseListener);
+        createAccBtn.addMouseListener(btnMouseListener);
     }
 
     private void createUIComponents() {

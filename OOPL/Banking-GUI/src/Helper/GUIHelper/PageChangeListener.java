@@ -9,8 +9,14 @@ import java.awt.event.*;
 
 public class PageChangeListener implements MouseListener, KeyListener, ActionListener {
 
-    JFrame currentFrame;
-    String newFrameStr;
+    // All pages :
+
+    public static final String HOMEPAGE = "home";
+    public static final String LOGINPAGE = "login";
+    public static final String CREATEACCPAGE = "create";
+
+    private final JFrame currentFrame;
+    private String newFrameStr;
 
     public PageChangeListener(JFrame currentFrame, String newFrameStr) {
         super();
@@ -30,13 +36,13 @@ public class PageChangeListener implements MouseListener, KeyListener, ActionLis
 
     private JFrame getNewFrame() {
         switch (newFrameStr) {
-            case "main" -> {
+            case HOMEPAGE -> {
                 return new MainPage();
             }
-            case "login" -> {
+            case LOGINPAGE -> {
                 return new LoginPage();
             }
-            case "create" -> {
+            case CREATEACCPAGE -> {
                 return new CreateAccount();
             }
         }

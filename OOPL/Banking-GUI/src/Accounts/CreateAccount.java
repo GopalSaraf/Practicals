@@ -1,19 +1,20 @@
 package Accounts;
 
+import Database.AccountsDatabase;
 import Helper.CustomerHelper.ForgetPasswordHandler;
 import Helper.CustomerHelper.Valid;
-import Helper.GUIHelper.Constants;
-import Helper.GUIHelper.MyKeyListener;
-import Helper.GUIHelper.MyMouseListener;
-import Helper.GUIHelper.PageChangeListener;
+import Helper.GUIHelper.*;
 import Helper.MainPage;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class CreateAccount extends JFrame {
-
-    private Account account;
     private JPanel upper_left;
     private JLabel logo;
     private JPanel upper_right;
@@ -69,16 +70,24 @@ public class CreateAccount extends JFrame {
     private JLabel nextError;
     private JLabel questionError;
     private JPanel finalPage;
+    private JLabel accCreatedMsg;
+    private JLabel accNo;
+    private JLabel minAmt;
+    private JTextField balance;
+    private JPanel finalInfo;
+    private JButton homepageBtn;
+    private JLabel congrats;
     private ForgetPasswordHandler forgetPasswordHandler;
     private String forgetPasswordIDs;
     private String forgetPasswordAns;
+    private Account account;
 
     public CreateAccount() {
         init();
         addActionListeners();
         addKeyListeners();
         addMouseListeners();
-
+        addFocusListeners();
     }
 
     private void init() {
@@ -89,7 +98,6 @@ public class CreateAccount extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
-        askQuestions();
     }
 
     private void addActionListeners() {
@@ -104,17 +112,28 @@ public class CreateAccount extends JFrame {
         });
         nextToNextBtn.addActionListener(e -> {
             if (isNextFieldsValid()) {
+                askQuestions();
                 changeWorkingPanel(lower_left, forgetInfo);
                 changeWorkingPanel(lower_right, forget);
                 nextError.setText("");
-
             } else {
                 nextError.setText(getNextFieldsErrorMsg());
             }
         });
         submitBtn.addActionListener(e -> {
-            setForgetPasswordIDsAndAns();
-            showAndDispose(new MainPage());
+            if (isForgetPasswordPageValid()) {
+                setForgetPasswordIDsAndAns();
+                createAccount();
+                congrats.setText("Congratulations, " + account.getName());
+                accCreatedMsg.setText("Your " + account.type() + " account is created successfully.");
+                accNo.setText(String.valueOf(account.getAccountNo()));
+                minAmt.setText("(Minimum " + account.getMinBalance() + ")");
+
+                changeWorkingPanel(lower_left, finalInfo);
+                changeWorkingPanel(lower_right, finalPage);
+            } else {
+                questionError.setText("INVALID : Please complete all fields.");
+            }
         });
         nextToBasicBtn.addActionListener(e -> {
             changeWorkingPanel(lower_left, basicInfo);
@@ -129,6 +148,22 @@ public class CreateAccount extends JFrame {
         question3.addActionListener(e -> askQuestions());
         answer1TF.addActionListener(e -> askQuestions());
         answer2TF.addActionListener(e -> askQuestions());
+
+        homepageBtn.addActionListener(e -> {
+            double amt;
+            try {
+                amt = Double.parseDouble(balance.getText());
+                if (amt < account.getMinBalance())
+                    minAmt.setForeground(new Color(191, 23, 13));
+                else {
+                    account.setBalance(amt);
+                    AccountsDatabase.addAccount(account);
+                    showAndDispose(new MainPage());
+                }
+            } catch (Exception ignored) {
+                minAmt.setForeground(new Color(191, 23, 13));
+            }
+        });
     }
 
     private void addKeyListeners() {
@@ -146,24 +181,56 @@ public class CreateAccount extends JFrame {
         question3.addKeyListener(myKeyListener);
         answer1TF.addKeyListener(myKeyListener);
         answer2TF.addKeyListener(myKeyListener);
+        homepageBtn.addKeyListener(myKeyListener);
     }
 
     private void addMouseListeners() {
-        MyMouseListener myMouseListener = new MyMouseListener();
-        basicToNextBtn.addMouseListener(myMouseListener);
-        nextToNextBtn.addMouseListener(myMouseListener);
-        submitBtn.addMouseListener(myMouseListener);
-        nextToBasicBtn.addMouseListener(myMouseListener);
-        forgetToNextBtn.addMouseListener(myMouseListener);
-        login1.addMouseListener(myMouseListener);
-        login2.addMouseListener(myMouseListener);
-        login3.addMouseListener(myMouseListener);
+        MyMouseListener labelMouseListener = new MyMouseListener(
+                new Color(118, 84, 154), new Color(54, 24, 90), 12, 13);
+        MyMouseListener btnMouseListener = new MyMouseListener(
+                new Color(118, 84, 154), new Color(54, 24, 90), 20, 22);
+        basicToNextBtn.addMouseListener(btnMouseListener);
+        nextToNextBtn.addMouseListener(btnMouseListener);
+        submitBtn.addMouseListener(btnMouseListener);
+        nextToBasicBtn.addMouseListener(btnMouseListener);
+        forgetToNextBtn.addMouseListener(btnMouseListener);
+        login1.addMouseListener(labelMouseListener);
+        login2.addMouseListener(labelMouseListener);
+        login3.addMouseListener(labelMouseListener);
+        homepageBtn.addMouseListener(btnMouseListener);
 
-        PageChangeListener pageChangeListener = new PageChangeListener(this, "login");
+        PageChangeListener pageChangeListener = new PageChangeListener(this, PageChangeListener.LOGINPAGE);
         login1.addMouseListener(pageChangeListener);
         login2.addMouseListener(pageChangeListener);
         login3.addMouseListener(pageChangeListener);
+    }
 
+    private void addFocusListeners() {
+        MyTextFieldFocusListener focusListener = new MyTextFieldFocusListener();
+        nameTF.addFocusListener(focusListener.setText("Name"));
+        mobileTF.addFocusListener(focusListener.setText("Mobile Number"));
+        emailTF.addFocusListener(focusListener.setText("Email"));
+        usernameTF.addFocusListener(focusListener.setText("Username"));
+        answer1TF.addFocusListener(focusListener.setText("Answer"));
+        answer2TF.addFocusListener(focusListener.setText("Answer"));
+        answer3TF.addFocusListener(focusListener.setText("Answer"));
+        balance.addFocusListener(focusListener.setText("Amount"));
+
+        answer1TF.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                question2.setEnabled(true);
+                askQuestions();
+            }
+        });
+
+        answer2TF.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                question3.setEnabled(true);
+                askQuestions();
+            }
+        });
     }
 
     private void changeWorkingPanel(JPanel mainPanel, JPanel panel) {
@@ -175,7 +242,7 @@ public class CreateAccount extends JFrame {
 
     private boolean isBasicFieldsValid() {
         if (getNameFromUser().equals("Name")) return false;
-        if (getDOBFromUser().equals("Day Month, Year")) return false;
+        if (getDOBFromUser().equals("Day Month_ Year")) return false;
         if (getMobileFromUser().equals("Mobile Number")) return false;
         if (getEmailFromUser().equals("Email")) return false;
 
@@ -188,7 +255,7 @@ public class CreateAccount extends JFrame {
     private String getBasicFieldsErrorMsg() {
         String errorMsg = "INVALID : ";
         if (!Valid.isValidName(getNameFromUser()) || getNameFromUser().equals("Name")) errorMsg += "Name, ";
-        if (getDOBFromUser().equals("Day Month, Year")) errorMsg += "Date of Birth, ";
+        if (getDOBFromUser().equals("Day Month_ Year")) errorMsg += "Date of Birth, ";
         if (!Valid.isValidMobile(getMobileFromUser()) || getMobileFromUser().equals("Mobile Number"))
             errorMsg += "Mobile Number, ";
         if (!Valid.isValidMail(getEmailFromUser()) || getEmailFromUser().equals("Email")) errorMsg += "Email, ";
@@ -220,6 +287,16 @@ public class CreateAccount extends JFrame {
             errorMsg += "Password and Confirm Password not matching. ";
         }
         return errorMsg.substring(0, errorMsg.length() - 2);
+    }
+
+    private boolean isForgetPasswordPageValid() {
+        if (question1.getSelectedIndex() == 0 ||
+                question2.getSelectedIndex() == 0 ||
+                question3.getSelectedIndex() == 0)
+            return false;
+        if (answer1TF.getText().equals("Answer") || answer1TF.getText().equals("")) return false;
+        if (answer2TF.getText().equals("Answer") || answer2TF.getText().equals("")) return false;
+        return !answer3TF.getText().equals("Answer") && !answer3TF.getText().equals("");
     }
 
     private void askQuestions() {
@@ -269,6 +346,23 @@ public class CreateAccount extends JFrame {
         return forgetPasswordHandler.getIDByQuestion(questionStr);
     }
 
+    private void createAccount() {
+        DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd MMM_ yyyy HH:mm");
+        String dateTime = LocalDateTime.now().format(DATE_TIME_FORMATTER);
+
+        if (Objects.equals(getAccTypeFromUser(), Account.SAVING))
+            account = new SavingAccount(getNameFromUser(), getDOBFromUser(), getMobileFromUser(), getEmailFromUser(), 0);
+        else if (Objects.equals(getAccTypeFromUser(), Account.CURRENT)) {
+            account = new CurrentAccount(getNameFromUser(), getDOBFromUser(), getMobileFromUser(), getEmailFromUser(), 0);
+        }
+        account.setUsername(getUsernameFromUser());
+        account.setPassword(getPasswordFromUser());
+        account.setForgotPasswordIDs(forgetPasswordIDs);
+        account.setForgotPasswordAns(forgetPasswordAns);
+        account.setOpeningDateTime(dateTime);
+        account.generateAccNo();
+    }
+
     private void showAndDispose(JFrame jFrame) {
         jFrame.setVisible(true);
         dispose();
@@ -279,7 +373,7 @@ public class CreateAccount extends JFrame {
     }
 
     private String getDOBFromUser() {
-        return dayTF.getSelectedItem() + " " + monthTF.getSelectedItem() + ", " + yearTF.getSelectedItem();
+        return dayTF.getSelectedItem() + " " + monthTF.getSelectedItem() + "_ " + yearTF.getSelectedItem();
     }
 
     private String getMobileFromUser() {

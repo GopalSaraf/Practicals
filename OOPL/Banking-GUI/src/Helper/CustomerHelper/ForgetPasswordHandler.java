@@ -1,6 +1,9 @@
 package Helper.CustomerHelper;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class ForgetPasswordHandler {
 
@@ -15,20 +18,20 @@ public class ForgetPasswordHandler {
 
     private void setQuestions() {
         questions.put('a', "What is your mother's maiden name?");
-        questions.put('b', "What was the make and model of your first car?");
+        questions.put('b', "What was the model of your first car?");
         questions.put('c', "In what city were you born?");
         questions.put('d', "On what street did you grow up?");
-        questions.put('e', "What was the name of your elementary/middle/high school?");
-        questions.put('f', "What was your elementary/middle/high school mascot?");
-        questions.put('g', "What was the name of your first grade teacher?");
+        questions.put('e', "What was the name of your high school?");
+        questions.put('f', "What was your high school mascot?");
+        questions.put('g', "What was the name teacher?");
         questions.put('h', "Where's the first place you spent a vacation?");
         questions.put('i', "What was the name of your first pet?");
         questions.put('j', "What is your favorite sports team?");
         questions.put('k', "What is your favorite movie?");
         questions.put('l', "What is your closest sibling's name?");
         questions.put('m', "What is your favorite food?");
-        questions.put('n', "What is the first name of your first boyfriend/girlfriend?");
-        questions.put('o', "What is your paternal/maternal grandmother's first name?");
+        questions.put('n', "Name of your first boyfriend/girlfriend?");
+        questions.put('o', "Paternal/maternal grandmother's first name?");
         allQuestions.putAll(questions);
     }
 

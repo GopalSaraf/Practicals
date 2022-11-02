@@ -1,9 +1,6 @@
 package Accounts;
 
 import Helper.BankHelper.Transactions;
-import Database.AccountsDatabase;
-
-import static Helper.Messages.*;
 
 /**
  * A {@code SavingAccount Class} which will hold all the data regarding a saving
@@ -16,10 +13,10 @@ public class SavingAccount extends Account {
     /**
      * Parameterized constructor for saving account.
      *
-     * @param name     A {@code String} holding name of the customer.
-     * @param age      An {@code int} holding age of customer.
-     * @param mobileNo A {@code String} holding mobile number of the customer.
-     * @param balance  A {@code double} holding the account balance.
+     * @param name        A {@code String} holding name of the customer.
+     * @param dateOfBirth An {@code int} holding age of customer.
+     * @param mobileNo    A {@code String} holding mobile number of the customer.
+     * @param balance     A {@code double} holding the account balance.
      */
     public SavingAccount(String name, String dateOfBirth, String mobileNo, String emailID, double balance) {
         super(name, dateOfBirth, mobileNo, emailID, balance);

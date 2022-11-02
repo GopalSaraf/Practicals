@@ -1,12 +1,5 @@
 package Accounts;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
-
-import static Helper.CustomerHelper.Valid.*;
-import static Helper.Messages.*;
-
 /**
  * A {@code Customer Class} which will hold all basic and common properties of a
  * customer.

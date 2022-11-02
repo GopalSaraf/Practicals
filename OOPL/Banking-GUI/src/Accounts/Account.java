@@ -1,17 +1,13 @@
 package Accounts;
 
-import Helper.BankHelper.TableFormat;
-import Helper.CustomerHelper.ForgetPasswordHandler;
-import Helper.BankHelper.Transactions;
-import Helper.CustomerHelper.Valid;
 import Database.AccountsDatabase;
 import Database.TransactionsDatabase;
+import Helper.BankHelper.TableFormat;
+import Helper.BankHelper.Transactions;
+import Helper.CustomerHelper.Valid;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
-import static Helper.Messages.*;
 
 /**
  * A {@code Account Class} which will hold all basic and common properties of an
@@ -68,10 +64,10 @@ public class Account extends Customer {
     /**
      * Account class constructor.
      *
-     * @param name     A {@code String} name of customer
-     * @param age      A {@code int} age of customer
-     * @param mobileNo A {@code String} mobile number of customer
-     * @param balance  A {@code double} balance of account.
+     * @param name        A {@code String} name of customer
+     * @param dateOfBirth A {@code int} age of customer
+     * @param mobileNo    A {@code String} mobile number of customer
+     * @param balance     A {@code double} balance of account.
      */
     public Account(String name, String dateOfBirth, String mobileNo, String emailID, double balance) {
         super(name, dateOfBirth, mobileNo, emailID);
@@ -105,7 +101,7 @@ public class Account extends Customer {
      * It will create random number between 1000 and 9999 which is not used
      * previously.
      */
-    private void generateAccNo() {
+    public void generateAccNo() {
         int min = 1000; // Lower limit for account number
         int max = 9999; // Upper limit for account number
         accountNo = (int) (Math.random() * (max - min + 1) + min);
@@ -119,8 +115,6 @@ public class Account extends Customer {
      * Method to update info (password, name, age, mobile number) in database.
      * When user will do transactions, it will only change the account object.
      * But by calling this method, data of database is also updated at same time.
-     * This is done by
-     * {@link AccountsDatabase#updateAccount(int, int, String, int, String)}.
      */
     public void updateInfoInDatabase() {
         AccountsDatabase.updateAccount(getAccountNo(), getUsername(), getPassword(),

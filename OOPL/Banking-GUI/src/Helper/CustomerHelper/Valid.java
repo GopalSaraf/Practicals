@@ -6,7 +6,7 @@ import ExceptionHandling.*;
 
 public final class Valid {
 
-    private static final boolean validation = false;
+    private static final boolean validation = true;
 
     public static boolean isValidName(String name) { // Name validation
         if (!validation)

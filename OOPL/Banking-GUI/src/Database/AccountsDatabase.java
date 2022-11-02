@@ -3,7 +3,6 @@ package Database;
 import Accounts.Account;
 import Accounts.CurrentAccount;
 import Accounts.SavingAccount;
-//import Helper.CustomerHelper.ForgetPasswordHandler.QusAnsPair;
 
 import java.io.*;
 import java.util.*;
@@ -246,16 +245,35 @@ public final class AccountsDatabase {
             while ((stream = br.readLine()) != null) {
                 String[] data = stream.split(",");
                 if (Objects.equals(username, data[accountsColumnOrder.indexOf("username")])) {
-                    return true;
+                    return false;
                 }
             }
         } catch (Exception ignored) {
         }
-        return false;
+        return true;
     }
 
-    public static int getPasswordForAcc(int accountNo) {
-        return Integer.parseInt(Objects.requireNonNull(getAccountInfo(accountNo)).get("password"));
+    public static String getPasswordForAcc(int accountNo) {
+        return Objects.requireNonNull(getAccountInfo(accountNo)).get("password");
+    }
+
+    public static String getPasswordForAcc(String username) {
+        return Objects.requireNonNull(getAccountInfo(getAccNoByUsername(username))).get("password");
+    }
+
+    public static int getAccNoByUsername(String username) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(accountsPath));
+            String stream;
+            while ((stream = br.readLine()) != null) {
+                String[] data = stream.split(",");
+                if (Objects.equals(username, data[accountsColumnOrder.indexOf("username")])) {
+                    return Integer.parseInt(data[accountsColumnOrder.indexOf("accountNo")]);
+                }
+            }
+        } catch (Exception ignored) {
+        }
+        return -1;
     }
 
     public static List<Account> getAllAccounts() {
