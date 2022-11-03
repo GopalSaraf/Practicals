@@ -21,10 +21,10 @@ public final class TransactionsDatabase {
             "withdrawAmount", 4,
             "balance", 5,
             "status", 6,
-            "reason", 7);
+            "note", 7);
 
-    public static void addTransaction(int accountNo, String dateTime, String transaction,
-            double depositAmount, double withdrawAmount, double balance, String status, String reason) {
+    public static void addTransaction(int accountNo, String datetime, String transaction,
+                                      double depositAmount, double withdrawAmount, double balance, String status, String note) {
         StringBuffer sb = new StringBuffer();
         String stream;
         try {
@@ -32,7 +32,7 @@ public final class TransactionsDatabase {
             BufferedReader br = new BufferedReader(new FileReader(transactionsPath));
             sb.append(accountNo)
                     .append(",")
-                    .append(dateTime)
+                    .append(datetime)
                     .append(",")
                     .append(transaction)
                     .append(",")
@@ -44,7 +44,7 @@ public final class TransactionsDatabase {
                     .append(",")
                     .append(status)
                     .append(",")
-                    .append(reason)
+                    .append(note)
                     .append("\n");
 
             while ((stream = br.readLine()) != null)
@@ -66,7 +66,7 @@ public final class TransactionsDatabase {
                 transaction.withdrawAmount,
                 transaction.balance,
                 transaction.status,
-                transaction.reason);
+                transaction.note);
     }
 
     public static List<Transaction> getTransactions(int accountNo, boolean forCustomer) {
@@ -89,7 +89,7 @@ public final class TransactionsDatabase {
                                     data[transactionsColumns.get("withdrawAmount")],
                                     data[transactionsColumns.get("balance")],
                                     data[transactionsColumns.get("status")],
-                                    data[transactionsColumns.get("reason")]));
+                                    data[transactionsColumns.get("note")]));
                 }
             }
             br.close();
@@ -115,7 +115,7 @@ public final class TransactionsDatabase {
                                 data[transactionsColumns.get("withdrawAmount")],
                                 data[transactionsColumns.get("balance")],
                                 data[transactionsColumns.get("status")],
-                                data[transactionsColumns.get("reason")]));
+                                data[transactionsColumns.get("note")]));
             }
             br.close();
         } catch (Exception ignored) {

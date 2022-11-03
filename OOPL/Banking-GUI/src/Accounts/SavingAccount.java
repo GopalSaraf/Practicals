@@ -1,7 +1,5 @@
 package Accounts;
 
-import Helper.BankHelper.Transactions;
-
 /**
  * A {@code SavingAccount Class} which will hold all the data regarding a saving
  * account.
@@ -28,36 +26,6 @@ public class SavingAccount extends Account {
      */
     public SavingAccount() {
         this("", "", "", "", 0);
-    }
-
-    /**
-     * This method will deposit the money in saving account.
-     * It will call {@link Transactions#deposit(Account)} and pass this account as a
-     * parameter.
-     */
-    @Override
-    public void deposit() {
-        Transactions.deposit(this);
-    }
-
-    /**
-     * This method will withdraw the money from saving account.
-     * It will call {@link Transactions#withdraw(Account)} and pass this account as
-     * a parameter.
-     */
-    @Override
-    public void withdraw() {
-        Transactions.withdraw(this);
-    }
-
-    /**
-     * This method will transfer the money from saving account to other account.
-     * It will call {@link Transactions#transfer(Account)} and pass this account as
-     * a parameter.
-     */
-    @Override
-    public void transfer() {
-        Transactions.transfer(this);
     }
 
     /**

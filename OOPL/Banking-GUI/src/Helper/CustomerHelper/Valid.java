@@ -43,8 +43,6 @@ public final class Valid {
     }
 
     public static boolean isValidUsername(String username) {
-        if (!AccountsDatabase.isUsernameUnique(username))
-            return false;
         if (!validation)
             return true;
 

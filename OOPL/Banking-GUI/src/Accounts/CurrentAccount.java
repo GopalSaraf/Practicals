@@ -1,7 +1,5 @@
 package Accounts;
 
-import Helper.BankHelper.Transactions;
-
 /**
  * A {@code CurrentAccount Class} which will hold all the data regarding a
  * current account.
@@ -28,36 +26,6 @@ public class CurrentAccount extends Account {
      */
     public CurrentAccount() {
         this("", "", "", "", 0);
-    }
-
-    /**
-     * This method will deposit the money in current account.
-     * It will call {@link Transactions#deposit(Account)} and pass this account as a
-     * parameter.
-     */
-    @Override
-    public void deposit() {
-        Transactions.deposit(this);
-    }
-
-    /**
-     * This method will withdraw the money from current account.
-     * It will call {@link Transactions#withdraw(Account)} and pass this account as
-     * a parameter.
-     */
-    @Override
-    public void withdraw() {
-        Transactions.withdraw(this);
-    }
-
-    /**
-     * This method will transfer the money from current account to other account.
-     * It will call {@link Transactions#transfer(Account)} and pass this account as
-     * a parameter.
-     */
-    @Override
-    public void transfer() {
-        Transactions.transfer(this);
     }
 
     /**

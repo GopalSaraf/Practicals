@@ -1,6 +1,6 @@
 package ExceptionHandling;
 
-public class AccountException extends Exception {
+public class AccountException extends BankException {
     public AccountException(Exception cause) {
         super(cause);
     }
@@ -10,6 +10,6 @@ public class AccountException extends Exception {
     }
 
     public String getShortMessage() {
-        return "Exception";
+        return "Account Exception";
     }
 }

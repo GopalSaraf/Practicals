@@ -160,30 +160,6 @@ public class Account extends Customer {
         TableFormat.show(headersList, rowsList);
     }
 
-    /**
-     * Method to deposit money in account.
-     * Here, it is just declared. Different account type will have different deposit
-     * criteria.
-     */
-    public void deposit() {
-    }
-
-    /**
-     * Method to withdraw money from account.
-     * Here, it is just declared. Different account type will have different
-     * withdraw criteria.
-     */
-    public void withdraw() {
-    }
-
-    /**
-     * Method to transfer money within two accounts.
-     * Here, it is just declared. Different account type will have different
-     * transfer criteria.
-     */
-    public void transfer() {
-    }
-
     public int getAccountNo() {
         return accountNo;
     }

@@ -1,7 +1,6 @@
 package Helper.BankHelper;
 
 import Accounts.Account;
-import Database.AccountsDatabase;
 import Database.TransactionsDatabase;
 import ExceptionHandling.AccountException;
 
@@ -11,113 +10,83 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Scanner;
+import java.util.Objects;
 
 import static Helper.CustomerHelper.Valid.*;
 
 public final class Transactions {
 
-    private static final Scanner sc = new Scanner(System.in);
-
-    public static void deposit(Account account) {
-        String depositAmountStr, status = Transaction.PROCESSING;
+    public static Transaction deposit(Account account, String depositAmountStr, String note) {
+        String status = Transaction.PROCESSING;
+        String reason = "";
+        String errorMsg = "";
         double depositAmount = 0;
-        String reason = " ";
-        boolean isFirstDeposit = account.getBalance() < account.getMinBalance();
-        System.out.println();
-        System.out.print("Enter amount you want to deposit > ");
-        depositAmountStr = sc.next();
-        System.out.println();
 
         try {
             if (isValidDeposit(account, depositAmountStr)) {
                 depositAmount = Double.parseDouble(depositAmountStr);
                 account.depositAmount(depositAmount);
                 status = Transaction.SUCCESS;
-                if (!isFirstDeposit)
-                    System.out.println("Balance deposited. Available balance : " + currency(account.getBalance()));
             }
         } catch (AccountException e) {
-            System.out.println(e.getMessage());
+            errorMsg = e.getMessage();
             status = Transaction.FAIL;
             reason = e.getShortMessage();
         }
 
-        var deposit = new Transaction(account.getAccountNo(), LocalDateTime.now(),
-                isFirstDeposit ? Transaction.FIRST_DEPOSIT : Transaction.DEPOSIT,
-                depositAmount, 0, account.getBalance(), status, reason);
+        if (!Objects.equals(reason, "")) {
+            status += " - ";
+            status += reason;
+        }
+
+        var deposit = new Transaction(account.getAccountNo(), LocalDateTime.now(), Transaction.DEPOSIT,
+                depositAmount, 0, account.getBalance(), status, note);
         TransactionsDatabase.addTransaction(deposit);
+
+        if (!Objects.equals(errorMsg, ""))
+            deposit.setErrorMsg(errorMsg);
+
+        return deposit;
     }
 
-    public static void withdraw(Account account) {
-        String withdrawAmountStr, status = Transaction.PROCESSING;
+    public static Transaction withdraw(Account account, String withdrawAmountStr, String note) {
+        String status = Transaction.PROCESSING;
+        String reason = "";
+        String errorMsg = "";
         double withdrawAmount = 0;
-        String reason = " ";
-        System.out.println();
-        System.out.print("Enter amount you want to withdraw > ");
-        withdrawAmountStr = sc.next();
-        System.out.println();
 
         try {
             if (isValidWithdraw(account, withdrawAmountStr)) {
                 withdrawAmount = Double.parseDouble(withdrawAmountStr);
                 account.withdrawAmount(withdrawAmount);
-                System.out.println("Balance withdrawal. Available balance : " + currency(account.getBalance()));
                 status = Transaction.SUCCESS;
             }
         } catch (AccountException e) {
-            System.out.println(e.getMessage());
+            errorMsg = e.getMessage();
             status = Transaction.FAIL;
             reason = e.getShortMessage();
+        }
+
+        if (!Objects.equals(reason, "")) {
+            status += " - ";
+            status += reason;
         }
 
         var withdraw = new Transaction(account.getAccountNo(), LocalDateTime.now(), Transaction.WITHDRAW,
                 0, withdrawAmount, account.getBalance(), status, reason);
         TransactionsDatabase.addTransaction(withdraw);
+
+        if (!Objects.equals(errorMsg, ""))
+            withdraw.setErrorMsg(errorMsg);
+
+        return withdraw;
     }
 
-    public static void transfer(Account sender) {
-        System.out.println();
-        System.out.print("Enter account number of receiver > ");
-        int recAccNo = sc.nextInt();
-
-        if (!AccountsDatabase.isAccountExist(recAccNo)) {
-            System.out.println();
-            System.out.println("Sorry, No account with account number " + recAccNo);
-            return;
-        }
-
-        Account receiver = AccountsDatabase.getAccount(recAccNo);
-        assert receiver != null;
-
-        if (sender.getAccountNo() == receiver.getAccountNo()) {
-            System.out.println();
-            System.out.println("Sorry, You can't transfer to your own.");
-            return;
-        }
-
-        System.out.println();
-        System.out.println("Confirm the name of receiver : " + receiver.getName());
-        System.out.print("Do you want to continue transfer [Y/n] > ");
-        char option = sc.next().charAt(0);
-        System.out.println();
-
-        if (option == 'N' || option == 'n') {
-            System.out.println("Transfer cancelled.");
-            return;
-        }
-
-        if (option != 'Y' && option != 'y') {
-            System.out.println("Incorrect option. Transfer cancelled.");
-            return;
-        }
-
-        String transferAmountStr, status = Transaction.PROCESSING;
+    public static Transaction transfer(Account sender, Account receiver, String transferAmountStr, String note) {
+        String status = Transaction.PROCESSING;
+        String reason = "";
+        String errorMsg = "";
         double transferAmount = 0;
-        String reason = " ";
-
-        System.out.print("Enter amount you want to transfer > ");
-        transferAmountStr = sc.next();
 
         try {
             if (isValidTransfer(sender, transferAmountStr)) {
@@ -132,26 +101,45 @@ public final class Transactions {
                 sender.updateAccountBalance();
                 receiver.updateAccountBalance();
 
-                System.out.println();
-                System.out.println("Balance transferred. Available balance : " + currency(sender.getBalance()));
-
                 status = Transaction.SUCCESS;
             }
         } catch (AccountException e) {
-            System.out.println(e.getMessage());
+            errorMsg = e.getMessage();
             status = Transaction.FAIL;
             reason = e.getShortMessage();
         }
 
+        if (!Objects.equals(reason, "")) {
+            status += " - ";
+            status += reason;
+        }
+
         var withdraw = new Transaction(sender.getAccountNo(), LocalDateTime.now(),
                 Transaction.TRANSFER + " to " + receiver,
-                0, transferAmount, sender.getBalance(), status, reason);
-        var deposit = new Transaction(receiver.getAccountNo(), LocalDateTime.now(),
-                Transaction.TRANSFER + " from " + sender,
-                transferAmount, 0, receiver.getBalance(), status, reason);
-
+                0, transferAmount, sender.getBalance(), status, note);
         TransactionsDatabase.addTransaction(withdraw);
-        TransactionsDatabase.addTransaction(deposit);
+
+        if (status.startsWith(Transaction.SUCCESS)) {
+            var deposit = new Transaction(receiver.getAccountNo(), LocalDateTime.now(),
+                    Transaction.TRANSFER + " from " + sender,
+                    transferAmount, 0, receiver.getBalance(), status, note);
+            TransactionsDatabase.addTransaction(deposit);
+        }
+
+        if (!Objects.equals(errorMsg, ""))
+            withdraw.setErrorMsg(errorMsg);
+
+        return withdraw;
+    }
+
+    public static String currency(String money) {
+        return currency(Double.parseDouble(money));
+    }
+
+    public static String currency(double money) {
+        Locale india = new Locale("hi", "IN");
+        NumberFormat rupeesFormat = NumberFormat.getCurrencyInstance(india);
+        return rupeesFormat.format(money);
     }
 
     public static class Transaction {
@@ -165,7 +153,7 @@ public final class Transactions {
         public static final String FAIL = "Unsuccessful";
         public static final String PROCESSING = "Processing";
 
-        private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd MMM_ yyyy HH:mm");
 
         public int accountNo;
         public String dateTime;
@@ -174,11 +162,12 @@ public final class Transactions {
         public double withdrawAmount;
         public double balance;
         public String status;
+        public String note;
 
-        public String reason;
+        public String errorMsg;
 
         public Transaction(int accountNo, String dateTime, String transaction, double depositAmount,
-                double withdrawAmount, double balance, String status, String reason) {
+                           double withdrawAmount, double balance, String status, String note) {
             this.accountNo = accountNo;
             this.dateTime = dateTime;
             this.transaction = transaction;
@@ -186,17 +175,17 @@ public final class Transactions {
             this.withdrawAmount = withdrawAmount;
             this.balance = balance;
             this.status = status;
-            this.reason = reason;
+            this.note = note;
         }
 
         public Transaction(int accountNo, LocalDateTime dateTime, String transaction, double depositAmount,
-                double withdrawAmount, double balance, String status, String reason) {
+                           double withdrawAmount, double balance, String status, String note) {
             this(accountNo, dateTime.format(DATE_TIME_FORMATTER), transaction,
-                    depositAmount, withdrawAmount, balance, status, reason);
+                    depositAmount, withdrawAmount, balance, status, note);
         }
 
         public Transaction(String accountNo, String dateTime, String transaction, String depositAmount,
-                String withdrawAmount, String balance, String status, String reason) {
+                           String withdrawAmount, String balance, String status, String note) {
             this(
                     Integer.parseInt(accountNo),
                     dateTime,
@@ -205,7 +194,7 @@ public final class Transactions {
                     Double.parseDouble(withdrawAmount),
                     Double.parseDouble(balance),
                     status,
-                    reason);
+                    note);
         }
 
         public List<String> getTransactionList() {
@@ -221,14 +210,16 @@ public final class Transactions {
         public List<String> getAllTransactionList() {
             var transactionDetails = getTransactionList();
             transactionDetails.add(status);
-            transactionDetails.add(reason);
+            transactionDetails.add(note);
             return transactionDetails;
         }
-    }
 
-    public static String currency(double money) {
-        Locale india = new Locale("hi", "IN");
-        NumberFormat rupeesFormat = NumberFormat.getCurrencyInstance(india);
-        return rupeesFormat.format(money);
+        public String getErrorMsg() {
+            return errorMsg;
+        }
+
+        public void setErrorMsg(String errorMsg) {
+            this.errorMsg = errorMsg;
+        }
     }
 }

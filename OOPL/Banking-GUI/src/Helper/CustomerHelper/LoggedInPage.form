@@ -104,7 +104,7 @@
               <text value="Logout"/>
             </properties>
           </component>
-          <component id="59fb1" class="javax.swing.JButton" binding="updateProfileBtn">
+          <component id="59fb1" class="javax.swing.JButton" binding="updateProfilePageBtn">
             <constraints>
               <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="30"/>
@@ -118,7 +118,7 @@
               <text value="Update Profile"/>
             </properties>
           </component>
-          <component id="978e8" class="javax.swing.JButton" binding="depositBtn">
+          <component id="978e8" class="javax.swing.JButton" binding="depositPageBtn">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="30"/>
@@ -132,7 +132,7 @@
               <text value="Deposit"/>
             </properties>
           </component>
-          <component id="12c85" class="javax.swing.JButton" binding="transferBtn">
+          <component id="12c85" class="javax.swing.JButton" binding="transferPageBtn">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="30"/>
@@ -146,7 +146,7 @@
               <text value="Transfer"/>
             </properties>
           </component>
-          <component id="fc3df" class="javax.swing.JButton" binding="ststementBtn">
+          <component id="fc3df" class="javax.swing.JButton" binding="statementPageBtn">
             <constraints>
               <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="30"/>
@@ -160,7 +160,7 @@
               <text value="Show Statement"/>
             </properties>
           </component>
-          <component id="9c073" class="javax.swing.JButton" binding="profileBtn">
+          <component id="9c073" class="javax.swing.JButton" binding="profilePageBtn">
             <constraints>
               <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="30"/>
@@ -174,7 +174,7 @@
               <text value="Show Profile"/>
             </properties>
           </component>
-          <component id="693dd" class="javax.swing.JButton" binding="balanceBtn">
+          <component id="693dd" class="javax.swing.JButton" binding="balancePageBtn">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="30"/>
@@ -188,7 +188,7 @@
               <text value="Show Balance"/>
             </properties>
           </component>
-          <component id="4f50" class="javax.swing.JButton" binding="withdrawBtn">
+          <component id="4f50" class="javax.swing.JButton" binding="withdrawPageBtn">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="30"/>
@@ -202,7 +202,7 @@
               <text value="Withdraw"/>
             </properties>
           </component>
-          <component id="677b4" class="javax.swing.JButton" binding="homeBtn">
+          <component id="677b4" class="javax.swing.JButton" binding="homePageBtn">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="30"/>
@@ -273,7 +273,7 @@
             </properties>
             <border type="none"/>
             <children>
-              <scrollpane id="20190" binding="scroller">
+              <scrollpane id="20190">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <minimum-size width="700" height="380"/>
@@ -379,7 +379,7 @@
                       <text value=":"/>
                     </properties>
                   </component>
-                  <component id="b4473" class="javax.swing.JTextField" binding="accNoTF">
+                  <component id="b4473" class="javax.swing.JTextField" binding="transferAccNoTF">
                     <constraints>
                       <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
                         <preferred-size width="250" height="15"/>
@@ -399,7 +399,7 @@
                       <toolTipText value=""/>
                     </properties>
                   </component>
-                  <component id="f67d" class="javax.swing.JTextField" binding="mobileTF">
+                  <component id="f67d" class="javax.swing.JTextField" binding="transferMobileTF">
                     <constraints>
                       <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
                         <preferred-size width="250" height="15"/>
@@ -483,7 +483,7 @@
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="f28e3" class="javax.swing.JButton" binding="loginBtn">
+                  <component id="f28e3" class="javax.swing.JButton" binding="transferNextBtn">
                     <constraints>
                       <grid row="11" column="0" row-span="1" col-span="3" vsize-policy="4" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <minimum-size width="-1" height="50"/>
@@ -598,7 +598,7 @@
                       <text value=":"/>
                     </properties>
                   </component>
-                  <component id="4bca3" class="javax.swing.JTextField">
+                  <component id="4bca3" class="javax.swing.JTextField" binding="transferAmtTF">
                     <constraints>
                       <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
                         <preferred-size width="250" height="15"/>
@@ -618,7 +618,7 @@
                       <toolTipText value=""/>
                     </properties>
                   </component>
-                  <component id="5e79d" class="javax.swing.JTextField">
+                  <component id="5e79d" class="javax.swing.JTextField" binding="transferNoteTF">
                     <constraints>
                       <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
                         <preferred-size width="250" height="15"/>
@@ -634,7 +634,7 @@
                       <horizontalAlignment value="10"/>
                       <inheritsPopupMenu value="false"/>
                       <margin top="2" left="6" bottom="2" right="6"/>
-                      <text value="Mobile Number"/>
+                      <text value="Note"/>
                       <toolTipText value=""/>
                     </properties>
                   </component>
@@ -674,7 +674,7 @@
                       <text value="Enter Transfer Details"/>
                     </properties>
                   </component>
-                  <component id="89629" class="javax.swing.JLabel">
+                  <component id="89629" class="javax.swing.JLabel" binding="transferError">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="-1" height="15"/>
@@ -687,7 +687,7 @@
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="72fb4" class="javax.swing.JButton">
+                  <component id="72fb4" class="javax.swing.JButton" binding="transferBtn">
                     <constraints>
                       <grid row="11" column="0" row-span="1" col-span="3" vsize-policy="4" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <minimum-size width="-1" height="50"/>
@@ -730,7 +730,7 @@
                       <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </vspacer>
-                  <component id="b1fe8" class="javax.swing.JTextField">
+                  <component id="b1fe8" class="javax.swing.JTextField" binding="transferRecName">
                     <constraints>
                       <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
                         <preferred-size width="250" height="15"/>

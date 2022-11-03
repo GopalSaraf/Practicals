@@ -369,7 +369,7 @@ public class CreateAccount extends JFrame {
     }
 
     private String getNameFromUser() {
-        return nameTF.getText();
+        return nameTF.getText().trim();
     }
 
     private String getDOBFromUser() {
@@ -377,11 +377,11 @@ public class CreateAccount extends JFrame {
     }
 
     private String getMobileFromUser() {
-        return mobileTF.getText();
+        return mobileTF.getText().trim();
     }
 
     private String getEmailFromUser() {
-        return emailTF.getText();
+        return emailTF.getText().trim();
     }
 
     private String getAccTypeFromUser() {
@@ -389,7 +389,7 @@ public class CreateAccount extends JFrame {
     }
 
     private String getUsernameFromUser() {
-        return usernameTF.getText();
+        return usernameTF.getText().trim();
     }
 
     private String getPasswordFromUser() {

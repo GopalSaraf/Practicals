@@ -261,19 +261,27 @@ public final class AccountsDatabase {
         return Objects.requireNonNull(getAccountInfo(getAccNoByUsername(username))).get("password");
     }
 
-    public static int getAccNoByUsername(String username) {
+    private static int getAccNoByGivenStr(String givenStr, String compareWith) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(accountsPath));
             String stream;
             while ((stream = br.readLine()) != null) {
                 String[] data = stream.split(",");
-                if (Objects.equals(username, data[accountsColumnOrder.indexOf("username")])) {
+                if (Objects.equals(givenStr, data[accountsColumnOrder.indexOf(compareWith)])) {
                     return Integer.parseInt(data[accountsColumnOrder.indexOf("accountNo")]);
                 }
             }
         } catch (Exception ignored) {
         }
         return -1;
+    }
+
+    public static int getAccNoByUsername(String username) {
+        return getAccNoByGivenStr(username, "username");
+    }
+
+    public static int getAccNoByMobile(String mobile) {
+        return getAccNoByGivenStr(mobile, "mobileNo");
     }
 
     public static List<Account> getAllAccounts() {
