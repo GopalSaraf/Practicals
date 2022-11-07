@@ -12,7 +12,7 @@ public final class TableFormat {
     private static final String TABLE_V_SPLIT_SYMBOL = "|";
     private static final String TABLE_H_SPLIT_SYMBOL = "-";
 
-    public static void show(List<String> headersList, List<List<String>> rowsList) {
+    public static String show(List<String> headersList, List<List<String>> rowsList) {
         StringBuilder stringBuilder = new StringBuilder();
 
         int rowHeight = 1;
@@ -45,7 +45,7 @@ public final class TableFormat {
         stringBuilder.append(NEW_LINE);
         createRowLine(stringBuilder, headersList.size(), columnMaxWidthMapping);
 
-        System.out.println(stringBuilder);
+        return stringBuilder.toString();
     }
 
     private static void fillSpace(StringBuilder stringBuilder, int length) {

@@ -24,7 +24,7 @@ public final class TransactionsDatabase {
             "note", 7);
 
     public static void addTransaction(int accountNo, String datetime, String transaction,
-                                      double depositAmount, double withdrawAmount, double balance, String status, String note) {
+            double depositAmount, double withdrawAmount, double balance, String status, String note) {
         StringBuffer sb = new StringBuffer();
         String stream;
         try {
@@ -32,7 +32,7 @@ public final class TransactionsDatabase {
             BufferedReader br = new BufferedReader(new FileReader(transactionsPath));
             sb.append(accountNo)
                     .append(",")
-                    .append(datetime)
+                    .append(datetime.replace(',', '_'))
                     .append(",")
                     .append(transaction)
                     .append(",")
@@ -94,6 +94,7 @@ public final class TransactionsDatabase {
             }
             br.close();
         } catch (Exception ignored) {
+            System.out.println(ignored.getMessage());
         }
         return transactions;
     }
@@ -121,5 +122,24 @@ public final class TransactionsDatabase {
         } catch (Exception ignored) {
         }
         return transactions;
+    }
+
+    public static String array2HTML(Object[][] array) {
+        StringBuilder html = new StringBuilder(
+                "<html><head> <style> .fixTableHead { overflow-y: auto; height: 110px;} .fixTableHead thead th { position: sticky; top: 0;} table { border-collapse: collapse; width: 100%;} th, td { padding: 8px 15px; border: 2px solid #529432;} th { background: #ABDD93;} </style> </head> <body> <div class=\"fixTableHead\"> <table><thead>");
+        for (Object elem : array[0]) {
+            html.append("<th>" + elem.toString() + "</th>");
+        }
+        html.append("</thead><tbody>");
+        for (int i = 1; i < array.length; i++) {
+            Object[] row = array[i];
+            html.append("<tr>");
+            for (Object elem : row) {
+                html.append("<td>" + elem.toString() + "</td>");
+            }
+            html.append("</tr>");
+        }
+        html.append("</tbody></table></div></body></html>");
+        return html.toString();
     }
 }

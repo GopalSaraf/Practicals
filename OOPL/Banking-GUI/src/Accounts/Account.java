@@ -74,23 +74,11 @@ public class Account extends Customer {
         this.balance = balance;
     }
 
-    /**
-     * This is helper function for {@link Account#deposit()} which will just add
-     * amount in current balance.
-     *
-     * @param amount {@code double} amount to add in current balance.
-     */
     public void depositAmount(double amount) {
         balance += amount;
         AccountsDatabase.updateBalance(getAccountNo(), getBalance());
     }
 
-    /**
-     * This is helper function for {@link Account#withdraw()} which will just
-     * withdraw amount from current balance.
-     *
-     * @param amount {@code double} amount to withdraw from current balance.
-     */
     public void withdrawAmount(double amount) {
         balance -= amount;
         AccountsDatabase.updateBalance(getAccountNo(), getBalance());
@@ -138,7 +126,7 @@ public class Account extends Customer {
      * It will show transaction date and time, details and money transfer.
      * Table formatted statement is printed using {@link TableFormat} Class.
      */
-    public void getStatement() {
+    public String getStatement() {
         var transactions = TransactionsDatabase.getTransactions(getAccountNo(), true);
 
         List<String> headersList = new ArrayList<>();
@@ -147,6 +135,7 @@ public class Account extends Customer {
         headersList.add("Deposits");
         headersList.add("Withdrawals");
         headersList.add("Balance");
+        headersList.add("Note");
 
         List<List<String>> rowsList = new ArrayList<>();
 
@@ -154,10 +143,7 @@ public class Account extends Customer {
             rowsList.add(transaction.getTransactionList());
         }
 
-        System.out.println();
-        System.out.println("Your bank statement : ");
-
-        TableFormat.show(headersList, rowsList);
+        return TableFormat.show(headersList, rowsList);
     }
 
     public int getAccountNo() {

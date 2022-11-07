@@ -98,10 +98,10 @@ public final class Valid {
             throw new InvalidValueException("Invalid amount entered.");
         }
         if (depositAmt <= 0)
-            throw new NegativeAmountException("Invalid amount (Amount should be greater than 0) .. Deposit failed!");
+            throw new NegativeAmountException("Invalid amount (Amount should be greater than 0)!");
         if (account.getBalance() + depositAmt < account.getMinBalance())
             throw new InsufficientFundException("Invalid amount (Minimum balance in account should be "
-                    + account.getMinBalance() + ") .. Deposit failed!");
+                    + account.getMinBalance() + ")!");
         return true;
     }
 
@@ -113,13 +113,13 @@ public final class Valid {
             throw new InvalidValueException("Invalid amount entered.");
         }
         if (withdrawAmt <= 0)
-            throw new NegativeAmountException("Invalid amount (Amount should be greater than 0) .. Withdrawal failed!");
+            throw new NegativeAmountException("Invalid amount (Amount should be greater than 0)!");
         if (account.getBalance() - withdrawAmt < account.getMinBalance())
             throw new InsufficientFundException("Invalid amount (Minimum balance in account should be "
-                    + account.getMinBalance() + ") .. Withdrawal failed!");
+                    + account.getMinBalance() + ")!");
         if (withdrawAmt > account.getWithdrawLimit())
             throw new WithdrawLimitException("Invalid amount (Maximum balance of withdrawal should be "
-                    + account.getWithdrawLimit() + ") .. Withdrawal failed!");
+                    + account.getWithdrawLimit() + ")!");
         return true;
     }
 
@@ -131,10 +131,10 @@ public final class Valid {
             throw new InvalidValueException("Invalid amount entered.");
         }
         if (transferAmt <= 0)
-            throw new NegativeAmountException("Invalid amount (Amount should be greater than 0) .. Transfer failed!");
+            throw new NegativeAmountException("Invalid amount (Amount should be greater than 0)!");
         if (account.getBalance() - transferAmt < account.getMinBalance())
             throw new InsufficientFundException("Invalid amount (Minimum balance in account should be "
-                    + account.getMinBalance() + ") .. Transfer failed!");
+                    + account.getMinBalance() + ")");
         return true;
     }
 }

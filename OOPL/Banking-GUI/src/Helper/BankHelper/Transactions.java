@@ -16,7 +16,7 @@ import static Helper.CustomerHelper.Valid.*;
 
 public final class Transactions {
 
-    public static Transaction deposit(Account account, String depositAmountStr, String note) {
+    public static Transaction deposit(Account account, String depositAmountStr, String note, String depositMode) {
         String status = Transaction.PROCESSING;
         String reason = "";
         String errorMsg = "";
@@ -39,7 +39,7 @@ public final class Transactions {
             status += reason;
         }
 
-        var deposit = new Transaction(account.getAccountNo(), LocalDateTime.now(), Transaction.DEPOSIT,
+        var deposit = new Transaction(account.getAccountNo(), LocalDateTime.now(), Transaction.DEPOSIT + " by " + depositMode,
                 depositAmount, 0, account.getBalance(), status, note);
         TransactionsDatabase.addTransaction(deposit);
 
@@ -49,7 +49,7 @@ public final class Transactions {
         return deposit;
     }
 
-    public static Transaction withdraw(Account account, String withdrawAmountStr, String note) {
+    public static Transaction withdraw(Account account, String withdrawAmountStr, String note, String withdrawMode) {
         String status = Transaction.PROCESSING;
         String reason = "";
         String errorMsg = "";
@@ -72,8 +72,8 @@ public final class Transactions {
             status += reason;
         }
 
-        var withdraw = new Transaction(account.getAccountNo(), LocalDateTime.now(), Transaction.WITHDRAW,
-                0, withdrawAmount, account.getBalance(), status, reason);
+        var withdraw = new Transaction(account.getAccountNo(), LocalDateTime.now(), Transaction.WITHDRAW + " by " + withdrawMode,
+                0, withdrawAmount, account.getBalance(), status, note);
         TransactionsDatabase.addTransaction(withdraw);
 
         if (!Objects.equals(errorMsg, ""))
@@ -169,7 +169,7 @@ public final class Transactions {
         public Transaction(int accountNo, String dateTime, String transaction, double depositAmount,
                            double withdrawAmount, double balance, String status, String note) {
             this.accountNo = accountNo;
-            this.dateTime = dateTime;
+            this.dateTime = dateTime.replace('_', ',');
             this.transaction = transaction;
             this.depositAmount = depositAmount;
             this.withdrawAmount = withdrawAmount;
@@ -204,13 +204,13 @@ public final class Transactions {
             transactionDetails.add(depositAmount == 0 ? "" : currency(depositAmount));
             transactionDetails.add(withdrawAmount == 0 ? "" : currency(withdrawAmount));
             transactionDetails.add(currency(balance));
+            transactionDetails.add(note);
             return transactionDetails;
         }
 
         public List<String> getAllTransactionList() {
             var transactionDetails = getTransactionList();
             transactionDetails.add(status);
-            transactionDetails.add(note);
             return transactionDetails;
         }
 

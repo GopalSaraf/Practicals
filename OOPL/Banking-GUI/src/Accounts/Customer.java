@@ -49,7 +49,7 @@ public class Customer {
     }
 
     public String getDateOfBirth() {
-        return dateOfBirth;
+        return dateOfBirth.replace('_', ',');
     }
 
     public void setDateOfBirth(String dateOfBirth) {
@@ -73,7 +73,7 @@ public class Customer {
     }
 
     public String getOpeningDateTime() {
-        return openingDateTime;
+        return openingDateTime.replace('_', ',');
     }
 
     public void setOpeningDateTime(String openingDateTime) {
