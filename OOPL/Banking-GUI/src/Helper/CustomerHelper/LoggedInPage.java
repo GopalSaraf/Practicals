@@ -489,13 +489,20 @@ public class LoggedInPage extends JFrame {
     }
 
     private void setStatementTable() {
+        tableModel = new DefaultTableModel();
+        tableModel.addColumn("Date & Time");
+        tableModel.addColumn("Details");
+        tableModel.addColumn("Deposits");
+        tableModel.addColumn("Withdrawals");
+        tableModel.addColumn("Balance");
+        tableModel.addColumn("Note");
 
         var transactions = TransactionsDatabase.getTransactions(account.getAccountNo(), true);
 
         for (Transactions.Transaction transaction : transactions) {
             tableModel.insertRow(tableModel.getRowCount(), transaction.getTransactionList().toArray());
         }
-
+        statementTable.setModel(tableModel);
         statementTable.updateUI();
     }
 
@@ -583,13 +590,6 @@ public class LoggedInPage extends JFrame {
 
     private void createUIComponents() {
         logo = new JLabel(new ImageIcon("images/bank_150.png"));
-        tableModel = new DefaultTableModel();
-        tableModel.addColumn("Date & Time");
-        tableModel.addColumn("Details");
-        tableModel.addColumn("Deposits");
-        tableModel.addColumn("Withdrawals");
-        tableModel.addColumn("Balance");
-        tableModel.addColumn("Note");
         statementTable = new JTable(tableModel);
     }
 }

@@ -1869,8 +1869,14 @@
                     <properties>
                       <autoCreateRowSorter value="true"/>
                       <enabled value="false"/>
-                      <font name="Avenir Next"/>
+                      <fillsViewportHeight value="true"/>
+                      <font name="Avenir Next" size="16"/>
+                      <foreground color="-7111174"/>
+                      <gridColor color="-13232038"/>
                       <intercellSpacing width="0" height="0"/>
+                      <selectionBackground color="-11671478"/>
+                      <selectionForeground color="-7111422"/>
+                      <showHorizontalLines value="true"/>
                     </properties>
                   </component>
                 </children>
