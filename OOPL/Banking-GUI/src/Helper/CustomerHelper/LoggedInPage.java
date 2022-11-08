@@ -9,6 +9,7 @@ import ExceptionHandling.InvalidFieldException;
 import Helper.BankHelper.Transactions;
 import Helper.BankHelper.Transactions.Transaction;
 import Helper.GUIHelper.*;
+import Helper.GUIHelper.StatementTableHelper.TableCustom;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -29,7 +30,7 @@ public class LoggedInPage extends JFrame {
     private JPanel workingPanel;
     private JPanel homePanel;
     private JPanel transferPanel;
-    private JPanel depositpanel;
+    private JPanel depositPanel;
     private JPanel withdrawPanel;
     private JPanel balancePanel;
     private JPanel profilePanel;
@@ -39,7 +40,7 @@ public class LoggedInPage extends JFrame {
     private JPanel transferInitial;
     private JPanel transferFinal;
     private JTextField transferAccNoTF;
-    private JComboBox transferMode;
+    private JComboBox<String> transferMode;
     private JTextField transferMobileTF;
     private JLabel transferErrorMsg1;
     private JButton transferNextBtn;
@@ -57,7 +58,7 @@ public class LoggedInPage extends JFrame {
     private JButton transferBtn;
     private JLabel transferErrorMsg2;
     private JButton cancelTransferBtn;
-    private JComboBox depositMode;
+    private JComboBox<String> depositMode;
     private JTextField depositChequeNoTF;
     private JTextField depositNoteTF;
     private JButton depositBtn;
@@ -70,7 +71,7 @@ public class LoggedInPage extends JFrame {
     private JLabel withdrawErrorMsg;
     private JTextField withdrawNoteTF;
     private JTextField withdrawAmtTF;
-    private JComboBox withdrawMode;
+    private JComboBox<String> withdrawMode;
     private JLabel withdrawChequeLabel;
     private JLabel withdrawChequeColon;
     private JTextField withdrawChequeNoTF;
@@ -87,6 +88,7 @@ public class LoggedInPage extends JFrame {
     private JTextField profileOpenDateTimeLabel;
     private JLabel profileHeadingLabel;
     private JTable statementTable;
+    private JScrollPane statementTableScroller;
     private final Account account;
     private Account transferRecAcc;
     private DefaultTableModel tableModel;
@@ -111,12 +113,13 @@ public class LoggedInPage extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         welcomeMsg.setText("Welcome, " + account.getName() + ".");
+        TableCustom.apply(statementTableScroller, TableCustom.TableType.MULTI_LINE);
     }
 
     private void addActionListeners() {
         homePageBtn.addActionListener(e -> changeWorkingPanel(homePanel));
         transferPageBtn.addActionListener(e -> changeWorkingPanel(transferPanel));
-        depositPageBtn.addActionListener(e -> changeWorkingPanel(depositpanel));
+        depositPageBtn.addActionListener(e -> changeWorkingPanel(depositPanel));
         withdrawPageBtn.addActionListener(e -> changeWorkingPanel(withdrawPanel));
         balancePageBtn.addActionListener(e -> changeWorkingPanel(balancePanel));
         statementPageBtn.addActionListener(e -> changeWorkingPanel(statementPanel));
@@ -492,18 +495,21 @@ public class LoggedInPage extends JFrame {
         tableModel = new DefaultTableModel();
         tableModel.addColumn("Date & Time");
         tableModel.addColumn("Details");
-        tableModel.addColumn("Deposits");
-        tableModel.addColumn("Withdrawals");
+        tableModel.addColumn("Deposit");
+        tableModel.addColumn("Withdraw");
         tableModel.addColumn("Balance");
         tableModel.addColumn("Note");
 
         var transactions = TransactionsDatabase.getTransactions(account.getAccountNo(), true);
 
-        for (Transactions.Transaction transaction : transactions) {
+        for (Transactions.Transaction transaction : transactions)
             tableModel.insertRow(tableModel.getRowCount(), transaction.getTransactionList().toArray());
-        }
+
         statementTable.setModel(tableModel);
-        statementTable.updateUI();
+
+        statementTable.getColumnModel().getColumn(0).setPreferredWidth(105);
+        statementTable.getColumnModel().getColumn(1).setPreferredWidth(150);
+        statementTable.getColumnModel().getColumn(3).setPreferredWidth(80);
     }
 
     private ArrayList<JButton> getOptionsBtns() {
