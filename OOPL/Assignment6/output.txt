@@ -1,0 +1,44 @@
+Choose type of exception you want to handle : 
+a - ArrayIndexOutOfBoundsException
+b - ArithmeticException
+c - Exit Program
+
+Your Choice > a
+
+Enter size of array you want to use > 5
+Array created of 5 elements
+
+Enter index of element you want to access > 7
+ArrayIndexOutOfBoundsException : Index is out of bound.
+
+Choose type of exception you want to handle : 
+a - ArrayIndexOutOfBoundsException
+b - ArithmeticException
+c - Exit Program
+
+Your Choice > b
+
+Enter first number > 8
+Enter second number > 0
+
+ArithmeticException : Dividing by zero.
+
+Choose type of exception you want to handle : 
+a - ArrayIndexOutOfBoundsException
+b - ArithmeticException
+c - Exit Program
+
+Your Choice > b
+
+Enter first number > cd
+
+NumberFormatException : Entered number can't be parsed into integers.
+
+Choose type of exception you want to handle : 
+a - ArrayIndexOutOfBoundsException
+b - ArithmeticException
+c - Exit Program
+
+Your Choice > c
+
+Exiting Program...
