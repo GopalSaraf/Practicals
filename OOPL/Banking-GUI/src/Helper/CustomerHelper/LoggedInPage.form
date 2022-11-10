@@ -273,12 +273,12 @@
             </properties>
             <border type="none"/>
             <children>
-              <scrollpane id="20190">
+              <scrollpane id="20190" binding="homeScrollPane">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <minimum-size width="700" height="380"/>
                     <preferred-size width="800" height="390"/>
-                    <maximum-size width="1000" height="500"/>
+                    <maximum-size width="1000" height="-1"/>
                   </grid>
                 </constraints>
                 <properties>
@@ -1856,9 +1856,9 @@
               <scrollpane id="cf1c" binding="statementTableScroller">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <minimum-size width="700" height="280"/>
-                    <preferred-size width="800" height="390"/>
-                    <maximum-size width="1000" height="500"/>
+                    <minimum-size width="680" height="-1"/>
+                    <preferred-size width="780" height="-1"/>
+                    <maximum-size width="980" height="-1"/>
                   </grid>
                 </constraints>
                 <properties/>
@@ -1874,6 +1874,7 @@
                       <foreground color="-7111174"/>
                       <gridColor color="-13232038"/>
                       <intercellSpacing width="0" height="0"/>
+                      <preferredScrollableViewportSize width="430" height="-1"/>
                       <selectionBackground color="-7111230"/>
                       <selectionForeground color="-7111230"/>
                       <showHorizontalLines value="true"/>
@@ -1888,12 +1889,14 @@
                 <properties>
                   <font name="Avenir Next" size="24" style="1"/>
                   <foreground color="-7111174"/>
-                  <text value="Account Statement "/>
+                  <text value="ACCOUNT STATEMENT"/>
                 </properties>
               </component>
-              <component id="87db" class="javax.swing.JComboBox">
+              <component id="87db" class="javax.swing.JComboBox" binding="statementFilter">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <minimum-size width="300" height="-1"/>
+                  </grid>
                 </constraints>
                 <properties>
                   <background color="-1"/>

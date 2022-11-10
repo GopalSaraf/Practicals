@@ -1,14 +1,12 @@
 package Helper.GUIHelper.StatementTableHelper;
 
-import java.awt.Color;
-import java.awt.Component;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableCellRenderer;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.TableCellRenderer;
 
 public class TextAreaCellRenderer extends JTextArea implements TableCellRenderer  {
 
@@ -50,7 +48,7 @@ public class TextAreaCellRenderer extends JTextArea implements TableCellRenderer
             list.add(0);
         }
         list.set(column, preferredHeight);
-        int max = list.stream().max((x, y) -> Integer.compare(x, y)).get();
+        int max = list.stream().max(Integer::compare).get();
         if (table.getRowHeight(row) != max) {
             table.setRowHeight(row, max);
         }

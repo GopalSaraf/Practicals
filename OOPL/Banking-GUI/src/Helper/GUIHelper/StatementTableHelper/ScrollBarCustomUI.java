@@ -1,21 +1,11 @@
 package Helper.GUIHelper.StatementTableHelper;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
+import javax.swing.*;
+import javax.swing.plaf.basic.BasicScrollBarUI;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
-import javax.swing.BoundedRangeModel;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JScrollBar;
-import javax.swing.SwingUtilities;
-import javax.swing.plaf.basic.BasicScrollBarUI;
 
 public class ScrollBarCustomUI extends BasicScrollBarUI {
 
@@ -150,8 +140,8 @@ public class ScrollBarCustomUI extends BasicScrollBarUI {
                 }
             }
             if (orientation == JScrollBar.VERTICAL) {
-                int xx[] = {4, width - 4, width / 2};
-                int yy[] = {5, 5, 0};
+                int[] xx = {4, width - 4, width / 2};
+                int[] yy = {5, 5, 0};
                 Polygon poly = new Polygon(xx, yy, xx.length);
                 g2.translate(0, (y));
                 if (increase) {
@@ -161,8 +151,8 @@ public class ScrollBarCustomUI extends BasicScrollBarUI {
                     g2.fill(poly);
                 }
             } else {
-                int xx[] = {4, height - 4, height / 2};
-                int yy[] = {5, 5, 0};
+                int[] xx = {4, height - 4, height / 2};
+                int[] yy = {5, 5, 0};
                 Polygon poly = new Polygon(xx, yy, xx.length);
                 g2.translate(x, 0);
                 if (increase) {

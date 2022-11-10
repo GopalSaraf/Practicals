@@ -2,13 +2,13 @@ package Helper.CustomerHelper;
 
 import Accounts.Account;
 import Database.AccountsDatabase;
-import Database.TransactionsDatabase;
 import ExceptionHandling.AccountNotFoundException;
 import ExceptionHandling.BankException;
 import ExceptionHandling.InvalidFieldException;
 import Helper.BankHelper.Transactions;
 import Helper.BankHelper.Transactions.Transaction;
 import Helper.GUIHelper.*;
+import Helper.GUIHelper.StatementTableHelper.StatementTableFilter;
 import Helper.GUIHelper.StatementTableHelper.TableCustom;
 
 import javax.swing.*;
@@ -89,10 +89,11 @@ public class LoggedInPage extends JFrame {
     private JLabel profileHeadingLabel;
     private JTable statementTable;
     private JScrollPane statementTableScroller;
+    private JScrollPane homeScrollPane;
+    private JComboBox<String> statementFilter;
     private final Account account;
     private Account transferRecAcc;
     private DefaultTableModel tableModel;
-
 
 
     public LoggedInPage(Account account) {
@@ -114,6 +115,7 @@ public class LoggedInPage extends JFrame {
         setVisible(true);
         welcomeMsg.setText("Welcome, " + account.getName() + ".");
         TableCustom.apply(statementTableScroller, TableCustom.TableType.MULTI_LINE);
+        instructions.setCaretPosition(0);
     }
 
     private void addActionListeners() {
@@ -129,13 +131,9 @@ public class LoggedInPage extends JFrame {
         transferActionListeners();
         depositActionListeners();
         withdrawActionListeners();
+        statementActionListeners();
 
-        balancePageBtn.addActionListener(e -> {
-            balanceAmtLabel.setText(Transactions.currency(account.getBalance()));
-        });
-
-        statementPageBtn.addActionListener(e -> setStatementTable());
-
+        balancePageBtn.addActionListener(e -> balanceAmtLabel.setText(Transactions.currency(account.getBalance())));
         profilePageBtn.addActionListener(e -> setProfilePage());
     }
 
@@ -317,6 +315,11 @@ public class LoggedInPage extends JFrame {
         });
     }
 
+    private void statementActionListeners() {
+        statementPageBtn.addActionListener(e -> setStatementTable());
+        statementFilter.addActionListener(e -> setStatementTable());
+    }
+
     private void addKeyListeners() {
         MyKeyListener keyListener = new MyKeyListener();
 
@@ -493,23 +496,24 @@ public class LoggedInPage extends JFrame {
 
     private void setStatementTable() {
         tableModel = new DefaultTableModel();
-        tableModel.addColumn("Date & Time");
+        tableModel.addColumn("DateTime");
         tableModel.addColumn("Details");
         tableModel.addColumn("Deposit");
         tableModel.addColumn("Withdraw");
         tableModel.addColumn("Balance");
         tableModel.addColumn("Note");
 
-        var transactions = TransactionsDatabase.getTransactions(account.getAccountNo(), true);
+        var transactions = StatementTableFilter.getList(account.getAccountNo(), getStatementFilterStr());
 
-        for (Transactions.Transaction transaction : transactions)
+        for (Transactions.Transaction transaction : transactions) {
             tableModel.insertRow(tableModel.getRowCount(), transaction.getTransactionList().toArray());
+        }
 
         statementTable.setModel(tableModel);
 
-        statementTable.getColumnModel().getColumn(0).setPreferredWidth(105);
+        statementTable.getColumnModel().getColumn(0).setPreferredWidth(90);
         statementTable.getColumnModel().getColumn(1).setPreferredWidth(150);
-        statementTable.getColumnModel().getColumn(3).setPreferredWidth(80);
+        statementTable.getColumnModel().getColumn(3).setPreferredWidth(85);
     }
 
     private ArrayList<JButton> getOptionsBtns() {
@@ -592,6 +596,15 @@ public class LoggedInPage extends JFrame {
 
     private String getWithdrawNoteFromUser() {
         return withdrawNoteTF.getText().trim().equals("Note") ? " " : withdrawNoteTF.getText().trim();
+    }
+
+    private String getStatementFilterStr() {
+        int statementFilterIndex = statementFilter.getSelectedIndex();
+        if (statementFilterIndex == 0) return "Last 10";
+        if (statementFilterIndex == 1) return "Last week";
+        if (statementFilterIndex == 2) return "Last month";
+        if (statementFilterIndex == 3) return "Custom";
+        return "";
     }
 
     private void createUIComponents() {

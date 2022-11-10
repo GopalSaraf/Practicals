@@ -84,5 +84,4 @@ hs_err_pid*
 !Makefile
 
 .idea
-
-
+*.csv

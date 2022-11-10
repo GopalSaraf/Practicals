@@ -94,7 +94,6 @@ public final class TransactionsDatabase {
             }
             br.close();
         } catch (Exception ignored) {
-            System.out.println(ignored.getMessage());
         }
         return transactions;
     }
