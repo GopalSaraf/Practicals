@@ -35,7 +35,8 @@ int main() {
                 string searchKey;
                 cout
                     << "Enter Name OR Roll No of student you want to search > ";
-                cin >> searchKey;
+                cin.ignore();
+                getline(cin, searchKey);
                 if (all_of(searchKey.begin(), searchKey.end(), ::isdigit)) {
                     int rollNo = stoi(searchKey);
                     if (StudentDatabase::isStudentExistByRollNo(rollNo))

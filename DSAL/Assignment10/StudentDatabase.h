@@ -52,11 +52,14 @@ class StudentDatabase {
             string stream;
             while (getline(file, stream)) {
                 vector<string> data = split(stream);
-                if (data.at(coloumns.at("rollNo")) == to_string(rollNoToCheck))
+                if (data.at(coloumns.at("rollNo")) ==
+                    to_string(rollNoToCheck)) {
+                    file.close();
                     return true;
+                }
             }
-            return false;
         }
+        file.close();
         return false;
     }
 
@@ -80,9 +83,11 @@ class StudentDatabase {
                         data.at(coloumns.at("division"))));
                     student.setAddress(getDatabaseRemovableString(
                         data.at(coloumns.at("address"))));
+                    break;
                 }
             }
         }
+        file.close();
         return student;
     }
 
@@ -123,15 +128,20 @@ class StudentDatabase {
                     getDatabaseRemovableString(data.at(coloumns.at("name")));
                 transform(name.begin(), name.end(), name.begin(), ::tolower);
 
-                if (name == nameToCheck)
+                if (name == nameToCheck) {
+                    file.close();
                     return stoi(data.at(coloumns.at("rollNo")));
+                }
 
                 vector<string> splittedName = split(name, ' ');
                 if (find(splittedName.begin(), splittedName.end(),
-                         nameToCheck) != splittedName.end())
+                         nameToCheck) != splittedName.end()) {
+                    file.close();
                     return stoi(data.at(coloumns.at("rollNo")));
+                }
             }
         }
+        file.close();
         return -1;
     }
 
