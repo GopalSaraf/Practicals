@@ -15,31 +15,34 @@ class Student {
 
    public:
     void setData() {
-        cout << "Enter name of student > ";
-        cin.ignore();
-        getline(cin, name);
-        cout << "Enter roll no of student > ";
-        cin >> rollNo;
+        takeNameInput();
+        takeRollNoInput();
+        takeDivisionInput();
+        takeAddressInput();
+    }
 
-        // while (true) {
-        //     if (StudentDatabase::isRollNoUnique(
-        //             rollNo)) {  // Validating roll number
-        //         break;
-        //     } else {
-        //         cout << rollNo
-        //              << " is already used previously. Roll number can not "
-        //                 "be repeated."
-        //              << endl;
-        //         cout << "Enter valid roll number for student > ";
-        //         cin >> rollNo;
-        //     }
-        // }
+    void updateData() {
+        char option;
+        cout << endl << "What do you wanna update ?" << endl;
+        cout << "a - Name (" << getName() << ")" << endl;
+        cout << "b - Division (" << getDivision() << ")" << endl;
+        cout << "c - Address (" << getAddress() << ")" << endl;
+        cout << "d - None" << endl << endl;
+        cout << "Your Option > ";
+        cin >> option;
+        cout << endl;
 
-        cout << "Enter division of student > ";
-        cin >> division;
-        cout << "Enter address of student > ";
-        cin.ignore();
-        getline(cin, address);
+        switch (option) {
+            case 'a':
+                takeNameInput();
+                break;
+            case 'b':
+                takeDivisionInput();
+                break;
+            case 'c':
+                takeAddressInput();
+                break;
+        }
     }
 
     void printDetails() {
@@ -50,6 +53,28 @@ class Student {
         cout << "Division  :  " << division << endl;
         cout << "Address   :  " << address << endl;
         cout << endl;
+    }
+
+    void takeNameInput() {
+        cout << "Enter name of student > ";
+        cin.ignore();
+        getline(cin, name);
+    }
+
+    void takeRollNoInput() {
+        cout << "Enter roll no of student > ";
+        cin >> rollNo;
+    }
+
+    void takeDivisionInput() {
+        cout << "Enter division of student > ";
+        cin >> division;
+    }
+
+    void takeAddressInput() {
+        cout << "Enter address of student > ";
+        cin.ignore();
+        getline(cin, address);
     }
 
     void setRollNo(int rollNo) { this->rollNo = rollNo; }
@@ -67,4 +92,6 @@ class Student {
     string getDivision() { return division; }
 
     string getAddress() { return address; }
+
+    operator bool() { return rollNo != 0; }
 };

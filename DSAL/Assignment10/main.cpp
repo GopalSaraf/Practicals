@@ -1,3 +1,18 @@
+// Title : File Handling
+// Problem Statement :
+// Department maintains student’s database. The file contains roll number, name,
+// division and address. Write a program to create a sequential file to store
+// and maintain student data. It should allow the user to
+// a) Create a student database
+// b) Add a information of student
+// c) Delete information of student
+// d) Search and Display information of particular student.
+//   i. If record of student does not exist an appropriate message is displayed.
+//   ii. If student record is found it should display the student details.
+// e) Display Record of All students in tabular from
+
+// Program by : 23168 Gopal Saraf
+
 #include <iostream>
 
 #include "Student.h"
@@ -25,12 +40,58 @@ int main() {
                 Student student = Student();
                 student.setData();
                 StudentDatabase::addStudent(student);
+                cout << endl << "Student data saved in database." << endl;
                 break;
             }
-            case 'b':
+            case 'b': {
+                string updateKey;
+                Student student;
+                cout
+                    << "Enter Name OR Roll No of student you want to search > ";
+                cin.ignore();
+                getline(cin, updateKey);
+                if (all_of(updateKey.begin(), updateKey.end(), ::isdigit)) {
+                    int rollNo = stoi(updateKey);
+                    if (StudentDatabase::isStudentExistByRollNo(rollNo))
+                        student = StudentDatabase::getStudentByRollNo(rollNo);
+                    else
+                        cout << "No student exist with given roll no." << endl;
+                } else {
+                    if (StudentDatabase::isStudentExistByName(updateKey))
+                        student = StudentDatabase::getStudentByName(updateKey);
+                    else
+                        cout << "No student exist with given name" << endl;
+                }
+                if (student) {
+                    student.updateData();
+                    StudentDatabase::updateStudent(student);
+                    cout << endl << "Student data updated in database" << endl;
+                }
                 break;
-            case 'c':
+            }
+            case 'c': {
+                string delKey;
+                cout
+                    << "Enter Name OR Roll No of student you want to delete > ";
+                cin.ignore();
+                getline(cin, delKey);
+                if (all_of(delKey.begin(), delKey.end(), ::isdigit)) {
+                    int rollNo = stoi(delKey);
+                    if (StudentDatabase::isStudentExistByRollNo(rollNo)) {
+                        StudentDatabase::deleteStudentByRollNo(rollNo);
+                        cout << "Deleted student with roll no " << rollNo
+                             << endl;
+                    } else
+                        cout << "No student exist with given roll no." << endl;
+                } else {
+                    if (StudentDatabase::isStudentExistByName(delKey)) {
+                        StudentDatabase::deleteStudentByName(delKey);
+                        cout << "Deleted student with name " << delKey << endl;
+                    } else
+                        cout << "No student exist with given name" << endl;
+                }
                 break;
+            }
             case 'd': {
                 string searchKey;
                 cout
@@ -54,6 +115,7 @@ int main() {
                 break;
             }
             case 'e':
+                StudentDatabase::printAllStudents();
                 break;
             case 'f':
                 cout << "Exiting program..." << endl;

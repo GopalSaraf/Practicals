@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -28,8 +29,10 @@ class StudentDatabase {
                            string address) {
         file.open(filePath, ios::out | ios::app);
         if (file.is_open()) {
-            file << rollNo << "," << name << "," << division << "," << address
-                 << "\n";
+            file << getDatabaseAddableString(rollNo) << ","
+                 << getDatabaseAddableString(name) << ","
+                 << getDatabaseAddableString(division) << ","
+                 << getDatabaseAddableString(address) << "\n";
             file.close();
         }
     }
@@ -40,10 +43,8 @@ class StudentDatabase {
     }
 
     static void addStudent(Student student) {
-        addStudent(getDatabaseAddableString(to_string(student.getRollNo())),
-                   getDatabaseAddableString(student.getName()),
-                   getDatabaseAddableString(student.getDivision()),
-                   getDatabaseAddableString(student.getAddress()));
+        addStudent(student.getRollNo(), student.getName(),
+                   student.getDivision(), student.getAddress());
     }
 
     static bool isStudentExistByRollNo(int rollNoToCheck) {
@@ -95,7 +96,101 @@ class StudentDatabase {
         return getStudentByRollNo(getRollNoByName(nameToCheck));
     }
 
-    static bool deleteStudent(int rollNoToDel) {}
+    static void deleteStudentByRollNo(int rollNoToDel) {
+        string buffer = "";
+        file.open(filePath, ios::in);
+        if (file.is_open()) {
+            string stream;
+            while (getline(file, stream)) {
+                vector<string> data = split(stream);
+                if (data.at(coloumns.at("rollNo")) != to_string(rollNoToDel)) {
+                    buffer += stream;
+                    buffer += "\n";
+                }
+            }
+            file.close();
+            file.open(filePath, ios::out | ios::trunc);
+            if (file.is_open()) {
+                file << buffer;
+            }
+            file.close();
+        }
+    }
+
+    static void deleteStudentByName(string nameToDel) {
+        deleteStudentByRollNo(getRollNoByName(nameToDel));
+    }
+
+    static void updateStudentByRollNo(int rollNotoUpdate, string name,
+                                      string division, string address) {
+        string buffer = "";
+        file.open(filePath, ios::in);
+        if (file.is_open()) {
+            string stream;
+            while (getline(file, stream)) {
+                vector<string> data = split(stream);
+                if (data.at(coloumns.at("rollNo")) ==
+                    to_string(rollNotoUpdate)) {
+                    buffer += to_string(rollNotoUpdate);
+                    buffer += ",";
+                    buffer += getDatabaseAddableString(name);
+                    buffer += ",";
+                    buffer += getDatabaseAddableString(division);
+                    buffer += ",";
+                    buffer += getDatabaseAddableString(address);
+                    buffer += "\n";
+                } else {
+                    buffer += stream;
+                    buffer += "\n";
+                }
+            }
+            file.close();
+            file.open(filePath, ios::out | ios::trunc);
+            if (file.is_open()) {
+                file << buffer;
+            }
+            file.close();
+        }
+    }
+
+    static void updateStudent(Student student) {
+        updateStudentByRollNo(student.getRollNo(), student.getName(),
+                              student.getDivision(), student.getAddress());
+    }
+
+    static void printAllStudents() {
+        int rollNoLen = 10;
+        int nameLen = 20;
+        int divisionLen = 10;
+        int addressLen = 30;
+        cout << left << setw(rollNoLen) << "Roll No"
+             << "  |  " << left << setw(nameLen) << "Name"
+             << "  |  " << left << setw(divisionLen) << "Division"
+             << "  |  " << left << setw(addressLen) << "Address" << endl;
+        cout << string((rollNoLen), '-') << "  |  " << string((nameLen), '-')
+             << "  |  " << string((divisionLen), '-') << "  |  "
+             << string((addressLen), '-') << endl;
+        file.open(filePath, ios::in);
+        if (file.is_open()) {
+            string stream;
+            while (getline(file, stream)) {
+                vector<string> data = split(stream);
+                cout << left << setw(rollNoLen)
+                     << getDatabaseRemovableString(
+                            data.at(coloumns.at("rollNo")))
+                     << "  |  " << left << setw(nameLen)
+                     << getDatabaseRemovableString(data.at(coloumns.at("name")))
+                     << "  |  " << left << setw(divisionLen)
+                     << getDatabaseRemovableString(
+                            data.at(coloumns.at("division")))
+                     << "  |  " << left << setw(addressLen)
+                     << getDatabaseRemovableString(
+                            data.at(coloumns.at("address")))
+                     << endl;
+            }
+        }
+        file.close();
+    }
 
    private:
     static vector<string> split(string line, char seperator) {
