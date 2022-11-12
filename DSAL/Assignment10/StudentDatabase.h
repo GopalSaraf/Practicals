@@ -1,6 +1,8 @@
 #pragma once
 
+#include <algorithm>
 #include <fstream>
+#include <iostream>
 #include <unordered_map>
 #include <vector>
 
@@ -26,8 +28,8 @@ class StudentDatabase {
                            string address) {
         file.open(filePath, ios::out | ios::app);
         if (file.is_open()) {
-            file << rollNo << ", " << name << ", " << division << ", "
-                 << address << "\n";
+            file << rollNo << "," << name << "," << division << "," << address
+                 << "\n";
             file.close();
         }
     }
@@ -44,24 +46,56 @@ class StudentDatabase {
                    getDatabaseAddableString(student.getAddress()));
     }
 
-    static bool isRollNoUnique(int rollNoToCheck) {
+    static bool isStudentExistByRollNo(int rollNoToCheck) {
         file.open(filePath, ios::in);
         if (file.is_open()) {
-            string line;
-            while (getline(file, line)) {
-                vector<string> data = split(line);
+            string stream;
+            while (getline(file, stream)) {
+                vector<string> data = split(stream);
                 if (data.at(coloumns.at("rollNo")) == to_string(rollNoToCheck))
-                    return false;
+                    return true;
             }
-            return true;
+            return false;
         }
         return false;
     }
 
+    static bool isStudentExistByName(string nameToCheck) {
+        return getRollNoByName(nameToCheck) != -1;
+    }
+
+    static Student getStudentByRollNo(int rollNoToCheck) {
+        Student student = Student();
+        file.open(filePath, ios::in);
+        if (file.is_open()) {
+            string stream;
+            while (getline(file, stream)) {
+                vector<string> data = split(stream);
+                if (data.at(coloumns.at("rollNo")) ==
+                    to_string(rollNoToCheck)) {
+                    student.setRollNo(rollNoToCheck);
+                    student.setName(getDatabaseRemovableString(
+                        data.at(coloumns.at("name"))));
+                    student.setDivision(getDatabaseRemovableString(
+                        data.at(coloumns.at("division"))));
+                    student.setAddress(getDatabaseRemovableString(
+                        data.at(coloumns.at("address"))));
+                }
+            }
+        }
+        return student;
+    }
+
+    static Student getStudentByName(string nameToCheck) {
+        return getStudentByRollNo(getRollNoByName(nameToCheck));
+    }
+
+    static bool deleteStudent(int rollNoToDel) {}
+
    private:
-    static vector<string> split(string line) {
+    static vector<string> split(string line, char seperator) {
         vector<string> splitted;
-        string data;
+        string data = "";
 
         for (char cha : line) {
             if (cha == seperator) {
@@ -71,7 +105,34 @@ class StudentDatabase {
                 data += cha;
             }
         }
+        splitted.push_back(data);
         return splitted;
+    }
+
+    static vector<string> split(string line) { return split(line, seperator); }
+
+    static int getRollNoByName(string nameToCheck) {
+        file.open(filePath, ios::in);
+        if (file.is_open()) {
+            transform(nameToCheck.begin(), nameToCheck.end(),
+                      nameToCheck.begin(), ::tolower);
+            string stream;
+            while (getline(file, stream)) {
+                vector<string> data = split(stream);
+                string name =
+                    getDatabaseRemovableString(data.at(coloumns.at("name")));
+                transform(name.begin(), name.end(), name.begin(), ::tolower);
+
+                if (name == nameToCheck)
+                    return stoi(data.at(coloumns.at("rollNo")));
+
+                vector<string> splittedName = split(name, ' ');
+                if (find(splittedName.begin(), splittedName.end(),
+                         nameToCheck) != splittedName.end())
+                    return stoi(data.at(coloumns.at("rollNo")));
+            }
+        }
+        return -1;
     }
 
     static string getDatabaseAddableString(string str) {

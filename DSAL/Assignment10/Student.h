@@ -16,6 +16,7 @@ class Student {
    public:
     void setData() {
         cout << "Enter name of student > ";
+        cin.ignore();
         getline(cin, name);
         cout << "Enter roll no of student > ";
         cin >> rollNo;
@@ -39,6 +40,16 @@ class Student {
         cout << "Enter address of student > ";
         cin.ignore();
         getline(cin, address);
+    }
+
+    void printDetails() {
+        cout << endl;
+        cout << "Student Informaton" << endl;
+        cout << "Name      :  " << name << endl;
+        cout << "Roll No   :  " << rollNo << endl;
+        cout << "Division  :  " << division << endl;
+        cout << "Address   :  " << address << endl;
+        cout << endl;
     }
 
     void setRollNo(int rollNo) { this->rollNo = rollNo; }
