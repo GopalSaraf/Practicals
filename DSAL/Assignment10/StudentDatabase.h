@@ -19,6 +19,8 @@ class StudentDatabase {
     static inline unordered_map<string, int> coloumns = {
         {"rollNo", 0}, {"name", 1}, {"division", 2}, {"address", 3}};
 
+    static inline string fileHeader = "Roll No,Name,Division,Address\n";
+
     static inline int coloumnSize = coloumns.size();
 
     static inline char seperator = ',';
@@ -27,8 +29,10 @@ class StudentDatabase {
    public:
     static void addStudent(string rollNo, string name, string division,
                            string address) {
+        bool isEmpty = isFileEmpty();
         file.open(filePath, ios::out | ios::app);
         if (file.is_open()) {
+            if (isEmpty) file << fileHeader;
             file << getDatabaseAddableString(rollNo) << ","
                  << getDatabaseAddableString(name) << ","
                  << getDatabaseAddableString(division) << ","
@@ -51,6 +55,7 @@ class StudentDatabase {
         file.open(filePath, ios::in);
         if (file.is_open()) {
             string stream;
+            getline(file, stream);
             while (getline(file, stream)) {
                 vector<string> data = split(stream);
                 if (data.at(coloumns.at("rollNo")) ==
@@ -73,6 +78,7 @@ class StudentDatabase {
         file.open(filePath, ios::in);
         if (file.is_open()) {
             string stream;
+            getline(file, stream);
             while (getline(file, stream)) {
                 vector<string> data = split(stream);
                 if (data.at(coloumns.at("rollNo")) ==
@@ -97,10 +103,11 @@ class StudentDatabase {
     }
 
     static void deleteStudentByRollNo(int rollNoToDel) {
-        string buffer = "";
+        string buffer = fileHeader;
         file.open(filePath, ios::in);
         if (file.is_open()) {
             string stream;
+            getline(file, stream);
             while (getline(file, stream)) {
                 vector<string> data = split(stream);
                 if (data.at(coloumns.at("rollNo")) != to_string(rollNoToDel)) {
@@ -123,10 +130,11 @@ class StudentDatabase {
 
     static void updateStudentByRollNo(int rollNotoUpdate, string name,
                                       string division, string address) {
-        string buffer = "";
+        string buffer = fileHeader;
         file.open(filePath, ios::in);
         if (file.is_open()) {
             string stream;
+            getline(file, stream);
             while (getline(file, stream)) {
                 vector<string> data = split(stream);
                 if (data.at(coloumns.at("rollNo")) ==
@@ -173,6 +181,7 @@ class StudentDatabase {
         file.open(filePath, ios::in);
         if (file.is_open()) {
             string stream;
+            getline(file, stream);
             while (getline(file, stream)) {
                 vector<string> data = split(stream);
                 cout << left << setw(rollNoLen)
@@ -260,5 +269,16 @@ class StudentDatabase {
                 databaseRemovable += cha;
         }
         return databaseRemovable;
+    }
+
+    static bool isFileEmpty() {
+        file.open(filePath, ios::in);
+        if (file.is_open()) {
+            string stream;
+            getline(file, stream);
+            file.close();
+            return stream == "";
+        }
+        return true;
     }
 };

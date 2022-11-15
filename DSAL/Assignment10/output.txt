@@ -1,0 +1,295 @@
+Choose an option : 
+a - Add student in database
+b - Update student from database
+c - Delete student from database
+d - Search for a student in database
+e - Display all students in database
+f - Exit Program
+
+Your Option > e
+
+Roll No     |  Name                  |  Division    |  Address                       
+----------  |  --------------------  |  ----------  |  ------------------------------
+1           |  Shannah Barff         |  CI01        |  39 Meadow Ridge Junction      
+2           |  Clare Hawkridge       |  PW41        |  96 Sunbrook Circle            
+3           |  Dell Harrod           |  UD93        |  88 Arizona Court              
+4           |  Leo Sadgrove          |  GS83        |  958 Chive Lane                
+5           |  Leupold Marzella      |  GK47        |  5601 Monterey Court           
+6           |  Way Blackie           |  EO35        |  8242 Oriole Hill              
+7           |  Hyacinth Rowbottam    |  WG56        |  76 Duke Drive                 
+8           |  Galen Mitham          |  QS89        |  061 Butterfield Avenue        
+9           |  Sayre Cousens         |  KF99        |  20 Cherokee Pass              
+10          |  Minna Caplen          |  JH98        |  3 Westerfield Way             
+11          |  Clarey Harpin         |  JA24        |  49 Maryland Pass              
+12          |  Kippy Grundey         |  DL71        |  2033 Nancy Terrace            
+13          |  Margarette Grattage   |  QR21        |  56114 Mcbride Hill            
+14          |  Jackson Segar         |  LA30        |  99 Pepper Wood Court          
+15          |  Lorilyn Ickeringill   |  QY01        |  296 Sunfield Lane             
+16          |  Gaspar Facher         |  TY53        |  1861 Farmco Point             
+17          |  Lawton Wickersley     |  BG03        |  5004 Mariners Cove Alley      
+18          |  Salomi Scamel         |  KV72        |  9 Grover Trail                
+19          |  Mordecai Prahm        |  VD13        |  78 Beilfuss Parkway           
+20          |  Weidar Hardistry      |  NN91        |  37275 Drewry Junction         
+21          |  Hi Tregenza           |  IR97        |  01 Doe Crossing Parkway       
+22          |  Berky Guislin         |  BA32        |  18572 Mayer Junction          
+23          |  Verene Arthey         |  JH73        |  8798 Vahlen Crossing          
+24          |  Mathias Nowakowska    |  XE04        |  8416 Farragut Point           
+25          |  Janek Readmire        |  XE27        |  760 Esker Pass                
+26          |  Wash Gilhoolie        |  SK30        |  19 Truax Hill                 
+27          |  Antonino Samsworth    |  CW78        |  01138 Havey Place             
+28          |  Tabina Bateup         |  DX34        |  5 Lakewood Gardens Pass       
+29          |  Tabbitha Gilsthorpe   |  BH48        |  5 Bluejay Circle              
+30          |  Maureen MacKessock    |  AM40        |  29 Elka Road                  
+31          |  Valry Edmund          |  QB72        |  85935 Comanche Avenue         
+32          |  Husain De Wolfe       |  IX33        |  7 Atwood Crossing             
+33          |  Arliene McCaffrey     |  BC01        |  03 Stang Circle               
+34          |  Michaeline Ashborne   |  FR48        |  475 Marcy Plaza               
+35          |  Cord Ronald           |  AE75        |  54020 Ridge Oak Alley         
+36          |  Mavra Needham         |  VU92        |  180 Dunning Way               
+37          |  Aleen Mathis          |  MC14        |  27209 Michigan Junction       
+38          |  Aldwin Greengrass     |  DL86        |  22 Cardinal Avenue            
+39          |  Josiah Coggins        |  VQ94        |  02 Sullivan Terrace           
+40          |  Tadeo Bahia           |  UB68        |  8 Shoshone Point              
+41          |  Claudetta Jendrach    |  NS43        |  8225 Merrick Lane             
+42          |  Konstantine Wooles    |  CT12        |  95361 Rutledge Circle         
+43          |  Melisa Healks         |  XM51        |  06802 Lawn Alley              
+44          |  Rosabelle Whoston     |  WM34        |  3875 8th Alley                
+45          |  Elwyn Locke           |  VU55        |  2 Riverside Way               
+46          |  Zonnya Denney         |  RV79        |  147 Reindahl Crossing         
+47          |  Verge Raggles         |  XU12        |  0646 1st Parkway              
+48          |  Garner Senton         |  DR76        |  52285 Donald Lane             
+49          |  Emmett Kem            |  VE21        |  04195 Hazelcrest Lane         
+50          |  Pablo Reville         |  DO28        |  4032 Armistice Circle         
+51          |  Kelley Klemencic      |  QR03        |  53189 Springview Junction     
+52          |  Toma Ditchett         |  FZ37        |  7566 Pawling Plaza            
+53          |  Kristien Romayne      |  MF98        |  56164 Kropf Parkway           
+54          |  Alister Phoebe        |  SW32        |  99 Atwood Drive               
+55          |  Modestine Cereceres   |  UU04        |  4 Westridge Park              
+56          |  Ky Kluger             |  PU97        |  47 Dakota Point               
+57          |  Mahala McAllan        |  EF92        |  188 Redwing Road              
+58          |  Marcelia Dorking      |  KH86        |  23469 Colorado Court          
+59          |  Weylin Juara          |  MG64        |  5470 West Crossing            
+60          |  Elsie Ferrucci        |  JF90        |  9494 Evergreen Avenue         
+61          |  Murry Houlaghan       |  FE31        |  4 Burrows Circle              
+62          |  Janel Coorington      |  JP68        |  54 Swallow Alley              
+63          |  Dorise Standbrook     |  SC64        |  5 Almo Avenue                 
+64          |  Zaccaria Sturges      |  IF81        |  535 Buhler Point              
+65          |  Christin Timperley    |  TY61        |  14613 Coleman Center          
+66          |  Anstice McGillivrie   |  HV83        |  56432 Shopko Point            
+67          |  Lyman Nichols         |  XD11        |  49 Dryden Drive               
+68          |  Jarid Church          |  QJ97        |  410 Meadow Valley Terrace     
+69          |  Ammamaria Capps       |  DM04        |  41 Merchant Park              
+70          |  Addie Guisby          |  ZY80        |  1 Bellgrove Pass              
+71          |  Emmye Bloodworthe     |  LZ28        |  9 Bayside Terrace             
+72          |  Alina Crux            |  QQ16        |  4 Kingsford Circle            
+73          |  Jannel Raynor         |  XV29        |  53 Merchant Trail             
+74          |  Lindie Snelling       |  LQ04        |  4767 Basil Street             
+75          |  Othelia Twyning       |  FP70        |  51 Troy Avenue                
+76          |  Nathan D'Souza        |  OK14        |  72735 Walton Lane             
+77          |  Daffy Ghione          |  BZ59        |  143 Blaine Pass               
+78          |  Knox Hirsch           |  AC00        |  51164 Forest Run Avenue       
+79          |  Abbot Thirkettle      |  NK57        |  8834 Norway Maple Center      
+80          |  Zak Gittins           |  BK21        |  91 Fair Oaks Alley            
+81          |  Andie Perrigo         |  WP29        |  5 Spohn Pass                  
+82          |  Hanson Killock        |  XH51        |  9909 Scofield Park            
+83          |  Carmina Hutfield      |  FO08        |  049 Hansons Alley             
+84          |  Astrid Whitfield      |  AN77        |  16 Mayer Avenue               
+85          |  Nonie Mattsson        |  HW21        |  82 Bashford Court             
+86          |  Marga Rimell          |  MP22        |  31104 Delaware Street         
+87          |  Maurits Ondricek      |  PZ28        |  467 Commercial Way            
+88          |  Dudley McNair         |  BS59        |  98890 Russell Alley           
+89          |  Shanan Gouthier       |  ZI41        |  824 Oxford Crossing           
+90          |  Elfie de Valette      |  DB22        |  74 Lotheville Pass            
+91          |  Glenda Hayfield       |  BZ19        |  80 Starling Parkway           
+92          |  Gwenny Vitler         |  UI55        |  073 Fallview Center           
+93          |  Holly Nickoll         |  MJ87        |  05 Oakridge Lane              
+94          |  Mareah Hewson         |  WS09        |  677 Dottie Place              
+95          |  Vick Kilalea          |  PT36        |  5 Quincy Lane                 
+96          |  Aldrich Dovydenas     |  LI18        |  9 North Trail                 
+97          |  Lorna Acklands        |  LL57        |  1763 Corscot Pass             
+98          |  Valerye Belfrage      |  AA99        |  2 Talmadge Circle             
+99          |  Lotti Lohmeyer        |  GN93        |  97415 Maywood Terrace         
+
+Choose an option : 
+a - Add student in database
+b - Update student from database
+c - Delete student from database
+d - Search for a student in database
+e - Display all students in database
+f - Exit Program
+
+Your Option > a
+
+Enter name of student > Gopal Saraf
+Enter roll no of student > 100
+Enter division of student > SE09
+Enter address of student > PICT Pune
+
+Student data saved in database.
+
+Choose an option : 
+a - Add student in database
+b - Update student from database
+c - Delete student from database
+d - Search for a student in database
+e - Display all students in database
+f - Exit Program
+
+Your Option > b
+
+Enter Name OR Roll No of student you want to search > gopal
+
+What do you wanna update ?
+a - Name (Gopal Saraf)
+b - Division (SE09)
+c - Address (PICT Pune)
+d - None
+
+Your Option > c
+
+Enter address of student > PICT Katraj Pune
+
+Student data updated in database
+
+Choose an option : 
+a - Add student in database
+b - Update student from database
+c - Delete student from database
+d - Search for a student in database
+e - Display all students in database
+f - Exit Program
+
+Your Option > d
+
+Enter Name OR Roll No of student you want to search > 100
+
+Student Informaton
+Name      :  Gopal Saraf
+Roll No   :  100
+Division  :  SE09
+Address   :  PICT Katraj Pune
+
+Choose an option : 
+a - Add student in database
+b - Update student from database
+c - Delete student from database
+d - Search for a student in database
+e - Display all students in database
+f - Exit Program
+
+Your Option > e
+
+Roll No     |  Name                  |  Division    |  Address                       
+----------  |  --------------------  |  ----------  |  ------------------------------
+1           |  Shannah Barff         |  CI01        |  39 Meadow Ridge Junction      
+2           |  Clare Hawkridge       |  PW41        |  96 Sunbrook Circle            
+3           |  Dell Harrod           |  UD93        |  88 Arizona Court              
+4           |  Leo Sadgrove          |  GS83        |  958 Chive Lane                
+5           |  Leupold Marzella      |  GK47        |  5601 Monterey Court           
+6           |  Way Blackie           |  EO35        |  8242 Oriole Hill              
+7           |  Hyacinth Rowbottam    |  WG56        |  76 Duke Drive                 
+8           |  Galen Mitham          |  QS89        |  061 Butterfield Avenue        
+9           |  Sayre Cousens         |  KF99        |  20 Cherokee Pass              
+10          |  Minna Caplen          |  JH98        |  3 Westerfield Way             
+11          |  Clarey Harpin         |  JA24        |  49 Maryland Pass              
+12          |  Kippy Grundey         |  DL71        |  2033 Nancy Terrace            
+13          |  Margarette Grattage   |  QR21        |  56114 Mcbride Hill            
+14          |  Jackson Segar         |  LA30        |  99 Pepper Wood Court          
+15          |  Lorilyn Ickeringill   |  QY01        |  296 Sunfield Lane             
+16          |  Gaspar Facher         |  TY53        |  1861 Farmco Point             
+17          |  Lawton Wickersley     |  BG03        |  5004 Mariners Cove Alley      
+18          |  Salomi Scamel         |  KV72        |  9 Grover Trail                
+19          |  Mordecai Prahm        |  VD13        |  78 Beilfuss Parkway           
+20          |  Weidar Hardistry      |  NN91        |  37275 Drewry Junction         
+21          |  Hi Tregenza           |  IR97        |  01 Doe Crossing Parkway       
+22          |  Berky Guislin         |  BA32        |  18572 Mayer Junction          
+23          |  Verene Arthey         |  JH73        |  8798 Vahlen Crossing          
+24          |  Mathias Nowakowska    |  XE04        |  8416 Farragut Point           
+25          |  Janek Readmire        |  XE27        |  760 Esker Pass                
+26          |  Wash Gilhoolie        |  SK30        |  19 Truax Hill                 
+27          |  Antonino Samsworth    |  CW78        |  01138 Havey Place             
+28          |  Tabina Bateup         |  DX34        |  5 Lakewood Gardens Pass       
+29          |  Tabbitha Gilsthorpe   |  BH48        |  5 Bluejay Circle              
+30          |  Maureen MacKessock    |  AM40        |  29 Elka Road                  
+31          |  Valry Edmund          |  QB72        |  85935 Comanche Avenue         
+32          |  Husain De Wolfe       |  IX33        |  7 Atwood Crossing             
+33          |  Arliene McCaffrey     |  BC01        |  03 Stang Circle               
+34          |  Michaeline Ashborne   |  FR48        |  475 Marcy Plaza               
+35          |  Cord Ronald           |  AE75        |  54020 Ridge Oak Alley         
+36          |  Mavra Needham         |  VU92        |  180 Dunning Way               
+37          |  Aleen Mathis          |  MC14        |  27209 Michigan Junction       
+38          |  Aldwin Greengrass     |  DL86        |  22 Cardinal Avenue            
+39          |  Josiah Coggins        |  VQ94        |  02 Sullivan Terrace           
+40          |  Tadeo Bahia           |  UB68        |  8 Shoshone Point              
+41          |  Claudetta Jendrach    |  NS43        |  8225 Merrick Lane             
+42          |  Konstantine Wooles    |  CT12        |  95361 Rutledge Circle         
+43          |  Melisa Healks         |  XM51        |  06802 Lawn Alley              
+44          |  Rosabelle Whoston     |  WM34        |  3875 8th Alley                
+45          |  Elwyn Locke           |  VU55        |  2 Riverside Way               
+46          |  Zonnya Denney         |  RV79        |  147 Reindahl Crossing         
+47          |  Verge Raggles         |  XU12        |  0646 1st Parkway              
+48          |  Garner Senton         |  DR76        |  52285 Donald Lane             
+49          |  Emmett Kem            |  VE21        |  04195 Hazelcrest Lane         
+50          |  Pablo Reville         |  DO28        |  4032 Armistice Circle         
+51          |  Kelley Klemencic      |  QR03        |  53189 Springview Junction     
+52          |  Toma Ditchett         |  FZ37        |  7566 Pawling Plaza            
+53          |  Kristien Romayne      |  MF98        |  56164 Kropf Parkway           
+54          |  Alister Phoebe        |  SW32        |  99 Atwood Drive               
+55          |  Modestine Cereceres   |  UU04        |  4 Westridge Park              
+56          |  Ky Kluger             |  PU97        |  47 Dakota Point               
+57          |  Mahala McAllan        |  EF92        |  188 Redwing Road              
+58          |  Marcelia Dorking      |  KH86        |  23469 Colorado Court          
+59          |  Weylin Juara          |  MG64        |  5470 West Crossing            
+60          |  Elsie Ferrucci        |  JF90        |  9494 Evergreen Avenue         
+61          |  Murry Houlaghan       |  FE31        |  4 Burrows Circle              
+62          |  Janel Coorington      |  JP68        |  54 Swallow Alley              
+63          |  Dorise Standbrook     |  SC64        |  5 Almo Avenue                 
+64          |  Zaccaria Sturges      |  IF81        |  535 Buhler Point              
+65          |  Christin Timperley    |  TY61        |  14613 Coleman Center          
+66          |  Anstice McGillivrie   |  HV83        |  56432 Shopko Point            
+67          |  Lyman Nichols         |  XD11        |  49 Dryden Drive               
+68          |  Jarid Church          |  QJ97        |  410 Meadow Valley Terrace     
+69          |  Ammamaria Capps       |  DM04        |  41 Merchant Park              
+70          |  Addie Guisby          |  ZY80        |  1 Bellgrove Pass              
+71          |  Emmye Bloodworthe     |  LZ28        |  9 Bayside Terrace             
+72          |  Alina Crux            |  QQ16        |  4 Kingsford Circle            
+73          |  Jannel Raynor         |  XV29        |  53 Merchant Trail             
+74          |  Lindie Snelling       |  LQ04        |  4767 Basil Street             
+75          |  Othelia Twyning       |  FP70        |  51 Troy Avenue                
+76          |  Nathan D'Souza        |  OK14        |  72735 Walton Lane             
+77          |  Daffy Ghione          |  BZ59        |  143 Blaine Pass               
+78          |  Knox Hirsch           |  AC00        |  51164 Forest Run Avenue       
+79          |  Abbot Thirkettle      |  NK57        |  8834 Norway Maple Center      
+80          |  Zak Gittins           |  BK21        |  91 Fair Oaks Alley            
+81          |  Andie Perrigo         |  WP29        |  5 Spohn Pass                  
+82          |  Hanson Killock        |  XH51        |  9909 Scofield Park            
+83          |  Carmina Hutfield      |  FO08        |  049 Hansons Alley             
+84          |  Astrid Whitfield      |  AN77        |  16 Mayer Avenue               
+85          |  Nonie Mattsson        |  HW21        |  82 Bashford Court             
+86          |  Marga Rimell          |  MP22        |  31104 Delaware Street         
+87          |  Maurits Ondricek      |  PZ28        |  467 Commercial Way            
+88          |  Dudley McNair         |  BS59        |  98890 Russell Alley           
+89          |  Shanan Gouthier       |  ZI41        |  824 Oxford Crossing           
+90          |  Elfie de Valette      |  DB22        |  74 Lotheville Pass            
+91          |  Glenda Hayfield       |  BZ19        |  80 Starling Parkway           
+92          |  Gwenny Vitler         |  UI55        |  073 Fallview Center           
+93          |  Holly Nickoll         |  MJ87        |  05 Oakridge Lane              
+94          |  Mareah Hewson         |  WS09        |  677 Dottie Place              
+95          |  Vick Kilalea          |  PT36        |  5 Quincy Lane                 
+96          |  Aldrich Dovydenas     |  LI18        |  9 North Trail                 
+97          |  Lorna Acklands        |  LL57        |  1763 Corscot Pass             
+98          |  Valerye Belfrage      |  AA99        |  2 Talmadge Circle             
+99          |  Lotti Lohmeyer        |  GN93        |  97415 Maywood Terrace         
+100         |  Gopal Saraf           |  SE09        |  PICT Katraj Pune              
+
+Choose an option : 
+a - Add student in database
+b - Update student from database
+c - Delete student from database
+d - Search for a student in database
+e - Display all students in database
+f - Exit Program
+
+Your Option > f
+
+Exiting program...

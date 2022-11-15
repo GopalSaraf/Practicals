@@ -69,6 +69,7 @@ public class Student {
             }
             case 'b' -> takeRollNoInput();
             case 'c' -> takeDivisionInput();
+            case 'd' -> takeMarksInput();
             case 'e' -> takeAddressInput();
         }
         StudentDatabase.updateStudent(this);
