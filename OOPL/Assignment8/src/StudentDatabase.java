@@ -16,7 +16,8 @@ public final class StudentDatabase {
 
     private static final List<String> studentsColumnOrder = Arrays.asList(studentsColumnOrderArray);
 
-    public static void addStudent(int studentID, String name, int rollNo, String division, float marks, String address) {
+    public static void addStudent(int studentID, String name, int rollNo, String division, float marks,
+            String address) {
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(studentsFile, true));
             BufferedReader br = new BufferedReader(new FileReader(filePath));
@@ -49,15 +50,14 @@ public final class StudentDatabase {
                 student.getRollNo(),
                 student.getDivision(),
                 student.getMarks(),
-                student.getAddress()
-        );
+                student.getAddress());
     }
 
     public static Map<String, String> getStudentInfo(int studentID) {
         try {
             Map<String, String> studentDetails = new HashMap<>();
             BufferedReader br = new BufferedReader(new FileReader(filePath));
-            String stream = br.readLine();  // header line
+            String stream = br.readLine(); // header line
             while ((stream = br.readLine()) != null) {
                 String[] data = stream.split(",");
                 if (studentID == Integer.parseInt(data[studentsColumnOrder.indexOf("studentID")])) {
@@ -91,8 +91,10 @@ public final class StudentDatabase {
         return new Student(studentID, name, rollNo, division, marks, address);
     }
 
-    public static void updateStudent(int studentID, String name, int rollNo, String division, float marks, String address) {
+    public static void updateStudent(int studentID, String name, int rollNo, String division, float marks,
+            String address) {
         StringBuffer sb = new StringBuffer();
+        sb.append("StudentId,Name,Roll No,Division,Marks,Address\n");
         try {
             BufferedReader br = new BufferedReader(new FileReader(filePath));
             String stream = br.readLine();
@@ -129,6 +131,35 @@ public final class StudentDatabase {
         }
     }
 
+    public static void updateStudent(Student student) {
+        updateStudent(
+                student.getStudentID(),
+                student.getName(),
+                student.getRollNo(),
+                student.getDivision(),
+                student.getMarks(),
+                student.getAddress());
+    }
+
+    public static void deleteStudent(int studentID) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("StudentId,Name,Roll No,Division,Marks,Address\n");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
+            String stream = br.readLine();
+            while ((stream = br.readLine()) != null) {
+                String[] data = stream.split(",");
+                if (studentID != Integer.parseInt(data[studentsColumnOrder.indexOf("studentID")]))
+                    sb.append(stream).append("\n");
+            }
+            br.close();
+            PrintWriter pw = new PrintWriter(new FileOutputStream(filePath, false));
+            pw.print(sb);
+            pw.close();
+        } catch (Exception ignored) {
+        }
+    }
+
     public static boolean isStudentExist(int studentID) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(filePath));
@@ -152,13 +183,13 @@ public final class StudentDatabase {
             while ((stream = br.readLine()) != null) {
                 String[] data = stream.split(",");
 
-                boolean isRecursiveMatchFound =
-                        Arrays.asList(data[studentsColumnOrder.indexOf(compareWith)].toLowerCase()
-                                .split(" ")).contains(givenStr.toLowerCase());
+                boolean isRecursiveMatchFound = Arrays
+                        .asList(data[studentsColumnOrder.indexOf(compareWith)].toLowerCase()
+                                .split(" "))
+                        .contains(givenStr.toLowerCase());
 
-                boolean isNonRecursiveMatchFound =
-                        Objects.equals(givenStr.toLowerCase(),
-                                data[studentsColumnOrder.indexOf(compareWith)].toLowerCase());
+                boolean isNonRecursiveMatchFound = Objects.equals(givenStr.toLowerCase(),
+                        data[studentsColumnOrder.indexOf(compareWith)].toLowerCase());
 
                 if (isNonRecursiveMatchFound || (recursiveSearch && isRecursiveMatchFound)) {
                     br.close();
@@ -191,5 +222,27 @@ public final class StudentDatabase {
         } catch (Exception ignored) {
         }
         return 1;
+    }
+
+    public static void printAllStudents() {
+        List<String> header = new ArrayList<>();
+        header.add("Student ID");
+        header.add("Name");
+        header.add("Roll No");
+        header.add("Division");
+        header.add("Marks");
+        header.add("Address");
+
+        List<List<String>> studentData = new ArrayList<>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
+            String stream = br.readLine();
+            while ((stream = br.readLine()) != null) {
+                studentData.add(Arrays.asList(stream.split(",")));
+            }
+            br.close();
+        } catch (Exception ignored) {
+        }
+        TableFormat.show(header, studentData);
     }
 }

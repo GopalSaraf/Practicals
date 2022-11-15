@@ -24,7 +24,7 @@ public class Student {
 
     @Override
     public String toString() {
-        String details = "Student Information";
+        String details = "\nStudent Information";
         details += "\nName      :  ";
         details += getName();
         details += "\nRoll No   :  ";
@@ -48,6 +48,32 @@ public class Student {
         StudentDatabase.addStudent(this);
     }
 
+    public void updateData() {
+        System.out.println();
+        System.out.println("What do you want to update ?");
+        System.out.println("a - Name (" + getName() + ")");
+        System.out.println("b - Roll No (" + getRollNo() + ")");
+        System.out.println("c - Division (" + getDivision() + ")");
+        System.out.println("d - Marks (" + getMarks() + ")");
+        System.out.println("e - Address (" + getAddress() + ")");
+        System.out.println("f - None");
+        System.out.println();
+        System.out.print("Your Option > ");
+        char option = sc.next().charAt(0);
+        System.out.println();
+
+        switch (option) {
+            case 'a' -> {
+                sc.nextLine();
+                takeNameInput();
+            }
+            case 'b' -> takeRollNoInput();
+            case 'c' -> takeDivisionInput();
+            case 'e' -> takeAddressInput();
+        }
+        StudentDatabase.updateStudent(this);
+    }
+
     public void takeNameInput() {
         System.out.print("Enter name of student > ");
         setName(sc.nextLine());
@@ -55,7 +81,16 @@ public class Student {
 
     public void takeRollNoInput() {
         System.out.print("Enter roll no of student > ");
-        setRollNo(sc.nextInt());
+        while (true) {
+            int roll = sc.nextInt();
+            if (!StudentDatabase.isStudentExist(StudentDatabase.getStudentIDByRollNo(roll))) {
+                setRollNo(roll);
+                break;
+            } else {
+                System.out.println(roll + " is used previously. Roll no should be unique.");
+                System.out.print("Enter valid roll no > ");
+            }
+        }
     }
 
     public void takeDivisionInput() {
