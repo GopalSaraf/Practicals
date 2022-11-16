@@ -39,7 +39,8 @@ public final class Transactions {
             status += reason;
         }
 
-        var deposit = new Transaction(account.getAccountNo(), LocalDateTime.now(), Transaction.DEPOSIT + " by " + depositMode,
+        var deposit = new Transaction(account.getAccountNo(), LocalDateTime.now(),
+                Transaction.DEPOSIT + " by " + depositMode,
                 depositAmount, 0, account.getBalance(), status, note);
         TransactionsDatabase.addTransaction(deposit);
 

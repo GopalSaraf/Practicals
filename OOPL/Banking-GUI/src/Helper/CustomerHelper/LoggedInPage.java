@@ -14,7 +14,11 @@ import Helper.GUIHelper.StatementTableHelper.TableCustom;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class LoggedInPage extends JFrame {
     private JLabel logo;
@@ -34,8 +38,6 @@ public class LoggedInPage extends JFrame {
     private JPanel withdrawPanel;
     private JPanel balancePanel;
     private JPanel profilePanel;
-    private JPanel statementPanel;
-    private JPanel updatePanel;
     private JTextPane instructions;
     private JPanel transferInitial;
     private JPanel transferFinal;
@@ -77,24 +79,39 @@ public class LoggedInPage extends JFrame {
     private JTextField withdrawChequeNoTF;
     private JButton withdrawBtn;
     private JButton cancelWithdrawBtn;
-    private JTextField profileAccNoLabel;
-    private JTextField profileNameLabel;
-    private JTextField profileDOBLabel;
-    private JTextField profileMobileLabel;
-    private JTextField profileEmailLabel;
-    private JTextField profileAccTypeLabel;
-    private JTextField profileUsernameLabel;
-    private JTextField profileBalanceLabel;
-    private JTextField profileOpenDateTimeLabel;
+    private JLabel profileAccNoLabel;
+    private JLabel profileNameLabel;
+    private JLabel profileDOBLabel;
+    private JLabel profileMobileLabel;
+    private JLabel profileEmailLabel;
+    private JLabel profileAccTypeLabel;
+    private JLabel profileUsernameLabel;
+    private JLabel profileBalanceLabel;
+    private JLabel profileOpenDateTimeLabel;
     private JLabel profileHeadingLabel;
     private JTable statementTable;
-    private JScrollPane statementTableScroller;
     private JScrollPane homeScrollPane;
+    private JPanel statementPanel;
+    private JPanel statementHeader;
     private JComboBox<String> statementFilter;
+    private JPanel statementBody;
+    private JPanel statementTablePanel;
+    private JScrollPane statementTableScroller;
+    private JPanel customDatesPanel;
+    private JComboBox<String> startingDay;
+    private JComboBox<String> startingMonth;
+    private JComboBox<String> startingYear;
+    private JComboBox<String> endingDay;
+    private JComboBox<String> endingYear;
+    private JComboBox<String> endingMonth;
+    private Date statementStartingDate;
+    private Date statementEndingDate;
+    private JLabel statementDateError;
+    private JButton customDateGetBtn;
+    private JLabel customDatesMsg;
     private final Account account;
     private Account transferRecAcc;
     private DefaultTableModel tableModel;
-
 
     public LoggedInPage(Account account) {
         this.account = account;
@@ -173,8 +190,8 @@ public class LoggedInPage extends JFrame {
         });
 
         transferBtn.addActionListener(e -> {
-            Transaction transferTransaction =
-                    Transactions.transfer(account, transferRecAcc, getTransferAmtFromUser(), getTransferNoteFromUser());
+            Transaction transferTransaction = Transactions.transfer(account, transferRecAcc, getTransferAmtFromUser(),
+                    getTransferNoteFromUser());
 
             if (transferTransaction.status.startsWith(Transaction.FAIL))
                 transferErrorMsg2.setText(transferTransaction.getErrorMsg());
@@ -193,7 +210,8 @@ public class LoggedInPage extends JFrame {
 
         cancelTransferBtn.addActionListener(e -> {
             int wantToCancel = JOptionPane.showConfirmDialog(this, "You want to cancel transfer ?",
-                    "Cancel Transfer", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("images/bank_100.png"));
+                    "Cancel Transfer", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                    new ImageIcon("images/bank_100.png"));
             if (wantToCancel == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(this, "Transfer cancelled", "Transfer Cancel",
                         JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/bank_100.png"));
@@ -228,8 +246,8 @@ public class LoggedInPage extends JFrame {
             try {
                 checkDepositFields();
 
-                Transaction depositTransaction =
-                        Transactions.deposit(account, getDepositAmtFromUser(), getDepositNoteFromUser(), getDepositModeFromUser());
+                Transaction depositTransaction = Transactions.deposit(account, getDepositAmtFromUser(),
+                        getDepositNoteFromUser(), getDepositModeFromUser());
 
                 if (depositTransaction.status.startsWith(Transaction.FAIL))
                     depositErrorMsg.setText(depositTransaction.getErrorMsg());
@@ -249,7 +267,8 @@ public class LoggedInPage extends JFrame {
 
         cancelDepositBtn.addActionListener(e -> {
             int wantToCancel = JOptionPane.showConfirmDialog(this, "You want to cancel deposit ?",
-                    "Cancel Deposit", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("images/bank_100.png"));
+                    "Cancel Deposit", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                    new ImageIcon("images/bank_100.png"));
             if (wantToCancel == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(this, "Deposit cancelled", "Deposit Cancel",
                         JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/bank_100.png"));
@@ -284,8 +303,8 @@ public class LoggedInPage extends JFrame {
             try {
                 checkWithdrawFields();
 
-                Transaction withdrawTransaction =
-                        Transactions.withdraw(account, getWithdrawAmtFromUser(), getWithdrawNoteFromUser(), getWithdrawModeFromUser());
+                Transaction withdrawTransaction = Transactions.withdraw(account, getWithdrawAmtFromUser(),
+                        getWithdrawNoteFromUser(), getWithdrawModeFromUser());
 
                 if (withdrawTransaction.status.startsWith(Transaction.FAIL))
                     withdrawErrorMsg.setText(withdrawTransaction.getErrorMsg());
@@ -305,7 +324,8 @@ public class LoggedInPage extends JFrame {
 
         cancelWithdrawBtn.addActionListener(e -> {
             int wantToCancel = JOptionPane.showConfirmDialog(this, "You want to cancel withdraw ?",
-                    "Cancel Withdraw", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("images/bank_100.png"));
+                    "Cancel Withdraw", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                    new ImageIcon("images/bank_100.png"));
             if (wantToCancel == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(this, "Withdraw cancelled", "Withdraw Cancel",
                         JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/bank_100.png"));
@@ -316,8 +336,46 @@ public class LoggedInPage extends JFrame {
     }
 
     private void statementActionListeners() {
-        statementPageBtn.addActionListener(e -> setStatementTable());
-        statementFilter.addActionListener(e -> setStatementTable());
+        statementPageBtn.addActionListener(e -> resetStatementPage());
+        statementFilter.addActionListener(e -> {
+            if (getStatementFilterIndex() == 3)
+                changeWorkingPanel(statementBody, customDatesPanel);
+            else {
+                customDatesMsg.setText("");
+                changeWorkingPanel(statementBody, statementTablePanel);
+                setStatementTable();
+            }
+        });
+        customDateGetBtn.addActionListener(e -> {
+            if ((startingDay.getSelectedIndex() * startingMonth.getSelectedIndex() * startingYear.getSelectedIndex() *
+                    endingDay.getSelectedIndex() * endingMonth.getSelectedIndex()
+                    * endingYear.getSelectedIndex()) == 0) {
+                statementDateError.setText("ERROR : Please choose all fields for dates");
+            } else {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+                try {
+                    statementStartingDate = dateFormat.parse(getStatementStartingDateFromUser());
+                    statementEndingDate = dateFormat.parse(getStatementEndingDateFromUser());
+                } catch (ParseException ignored) {
+                    statementDateError.setText("ERROR");
+                }
+                if (statementStartingDate.compareTo(statementEndingDate) < 0) {
+                    setStatementTable();
+                    customDatesMsg.setText("Custom Dates (" + getStatementStartingDateFromUser() + " - "
+                            + getStatementEndingDateFromUser() + ")");
+                    changeWorkingPanel(statementBody, statementTablePanel);
+                    statementDateError.setText("");
+                    startingDay.setSelectedIndex(0);
+                    startingMonth.setSelectedIndex(0);
+                    startingYear.setSelectedIndex(0);
+                    endingDay.setSelectedIndex(0);
+                    endingMonth.setSelectedIndex(0);
+                    endingYear.setSelectedIndex(0);
+                } else {
+                    statementDateError.setText("ERROR : Starting Date should be before Ending Date");
+                }
+            }
+        });
     }
 
     private void addKeyListeners() {
@@ -335,6 +393,8 @@ public class LoggedInPage extends JFrame {
 
         withdrawBtn.addKeyListener(keyListener);
         cancelWithdrawBtn.addKeyListener(keyListener);
+
+        customDateGetBtn.addKeyListener(keyListener);
     }
 
     private void addMouseListeners() {
@@ -356,6 +416,8 @@ public class LoggedInPage extends JFrame {
 
         withdrawBtn.addMouseListener(btnMouseListener);
         cancelWithdrawBtn.addMouseListener(btnMouseListener);
+
+        customDateGetBtn.addMouseListener(btnMouseListener);
     }
 
     private void addFocusListeners() {
@@ -419,7 +481,7 @@ public class LoggedInPage extends JFrame {
         return AccountsDatabase.getAccount(accNoOfRec);
     }
 
-    private void checkDepositFields() throws BankException{
+    private void checkDepositFields() throws BankException {
         if (getDepositModeIndexFromUser() == 0)
             throw new InvalidFieldException("Select Deposit Mode");
 
@@ -429,7 +491,7 @@ public class LoggedInPage extends JFrame {
         }
     }
 
-    private void checkWithdrawFields() throws BankException{
+    private void checkWithdrawFields() throws BankException {
         if (getWithdrawModeIndexFromUser() == 0)
             throw new InvalidFieldException("Select Withdraw Mode");
 
@@ -503,7 +565,13 @@ public class LoggedInPage extends JFrame {
         tableModel.addColumn("Balance");
         tableModel.addColumn("Note");
 
-        var transactions = StatementTableFilter.getList(account.getAccountNo(), getStatementFilterStr());
+        List<Transaction> transactions;
+
+        if (statementFilter.getSelectedIndex() == 3)
+            transactions = StatementTableFilter.getList(account.getAccountNo(), statementStartingDate,
+                    statementEndingDate);
+        else
+            transactions = StatementTableFilter.getList(account.getAccountNo(), getStatementFilterStr());
 
         for (Transactions.Transaction transaction : transactions) {
             tableModel.insertRow(tableModel.getRowCount(), transaction.getTransactionList().toArray());
@@ -514,6 +582,20 @@ public class LoggedInPage extends JFrame {
         statementTable.getColumnModel().getColumn(0).setPreferredWidth(90);
         statementTable.getColumnModel().getColumn(1).setPreferredWidth(150);
         statementTable.getColumnModel().getColumn(3).setPreferredWidth(85);
+    }
+
+    private void resetStatementPage() {
+        changeWorkingPanel(statementBody, statementTablePanel);
+        statementFilter.setSelectedIndex(0);
+        customDatesMsg.setText("");
+        setStatementTable();
+        statementDateError.setText("");
+        startingDay.setSelectedIndex(0);
+        startingMonth.setSelectedIndex(0);
+        startingYear.setSelectedIndex(0);
+        endingDay.setSelectedIndex(0);
+        endingMonth.setSelectedIndex(0);
+        endingYear.setSelectedIndex(0);
     }
 
     private ArrayList<JButton> getOptionsBtns() {
@@ -599,12 +681,29 @@ public class LoggedInPage extends JFrame {
     }
 
     private String getStatementFilterStr() {
-        int statementFilterIndex = statementFilter.getSelectedIndex();
-        if (statementFilterIndex == 0) return "Last 10";
-        if (statementFilterIndex == 1) return "Last week";
-        if (statementFilterIndex == 2) return "Last month";
-        if (statementFilterIndex == 3) return "Custom";
+        int statementFilterIndex = getStatementFilterIndex();
+        if (statementFilterIndex == 0)
+            return "Last 10";
+        if (statementFilterIndex == 1)
+            return "Last week";
+        if (statementFilterIndex == 2)
+            return "Last month";
+        if (statementFilterIndex == 3)
+            return "Custom";
         return "";
+    }
+
+    private int getStatementFilterIndex() {
+        return statementFilter.getSelectedIndex();
+    }
+
+    private String getStatementStartingDateFromUser() {
+        return startingDay.getSelectedItem() + " " + startingMonth.getSelectedItem() + ", "
+                + startingYear.getSelectedItem();
+    }
+
+    private String getStatementEndingDateFromUser() {
+        return endingDay.getSelectedItem() + " " + endingMonth.getSelectedItem() + ", " + endingYear.getSelectedItem();
     }
 
     private void createUIComponents() {

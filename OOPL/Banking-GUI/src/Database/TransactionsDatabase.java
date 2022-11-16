@@ -122,23 +122,4 @@ public final class TransactionsDatabase {
         }
         return transactions;
     }
-
-    public static String array2HTML(Object[][] array) {
-        StringBuilder html = new StringBuilder(
-                "<html><head> <style> .fixTableHead { overflow-y: auto; height: 110px;} .fixTableHead thead th { position: sticky; top: 0;} table { border-collapse: collapse; width: 100%;} th, td { padding: 8px 15px; border: 2px solid #529432;} th { background: #ABDD93;} </style> </head> <body> <div class=\"fixTableHead\"> <table><thead>");
-        for (Object elem : array[0]) {
-            html.append("<th>" + elem.toString() + "</th>");
-        }
-        html.append("</thead><tbody>");
-        for (int i = 1; i < array.length; i++) {
-            Object[] row = array[i];
-            html.append("<tr>");
-            for (Object elem : row) {
-                html.append("<td>" + elem.toString() + "</td>");
-            }
-            html.append("</tr>");
-        }
-        html.append("</tbody></table></div></body></html>");
-        return html.toString();
-    }
 }

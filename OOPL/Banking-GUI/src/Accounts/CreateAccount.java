@@ -1,6 +1,9 @@
 package Accounts;
 
 import Database.AccountsDatabase;
+import Database.TransactionsDatabase;
+import Helper.BankHelper.Transactions;
+import Helper.BankHelper.Transactions.Transaction;
 import Helper.CustomerHelper.ForgetPasswordHandler;
 import Helper.CustomerHelper.Valid;
 import Helper.GUIHelper.*;
@@ -152,12 +155,15 @@ public class CreateAccount extends JFrame {
         homepageBtn.addActionListener(e -> {
             double amt;
             try {
-                amt = Double.parseDouble(balance.getText());
+                amt = Double.parseDouble(getBalanceFromUser());
                 if (amt < account.getMinBalance())
                     minAmt.setForeground(new Color(191, 23, 13));
                 else {
                     account.setBalance(amt);
                     AccountsDatabase.addAccount(account);
+                    TransactionsDatabase.addTransaction(new Transaction(account.getAccountNo(), LocalDateTime.now(),
+                            Transaction.FIRST_DEPOSIT, amt, 0, account.getBalance(),
+                            Transaction.SUCCESS, " "));
                     showAndDispose(new MainPage());
                 }
             } catch (Exception ignored) {
@@ -241,10 +247,14 @@ public class CreateAccount extends JFrame {
     }
 
     private boolean isBasicFieldsValid() {
-        if (getNameFromUser().equals("Name")) return false;
-        if (getDOBFromUser().equals("Day Month_ Year")) return false;
-        if (getMobileFromUser().equals("Mobile Number")) return false;
-        if (getEmailFromUser().equals("Email")) return false;
+        if (getNameFromUser().equals("Name"))
+            return false;
+        if (getDOBFromUser().equals("Day Month_ Year"))
+            return false;
+        if (getMobileFromUser().equals("Mobile Number"))
+            return false;
+        if (getEmailFromUser().equals("Email"))
+            return false;
 
         boolean isNameValid = Valid.isValidName(getNameFromUser());
         boolean isMobileValid = Valid.isValidMobile(getMobileFromUser());
@@ -254,17 +264,22 @@ public class CreateAccount extends JFrame {
 
     private String getBasicFieldsErrorMsg() {
         String errorMsg = "INVALID : ";
-        if (!Valid.isValidName(getNameFromUser()) || getNameFromUser().equals("Name")) errorMsg += "Name, ";
-        if (getDOBFromUser().equals("Day Month_ Year")) errorMsg += "Date of Birth, ";
+        if (!Valid.isValidName(getNameFromUser()) || getNameFromUser().equals("Name"))
+            errorMsg += "Name, ";
+        if (getDOBFromUser().equals("Day Month_ Year"))
+            errorMsg += "Date of Birth, ";
         if (!Valid.isValidMobile(getMobileFromUser()) || getMobileFromUser().equals("Mobile Number"))
             errorMsg += "Mobile Number, ";
-        if (!Valid.isValidMail(getEmailFromUser()) || getEmailFromUser().equals("Email")) errorMsg += "Email, ";
+        if (!Valid.isValidMail(getEmailFromUser()) || getEmailFromUser().equals("Email"))
+            errorMsg += "Email, ";
         return errorMsg.substring(0, errorMsg.length() - 2);
     }
 
     private boolean isNextFieldsValid() {
-        if (getAccTypeFromUser().equals("Type")) return false;
-        if (getUsernameFromUser().equals("Username")) return false;
+        if (getAccTypeFromUser().equals("Type"))
+            return false;
+        if (getUsernameFromUser().equals("Username"))
+            return false;
 
         boolean isUsernameValid = Valid.isValidUsername(getUsernameFromUser());
         boolean isPasswordValid = Valid.isValidPassword(getPasswordFromUser());
@@ -276,13 +291,17 @@ public class CreateAccount extends JFrame {
     private String getNextFieldsErrorMsg() {
         String errorMsg = "INVALID : ";
         boolean typeError = getAccTypeFromUser().equals("Type");
-        boolean usernameError = !Valid.isValidUsername(getUsernameFromUser()) || getUsernameFromUser().equals("Username");
+        boolean usernameError = !Valid.isValidUsername(getUsernameFromUser())
+                || getUsernameFromUser().equals("Username");
         boolean passwordError = !Valid.isValidPassword(getPasswordFromUser());
 
         if (typeError || usernameError || passwordError) {
-            if (typeError) errorMsg += "Type, ";
-            if (usernameError) errorMsg += "Username, ";
-            if (passwordError) errorMsg += "Password, ";
+            if (typeError)
+                errorMsg += "Type, ";
+            if (usernameError)
+                errorMsg += "Username, ";
+            if (passwordError)
+                errorMsg += "Password, ";
         } else if (!getConfirmPasswordFromUser().equals(getPasswordFromUser())) {
             errorMsg += "Password and Confirm Password not matching. ";
         }
@@ -294,8 +313,10 @@ public class CreateAccount extends JFrame {
                 question2.getSelectedIndex() == 0 ||
                 question3.getSelectedIndex() == 0)
             return false;
-        if (answer1TF.getText().equals("Answer") || answer1TF.getText().equals("")) return false;
-        if (answer2TF.getText().equals("Answer") || answer2TF.getText().equals("")) return false;
+        if (answer1TF.getText().equals("Answer") || answer1TF.getText().equals(""))
+            return false;
+        if (answer2TF.getText().equals("Answer") || answer2TF.getText().equals(""))
+            return false;
         return !answer3TF.getText().equals("Answer") && !answer3TF.getText().equals("");
     }
 
@@ -351,9 +372,11 @@ public class CreateAccount extends JFrame {
         String dateTime = LocalDateTime.now().format(DATE_TIME_FORMATTER);
 
         if (Objects.equals(getAccTypeFromUser(), Account.SAVING))
-            account = new SavingAccount(getNameFromUser(), getDOBFromUser(), getMobileFromUser(), getEmailFromUser(), 0);
+            account = new SavingAccount(getNameFromUser(), getDOBFromUser(), getMobileFromUser(), getEmailFromUser(),
+                    0);
         else if (Objects.equals(getAccTypeFromUser(), Account.CURRENT)) {
-            account = new CurrentAccount(getNameFromUser(), getDOBFromUser(), getMobileFromUser(), getEmailFromUser(), 0);
+            account = new CurrentAccount(getNameFromUser(), getDOBFromUser(), getMobileFromUser(), getEmailFromUser(),
+                    0);
         }
         account.setUsername(getUsernameFromUser());
         account.setPassword(getPasswordFromUser());
@@ -398,6 +421,10 @@ public class CreateAccount extends JFrame {
 
     private String getConfirmPasswordFromUser() {
         return String.valueOf(confirmPassTF.getPassword());
+    }
+
+    private String getBalanceFromUser() {
+        return balance.getText().trim();
     }
 
     private void createUIComponents() {

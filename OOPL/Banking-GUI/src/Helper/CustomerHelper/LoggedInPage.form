@@ -1417,7 +1417,7 @@
             </children>
           </grid>
           <grid id="ee3e2" binding="profilePanel" layout-manager="GridLayoutManager" row-count="10" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="30" left="30" bottom="10" right="30"/>
+            <margin top="30" left="30" bottom="30" right="30"/>
             <constraints>
               <card name="Card6"/>
             </constraints>
@@ -1438,413 +1438,323 @@
               </component>
               <component id="89157" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="99" height="16"/>
-                  </grid>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="16" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
+                  <horizontalAlignment value="10"/>
                   <text value="Account Number"/>
                 </properties>
               </component>
               <component id="31007" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="99" height="16"/>
-                  </grid>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="16" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
+                  <horizontalAlignment value="10"/>
                   <text value="Name"/>
                 </properties>
               </component>
               <component id="302a" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="99" height="16"/>
-                  </grid>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="16" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
+                  <horizontalAlignment value="10"/>
                   <text value="Date of Birth"/>
                 </properties>
               </component>
               <component id="96f5e" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="99" height="16"/>
-                  </grid>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="16" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
+                  <horizontalAlignment value="10"/>
                   <text value="Mobile Number"/>
                 </properties>
               </component>
               <component id="42ccc" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="99" height="16"/>
-                  </grid>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="16" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
+                  <horizontalAlignment value="10"/>
                   <text value="Email ID"/>
                 </properties>
               </component>
               <component id="36515" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="99" height="16"/>
-                  </grid>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="16" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
+                  <horizontalAlignment value="10"/>
                   <text value="Account type"/>
                 </properties>
               </component>
               <component id="a854" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="99" height="16"/>
-                  </grid>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="16" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
+                  <horizontalAlignment value="10"/>
                   <text value="Username"/>
                 </properties>
               </component>
               <component id="e5080" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="99" height="16"/>
-                  </grid>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="16" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
+                  <horizontalAlignment value="10"/>
                   <text value="Balance"/>
                 </properties>
               </component>
               <component id="7385" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="99" height="16"/>
-                  </grid>
+                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="16" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
-                  <text value="Opening Date &amp; Time"/>
+                  <horizontalAlignment value="10"/>
+                  <text value="Opening Date and Time"/>
                 </properties>
               </component>
               <component id="f617a" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-9022310"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
                   <text value=":"/>
                 </properties>
               </component>
               <component id="81d61" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-9022310"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
                   <text value=":"/>
                 </properties>
               </component>
               <component id="72fc5" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-9022310"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
                   <text value=":"/>
                 </properties>
               </component>
               <component id="325ea" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-9022310"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
                   <text value=":"/>
                 </properties>
               </component>
               <component id="d4cbd" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-9022310"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
                   <text value=":"/>
                 </properties>
               </component>
               <component id="e677e" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-9022310"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
                   <text value=":"/>
                 </properties>
               </component>
-              <component id="85035" class="javax.swing.JTextField" binding="profileAccNoLabel">
-                <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
-                    <preferred-size width="250" height="15"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-1"/>
-                  <dropMode value="USE_SELECTION"/>
-                  <editable value="false"/>
-                  <enabled value="true"/>
-                  <font name="Avenir Next" size="14"/>
-                  <foreground color="-7111230"/>
-                  <horizontalAlignment value="10"/>
-                  <inheritsPopupMenu value="false"/>
-                  <margin top="2" left="6" bottom="2" right="6"/>
-                  <text value=""/>
-                  <toolTipText value=""/>
-                </properties>
-              </component>
-              <component id="b7f7a" class="javax.swing.JTextField" binding="profileNameLabel">
-                <constraints>
-                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
-                    <preferred-size width="250" height="15"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-1"/>
-                  <dropMode value="USE_SELECTION"/>
-                  <editable value="false"/>
-                  <enabled value="true"/>
-                  <font name="Avenir Next" size="14"/>
-                  <foreground color="-7111230"/>
-                  <horizontalAlignment value="10"/>
-                  <inheritsPopupMenu value="false"/>
-                  <margin top="2" left="6" bottom="2" right="6"/>
-                  <text value=""/>
-                  <toolTipText value=""/>
-                </properties>
-              </component>
-              <component id="559a9" class="javax.swing.JTextField" binding="profileDOBLabel">
-                <constraints>
-                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
-                    <preferred-size width="250" height="15"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-1"/>
-                  <dropMode value="USE_SELECTION"/>
-                  <editable value="false"/>
-                  <enabled value="true"/>
-                  <font name="Avenir Next" size="14"/>
-                  <foreground color="-7111230"/>
-                  <horizontalAlignment value="10"/>
-                  <inheritsPopupMenu value="false"/>
-                  <margin top="2" left="6" bottom="2" right="6"/>
-                  <text value=""/>
-                  <toolTipText value=""/>
-                </properties>
-              </component>
-              <component id="457d5" class="javax.swing.JTextField" binding="profileMobileLabel">
-                <constraints>
-                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
-                    <preferred-size width="250" height="15"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-1"/>
-                  <dropMode value="USE_SELECTION"/>
-                  <editable value="false"/>
-                  <enabled value="true"/>
-                  <font name="Avenir Next" size="14"/>
-                  <foreground color="-7111230"/>
-                  <horizontalAlignment value="10"/>
-                  <inheritsPopupMenu value="false"/>
-                  <margin top="2" left="6" bottom="2" right="6"/>
-                  <text value=""/>
-                  <toolTipText value=""/>
-                </properties>
-              </component>
-              <component id="652c8" class="javax.swing.JTextField" binding="profileEmailLabel">
-                <constraints>
-                  <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
-                    <preferred-size width="250" height="15"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-1"/>
-                  <dropMode value="USE_SELECTION"/>
-                  <editable value="false"/>
-                  <enabled value="true"/>
-                  <font name="Avenir Next" size="14"/>
-                  <foreground color="-7111230"/>
-                  <horizontalAlignment value="10"/>
-                  <inheritsPopupMenu value="false"/>
-                  <margin top="2" left="6" bottom="2" right="6"/>
-                  <text value=""/>
-                  <toolTipText value=""/>
-                </properties>
-              </component>
-              <component id="965be" class="javax.swing.JTextField" binding="profileAccTypeLabel">
-                <constraints>
-                  <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
-                    <preferred-size width="250" height="15"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-1"/>
-                  <dropMode value="USE_SELECTION"/>
-                  <editable value="false"/>
-                  <enabled value="true"/>
-                  <font name="Avenir Next" size="14"/>
-                  <foreground color="-7111230"/>
-                  <horizontalAlignment value="10"/>
-                  <inheritsPopupMenu value="false"/>
-                  <margin top="2" left="6" bottom="2" right="6"/>
-                  <text value=""/>
-                  <toolTipText value=""/>
-                </properties>
-              </component>
               <component id="ad2a4" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-9022310"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
                   <text value=":"/>
                 </properties>
               </component>
               <component id="ed7c6" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-9022310"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
                   <text value=":"/>
                 </properties>
               </component>
               <component id="e7895" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                  <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-9022310"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14" style="1"/>
+                  <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
                   <text value=":"/>
                 </properties>
               </component>
-              <component id="26e41" class="javax.swing.JTextField" binding="profileUsernameLabel">
+              <component id="272bd" class="javax.swing.JLabel" binding="profileAccNoLabel">
                 <constraints>
-                  <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
-                    <preferred-size width="250" height="15"/>
-                  </grid>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-1"/>
-                  <dropMode value="USE_SELECTION"/>
-                  <editable value="false"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14"/>
-                  <foreground color="-7111230"/>
-                  <horizontalAlignment value="10"/>
-                  <inheritsPopupMenu value="false"/>
-                  <margin top="2" left="6" bottom="2" right="6"/>
-                  <text value=""/>
-                  <toolTipText value=""/>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value="Account Number"/>
                 </properties>
               </component>
-              <component id="3b165" class="javax.swing.JTextField" binding="profileBalanceLabel">
+              <component id="661cb" class="javax.swing.JLabel" binding="profileNameLabel">
                 <constraints>
-                  <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
-                    <preferred-size width="250" height="15"/>
-                  </grid>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-1"/>
-                  <dropMode value="USE_SELECTION"/>
-                  <editable value="false"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14"/>
-                  <foreground color="-7111230"/>
-                  <horizontalAlignment value="10"/>
-                  <inheritsPopupMenu value="false"/>
-                  <margin top="2" left="6" bottom="2" right="6"/>
-                  <text value=""/>
-                  <toolTipText value=""/>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value="Name"/>
                 </properties>
               </component>
-              <component id="8235c" class="javax.swing.JTextField" binding="profileOpenDateTimeLabel">
+              <component id="3cba3" class="javax.swing.JLabel" binding="profileDOBLabel">
                 <constraints>
-                  <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="5" use-parent-layout="false">
-                    <preferred-size width="250" height="15"/>
-                  </grid>
+                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-1"/>
-                  <dropMode value="USE_SELECTION"/>
-                  <editable value="false"/>
                   <enabled value="true"/>
-                  <font name="Avenir Next" size="14"/>
-                  <foreground color="-7111230"/>
-                  <horizontalAlignment value="10"/>
-                  <inheritsPopupMenu value="false"/>
-                  <margin top="2" left="6" bottom="2" right="6"/>
-                  <text value=""/>
-                  <toolTipText value=""/>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value="Date of Birth"/>
+                </properties>
+              </component>
+              <component id="59841" class="javax.swing.JLabel" binding="profileMobileLabel">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value="Mobile Number"/>
+                </properties>
+              </component>
+              <component id="2ce30" class="javax.swing.JLabel" binding="profileEmailLabel">
+                <constraints>
+                  <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value="Email ID"/>
+                </properties>
+              </component>
+              <component id="f6c4e" class="javax.swing.JLabel" binding="profileAccTypeLabel">
+                <constraints>
+                  <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value="Account type"/>
+                </properties>
+              </component>
+              <component id="ea026" class="javax.swing.JLabel" binding="profileUsernameLabel">
+                <constraints>
+                  <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value="Username"/>
+                </properties>
+              </component>
+              <component id="f7309" class="javax.swing.JLabel" binding="profileBalanceLabel">
+                <constraints>
+                  <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value="Balance"/>
+                </properties>
+              </component>
+              <component id="c87ee" class="javax.swing.JLabel" binding="profileOpenDateTimeLabel">
+                <constraints>
+                  <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value="Opening Date and Time"/>
                 </properties>
               </component>
             </children>
           </grid>
-          <grid id="f3861" binding="statementPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="30" left="10" bottom="10" right="10"/>
+          <grid id="20a01" binding="statementPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <card name="Card7"/>
             </constraints>
@@ -1853,75 +1763,638 @@
             </properties>
             <border type="none"/>
             <children>
-              <scrollpane id="cf1c" binding="statementTableScroller">
+              <grid id="a9f3d" binding="statementHeader" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="30" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <minimum-size width="680" height="-1"/>
-                    <preferred-size width="780" height="-1"/>
-                    <maximum-size width="980" height="-1"/>
-                  </grid>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-2588"/>
+                </properties>
                 <border type="none"/>
                 <children>
-                  <component id="6a6db" class="javax.swing.JTable" binding="statementTable" custom-create="true">
-                    <constraints/>
+                  <component id="27411" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
                     <properties>
-                      <autoCreateRowSorter value="true"/>
-                      <enabled value="false"/>
-                      <fillsViewportHeight value="true"/>
-                      <font name="Avenir Next" size="18"/>
+                      <font name="Avenir Next" size="24" style="1"/>
                       <foreground color="-7111174"/>
-                      <gridColor color="-13232038"/>
-                      <intercellSpacing width="0" height="0"/>
-                      <preferredScrollableViewportSize width="430" height="-1"/>
-                      <selectionBackground color="-7111230"/>
-                      <selectionForeground color="-7111230"/>
-                      <showHorizontalLines value="true"/>
+                      <text value="ACCOUNT STATEMENT"/>
+                    </properties>
+                  </component>
+                  <component id="c47cb" class="javax.swing.JComboBox" binding="statementFilter">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                        <minimum-size width="300" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-1"/>
+                      <font name="Avenir Next" size="16"/>
+                      <foreground color="-7111174"/>
+                      <model>
+                        <item value="Last 10 Transactions"/>
+                        <item value="Last Week Transations"/>
+                        <item value="Last Month Transactions"/>
+                        <item value="Custom Dates"/>
+                      </model>
                     </properties>
                   </component>
                 </children>
-              </scrollpane>
-              <component id="f6a2e" class="javax.swing.JLabel">
+              </grid>
+              <grid id="ccc8f" binding="statementBody" layout-manager="CardLayout" hgap="0" vgap="0">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <font name="Avenir Next" size="24" style="1"/>
-                  <foreground color="-7111174"/>
-                  <text value="ACCOUNT STATEMENT"/>
+                  <background color="-2588"/>
                 </properties>
-              </component>
-              <component id="87db" class="javax.swing.JComboBox" binding="statementFilter">
+                <border type="none"/>
+                <children>
+                  <grid id="c669" binding="statementTablePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <card name="Card1"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <scrollpane id="3c739" binding="statementTableScroller">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                            <minimum-size width="680" height="-1"/>
+                            <preferred-size width="780" height="-1"/>
+                            <maximum-size width="980" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="b9f6f" class="javax.swing.JTable" binding="statementTable" custom-create="true">
+                            <constraints/>
+                            <properties>
+                              <autoCreateRowSorter value="true"/>
+                              <enabled value="false"/>
+                              <fillsViewportHeight value="true"/>
+                              <font name="Avenir Next" size="18"/>
+                              <foreground color="-7111174"/>
+                              <gridColor color="-13232038"/>
+                              <intercellSpacing width="0" height="0"/>
+                              <preferredScrollableViewportSize width="430" height="-1"/>
+                              <selectionBackground color="-7111230"/>
+                              <selectionForeground color="-7111230"/>
+                              <showHorizontalLines value="true"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </scrollpane>
+                    </children>
+                  </grid>
+                  <grid id="ad627" binding="customDatesPanel" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="30" left="30" bottom="30" right="30"/>
+                    <constraints>
+                      <card name="Card2"/>
+                    </constraints>
+                    <properties>
+                      <background color="-2588"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="cf07f" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="99" height="16"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Avenir Next" size="18" style="1"/>
+                          <foreground color="-9022310"/>
+                          <text value="Starting Date"/>
+                        </properties>
+                      </component>
+                      <component id="c547f" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="99" height="16"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Avenir Next" size="18" style="1"/>
+                          <foreground color="-9022310"/>
+                          <text value="Ending Date"/>
+                        </properties>
+                      </component>
+                      <component id="c6cdc" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-9022310"/>
+                          <font name="Avenir Next" size="16" style="1"/>
+                          <foreground color="-9022310"/>
+                          <text value=":"/>
+                        </properties>
+                      </component>
+                      <component id="7fe20" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-9022310"/>
+                          <font name="Avenir Next" size="16" style="1"/>
+                          <foreground color="-9022310"/>
+                          <text value=":"/>
+                        </properties>
+                      </component>
+                      <component id="23eda" class="javax.swing.JComboBox" binding="startingDay">
+                        <constraints>
+                          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-1"/>
+                          <font name="Avenir Next" size="16"/>
+                          <foreground color="-7111174"/>
+                          <model>
+                            <item value="Day"/>
+                            <item value="01"/>
+                            <item value="02"/>
+                            <item value="03"/>
+                            <item value="04"/>
+                            <item value="05"/>
+                            <item value="06"/>
+                            <item value="07"/>
+                            <item value="08"/>
+                            <item value="09"/>
+                            <item value="10"/>
+                            <item value="11"/>
+                            <item value="12"/>
+                            <item value="13"/>
+                            <item value="14"/>
+                            <item value="15"/>
+                            <item value="16"/>
+                            <item value="17"/>
+                            <item value="18"/>
+                            <item value="19"/>
+                            <item value="20"/>
+                            <item value="21"/>
+                            <item value="22"/>
+                            <item value="23"/>
+                            <item value="24"/>
+                            <item value="25"/>
+                            <item value="26"/>
+                            <item value="27"/>
+                            <item value="28"/>
+                            <item value="29"/>
+                            <item value="30"/>
+                            <item value="31"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="522f4" class="javax.swing.JComboBox" binding="endingDay">
+                        <constraints>
+                          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-1"/>
+                          <font name="Avenir Next" size="16"/>
+                          <foreground color="-7111174"/>
+                          <model>
+                            <item value="Day"/>
+                            <item value="01"/>
+                            <item value="02"/>
+                            <item value="03"/>
+                            <item value="04"/>
+                            <item value="05"/>
+                            <item value="06"/>
+                            <item value="07"/>
+                            <item value="08"/>
+                            <item value="09"/>
+                            <item value="10"/>
+                            <item value="11"/>
+                            <item value="12"/>
+                            <item value="13"/>
+                            <item value="14"/>
+                            <item value="15"/>
+                            <item value="16"/>
+                            <item value="17"/>
+                            <item value="18"/>
+                            <item value="19"/>
+                            <item value="20"/>
+                            <item value="21"/>
+                            <item value="22"/>
+                            <item value="23"/>
+                            <item value="24"/>
+                            <item value="25"/>
+                            <item value="26"/>
+                            <item value="27"/>
+                            <item value="28"/>
+                            <item value="29"/>
+                            <item value="30"/>
+                            <item value="31"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="41924" class="javax.swing.JComboBox" binding="startingMonth">
+                        <constraints>
+                          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-1"/>
+                          <font name="Avenir Next" size="16"/>
+                          <foreground color="-7111174"/>
+                          <model>
+                            <item value="Month"/>
+                            <item value="Jan"/>
+                            <item value="Feb"/>
+                            <item value="March"/>
+                            <item value="April"/>
+                            <item value="May"/>
+                            <item value="June"/>
+                            <item value="July"/>
+                            <item value="Aug"/>
+                            <item value="Sept"/>
+                            <item value="Oct"/>
+                            <item value="Nov"/>
+                            <item value="Dec"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="f7888" class="javax.swing.JComboBox" binding="endingMonth">
+                        <constraints>
+                          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-1"/>
+                          <font name="Avenir Next" size="16"/>
+                          <foreground color="-7111174"/>
+                          <model>
+                            <item value="Month"/>
+                            <item value="Jan"/>
+                            <item value="Feb"/>
+                            <item value="March"/>
+                            <item value="April"/>
+                            <item value="May"/>
+                            <item value="June"/>
+                            <item value="July"/>
+                            <item value="Aug"/>
+                            <item value="Sept"/>
+                            <item value="Oct"/>
+                            <item value="Nov"/>
+                            <item value="Dec"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="be0fa" class="javax.swing.JComboBox" binding="startingYear">
+                        <constraints>
+                          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-1"/>
+                          <font name="Avenir Next" size="16"/>
+                          <foreground color="-7111174"/>
+                          <model>
+                            <item value="Year"/>
+                            <item value="2022"/>
+                            <item value="2021"/>
+                            <item value="2020"/>
+                            <item value="2019"/>
+                            <item value="2018"/>
+                            <item value="2017"/>
+                            <item value="2016"/>
+                            <item value="2015"/>
+                            <item value="2014"/>
+                            <item value="2013"/>
+                            <item value="2012"/>
+                            <item value="2011"/>
+                            <item value="2010"/>
+                            <item value="2009"/>
+                            <item value="2008"/>
+                            <item value="2007"/>
+                            <item value="2006"/>
+                            <item value="2005"/>
+                            <item value="2004"/>
+                            <item value="2003"/>
+                            <item value="2002"/>
+                            <item value="2001"/>
+                            <item value="2000"/>
+                            <item value="1999"/>
+                            <item value="1998"/>
+                            <item value="1997"/>
+                            <item value="1996"/>
+                            <item value="1995"/>
+                            <item value="1994"/>
+                            <item value="1993"/>
+                            <item value="1992"/>
+                            <item value="1991"/>
+                            <item value="1990"/>
+                            <item value="1989"/>
+                            <item value="1988"/>
+                            <item value="1987"/>
+                            <item value="1986"/>
+                            <item value="1985"/>
+                            <item value="1984"/>
+                            <item value="1983"/>
+                            <item value="1982"/>
+                            <item value="1981"/>
+                            <item value="1980"/>
+                            <item value="1979"/>
+                            <item value="1978"/>
+                            <item value="1977"/>
+                            <item value="1976"/>
+                            <item value="1975"/>
+                            <item value="1974"/>
+                            <item value="1973"/>
+                            <item value="1972"/>
+                            <item value="1971"/>
+                            <item value="1970"/>
+                            <item value="1969"/>
+                            <item value="1968"/>
+                            <item value="1967"/>
+                            <item value="1966"/>
+                            <item value="1965"/>
+                            <item value="1964"/>
+                            <item value="1963"/>
+                            <item value="1962"/>
+                            <item value="1961"/>
+                            <item value="1960"/>
+                            <item value="1959"/>
+                            <item value="1958"/>
+                            <item value="1957"/>
+                            <item value="1956"/>
+                            <item value="1955"/>
+                            <item value="1954"/>
+                            <item value="1953"/>
+                            <item value="1952"/>
+                            <item value="1951"/>
+                            <item value="1950"/>
+                            <item value="1949"/>
+                            <item value="1948"/>
+                            <item value="1947"/>
+                            <item value="1946"/>
+                            <item value="1945"/>
+                            <item value="1944"/>
+                            <item value="1943"/>
+                            <item value="1942"/>
+                            <item value="1941"/>
+                            <item value="1940"/>
+                            <item value="1939"/>
+                            <item value="1938"/>
+                            <item value="1937"/>
+                            <item value="1936"/>
+                            <item value="1935"/>
+                            <item value="1934"/>
+                            <item value="1933"/>
+                            <item value="1932"/>
+                            <item value="1931"/>
+                            <item value="1930"/>
+                            <item value="1929"/>
+                            <item value="1928"/>
+                            <item value="1927"/>
+                            <item value="1926"/>
+                            <item value="1925"/>
+                            <item value="1924"/>
+                            <item value="1923"/>
+                            <item value="1922"/>
+                            <item value="1921"/>
+                            <item value="1920"/>
+                            <item value="1919"/>
+                            <item value="1918"/>
+                            <item value="1917"/>
+                            <item value="1916"/>
+                            <item value="1915"/>
+                            <item value="1914"/>
+                            <item value="1913"/>
+                            <item value="1912"/>
+                            <item value="1911"/>
+                            <item value="1910"/>
+                            <item value="1909"/>
+                            <item value="1908"/>
+                            <item value="1907"/>
+                            <item value="1906"/>
+                            <item value="1905"/>
+                            <item value="1904"/>
+                            <item value="1903"/>
+                            <item value="1902"/>
+                            <item value="1901"/>
+                            <item value="1900"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="7c89" class="javax.swing.JComboBox" binding="endingYear">
+                        <constraints>
+                          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-1"/>
+                          <font name="Avenir Next" size="16"/>
+                          <foreground color="-7111174"/>
+                          <model>
+                            <item value="Year"/>
+                            <item value="2022"/>
+                            <item value="2021"/>
+                            <item value="2020"/>
+                            <item value="2019"/>
+                            <item value="2018"/>
+                            <item value="2017"/>
+                            <item value="2016"/>
+                            <item value="2015"/>
+                            <item value="2014"/>
+                            <item value="2013"/>
+                            <item value="2012"/>
+                            <item value="2011"/>
+                            <item value="2010"/>
+                            <item value="2009"/>
+                            <item value="2008"/>
+                            <item value="2007"/>
+                            <item value="2006"/>
+                            <item value="2005"/>
+                            <item value="2004"/>
+                            <item value="2003"/>
+                            <item value="2002"/>
+                            <item value="2001"/>
+                            <item value="2000"/>
+                            <item value="1999"/>
+                            <item value="1998"/>
+                            <item value="1997"/>
+                            <item value="1996"/>
+                            <item value="1995"/>
+                            <item value="1994"/>
+                            <item value="1993"/>
+                            <item value="1992"/>
+                            <item value="1991"/>
+                            <item value="1990"/>
+                            <item value="1989"/>
+                            <item value="1988"/>
+                            <item value="1987"/>
+                            <item value="1986"/>
+                            <item value="1985"/>
+                            <item value="1984"/>
+                            <item value="1983"/>
+                            <item value="1982"/>
+                            <item value="1981"/>
+                            <item value="1980"/>
+                            <item value="1979"/>
+                            <item value="1978"/>
+                            <item value="1977"/>
+                            <item value="1976"/>
+                            <item value="1975"/>
+                            <item value="1974"/>
+                            <item value="1973"/>
+                            <item value="1972"/>
+                            <item value="1971"/>
+                            <item value="1970"/>
+                            <item value="1969"/>
+                            <item value="1968"/>
+                            <item value="1967"/>
+                            <item value="1966"/>
+                            <item value="1965"/>
+                            <item value="1964"/>
+                            <item value="1963"/>
+                            <item value="1962"/>
+                            <item value="1961"/>
+                            <item value="1960"/>
+                            <item value="1959"/>
+                            <item value="1958"/>
+                            <item value="1957"/>
+                            <item value="1956"/>
+                            <item value="1955"/>
+                            <item value="1954"/>
+                            <item value="1953"/>
+                            <item value="1952"/>
+                            <item value="1951"/>
+                            <item value="1950"/>
+                            <item value="1949"/>
+                            <item value="1948"/>
+                            <item value="1947"/>
+                            <item value="1946"/>
+                            <item value="1945"/>
+                            <item value="1944"/>
+                            <item value="1943"/>
+                            <item value="1942"/>
+                            <item value="1941"/>
+                            <item value="1940"/>
+                            <item value="1939"/>
+                            <item value="1938"/>
+                            <item value="1937"/>
+                            <item value="1936"/>
+                            <item value="1935"/>
+                            <item value="1934"/>
+                            <item value="1933"/>
+                            <item value="1932"/>
+                            <item value="1931"/>
+                            <item value="1930"/>
+                            <item value="1929"/>
+                            <item value="1928"/>
+                            <item value="1927"/>
+                            <item value="1926"/>
+                            <item value="1925"/>
+                            <item value="1924"/>
+                            <item value="1923"/>
+                            <item value="1922"/>
+                            <item value="1921"/>
+                            <item value="1920"/>
+                            <item value="1919"/>
+                            <item value="1918"/>
+                            <item value="1917"/>
+                            <item value="1916"/>
+                            <item value="1915"/>
+                            <item value="1914"/>
+                            <item value="1913"/>
+                            <item value="1912"/>
+                            <item value="1911"/>
+                            <item value="1910"/>
+                            <item value="1909"/>
+                            <item value="1908"/>
+                            <item value="1907"/>
+                            <item value="1906"/>
+                            <item value="1905"/>
+                            <item value="1904"/>
+                            <item value="1903"/>
+                            <item value="1902"/>
+                            <item value="1901"/>
+                            <item value="1900"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <vspacer id="43719">
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <vspacer id="91203">
+                        <constraints>
+                          <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <vspacer id="ffb4e">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <component id="3b7f5" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Avenir Next" size="24" style="1"/>
+                          <foreground color="-7111174"/>
+                          <text value="Enter Starting and Ending Dates for Statement"/>
+                        </properties>
+                      </component>
+                      <vspacer id="e4af">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <component id="14e25" class="javax.swing.JButton" binding="customDateGetBtn">
+                        <constraints>
+                          <grid row="7" column="0" row-span="1" col-span="5" vsize-policy="4" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                            <minimum-size width="-1" height="50"/>
+                            <preferred-size width="300" height="20"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-198424"/>
+                          <font name="Avenir Next" size="20" style="1"/>
+                          <foreground color="-9022310"/>
+                          <hideActionText value="false"/>
+                          <text value="GET STATEMENT"/>
+                        </properties>
+                        <clientProperties>
+                          <html.disable class="java.lang.Boolean" value="false"/>
+                        </clientProperties>
+                      </component>
+                      <component id="560bf" class="javax.swing.JLabel" binding="statementDateError">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="15"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-2588"/>
+                          <font name="Avenir Next" size="20" style="1"/>
+                          <foreground color="-4253939"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <component id="cc751" class="javax.swing.JLabel" binding="customDatesMsg">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                    <minimum-size width="300" height="-1"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="99" height="16"/>
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-1"/>
-                  <font name="Avenir Next" size="16"/>
-                  <foreground color="-7111174"/>
-                  <model>
-                    <item value="Last 10 Transactions"/>
-                    <item value="Last Week Transations"/>
-                    <item value="Last Month Transactions"/>
-                    <item value="Custom Dates"/>
-                  </model>
+                  <font name="Avenir Next" size="18" style="1"/>
+                  <foreground color="-9022310"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
-          </grid>
-          <grid id="a47be" binding="updatePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="30" left="30" bottom="30" right="30"/>
-            <constraints>
-              <card name="Card8"/>
-            </constraints>
-            <properties>
-              <background color="-2588"/>
-            </properties>
-            <border type="none"/>
-            <children/>
           </grid>
         </children>
       </grid>
