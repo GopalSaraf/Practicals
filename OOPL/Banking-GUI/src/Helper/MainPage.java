@@ -36,8 +36,8 @@ public class MainPage extends JFrame {
 
     private void addActionListeners() {
         PageChangeListener pageChangeListener = new PageChangeListener(this);
-        createAccBtn.addActionListener(pageChangeListener.setNewFrameStr("create"));
-        loginBtn.addActionListener(pageChangeListener.setNewFrameStr("login"));
+        createAccBtn.addActionListener(pageChangeListener.setNewFrame(PageChangeListener.Page.CREATE_ACC_PAGE));
+        loginBtn.addActionListener(pageChangeListener.setNewFrame(PageChangeListener.Page.LOGIN_PAGE));
     }
 
     private void addKeyListeners() {

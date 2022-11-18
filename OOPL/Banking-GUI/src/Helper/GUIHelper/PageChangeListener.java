@@ -9,19 +9,13 @@ import java.awt.event.*;
 
 public class PageChangeListener implements MouseListener, KeyListener, ActionListener {
 
-    // All pages :
-
-    public static final String HOMEPAGE = "home";
-    public static final String LOGINPAGE = "login";
-    public static final String CREATEACCPAGE = "create";
-
     private final JFrame currentFrame;
-    private String newFrameStr;
+    private Page newFrame;
 
-    public PageChangeListener(JFrame currentFrame, String newFrameStr) {
+    public PageChangeListener(JFrame currentFrame, Page newFrame) {
         super();
         this.currentFrame = currentFrame;
-        this.newFrameStr = newFrameStr;
+        this.newFrame = newFrame;
     }
 
     public PageChangeListener(JFrame currentFrame) {
@@ -29,24 +23,24 @@ public class PageChangeListener implements MouseListener, KeyListener, ActionLis
         this.currentFrame = currentFrame;
     }
 
-    public PageChangeListener setNewFrameStr(String newFrameStr) {
-        this.newFrameStr = newFrameStr;
-        return new PageChangeListener(currentFrame, newFrameStr);
-    }
-
     private JFrame getNewFrame() {
-        switch (newFrameStr) {
-            case HOMEPAGE -> {
+        switch (newFrame) {
+            case HOME_PAGE -> {
                 return new MainPage();
             }
-            case LOGINPAGE -> {
+            case LOGIN_PAGE -> {
                 return new LoginPage();
             }
-            case CREATEACCPAGE -> {
+            case CREATE_ACC_PAGE -> {
                 return new CreateAccount();
             }
         }
         return new JFrame();
+    }
+
+    public PageChangeListener setNewFrame(Page newFrame) {
+        this.newFrame = newFrame;
+        return new PageChangeListener(currentFrame, newFrame);
     }
 
     @Override
@@ -98,5 +92,9 @@ public class PageChangeListener implements MouseListener, KeyListener, ActionLis
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    public enum Page {
+        HOME_PAGE, LOGIN_PAGE, CREATE_ACC_PAGE
     }
 }

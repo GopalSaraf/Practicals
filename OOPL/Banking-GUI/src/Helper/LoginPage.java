@@ -70,7 +70,7 @@ public class LoginPage extends JFrame {
         forgetUsername.addMouseListener(labelMouseListener);
         forgetPassword.addMouseListener(labelMouseListener);
 
-        createAccount.addMouseListener(new PageChangeListener(this, PageChangeListener.CREATEACCPAGE));
+        createAccount.addMouseListener(new PageChangeListener(this, PageChangeListener.Page.CREATE_ACC_PAGE));
     }
 
     private void addFocusListeners() {

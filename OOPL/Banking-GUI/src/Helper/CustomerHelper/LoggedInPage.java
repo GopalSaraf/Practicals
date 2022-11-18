@@ -17,10 +17,12 @@ import java.awt.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class LoggedInPage extends JFrame {
+    private final Account account;
     private JLabel logo;
     private JPanel LoggedInPage;
     private JLabel welcomeMsg;
@@ -109,9 +111,21 @@ public class LoggedInPage extends JFrame {
     private JLabel statementDateError;
     private JButton customDateGetBtn;
     private JLabel customDatesMsg;
-    private final Account account;
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+    private JPanel updatePanel;
+    private JTextField updateNameTF;
+    private JComboBox<String> updateDayTF;
+    private JComboBox<String> updateMonthTF;
+    private JComboBox<String> updateYearTF;
+    private JTextField updateMobileTF;
+    private JTextField updateEmailTF;
+    private JTextField updateUsernameTF;
+    private JLabel updateError;
+    private JButton updateProfileBtn;
+    private JLabel updateProfileHeaderLabel;
     private Account transferRecAcc;
     private DefaultTableModel tableModel;
+    private JButton deleteAccPageBtn;
 
     public LoggedInPage(Account account) {
         this.account = account;
@@ -136,25 +150,25 @@ public class LoggedInPage extends JFrame {
     }
 
     private void addActionListeners() {
-        homePageBtn.addActionListener(e -> changeWorkingPanel(homePanel));
-        transferPageBtn.addActionListener(e -> changeWorkingPanel(transferPanel));
-        depositPageBtn.addActionListener(e -> changeWorkingPanel(depositPanel));
-        withdrawPageBtn.addActionListener(e -> changeWorkingPanel(withdrawPanel));
-        balancePageBtn.addActionListener(e -> changeWorkingPanel(balancePanel));
-        statementPageBtn.addActionListener(e -> changeWorkingPanel(statementPanel));
-        profilePageBtn.addActionListener(e -> changeWorkingPanel(profilePanel));
-        logoutBtn.addActionListener(new PageChangeListener(this, PageChangeListener.HOMEPAGE));
-
-        transferActionListeners();
-        depositActionListeners();
-        withdrawActionListeners();
+        homePageActionListeners();
+        transferPageActionListeners();
+        depositPageActionListeners();
+        withdrawPageActionListeners();
+        balancePageActionListeners();
         statementActionListeners();
-
-        balancePageBtn.addActionListener(e -> balanceAmtLabel.setText(Transactions.currency(account.getBalance())));
-        profilePageBtn.addActionListener(e -> setProfilePage());
+        profilePageActionListeners();
+        updatePageActionListeners();
+        logoutPageActionListeners();
     }
 
-    private void transferActionListeners() {
+    private void homePageActionListeners() {
+        homePageBtn.addActionListener(e -> changeWorkingPanel(homePanel));
+        instructions.setCaretPosition(0);
+    }
+
+    private void transferPageActionListeners() {
+        transferPageBtn.addActionListener(e -> changeWorkingPanel(transferPanel));
+
         transferMode.addActionListener(e -> {
             int mode = getTransferModeIndexFromUser();
             if (mode == 0)
@@ -221,10 +235,12 @@ public class LoggedInPage extends JFrame {
         });
     }
 
-    private void depositActionListeners() {
+    private void depositPageActionListeners() {
         depositChequeLabel.setVisible(false);
         depositChequeColon.setVisible(false);
         depositChequeNoTF.setVisible(false);
+
+        depositPageBtn.addActionListener(e -> changeWorkingPanel(depositPanel));
 
         depositMode.addActionListener(e -> {
             if (getDepositModeIndexFromUser() == 0) {
@@ -278,10 +294,12 @@ public class LoggedInPage extends JFrame {
         });
     }
 
-    private void withdrawActionListeners() {
+    private void withdrawPageActionListeners() {
         withdrawChequeLabel.setVisible(false);
         withdrawChequeColon.setVisible(false);
         withdrawChequeNoTF.setVisible(false);
+
+        withdrawPageBtn.addActionListener(e -> changeWorkingPanel(withdrawPanel));
 
         withdrawMode.addActionListener(e -> {
             if (getWithdrawModeIndexFromUser() == 0) {
@@ -335,8 +353,16 @@ public class LoggedInPage extends JFrame {
         });
     }
 
+    private void balancePageActionListeners() {
+        balancePageBtn.addActionListener(e -> changeWorkingPanel(balancePanel));
+        balancePageBtn.addActionListener(e -> balanceAmtLabel.setText(Transactions.currency(account.getBalance())));
+    }
+
     private void statementActionListeners() {
+        statementPageBtn.addActionListener(e -> changeWorkingPanel(statementPanel));
+
         statementPageBtn.addActionListener(e -> resetStatementPage());
+
         statementFilter.addActionListener(e -> {
             if (getStatementFilterIndex() == 3)
                 changeWorkingPanel(statementBody, customDatesPanel);
@@ -346,13 +372,13 @@ public class LoggedInPage extends JFrame {
                 setStatementTable();
             }
         });
+
         customDateGetBtn.addActionListener(e -> {
             if ((startingDay.getSelectedIndex() * startingMonth.getSelectedIndex() * startingYear.getSelectedIndex() *
                     endingDay.getSelectedIndex() * endingMonth.getSelectedIndex()
                     * endingYear.getSelectedIndex()) == 0) {
                 statementDateError.setText("ERROR : Please choose all fields for dates");
             } else {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
                 try {
                     statementStartingDate = dateFormat.parse(getStatementStartingDateFromUser());
                     statementEndingDate = dateFormat.parse(getStatementEndingDateFromUser());
@@ -378,6 +404,47 @@ public class LoggedInPage extends JFrame {
         });
     }
 
+    private void profilePageActionListeners() {
+        profilePageBtn.addActionListener(e -> changeWorkingPanel(profilePanel));
+        profilePageBtn.addActionListener(e -> {
+            profileHeadingLabel.setText(account.getName() + " - PROFILE");
+            profileAccNoLabel.setText(String.valueOf(account.getAccountNo()));
+            profileNameLabel.setText(account.getName());
+            profileDOBLabel.setText(account.getDateOfBirth());
+            profileMobileLabel.setText(account.getMobileNo());
+            profileEmailLabel.setText(account.getEmailID());
+            profileAccTypeLabel.setText(account.type() + " Account");
+            profileUsernameLabel.setText(account.getUsername());
+            profileBalanceLabel.setText(Transactions.currency(account.getBalance()));
+            profileOpenDateTimeLabel.setText(account.getOpeningDateTime());
+        });
+    }
+
+    private void updatePageActionListeners() {
+        updateProfilePageBtn.addActionListener(e -> changeWorkingPanel(updatePanel));
+        updateProfilePageBtn.addActionListener(e -> {
+            updateProfileHeaderLabel.setText(account.getName() + " - UPDATE PROFILE");
+            updateNameTF.setText(account.getName());
+            updateMobileTF.setText(account.getMobileNo());
+            updateEmailTF.setText(account.getEmailID());
+            updateUsernameTF.setText(account.getUsername());
+
+            try {
+                Date dob = dateFormat.parse(account.getDateOfBirth());
+                Calendar dobCal = Calendar.getInstance();
+                dobCal.setTime(dob);
+                updateDayTF.setSelectedItem(new SimpleDateFormat("dd").format(dob));
+                updateMonthTF.setSelectedItem(new SimpleDateFormat("MMM").format(dob));
+                updateYearTF.setSelectedItem(new SimpleDateFormat("yyyy").format(dob));
+            } catch (ParseException ignored) {
+            }
+        });
+    }
+
+    private void logoutPageActionListeners() {
+        logoutBtn.addActionListener(new PageChangeListener(this, PageChangeListener.Page.HOME_PAGE));
+    }
+
     private void addKeyListeners() {
         MyKeyListener keyListener = new MyKeyListener();
 
@@ -395,6 +462,8 @@ public class LoggedInPage extends JFrame {
         cancelWithdrawBtn.addKeyListener(keyListener);
 
         customDateGetBtn.addKeyListener(keyListener);
+
+        updateProfileBtn.addKeyListener(keyListener);
     }
 
     private void addMouseListeners() {
@@ -418,6 +487,8 @@ public class LoggedInPage extends JFrame {
         cancelWithdrawBtn.addMouseListener(btnMouseListener);
 
         customDateGetBtn.addMouseListener(btnMouseListener);
+
+        updateProfileBtn.addMouseListener(btnMouseListener);
     }
 
     private void addFocusListeners() {
@@ -435,6 +506,11 @@ public class LoggedInPage extends JFrame {
         withdrawAmtTF.addFocusListener(focusListener.setText("Amount"));
         withdrawChequeNoTF.addFocusListener(focusListener.setText("Cheque Number"));
         withdrawNoteTF.addFocusListener(focusListener.setText("Note"));
+
+        updateNameTF.addFocusListener(focusListener.setText(account.getName()));
+        updateMobileTF.addFocusListener(focusListener.setText(account.getMobileNo()));
+        updateEmailTF.addFocusListener(focusListener.setText(account.getEmailID()));
+        updateUsernameTF.addFocusListener(focusListener.setText(account.getUsername()));
     }
 
     private void changeWorkingPanel(JPanel mainPanel, JPanel panel) {
@@ -543,19 +619,6 @@ public class LoggedInPage extends JFrame {
         withdrawChequeNoTF.setVisible(false);
     }
 
-    private void setProfilePage() {
-        profileHeadingLabel.setText(account.getName() + " - PROFILE");
-        profileAccNoLabel.setText(String.valueOf(account.getAccountNo()));
-        profileNameLabel.setText(account.getName());
-        profileDOBLabel.setText(account.getDateOfBirth());
-        profileMobileLabel.setText(account.getMobileNo());
-        profileEmailLabel.setText(account.getEmailID());
-        profileAccTypeLabel.setText(account.type() + " Account");
-        profileUsernameLabel.setText(account.getUsername());
-        profileBalanceLabel.setText(Transactions.currency(account.getBalance()));
-        profileOpenDateTimeLabel.setText(account.getOpeningDateTime());
-    }
-
     private void setStatementTable() {
         tableModel = new DefaultTableModel();
         tableModel.addColumn("DateTime");
@@ -608,6 +671,7 @@ public class LoggedInPage extends JFrame {
         options.add(profilePageBtn);
         options.add(statementPageBtn);
         options.add(updateProfilePageBtn);
+        options.add(deleteAccPageBtn);
         options.add(logoutBtn);
         return options;
     }
