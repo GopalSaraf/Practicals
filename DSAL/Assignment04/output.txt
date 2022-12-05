@@ -1,0 +1,26 @@
+Enter postfix expression > 2 3 4 * + 
+
+Inorder expression    (Recursive)      >  2 + 3 * 4 
+Inorder expression    (Non Recursive)  >  2 + 3 * 4 
+Preorder expression   (Recursive)      >  + 2 * 3 4 
+Preorder expression   (Non Recursive)  >  + 2 * 3 4 
+Postorder expression  (Recursive)      >  2 3 4 * + 
+Postorder expression  (Non Recursive)  >  2 3 4 * + 
+
+Enter postfix expression > 2 3 - 4 + 5 6 * - 
+
+Inorder expression    (Recursive)      >  2 - 3 + 4 - 5 * 6 
+Inorder expression    (Non Recursive)  >  2 - 3 + 4 - 5 * 6 
+Preorder expression   (Recursive)      >  - + - 2 3 4 * 5 6 
+Preorder expression   (Non Recursive)  >  - + - 2 3 4 * 5 6 
+Postorder expression  (Recursive)      >  2 3 - 4 + 5 6 * - 
+Postorder expression  (Non Recursive)  >  2 3 - 4 + 5 6 * - 
+
+Enter postfix expression > K L + M N * - O P ^ W * U / V / T * + Q + 
+
+Inorder expression    (Recursive)      >  K + L - M * N + O ^ P * W / U / V * T + Q 
+Inorder expression    (Non Recursive)  >  K + L - M * N + O ^ P * W / U / V * T + Q 
+Preorder expression   (Recursive)      >  + + - + K L * M N * / / * ^ O P W U V T Q 
+Preorder expression   (Non Recursive)  >  + + - + K L * M N * / / * ^ O P W U V T Q 
+Postorder expression  (Recursive)      >  K L + M N * - O P ^ W * U / V / T * + Q + 
+Postorder expression  (Non Recursive)  >  K L + M N * - O P ^ W * U / V / T * + Q + 
