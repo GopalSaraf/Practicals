@@ -33,7 +33,7 @@ class LinkedList {
    public:
     LinkedList() : head(nullptr), llSize(0) {}
 
-    void push_back(const T &value) {
+    const void push_back(const T &value) {
         if (empty()) {
             head = new LLNode<T>(value);
             llSize = 1;
@@ -83,7 +83,7 @@ class LinkedList {
         return data;
     }
 
-    const T at(const int &index) {
+    const T at(const int &index) const {
         if (index < 0 || index >= llSize) throw out_of_range("Out of range");
         if (empty()) return NULL;
 
@@ -94,7 +94,7 @@ class LinkedList {
         return data;
     }
 
-    const void print() {
+    const void print() const {
         LLNode<T> *temp = head;
         cout << "[ ";
         while (temp != NULL) {
@@ -116,7 +116,7 @@ class Stack {
    public:
     const void push(const T &value) { stackLL.push_front(value); }
     const T pop() { return stackLL.pop_front(); }
-    const T peek() { return stackLL.at(0); }
-    const void print() { stackLL.print(); }
+    const T peek() const { return stackLL.at(0); }
+    const void print() const { stackLL.print(); }
     const bool isEmpty() const { return stackLL.empty(); }
 };

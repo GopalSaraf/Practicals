@@ -37,7 +37,7 @@ class BinaryTree {
 
     const BinaryTreeNode<T>* getRoot() const { return root; }
 
-    const void inorderRec(BinaryTreeNode<T>* node) {
+    const void inorderRec(BinaryTreeNode<T>* node) const {
         if (node == nullptr)
             return;
         else {
@@ -47,9 +47,9 @@ class BinaryTree {
         }
     }
 
-    const void inorderRec() { inorderRec(root); }
+    const void inorderRec() const { inorderRec(root); }
 
-    const void inorderNonRec(BinaryTreeNode<T>* node) {
+    const void inorderNonRec(BinaryTreeNode<T>* node) const {
         Stack<BinaryTreeNode<T>*> stack;
         BinaryTreeNode<T>* currentNode = node;
 
@@ -64,9 +64,9 @@ class BinaryTree {
         }
     }
 
-    const void inorderNonRec() { inorderNonRec(root); }
+    const void inorderNonRec() const { inorderNonRec(root); }
 
-    const void preorderRec(BinaryTreeNode<T>* node) {
+    const void preorderRec(BinaryTreeNode<T>* node) const {
         if (node == nullptr)
             return;
         else {
@@ -76,9 +76,9 @@ class BinaryTree {
         }
     }
 
-    const void preorderRec() { preorderRec(root); }
+    const void preorderRec() const { preorderRec(root); }
 
-    const void preorderNonRec(BinaryTreeNode<T>* node) {
+    const void preorderNonRec(BinaryTreeNode<T>* node) const {
         Stack<BinaryTreeNode<T>*> stack;
         stack.push(node);
 
@@ -95,9 +95,9 @@ class BinaryTree {
         }
     }
 
-    const void preorderNonRec() { preorderNonRec(root); }
+    const void preorderNonRec() const { preorderNonRec(root); }
 
-    const void postorderRec(BinaryTreeNode<T>* node) {
+    const void postorderRec(BinaryTreeNode<T>* node) const {
         if (node == nullptr)
             return;
         else {
@@ -107,9 +107,9 @@ class BinaryTree {
         }
     }
 
-    const void postorderRec() { postorderRec(root); }
+    const void postorderRec() const { postorderRec(root); }
 
-    const void postorderNonRec(BinaryTreeNode<T>* node) {
+    const void postorderNonRec(BinaryTreeNode<T>* node) const {
         Stack<BinaryTreeNode<T>*> stack;
         stack.push(node);
 
@@ -129,5 +129,5 @@ class BinaryTree {
         }
     }
 
-    const void postorderNonRec() { postorderNonRec(root); }
+    const void postorderNonRec() const { postorderNonRec(root); }
 };
