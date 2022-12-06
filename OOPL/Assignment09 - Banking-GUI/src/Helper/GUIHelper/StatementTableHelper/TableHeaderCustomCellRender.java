@@ -1,11 +1,9 @@
 package Helper.GUIHelper.StatementTableHelper;
 
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
+import java.awt.*;
 
 public class TableHeaderCustomCellRender extends DefaultTableCellRenderer {
 

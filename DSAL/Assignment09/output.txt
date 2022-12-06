@@ -1,0 +1,40 @@
+Please enter the total number of elements  : 10
+Enter element 1 : 22 
+Enter element 2 : 45
+Enter element 3 : 78
+Enter element 4 : 23
+Enter element 5 : 89
+Enter element 6 : 56
+Enter element 7 : 12
+Enter element 8 : 64
+Enter element 9 : 92
+Enter element 10 : 10
+
+Choose an option : 
+a - Ascending order
+b - Descending order
+c - Exit
+
+Your choice > a
+
+Initial Array : [ 22, 45, 78, 23, 89, 56, 12, 64, 92, 10 ]
+Ascending Array : [ 10, 12, 22, 23, 45, 56, 64, 78, 89, 92 ]
+
+Choose an option : 
+a - Ascending order
+b - Descending order
+c - Exit
+
+Your choice > b
+
+Initial Array : [ 22, 45, 78, 23, 89, 56, 12, 64, 92, 10 ]
+Descending Array : [ 92, 89, 78, 64, 56, 45, 23, 22, 12, 10 ]
+
+Choose an option : 
+a - Ascending order
+b - Descending order
+c - Exit
+
+Your choice > c
+
+Exiting program...

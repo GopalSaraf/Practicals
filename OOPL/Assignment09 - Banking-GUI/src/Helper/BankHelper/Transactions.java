@@ -156,14 +156,14 @@ public final class Transactions {
 
         private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd MMM_ yyyy HH:mm");
 
-        public int accountNo;
-        public String dateTime;
-        public String transaction;
-        public double depositAmount;
-        public double withdrawAmount;
-        public double balance;
-        public String status;
-        public String note;
+        public final int accountNo;
+        public final String dateTime;
+        public final String transaction;
+        public final double depositAmount;
+        public final double withdrawAmount;
+        public final double balance;
+        public final String status;
+        public final String note;
 
         public String errorMsg;
 

@@ -10,7 +10,7 @@ public class ForgetPasswordHandler {
     private final Map<Character, String> questions = new HashMap<>();
     private final Map<Character, String> allQuestions = new HashMap<>();
 
-    public static String separator = "&";
+    public static final String separator = "&";
 
     public ForgetPasswordHandler() {
         setQuestions();

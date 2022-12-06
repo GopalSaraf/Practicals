@@ -1,15 +1,12 @@
 package Helper.GUIHelper.StatementTableHelper;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import javax.swing.table.TableCellRenderer;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.border.LineBorder;
-import javax.swing.table.TableCellRenderer;
 
 public class TableCustom {
 
