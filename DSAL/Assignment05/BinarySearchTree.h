@@ -65,14 +65,14 @@ class BinarySearchTree {
 
     // Inorder traversal of the tree
     const void inorder() const {
-        cout << "Inorder traversal : ";
+        cout << "Inorder traversal   : ";
         inorder(root);
         cout << endl;
     }
 
     // Preorder traversal of the tree
     const void preorder() const {
-        cout << "Preorder traversal : ";
+        cout << "Preorder traversal  : ";
         preorder(root);
         cout << endl;
     }

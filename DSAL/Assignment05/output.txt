@@ -1,0 +1,344 @@
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > a
+
+Enter the element you want to insert : 15
+Inserted node : 15
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > a
+
+Enter the element you want to insert : 10
+Inserted node : 10
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > a
+
+Enter the element you want to insert : 20
+Inserted node : 20
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > d
+
+Inorder traversal   : 10 15 20 
+Preorder traversal  : 15 10 20 
+Postorder traversal : 10 20 15 
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > a
+
+Enter the element you want to insert : 4
+Inserted node : 4
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > a
+
+Enter the element you want to insert : 12
+Inserted node : 12
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > a
+
+Enter the element you want to insert : 17
+Inserted node : 17
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > a
+
+Enter the element you want to insert : 23
+Inserted node : 23
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > a
+
+Enter the element you want to insert : 11
+Inserted node : 11
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > a
+
+Enter the element you want to insert : 13
+Inserted node : 13
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > d
+
+Inorder traversal   : 4 10 11 12 13 15 17 20 23 
+Preorder traversal  : 15 10 4 12 11 13 20 17 23 
+Postorder traversal : 4 11 13 12 10 17 23 20 15 
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > e
+
+Max depth of tree : 4
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > f
+
+Parents and childrens of tree :
+Parent --> 15 , Childrens --> Left - 10 Right - 20
+Parent --> 10 , Childrens --> Left - 4 Right - 12
+Parent --> 12 , Childrens --> Left - 11 Right - 13
+Parent --> 20 , Childrens --> Left - 17 Right - 23
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > g
+
+Leaf nodes of tree : 4 11 13 17 23 
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > h
+
+Level wise order of tree : 
+15 
+10 20 
+4 12 17 23 
+11 13 
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > c
+
+Enter the element you want to search : 12
+Search Successful.
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > c
+
+Enter the element you want to search : 99
+Search Failed.
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > b
+
+Enter the element you want to delete : 12
+Deleted node : 12
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > d
+
+Inorder traversal   : 4 10 11 13 15 17 20 23 
+Preorder traversal  : 15 10 4 13 11 20 17 23 
+Postorder traversal : 4 11 13 10 17 23 20 15 
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > h
+
+Level wise order of tree : 
+15 
+10 20 
+4 13 17 23 
+11 
+
+Choose an option : 
+a - Insert
+b - Delete
+c - Search
+d - Display tree (Traversal)
+e - Display - Depth of tree
+f - Display all child nodes with their parent nodes
+g - Display all leaf nodes
+h - Display tree levelwise
+i - Exit
+
+Your Option > i
+
+Exiting program...
