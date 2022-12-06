@@ -1,0 +1,26 @@
+Prim's Algorithm Output :
+
+Edges in the minimum spanning tree :
+
+Edge  : Weight
+0 - 1 :  4
+1 - 2 :  2
+2 - 4 :  2
+2 - 3 :  3
+3 - 5 :  3
+
+Total weight of minimum spanning tree : 14
+
+
+Kruskal’s Algorithm Output :
+
+Edges in the minimum spanning tree :
+
+Edge  : Weight
+1 - 2 : 2
+2 - 4 : 2
+2 - 3 : 3
+3 - 5 : 3
+0 - 1 : 4
+
+Total weight of minimum spanning tree : 14
