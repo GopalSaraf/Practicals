@@ -1,23 +1,23 @@
-Compairing from 5 to 2 --> distances : 2147483647 and 5
+Comparing from 5 to 2 --> distances : 2147483647 and 5
 FOUND SHORTER PATH
-Compairing from 5 to 3 --> distances : 2147483647 and 10
+Comparing from 5 to 3 --> distances : 2147483647 and 10
 FOUND SHORTER PATH
-Compairing from 2 to 1 --> distances : 2147483647 and 7
+Comparing from 2 to 1 --> distances : 2147483647 and 7
 FOUND SHORTER PATH
-Compairing from 2 to 5 --> distances : 0 and 10
-Compairing from 2 to 3 --> distances : 10 and 9
+Comparing from 2 to 5 --> distances : 0 and 10
+Comparing from 2 to 3 --> distances : 10 and 9
 FOUND SHORTER PATH
-Compairing from 1 to 2 --> distances : 5 and 9
-Compairing from 1 to 4 --> distances : 2147483647 and 8
+Comparing from 1 to 2 --> distances : 5 and 9
+Comparing from 1 to 4 --> distances : 2147483647 and 8
 FOUND SHORTER PATH
-Compairing from 4 to 1 --> distances : 7 and 9
-Compairing from 4 to 3 --> distances : 9 and 11
-Compairing from 3 to 2 --> distances : 5 and 13
-Compairing from 3 to 4 --> distances : 8 and 12
-Compairing from 3 to 5 --> distances : 0 and 19
-Compairing from 3 to 2 --> distances : 5 and 14
-Compairing from 3 to 4 --> distances : 8 and 13
-Compairing from 3 to 5 --> distances : 0 and 20
+Comparing from 4 to 1 --> distances : 7 and 9
+Comparing from 4 to 3 --> distances : 9 and 11
+Comparing from 3 to 2 --> distances : 5 and 13
+Comparing from 3 to 4 --> distances : 8 and 12
+Comparing from 3 to 5 --> distances : 0 and 19
+Comparing from 3 to 2 --> distances : 5 and 14
+Comparing from 3 to 4 --> distances : 8 and 13
+Comparing from 3 to 5 --> distances : 0 and 20
 
 The distances from source 5 are : 
 5 --> 1  Distance : 7  Path : 5 - 2 - 1

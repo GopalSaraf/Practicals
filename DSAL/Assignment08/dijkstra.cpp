@@ -85,7 +85,7 @@ int main() {
             // edge will give pair of node and weight
             int next = edge.first;
             int nextDist = edge.second;
-            cout << "Compairing from " << prev << " to " << next
+            cout << "Comparing from " << prev << " to " << next
                  << " --> distances : " << distTo[next] << " and " << dist + nextDist << endl;
 
             // if distance in distance array is bigger than what we are calculating,
