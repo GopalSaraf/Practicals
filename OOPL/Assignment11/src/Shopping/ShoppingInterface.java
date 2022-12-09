@@ -1,6 +1,5 @@
 package Shopping;
 
-import Payments.BitCoinPay;
 import Payments.CreditCardPay;
 import Payments.Payable;
 import Payments.PayPalPay;
@@ -52,7 +51,7 @@ public class ShoppingInterface {
         int quantity;
         showItems();
         try {
-            System.out.print("Enter Product No you want to add to cart > ");
+            System.out.print("\nEnter Product No you want to add to cart > ");
             prodNo = sc.nextInt();
             Item item = items.get(prodNo - 1);
             boolean isItemInCart = shoppingCart.itemCountInCart(item) != 0;
@@ -62,13 +61,15 @@ public class ShoppingInterface {
                         shoppingCart.itemCountInCart(item));
                 System.out.print("How many extra quantities you want to add > ");
                 quantity = sc.nextInt();
-                if (quantity < 0) throw new InputMismatchException();
+                if (quantity < 0)
+                    throw new InputMismatchException();
                 shoppingCart.addQuantities(item, quantity);
                 System.out.println("Quantities Updated.");
             } else {
                 System.out.print("How many quantities you want to add > ");
                 quantity = sc.nextInt();
-                if (quantity < 0) throw new InputMismatchException();
+                if (quantity < 0)
+                    throw new InputMismatchException();
                 shoppingCart.addItem(item, quantity);
                 System.out.println("Product added in cart.");
             }
@@ -88,14 +89,15 @@ public class ShoppingInterface {
         int quantity;
         showShoppingCart();
         try {
-            System.out.print("Enter Product No you want to remove from cart > ");
+            System.out.print("\nEnter Product No you want to remove from cart > ");
             prodNo = sc.nextInt();
             Item item = shoppingCart.getItemByIndex(prodNo - 1);
             System.out.println("Current quantities of " + item.getProductName() + " : " +
                     shoppingCart.itemCountInCart(item));
             System.out.print("How many extra quantities you want to remove > ");
             quantity = sc.nextInt();
-            if (quantity < 0) throw new InputMismatchException();
+            if (quantity < 0)
+                throw new InputMismatchException();
             if (quantity == shoppingCart.itemCountInCart(item)) {
                 shoppingCart.removeItem(item);
                 System.out.println("Product removed from cart.");
@@ -120,8 +122,7 @@ public class ShoppingInterface {
         System.out.println("How do you want to pay ?");
         System.out.println("a - Credit/Debit Card");
         System.out.println("b - PayPal");
-        System.out.println("c - BitCoin");
-        System.out.println("d - Exit checkout");
+        System.out.println("c - Exit checkout");
         System.out.println();
         System.out.print("Your Option > ");
         option = sc.next().charAt(0);
@@ -130,11 +131,12 @@ public class ShoppingInterface {
         switch (option) {
             case 'a' -> paymentMethod = new CreditCardPay();
             case 'b' -> paymentMethod = new PayPalPay();
-            case 'c' -> paymentMethod = new BitCoinPay();
             default -> paymentMethod = null;
         }
-        if (paymentMethod != null) shoppingCart.pay(paymentMethod);
-        else System.out.println("Try again later.");
+        if (paymentMethod != null)
+            shoppingCart.pay(paymentMethod);
+        else
+            System.out.println("Try again later.");
     }
 
     public void showShoppingCart() {

@@ -30,8 +30,7 @@ public class Main {
             if (modelStr.equals("QUIT")) {
                 System.out.println("Exiting Program...");
                 System.exit(0);
-            }
-            else {
+            } else {
                 try {
                     model = Car.Model.valueOf(modelStr);
                     car = CarFactory.buildCar(model);

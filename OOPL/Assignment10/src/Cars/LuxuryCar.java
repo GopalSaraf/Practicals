@@ -1,6 +1,6 @@
 package Cars;
 
-public class LuxuryCar extends Car{
+public class LuxuryCar extends Car {
 
     public LuxuryCar() {
         super(Model.LUXURY);

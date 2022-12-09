@@ -52,8 +52,8 @@ public class ShoppingCart {
             rows.add(List.of(String.valueOf(prodNo++), item.getProductName(), currency(item.getProductPrice()),
                     String.valueOf(quantity), currency(item.getProductPrice() * quantity)));
         }
-        rows.add(List.of("", "", "","", ""));
-        rows.add(List.of("", "", "", "","Total : " + currency(calculateTotal())));
+        rows.add(List.of("", "", "", "", ""));
+        rows.add(List.of("", "", "", "", "Total : " + currency(calculateTotal())));
         TableFormat.show(header, rows);
     }
 

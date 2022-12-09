@@ -1,3 +1,8 @@
+// Implement and apply Strategy Design pattern for simple 
+// Shopping Cart where three payment strategies are used 
+// such as Credit Card, PayPal, BitCoin. Create an interface 
+// for strategy pattern and give concrete implementation for payment. 
+
 import Shopping.ShoppingInterface;
 
 import java.util.Scanner;

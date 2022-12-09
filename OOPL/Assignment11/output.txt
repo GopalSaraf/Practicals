@@ -1,0 +1,214 @@
+Choose an option
+a - Show Products Available
+b - Add Item to Cart
+c - Remove Item from Cart
+d - Show Cart
+e - Checkout and Pay
+f - Empty Cart
+g - Quit program
+
+Your Option > b
+
+Products available currently in shop :
+
++------------------+--------------------------------+----------------------+
+|    Product No    |          Product Name          |    Product Price     |
++------------------+--------------------------------+----------------------+
+|        1         |    MacBook Air with M1 chip    |      ₹99,990.00      |
+|        2         |    MacBook Air with M2 chip    |     ₹119,900.00      |
+|        3         |        MacBook Pro 13"         |     ₹129,900.00      |
+|        4         |        MacBook Pro 16"         |     ₹194,900.00      |
+|        5         |            iMac 24"            |     ₹119,900.00      |
+|        6         |         Studio Display         |     ₹159,900.00      |
+|        7         |         iPhone 14 Pro          |     ₹129,900.00      |
+|        8         |           iPhone 14            |      ₹79,900.00      |
+|        9         |           iPhone 13            |      ₹64,900.00      |
+|        10        |            iPod Pro            |      ₹81,900.00      |
+|        11        |            iPad Air            |      ₹59,900.00      |
+|        12        |          AirPods Max           |      ₹59,900.00      |
+|        13        |        AirPods 3rd Gen         |      ₹19,900.00      |
+|        14        |        AirPods 2nd Gen         |      ₹14,900.00      |
+|        15        |          Apple Watch           |      ₹89,900.00      |
++------------------+--------------------------------+----------------------+
+
+Enter Product No you want to add to cart > 3
+How many quantities you want to add > 2
+Product added in cart.
+
+Choose an option
+a - Show Products Available
+b - Add Item to Cart
+c - Remove Item from Cart
+d - Show Cart
+e - Checkout and Pay
+f - Empty Cart
+g - Quit program
+
+Your Option > d
+
+Your shopping cart :
+
++--------------------+------------------------+--------------------+------------------+----------------------------+
+|    Product No.     |      Product Name      |       Price        |    Quantities    |        Total Price         |
++--------------------+------------------------+--------------------+------------------+----------------------------+
+|         1          |    MacBook Pro 13"     |    ₹129,900.00     |        2         |        ₹259,800.00         |
+|                    |                        |                    |                  |                            |
+|                    |                        |                    |                  |    Total : ₹259,800.00     |
++--------------------+------------------------+--------------------+------------------+----------------------------+
+
+Choose an option
+a - Show Products Available
+b - Add Item to Cart
+c - Remove Item from Cart
+d - Show Cart
+e - Checkout and Pay
+f - Empty Cart
+g - Quit program
+
+Your Option > b
+
+Products available currently in shop :
+
++------------------+--------------------------------+----------------------+
+|    Product No    |          Product Name          |    Product Price     |
++------------------+--------------------------------+----------------------+
+|        1         |    MacBook Air with M1 chip    |      ₹99,990.00      |
+|        2         |    MacBook Air with M2 chip    |     ₹119,900.00      |
+|        3         |        MacBook Pro 13"         |     ₹129,900.00      |
+|        4         |        MacBook Pro 16"         |     ₹194,900.00      |
+|        5         |            iMac 24"            |     ₹119,900.00      |
+|        6         |         Studio Display         |     ₹159,900.00      |
+|        7         |         iPhone 14 Pro          |     ₹129,900.00      |
+|        8         |           iPhone 14            |      ₹79,900.00      |
+|        9         |           iPhone 13            |      ₹64,900.00      |
+|        10        |            iPod Pro            |      ₹81,900.00      |
+|        11        |            iPad Air            |      ₹59,900.00      |
+|        12        |          AirPods Max           |      ₹59,900.00      |
+|        13        |        AirPods 3rd Gen         |      ₹19,900.00      |
+|        14        |        AirPods 2nd Gen         |      ₹14,900.00      |
+|        15        |          Apple Watch           |      ₹89,900.00      |
++------------------+--------------------------------+----------------------+
+
+Enter Product No you want to add to cart > 8
+How many quantities you want to add > 4
+Product added in cart.
+
+Choose an option
+a - Show Products Available
+b - Add Item to Cart
+c - Remove Item from Cart
+d - Show Cart
+e - Checkout and Pay
+f - Empty Cart
+g - Quit program
+
+Your Option > b
+
+Products available currently in shop :
+
++------------------+--------------------------------+----------------------+
+|    Product No    |          Product Name          |    Product Price     |
++------------------+--------------------------------+----------------------+
+|        1         |    MacBook Air with M1 chip    |      ₹99,990.00      |
+|        2         |    MacBook Air with M2 chip    |     ₹119,900.00      |
+|        3         |        MacBook Pro 13"         |     ₹129,900.00      |
+|        4         |        MacBook Pro 16"         |     ₹194,900.00      |
+|        5         |            iMac 24"            |     ₹119,900.00      |
+|        6         |         Studio Display         |     ₹159,900.00      |
+|        7         |         iPhone 14 Pro          |     ₹129,900.00      |
+|        8         |           iPhone 14            |      ₹79,900.00      |
+|        9         |           iPhone 13            |      ₹64,900.00      |
+|        10        |            iPod Pro            |      ₹81,900.00      |
+|        11        |            iPad Air            |      ₹59,900.00      |
+|        12        |          AirPods Max           |      ₹59,900.00      |
+|        13        |        AirPods 3rd Gen         |      ₹19,900.00      |
+|        14        |        AirPods 2nd Gen         |      ₹14,900.00      |
+|        15        |          Apple Watch           |      ₹89,900.00      |
++------------------+--------------------------------+----------------------+
+
+Enter Product No you want to add to cart > 3
+MacBook Pro 13" is present in cart.
+Current quantities of MacBook Pro 13" : 2
+How many extra quantities you want to add > 1
+Quantities Updated.
+
+Choose an option
+a - Show Products Available
+b - Add Item to Cart
+c - Remove Item from Cart
+d - Show Cart
+e - Checkout and Pay
+f - Empty Cart
+g - Quit program
+
+Your Option > d
+
+Your shopping cart :
+
++--------------------+------------------------+--------------------+------------------+----------------------------+
+|    Product No.     |      Product Name      |       Price        |    Quantities    |        Total Price         |
++--------------------+------------------------+--------------------+------------------+----------------------------+
+|         1          |    MacBook Pro 13"     |    ₹129,900.00     |        3         |        ₹389,700.00         |
+|         2          |       iPhone 14        |     ₹79,900.00     |        4         |        ₹319,600.00         |
+|                    |                        |                    |                  |                            |
+|                    |                        |                    |                  |    Total : ₹709,300.00     |
++--------------------+------------------------+--------------------+------------------+----------------------------+
+
+Choose an option
+a - Show Products Available
+b - Add Item to Cart
+c - Remove Item from Cart
+d - Show Cart
+e - Checkout and Pay
+f - Empty Cart
+g - Quit program
+
+Your Option > e
+
+How do you want to pay ?
+a - Credit/Debit Card
+b - PayPal
+c - Exit checkout
+
+Your Option > a
+
+Enter card number > 102030405060
+Enter card holder name > Gopal Saraf
+Enter card CVV > 123
+Enter card expiry date > 05/25
+
+Paid ₹709,300.00 by credit card.
+Thank You, Gopal Saraf
+
+Choose an option
+a - Show Products Available
+b - Add Item to Cart
+c - Remove Item from Cart
+d - Show Cart
+e - Checkout and Pay
+f - Empty Cart
+g - Quit program
+
+Your Option > d
+
+Your shopping cart :
+
++--------------------+--------------------+--------------+------------------+----------------------+
+|    Product No.     |    Product Name    |    Price     |    Quantities    |     Total Price      |
++--------------------+--------------------+--------------+------------------+----------------------+
+|                    |                    |              |                  |                      |
+|                    |                    |              |                  |    Total : ₹0.00     |
++--------------------+--------------------+--------------+------------------+----------------------+
+
+Choose an option
+a - Show Products Available
+b - Add Item to Cart
+c - Remove Item from Cart
+d - Show Cart
+e - Checkout and Pay
+f - Empty Cart
+g - Quit program
+
+Your Option > g
+
+Exiting...

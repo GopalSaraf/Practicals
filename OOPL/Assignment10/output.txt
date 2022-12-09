@@ -1,0 +1,43 @@
+Enter car you want to build : [ Small / Sedan / Luxury ] (Quit to exit) > small
+
+Initializing the build of car.
+Collected Engine parts.
+Collected Drive transmission and steering parts.
+Collected Suspension and brake parts.
+Collected Electrical parts.
+Collected Body and chassis.
+
+Finalizing Small Car Build.
+Assembled Engine parts.
+Assembled Drive transmission and steering parts.
+Assembled Suspension and brake parts.
+Assembled Electrical parts.
+Assembled Body and chassis.
+
+Small Car Build Completed.
+
+Enter car you want to build : [ Small / Sedan / Luxury ] (Quit to exit) > luxury
+
+Initializing the build of car.
+Collected Engine parts.
+Collected Drive transmission and steering parts.
+Collected Suspension and brake parts.
+Collected Electrical parts.
+Collected Body and chassis.
+
+Finalizing Luxury Car Build.
+Assembled Engine parts.
+Assembled Drive transmission and steering parts.
+Assembled Suspension and brake parts.
+Assembled Electrical parts.
+Assembled Body and chassis.
+
+Luxury Car Build Completed.
+
+Enter car you want to build : [ Small / Sedan / Luxury ] (Quit to exit) > swift
+
+Incorrect car entered. Try again..
+
+Enter car you want to build : [ Small / Sedan / Luxury ] (Quit to exit) > quit
+
+Exiting Program...

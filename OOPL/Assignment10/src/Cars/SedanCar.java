@@ -1,6 +1,6 @@
 package Cars;
 
-public class SedanCar extends Car{
+public class SedanCar extends Car {
 
     public SedanCar() {
         super(Model.SEDAN);
