@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class TextAreaCellRenderer extends JTextArea implements TableCellRenderer  {
+public class TextAreaCellRenderer extends JTextArea implements TableCellRenderer {
 
     private final List<List<Integer>> rowAndCellHeights = new ArrayList<>();
     private final HoverIndex hoverRow;
@@ -22,7 +22,8 @@ public class TextAreaCellRenderer extends JTextArea implements TableCellRenderer
     }
 
     @Override
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+                                                   int row, int column) {
         setText(Objects.toString(value, ""));
         adjustRowHeight(table, row, column);
         if (row == hoverRow.getIndex()) {

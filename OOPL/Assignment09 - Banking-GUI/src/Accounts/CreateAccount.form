@@ -278,7 +278,7 @@
                   <background color="-9022310"/>
                   <font name="Avenir Next" size="14" style="0"/>
                   <foreground color="-13232038"/>
-                  <text value="  case, lower case, digits and special char"/>
+                  <text value="  upper case, lower case and digits."/>
                 </properties>
               </component>
               <component id="4a10a" class="javax.swing.JLabel">
@@ -289,7 +289,7 @@
                   <background color="-9022310"/>
                   <font name="Avenir Next" size="14" style="0"/>
                   <foreground color="-13232038"/>
-                  <text value="  between length 4 to 20 containing upper"/>
+                  <text value="  between length 4 to 20 containing"/>
                 </properties>
               </component>
               <component id="f5afd" class="javax.swing.JLabel">

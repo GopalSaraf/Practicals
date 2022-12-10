@@ -581,7 +581,7 @@
                       <enabled value="true"/>
                       <font name="Avenir Next" size="18" style="1"/>
                       <foreground color="-9022310"/>
-                      <text value="Note"/>
+                      <text value="Note (Optional)"/>
                     </properties>
                   </component>
                   <component id="ff58f" class="javax.swing.JLabel">
@@ -838,7 +838,7 @@
                   <enabled value="true"/>
                   <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
-                  <text value="Note"/>
+                  <text value="Note (Optional)"/>
                 </properties>
               </component>
               <component id="d34fc" class="javax.swing.JLabel" binding="depositChequeColon">
@@ -1121,7 +1121,7 @@
                   <enabled value="true"/>
                   <font name="Avenir Next" size="18" style="1"/>
                   <foreground color="-9022310"/>
-                  <text value="Note"/>
+                  <text value="Note (Optional)"/>
                 </properties>
               </component>
               <component id="e1d75" class="javax.swing.JLabel" binding="withdrawChequeColon">
@@ -2811,13 +2811,13 @@
               </component>
               <component id="67352" class="javax.swing.JLabel" binding="updateError">
                 <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="-1" height="15"/>
                   </grid>
                 </constraints>
                 <properties>
                   <background color="-2588"/>
-                  <font size="18" style="1"/>
+                  <font name="Avenir Next" size="20" style="1"/>
                   <foreground color="-4253939"/>
                   <text value=""/>
                 </properties>

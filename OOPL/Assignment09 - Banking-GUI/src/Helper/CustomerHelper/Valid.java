@@ -47,23 +47,24 @@ public final class Valid {
             return true;
 
         /*
-        Regex username explanation :
+         * Regex username explanation :
+         *
+         * ^[a-zA-Z0-9] # start with an alphanumeric character
+         * ( # start of (group 1)
+         * [._-](?![._-]) # follow by a dot, hyphen, or underscore, negative lookahead
+         * to
+         * # ensures dot, hyphen, and underscore does not appear consecutively
+         * | # or
+         * [a-zA-Z0-9] # an alphanumeric character
+         * ) # end of (group 1)
+         * {2,18} # ensures the length of (group 1) between 2 and 18
+         * [a-zA-Z0-9]$ # end with an alphanumeric character
+         *
+         * # {2,18} plus the first and last alphanumeric characters,
+         * # total length became {4,20}
+         */
 
-        ^[a-zA-Z0-9]        # start with an alphanumeric character
-        (                   # start of (group 1)
-            [._-](?![._-])  # follow by a dot, hyphen, or underscore, negative lookahead to
-                            # ensures dot, hyphen, and underscore does not appear consecutively
-            |               # or
-            [a-zA-Z0-9]     # an alphanumeric character
-        )                   # end of (group 1)
-        {2,18}              # ensures the length of (group 1) between 2 and 18
-        [a-zA-Z0-9]$        # end with an alphanumeric character
-
-                            # {2,18} plus the first and last alphanumeric characters,
-                            # total length became {4,20}
-        */
-
-        String regex = "^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$";
+        String regex = "^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){2,18}[a-zA-Z0-9]$";
 
         return username.matches(regex);
     }
@@ -73,19 +74,19 @@ public final class Valid {
             return true;
 
         /*
-        Regex password explanation :
+         * Regex password explanation :
+         *
+         * ^ # start of line
+         * (?=.*[0-9]) # positive lookahead, digit [0-9]
+         * (?=.*[a-z]) # positive lookahead, one lowercase character [a-z]
+         * (?=.*[A-Z]) # positive lookahead, one uppercase character [A-Z]
+         * (?=\\S+$) # white spaces don’t allowed in the entire string
+         * . # matches anything
+         * {4,20} # length at least 4 characters and maximum of 20 characters
+         * $ # end of line
+         */
 
-        ^                                 # start of line
-        (?=.*[0-9])                       # positive lookahead, digit [0-9]
-        (?=.*[a-z])                       # positive lookahead, one lowercase character [a-z]
-        (?=.*[A-Z])                       # positive lookahead, one uppercase character [A-Z]
-        (?=.*[!@#&()–[{}]:;',?/*~$^+=<>]) # positive lookahead, one of the special character in this [..]
-        .                                 # matches anything
-        {4,20}                            # length at least 4 characters and maximum of 20 characters
-        $                                 # end of line
-        */
-
-        String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
+        String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{4,20}$";
 
         return passwordStr.matches(regex);
     }

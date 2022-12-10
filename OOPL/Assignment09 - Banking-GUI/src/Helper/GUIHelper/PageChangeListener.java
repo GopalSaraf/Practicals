@@ -1,6 +1,7 @@
 package Helper.GUIHelper;
 
 import Accounts.CreateAccount;
+import Helper.CustomerHelper.ForgetHandlerPage;
 import Helper.LoginPage;
 import Helper.MainPage;
 
@@ -33,6 +34,12 @@ public class PageChangeListener implements MouseListener, KeyListener, ActionLis
             }
             case CREATE_ACC_PAGE -> {
                 return new CreateAccount();
+            }
+            case FORGOT_USERNAME -> {
+                return new ForgetHandlerPage(ForgetHandlerPage.DEFAULT.USERNAME);
+            }
+            case FORGOT_PASSWORD -> {
+                return new ForgetHandlerPage(ForgetHandlerPage.DEFAULT.PASSWORD);
             }
         }
         return new JFrame();
@@ -95,6 +102,6 @@ public class PageChangeListener implements MouseListener, KeyListener, ActionLis
     }
 
     public enum Page {
-        HOME_PAGE, LOGIN_PAGE, CREATE_ACC_PAGE
+        HOME_PAGE, LOGIN_PAGE, CREATE_ACC_PAGE, FORGOT_USERNAME, FORGOT_PASSWORD
     }
 }

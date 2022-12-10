@@ -134,7 +134,7 @@ public class CreateAccount extends JFrame {
                 changeWorkingPanel(lower_left, finalInfo);
                 changeWorkingPanel(lower_right, finalPage);
             } else {
-                questionError.setText("INVALID : Please complete all fields.");
+                questionError.setText("ERROR : Please complete all fields.");
             }
         });
         nextToBasicBtn.addActionListener(e -> {
@@ -248,7 +248,7 @@ public class CreateAccount extends JFrame {
     private boolean isBasicFieldsValid() {
         if (getNameFromUser().equals("Name"))
             return false;
-        if (getDOBFromUser().equals("Day Month_ Year"))
+        if (getDOBFromUser().equals("Day Month, Year"))
             return false;
         if (getMobileFromUser().equals("Mobile Number"))
             return false;
@@ -262,10 +262,10 @@ public class CreateAccount extends JFrame {
     }
 
     private String getBasicFieldsErrorMsg() {
-        String errorMsg = "INVALID : ";
+        String errorMsg = "ERROR : ";
         if (!Valid.isValidName(getNameFromUser()) || getNameFromUser().equals("Name"))
             errorMsg += "Name, ";
-        if (getDOBFromUser().equals("Day Month_ Year"))
+        if (getDOBFromUser().equals("Day Month, Year"))
             errorMsg += "Date of Birth, ";
         if (!Valid.isValidMobile(getMobileFromUser()) || getMobileFromUser().equals("Mobile Number"))
             errorMsg += "Mobile Number, ";
@@ -288,7 +288,7 @@ public class CreateAccount extends JFrame {
     }
 
     private String getNextFieldsErrorMsg() {
-        String errorMsg = "INVALID : ";
+        String errorMsg = "ERROR : ";
         boolean typeError = getAccTypeFromUser().equals("Type");
         boolean usernameError = !Valid.isValidUsername(getUsernameFromUser())
                 || getUsernameFromUser().equals("Username");
@@ -352,11 +352,11 @@ public class CreateAccount extends JFrame {
         forgetPasswordIDs += getIDByQuestion(question3);
 
         forgetPasswordAns = "";
-        forgetPasswordAns += answer1TF.getText();
+        forgetPasswordAns += answer1TF.getText().trim();
         forgetPasswordAns += ForgetPasswordHandler.separator;
-        forgetPasswordAns += answer2TF.getText();
+        forgetPasswordAns += answer2TF.getText().trim();
         forgetPasswordAns += ForgetPasswordHandler.separator;
-        forgetPasswordAns += answer3TF.getText();
+        forgetPasswordAns += answer3TF.getText().trim();
     }
 
     private char getIDByQuestion(JComboBox<String> question) {
@@ -367,7 +367,7 @@ public class CreateAccount extends JFrame {
     }
 
     private void createAccount() {
-        DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd MMM_ yyyy HH:mm");
+        DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd MMM, yyyy HH:mm");
         String dateTime = LocalDateTime.now().format(DATE_TIME_FORMATTER);
 
         if (Objects.equals(getAccTypeFromUser(), Account.SAVING))
@@ -395,7 +395,7 @@ public class CreateAccount extends JFrame {
     }
 
     private String getDOBFromUser() {
-        return dayTF.getSelectedItem() + " " + monthTF.getSelectedItem() + "_ " + yearTF.getSelectedItem();
+        return dayTF.getSelectedItem() + " " + monthTF.getSelectedItem() + ", " + yearTF.getSelectedItem();
     }
 
     private String getMobileFromUser() {

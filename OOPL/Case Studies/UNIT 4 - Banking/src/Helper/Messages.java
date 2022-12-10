@@ -8,55 +8,30 @@ public final class Messages {
 
         public static final String ENTER_VALID_NAME_FOR_CUSTOMER = "Enter valid name > ";
 
-        public static final String ENTER_NAME_FOR_BANK = "";
-
-        public static final String ENTER_VALID_NAME_FOR_BANK = "";
-
         public static final String ENTER_AGE_FOR_CUSTOMER = "Enter your age > ";
 
         public static final String ENTER_VALID_AGE_FOR_CUSTOMER = "Enter valid age > ";
-
-        public static final String ENTER_AGE_FOR_BANK = "";
-
-        public static final String ENTER_VALID_AGE_FOR_BANK = "";
 
         public static final String ENTER_MOBILE_FOR_CUSTOMER = "Enter your mobile number > ";
 
         public static final String ENTER_VALID_MOBILE_FOR_CUSTOMER = "Enter valid mobile number > ";
 
-        public static final String ENTER_MOBILE_FOR_BANK = "";
-
-        public static final String ENTER_MOBILE_NAME_FOR_BANK = "";
-
         public static final String ENTER_PASSWORD = "Enter a password you want to use (between 1000 to 9999) > ";
 
         public static final String ENTER_VALID_PASSWORD = "Enter valid password (between 1000 to 9999) > ";
 
-        public static final String FORGET_PASSWORD_INTRO = "";
-
-        public static final String CHOOSE_QUESTION = "";
-
-        public static final String ENTER_CHOICE = "";
-
-        public static final String ENTER_VALID_CHOICE = "";
-
-        public static final String ANSWER_SAVED = "";
-
-        public static final String WANT_MORE_QUESTIONS = "";
-
         public static final String INCORRECT_OPTION = "Incorrect Option. Try again...";
 
-        public static final String CURRENT_ACCOUNT_CREATED = "Your current account is created SUCCESSFULLY. %nYour account number is %d . %n";
+        public static final String CURRENT_ACCOUNT_CREATED = "Your current account is created SUCCESSFULLY. %nYour account number is %d . %n%n";
 
-        public static final String SAVING_ACCOUNT_CREATED = "Your saving account is created SUCCESSFULLY. %nYour account number is %d . %n";
+        public static final String SAVING_ACCOUNT_CREATED = "Your saving account is created SUCCESSFULLY. %nYour account number is %d . %n%n";
 
         public static final String CREATE_ACCOUNT_MENU = """
                         Choose which account type you want to create :\s
                         a - Saving Account\s
                         b - Current Account\s
                         \s
-                        Your option [a/b] >\s
-                        """;
+                        Your option [a/b] >\040""";
 
         public static final String UPDATE_ACCOUNT_MENU = """
                         Please choose what do you want to update :\s
@@ -65,8 +40,7 @@ public final class Messages {
                         c - Mobile number\s
                         d - None of these\s
                         \s
-                        Your Choice [a/b/c] >\s
-                        """;
+                        Your Choice [a/b/c] >\040""";
 
         public static final String NAME_UPDATED = "\nName updated SUCCESSFULLY.";
 

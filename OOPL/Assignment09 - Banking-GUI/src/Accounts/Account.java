@@ -1,13 +1,7 @@
 package Accounts;
 
 import Database.AccountsDatabase;
-import Database.TransactionsDatabase;
-import Helper.BankHelper.TableFormat;
-import Helper.BankHelper.Transactions;
 import Helper.CustomerHelper.Valid;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A {@code Account Class} which will hold all basic and common properties of an
@@ -100,16 +94,6 @@ public class Account extends Customer {
     }
 
     /**
-     * Method to update info (password, name, age, mobile number) in database.
-     * When user will do transactions, it will only change the account object.
-     * But by calling this method, data of database is also updated at same time.
-     */
-    public void updateInfoInDatabase() {
-        AccountsDatabase.updateAccount(getAccountNo(), getUsername(), getPassword(),
-                getName(), getDateOfBirth(), getMobileNo(), getEmailID());
-    }
-
-    /**
      * Method to update balance of account object.
      * When any other account will transfer money to this account,
      * It will update in database but not object.
@@ -119,31 +103,6 @@ public class Account extends Customer {
         var accountData = AccountsDatabase.getAccountInfo(getAccountNo());
         assert accountData != null;
         balance = Double.parseDouble(accountData.get("balance"));
-    }
-
-    /**
-     * Method to print statement of this account.
-     * It will show transaction date and time, details and money transfer.
-     * Table formatted statement is printed using {@link TableFormat} Class.
-     */
-    public String getStatement() {
-        var transactions = TransactionsDatabase.getTransactions(getAccountNo(), true);
-
-        List<String> headersList = new ArrayList<>();
-        headersList.add("Date & Time");
-        headersList.add("Details");
-        headersList.add("Deposits");
-        headersList.add("Withdrawals");
-        headersList.add("Balance");
-        headersList.add("Note");
-
-        List<List<String>> rowsList = new ArrayList<>();
-
-        for (Transactions.Transaction transaction : transactions) {
-            rowsList.add(transaction.getTransactionList());
-        }
-
-        return TableFormat.show(headersList, rowsList);
     }
 
     public int getAccountNo() {

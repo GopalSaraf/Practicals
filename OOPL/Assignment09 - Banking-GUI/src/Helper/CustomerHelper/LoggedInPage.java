@@ -10,6 +10,7 @@ import Helper.BankHelper.Transactions.Transaction;
 import Helper.GUIHelper.*;
 import Helper.GUIHelper.StatementTableHelper.StatementTableFilter;
 import Helper.GUIHelper.StatementTableHelper.TableCustom;
+import Helper.MainPage;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +23,7 @@ import java.util.Date;
 import java.util.List;
 
 public class LoggedInPage extends JFrame {
-    private final Account account;
+    private Account account;
     private JLabel logo;
     private JPanel LoggedInPage;
     private JLabel welcomeMsg;
@@ -158,6 +159,7 @@ public class LoggedInPage extends JFrame {
         statementActionListeners();
         profilePageActionListeners();
         updatePageActionListeners();
+        deleteActionListeners();
         logoutPageActionListeners();
     }
 
@@ -168,6 +170,7 @@ public class LoggedInPage extends JFrame {
 
     private void transferPageActionListeners() {
         transferPageBtn.addActionListener(e -> changeWorkingPanel(transferPanel));
+        transferPageBtn.addActionListener(e -> transferErrorMsg1.setText(""));
 
         transferMode.addActionListener(e -> {
             int mode = getTransferModeIndexFromUser();
@@ -241,6 +244,7 @@ public class LoggedInPage extends JFrame {
         depositChequeNoTF.setVisible(false);
 
         depositPageBtn.addActionListener(e -> changeWorkingPanel(depositPanel));
+        depositPageBtn.addActionListener(e -> depositErrorMsg.setText(""));
 
         depositMode.addActionListener(e -> {
             if (getDepositModeIndexFromUser() == 0) {
@@ -300,6 +304,7 @@ public class LoggedInPage extends JFrame {
         withdrawChequeNoTF.setVisible(false);
 
         withdrawPageBtn.addActionListener(e -> changeWorkingPanel(withdrawPanel));
+        withdrawPageBtn.addActionListener(e -> withdrawErrorMsg.setText(""));
 
         withdrawMode.addActionListener(e -> {
             if (getWithdrawModeIndexFromUser() == 0) {
@@ -436,7 +441,62 @@ public class LoggedInPage extends JFrame {
                 updateDayTF.setSelectedItem(new SimpleDateFormat("dd").format(dob));
                 updateMonthTF.setSelectedItem(new SimpleDateFormat("MMM").format(dob));
                 updateYearTF.setSelectedItem(new SimpleDateFormat("yyyy").format(dob));
-            } catch (ParseException ignored) {
+            } catch (ParseException exception) {
+                System.out.println(exception.getMessage());
+            }
+        });
+
+        updateProfileBtn.addActionListener(e -> {
+            boolean isNameValid = Valid.isValidName(getUpdateNameFromUser());
+            boolean isDayValid = updateDayTF.getSelectedIndex() != 0;
+            boolean isMonthValid = updateMonthTF.getSelectedIndex() != 0;
+            boolean isYearValid = updateYearTF.getSelectedIndex() != 0;
+            boolean isMobileValid = Valid.isValidMobile(getUpdateMobileFromUser());
+            boolean isMailValid = Valid.isValidMail(getUpdateEmailFromUser());
+            boolean isUsernameValid = Valid.isValidUsername(getUpdateUsernameFromUser());
+
+            if (isNameValid && isDayValid && isMonthValid && isYearValid && isMobileValid && isMailValid
+                    && isUsernameValid) {
+                JOptionPane.showMessageDialog(this, "Account Updated", "Account Update",
+                        JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/bank_100.png"));
+                AccountsDatabase.updateAccount(account.getAccountNo(), getUpdateUsernameFromUser(),
+                        account.getPassword(),
+                        getUpdateNameFromUser(), getUpdateDOBFromUser(), getUpdateMobileFromUser(),
+                        getUpdateEmailFromUser());
+                account = AccountsDatabase.getAccount(account.getAccountNo());
+                assert account != null;
+                setTitle(account.getName() + " - Login");
+                welcomeMsg.setText("Welcome, " + account.getName() + ".");
+                changeWorkingPanel(homePanel);
+                updateError.setText("");
+            } else {
+                String updateErrorMsg = "ERROR : ";
+                if (!isNameValid)
+                    updateErrorMsg += "Name, ";
+                if (!isDayValid || !isMonthValid || !isYearValid)
+                    updateErrorMsg += "DOB, ";
+                if (!isMobileValid)
+                    updateErrorMsg += "Mobile, ";
+                if (!isMailValid)
+                    updateErrorMsg += "Email, ";
+                if (!isUsernameValid)
+                    updateErrorMsg += "Username, ";
+                updateError.setText(updateErrorMsg.substring(0, updateErrorMsg.length() - 2));
+            }
+        });
+    }
+
+    private void deleteActionListeners() {
+        deleteAccPageBtn.addActionListener(e -> {
+            int wantToDel = JOptionPane.showConfirmDialog(this, "You want to delete your account ?",
+                    "Delete Account", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                    new ImageIcon("images/bank_100.png"));
+            if (wantToDel == JOptionPane.YES_OPTION) {
+                AccountsDatabase.deleteAccount(account.getAccountNo());
+                JOptionPane.showMessageDialog(this, "Account deleted.", "Delete Account",
+                        JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/bank_100.png"));
+                new MainPage().setVisible(true);
+                dispose();
             }
         });
     }
@@ -768,6 +828,27 @@ public class LoggedInPage extends JFrame {
 
     private String getStatementEndingDateFromUser() {
         return endingDay.getSelectedItem() + " " + endingMonth.getSelectedItem() + ", " + endingYear.getSelectedItem();
+    }
+
+    private String getUpdateNameFromUser() {
+        return updateNameTF.getText().trim();
+    }
+
+    private String getUpdateDOBFromUser() {
+        return updateDayTF.getSelectedItem() + " " + updateMonthTF.getSelectedItem() + ", "
+                + updateYearTF.getSelectedItem();
+    }
+
+    private String getUpdateMobileFromUser() {
+        return updateMobileTF.getText().trim();
+    }
+
+    private String getUpdateEmailFromUser() {
+        return updateEmailTF.getText().trim();
+    }
+
+    private String getUpdateUsernameFromUser() {
+        return updateUsernameTF.getText().trim();
     }
 
     private void createUIComponents() {

@@ -71,6 +71,8 @@ public class LoginPage extends JFrame {
         forgetPassword.addMouseListener(labelMouseListener);
 
         createAccount.addMouseListener(new PageChangeListener(this, PageChangeListener.Page.CREATE_ACC_PAGE));
+        forgetUsername.addMouseListener(new PageChangeListener(this, PageChangeListener.Page.FORGOT_USERNAME));
+        forgetPassword.addMouseListener(new PageChangeListener(this, PageChangeListener.Page.FORGOT_PASSWORD));
     }
 
     private void addFocusListeners() {
@@ -81,7 +83,8 @@ public class LoginPage extends JFrame {
         String usernameOrAccNo = getUsernameOrAccNoFromUser();
         if (!usernameOrAccNo.matches("[0-9]+")) {
             accNo = AccountsDatabase.getAccNoByUsername(usernameOrAccNo);
-            if (accNo == -1) return false;
+            if (accNo == -1)
+                return false;
         } else {
             accNo = Integer.parseInt(usernameOrAccNo);
             boolean isAccExist = AccountsDatabase.isAccountExist(accNo);

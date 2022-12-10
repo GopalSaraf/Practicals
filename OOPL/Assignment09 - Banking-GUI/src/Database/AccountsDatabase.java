@@ -11,21 +11,6 @@ public final class AccountsDatabase {
     private static final String accountsPath = "./src/Database/accounts.csv";
     private static final File accountsFile = new File(accountsPath);
 
-//  Data Storing Order :
-
-//  accountNo
-//  username
-//  password
-//  type
-//  balance
-//  name
-//  dateOfBirth
-//  mobileNo
-//  emailID
-//  forgotPasswordIDs
-//  forgotPasswordAns
-//  openingDateTime
-
     private static final String[] accountsColumnOrderArray = {
             "accountNo",
             "username",
@@ -43,8 +28,10 @@ public final class AccountsDatabase {
 
     private static final List<String> accountsColumnOrder = Arrays.asList(accountsColumnOrderArray);
 
-    public static void addAccount(int accountNo, String username, String password, String type, double balance, String name,
-          String dateOfBirth, String mobileNo, String emailID, String forgotPasswordIDs, String forgotPasswordAns, String openingDateTime) {
+    public static void addAccount(int accountNo, String username, String password, String type, double balance,
+                                  String name,
+                                  String dateOfBirth, String mobileNo, String emailID, String forgotPasswordIDs, String forgotPasswordAns,
+                                  String openingDateTime) {
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(accountsFile, true));
             pw.append(String.valueOf(accountNo))
@@ -59,7 +46,7 @@ public final class AccountsDatabase {
                     .append(",")
                     .append(name)
                     .append(",")
-                    .append(dateOfBirth)
+                    .append(dateOfBirth.replace(',', '_'))
                     .append(",")
                     .append(mobileNo)
                     .append(",")
@@ -69,10 +56,11 @@ public final class AccountsDatabase {
                     .append(",")
                     .append(forgotPasswordAns)
                     .append(",")
-                    .append(openingDateTime)
+                    .append(openingDateTime.replace(',', '_'))
                     .append("\n");
             pw.close();
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
     }
 
@@ -103,12 +91,17 @@ public final class AccountsDatabase {
                     for (int i = 0; i < accountsColumnOrder.size(); i++) {
                         String key = accountsColumnOrder.get(i);
                         String value = data[accountsColumnOrder.indexOf(key)];
+                        if (Objects.equals(key, "dateOfBirth"))
+                            value = value.replace('_', ',');
+                        if (Objects.equals(key, "openingDateTime"))
+                            value = value.replace('_', ',');
                         accountDetails.put(key, value);
                     }
                     return accountDetails;
                 }
             }
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
         return null;
     }
@@ -170,12 +163,13 @@ public final class AccountsDatabase {
             PrintWriter pw = new PrintWriter(new FileOutputStream(accountsFile, false));
             pw.print(sb);
             pw.close();
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
     }
 
     public static void updateAccount(int accountNo, String username, String password,
-                         String name, String dateOfBirth, String mobileNo, String emailID) {
+                                     String name, String dateOfBirth, String mobileNo, String emailID) {
         StringBuffer sb = new StringBuffer();
         try {
             BufferedReader br = new BufferedReader(new FileReader(accountsPath));
@@ -192,7 +186,7 @@ public final class AccountsDatabase {
                         } else if (i == accountsColumnOrder.indexOf("name")) {
                             row.append(name);
                         } else if (i == accountsColumnOrder.indexOf("dateOfBirth")) {
-                            row.append(dateOfBirth);
+                            row.append(dateOfBirth.replace(',', '_'));
                         } else if (i == accountsColumnOrder.indexOf("mobileNo")) {
                             row.append(mobileNo);
                         } else if (i == accountsColumnOrder.indexOf("emailID")) {
@@ -212,7 +206,27 @@ public final class AccountsDatabase {
             PrintWriter pw = new PrintWriter(new FileOutputStream(accountsFile, false));
             pw.print(sb);
             pw.close();
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    public static void deleteAccount(int accountNo) {
+        StringBuffer sb = new StringBuffer();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(accountsFile));
+            String stream;
+            while ((stream = br.readLine()) != null) {
+                String[] data = stream.split(",");
+                if (accountNo != Integer.parseInt(data[accountsColumnOrder.indexOf("accountNo")]))
+                    sb.append(stream).append("\n");
+            }
+            br.close();
+            PrintWriter pw = new PrintWriter(new FileOutputStream(accountsFile, false));
+            pw.print(sb);
+            pw.close();
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
     }
 
@@ -221,7 +235,7 @@ public final class AccountsDatabase {
      *
      * @param accountNo A {@code int} Account number
      * @return A {@code boolean} value {@code true} if account exist with given
-     *         account number else {@code false}
+     * account number else {@code false}
      */
     public static boolean isAccountExist(int accountNo) {
         try {
@@ -233,7 +247,8 @@ public final class AccountsDatabase {
                     return true;
                 }
             }
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
         return false;
     }
@@ -248,7 +263,8 @@ public final class AccountsDatabase {
                     return false;
                 }
             }
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
         return true;
     }
@@ -261,6 +277,10 @@ public final class AccountsDatabase {
         return Objects.requireNonNull(getAccountInfo(getAccNoByUsername(username))).get("password");
     }
 
+    public static String getUsernameForAcc(int accountNo) {
+        return Objects.requireNonNull(getAccountInfo(accountNo)).get("username");
+    }
+
     private static int getAccNoByGivenStr(String givenStr, String compareWith) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(accountsPath));
@@ -271,7 +291,8 @@ public final class AccountsDatabase {
                     return Integer.parseInt(data[accountsColumnOrder.indexOf("accountNo")]);
                 }
             }
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
         return -1;
     }
@@ -284,6 +305,10 @@ public final class AccountsDatabase {
         return getAccNoByGivenStr(mobile, "mobileNo");
     }
 
+    public static int getAccNoByEmail(String email) {
+        return getAccNoByGivenStr(email, "emailID");
+    }
+
     public static List<Account> getAllAccounts() {
         List<Account> accounts = new ArrayList<>();
         try {
@@ -294,7 +319,8 @@ public final class AccountsDatabase {
                 int accNo = Integer.parseInt(data[accountsColumnOrder.indexOf("accountNo")]);
                 accounts.add(getAccount(accNo));
             }
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
         return accounts;
     }

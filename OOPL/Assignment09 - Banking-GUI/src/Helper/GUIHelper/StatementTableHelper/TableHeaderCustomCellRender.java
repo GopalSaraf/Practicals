@@ -14,7 +14,8 @@ public class TableHeaderCustomCellRender extends DefaultTableCellRenderer {
     }
 
     @Override
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+                                                   int row, int column) {
         Component com = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         setBorder(new EmptyBorder(8, 10, 8, 10));
         com.setBackground(table.getTableHeader().getBackground());

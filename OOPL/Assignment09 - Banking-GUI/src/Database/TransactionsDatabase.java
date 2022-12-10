@@ -44,7 +44,7 @@ public final class TransactionsDatabase {
                     .append(",")
                     .append(status)
                     .append(",")
-                    .append(note)
+                    .append(note.replace(',', '_'))
                     .append("\n");
 
             while ((stream = br.readLine()) != null)
@@ -54,7 +54,8 @@ public final class TransactionsDatabase {
             PrintWriter pw = new PrintWriter(new FileOutputStream(transactionsFile, false));
             pw.print(sb);
             pw.close();
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
     }
 
@@ -83,17 +84,18 @@ public final class TransactionsDatabase {
                     transactions.add(
                             new Transaction(
                                     data[transactionsColumns.get("accountNo")],
-                                    data[transactionsColumns.get("datetime")],
+                                    data[transactionsColumns.get("datetime")].replace('_', ','),
                                     data[transactionsColumns.get("transaction")],
                                     data[transactionsColumns.get("depositAmount")],
                                     data[transactionsColumns.get("withdrawAmount")],
                                     data[transactionsColumns.get("balance")],
                                     data[transactionsColumns.get("status")],
-                                    data[transactionsColumns.get("note")]));
+                                    data[transactionsColumns.get("note")].replace('_', ',')));
                 }
             }
             br.close();
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
         return transactions;
     }
@@ -109,16 +111,17 @@ public final class TransactionsDatabase {
                 transactions.add(
                         new Transaction(
                                 data[transactionsColumns.get("accountNo")],
-                                data[transactionsColumns.get("datetime")],
+                                data[transactionsColumns.get("datetime")].replace('_', ','),
                                 data[transactionsColumns.get("transaction")],
                                 data[transactionsColumns.get("depositAmount")],
                                 data[transactionsColumns.get("withdrawAmount")],
                                 data[transactionsColumns.get("balance")],
                                 data[transactionsColumns.get("status")],
-                                data[transactionsColumns.get("note")]));
+                                data[transactionsColumns.get("note")].replace('_', ',')));
             }
             br.close();
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
         return transactions;
     }

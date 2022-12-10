@@ -1,5 +1,14 @@
+# Class Diagram (Only Names):
+
+<br>
+
+<img src="miniDiagram.png">
+
+<br> 
+<br>
+
 # Class Diagram :
 
 <br>
 
-<img src="Banking.png">
+<img src="diagram.png">

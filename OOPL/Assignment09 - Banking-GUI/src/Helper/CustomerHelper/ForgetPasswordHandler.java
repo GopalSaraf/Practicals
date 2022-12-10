@@ -59,7 +59,8 @@ public class ForgetPasswordHandler {
 
     public char getIDByQuestion(String questionStr) {
         for (Map.Entry<Character, String> question : allQuestions.entrySet()) {
-            if (Objects.equals(question.getValue(), questionStr)) return question.getKey();
+            if (Objects.equals(question.getValue(), questionStr))
+                return question.getKey();
         }
         return ' ';
     }

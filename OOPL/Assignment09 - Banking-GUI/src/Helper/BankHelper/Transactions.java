@@ -73,7 +73,8 @@ public final class Transactions {
             status += reason;
         }
 
-        var withdraw = new Transaction(account.getAccountNo(), LocalDateTime.now(), Transaction.WITHDRAW + " by " + withdrawMode,
+        var withdraw = new Transaction(account.getAccountNo(), LocalDateTime.now(),
+                Transaction.WITHDRAW + " by " + withdrawMode,
                 0, withdrawAmount, account.getBalance(), status, note);
         TransactionsDatabase.addTransaction(withdraw);
 
@@ -154,7 +155,7 @@ public final class Transactions {
         public static final String FAIL = "Unsuccessful";
         public static final String PROCESSING = "Processing";
 
-        private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd MMM_ yyyy HH:mm");
+        private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd MMM, yyyy HH:mm");
 
         public final int accountNo;
         public final String dateTime;
@@ -170,7 +171,7 @@ public final class Transactions {
         public Transaction(int accountNo, String dateTime, String transaction, double depositAmount,
                            double withdrawAmount, double balance, String status, String note) {
             this.accountNo = accountNo;
-            this.dateTime = dateTime.replace('_', ',');
+            this.dateTime = dateTime;
             this.transaction = transaction;
             this.depositAmount = depositAmount;
             this.withdrawAmount = withdrawAmount;

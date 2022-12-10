@@ -52,9 +52,11 @@ public class ScrollBarCustomUI extends BasicScrollBarUI {
         int spaceX = 2;
         int spaceY = 8;
         if (scrollbar.getOrientation() == JScrollBar.VERTICAL) {
-            g2.fill(new RoundRectangle2D.Double(rctngl.getX() + spaceX, rctngl.getY() + spaceY, rctngl.getWidth() - spaceX * 2, rctngl.getHeight() - spaceY * 2, round, round));
+            g2.fill(new RoundRectangle2D.Double(rctngl.getX() + spaceX, rctngl.getY() + spaceY,
+                    rctngl.getWidth() - spaceX * 2, rctngl.getHeight() - spaceY * 2, round, round));
         } else {
-            g2.fill(new RoundRectangle2D.Double(rctngl.getX() + spaceY, rctngl.getY() + spaceX, rctngl.getWidth() - spaceY * 2, rctngl.getHeight() - spaceX * 2, round, round));
+            g2.fill(new RoundRectangle2D.Double(rctngl.getX() + spaceY, rctngl.getY() + spaceX,
+                    rctngl.getWidth() - spaceY * 2, rctngl.getHeight() - spaceX * 2, round, round));
         }
         g2.dispose();
     }
