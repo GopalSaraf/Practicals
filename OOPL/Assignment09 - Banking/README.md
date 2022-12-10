@@ -1,4 +1,4 @@
-# Class Diagram of Banking :
+# Class Diagram :
 
 <br>
 
