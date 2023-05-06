@@ -1,9 +1,9 @@
 ## Stairs output screenshot
 
-<img src="output/DDA Stairs.png" style="border-radius:1%">
+<img src="output/DDA Stairs.png">
 
 <br />
 
 ## Chess output screenshot
 
-<img src="output/DDA Chess.png" style="border-radius:1%">
+<img src="output/DDA Chess.png">
