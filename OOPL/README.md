@@ -1,4 +1,4 @@
-# Object oriented programming lab
+# Object Oriented Programming Lab
 
 ### Find the lab manual here: [Object Oriented Programming Lab Manual](OOPL.pdf)
 

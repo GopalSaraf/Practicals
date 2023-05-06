@@ -1,4 +1,4 @@
-# Data structures and algorithms lab
+# Data Structures and Algorithms Lab
 
 ### Find the lab manual here: [Data Structures and Algorithms Lab Manual](DSAL.pdf)
 
