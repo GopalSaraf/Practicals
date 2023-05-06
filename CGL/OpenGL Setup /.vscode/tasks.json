@@ -1,0 +1,37 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ build active file",
+			"command": "gcc",
+			"args": [
+				"-std=c++17",
+				"${fileBasename}",
+				"-o",
+				"${workspaceFolder}/executables/${relativeFileDirname}/${fileBasenameNoExtension}",
+				"-L/System/Library/Frameworks",
+				"-I${workspaceFolder}/dependencies/include",
+				"-L${workspaceFolder}/dependencies/library",
+				"-framework",
+				"GLUT",
+				"-framework",
+				"OpenGl",
+				"-lstdc++",
+				"&&",
+				"${workspaceFolder}/executables/${relativeFileDirname}/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: /usr/bin/g++"
+		}
+	]
+}
