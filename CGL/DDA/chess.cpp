@@ -32,14 +32,12 @@ void display() {
             float x = boardX + j * squareSize;
             float y = boardY + i * squareSize;
 
-            Line::draw(x, y, x + squareSize, y,
-                       i % 2 == 0 ? Line::DARKED : Line::SIMPLE);
-            Line::draw(x + squareSize, y, x + squareSize, y + squareSize,
-                       i % 2 == 0 ? Line::DARKED : Line::SIMPLE);
-            Line::draw(x + squareSize, y + squareSize, x, y + squareSize,
-                       i % 2 == 0 ? Line::DARKED : Line::SIMPLE);
-            Line::draw(x, y + squareSize, x, y,
-                       i % 2 == 0 ? Line::DARKED : Line::SIMPLE);
+            int mode = i % 2 == 0 ? Line::DARKED : Line::SIMPLE;
+
+            Line::draw(x, y, x + squareSize, y, mode);
+            Line::draw(x + squareSize, y, x + squareSize, y + squareSize, mode);
+            Line::draw(x + squareSize, y + squareSize, x, y + squareSize, mode);
+            Line::draw(x, y + squareSize, x, y, mode);
 
             if (i % 2 == j % 2) {
                 Line::draw(x, y, x + squareSize, y + squareSize, Line::DASHED);
