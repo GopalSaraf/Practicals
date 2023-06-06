@@ -34,9 +34,9 @@ void sendData(int data) {
 
 // Function to read temperature from the LM35 sensor
 int readTemp() {
-    ADCON0 = 0b00011101;     // ADC on; Select channel
+    ADCON0 = 0b00011001;     // ADC on; Select channel
     ADCON0bits.GO_DONE = 1;  // Start Conversion
-    while (ADCON0bits.GO_DONE == 1)
+    while (ADCON0bits.GO_DONE == 0)
         ;          // Wait till A/D conversion is complete
     return ADRES;  // Return ADC result
 }

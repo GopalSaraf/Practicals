@@ -62,7 +62,7 @@ void main() {
 
     // Print name on the second line
     while (*name != '\0') {  // '\0' is the null character
-        sendData(name);      // Send the character pointed to by name
+        sendData(*name);     // Send the character pointed to by name
         name++;  // Increment the pointer to point to the next character
     }
 

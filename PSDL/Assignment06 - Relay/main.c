@@ -2,9 +2,9 @@
 #include <pic18f4550.h>
 
 void main() {
-    TRISBbits.TRISB1 = 1;  // Set RB1 as input for external interrupt
-    TRISAbits.TRISA4 = 0;  // Set RA4 as output for relay control
-    PORTAbits.RA4 = 0;     // Set RA4 initially low (relay off)
+    TRISBbits.TRISB1 = 1;  // Set RB1 as input for external interrupt (relay)
+    TRISAbits.TRISA4 = 0;  // Set RA4 as output for buzzer control
+    PORTAbits.RA4 = 0;     // Set RA4 initially low (buzzer off)
 
     // Interrupt on falling edge for RB1 (negative edge trigger)
     INTCON2bits.INTEDG1 = 0;
