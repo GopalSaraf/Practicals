@@ -1,5 +1,5 @@
 #include <xc.h>
-#include <pic18f458.h>
+#include <pic18f4550.h>
 
 int buzz_on = 0;  // Variable to keep track of the buzzer state
 int count = 0;    // Counter helper variable

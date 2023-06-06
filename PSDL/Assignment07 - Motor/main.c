@@ -1,5 +1,5 @@
 #include <xc.h>
-#include <pic18f458.h>
+#include <pic18f4550.h>
 
 // The motor speed is increased from minimum to maximum and then again it will
 // be zero. This process is repeated continuously.

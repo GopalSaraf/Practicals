@@ -1,5 +1,5 @@
 #include <xc.h>
-#include <pic18f458.h>
+#include <pic18f4550.h>
 
 // Function to introduce a delay in seconds
 void delay(unsigned int seconds) {

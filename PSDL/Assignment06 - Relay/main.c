@@ -1,5 +1,5 @@
 #include <xc.h>
-#include <pic18f458.h>
+#include <pic18f4550.h>
 
 void main() {
     TRISBbits.TRISB1 = 1;  // Set RB1 as input for external interrupt
