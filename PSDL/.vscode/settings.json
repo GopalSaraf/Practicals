@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.java": "java",
-        "*.py": "python",
-        "pic18f458.h": "c"
-    }
-}
