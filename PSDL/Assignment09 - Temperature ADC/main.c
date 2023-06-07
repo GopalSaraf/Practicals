@@ -37,8 +37,8 @@ int readTemp() {
     ADCON0 = 0b00011001;     // ADC on; Select channel
     ADCON0bits.GO_DONE = 1;  // Start Conversion
     while (ADCON0bits.GO_DONE == 0)
-        ;          // Wait till A/D conversion is complete
-    return ADRES;  // Return ADC result
+        ;                       // Wait till A/D conversion is complete
+    return ADRES * 500 / 1023;  // Return ADC result in degree celsius
 }
 
 void main() {
@@ -57,11 +57,9 @@ void main() {
     unsigned int temp;  // Variable to store temperature
 
     while (1) {
-        temp = readTemp();             // Read temperature
-        temp = ((temp * 500) / 1023);  // Convert to degree Celsius
-        sendData(temp / 10 + 48);      // Send the first digit
-        sendData(temp % 10 + 48);      // Send the second digit
-
-        delay();  // Delay before the next reading
+        temp = readTemp();         // Read temperature
+        sendData(temp / 10 + 48);  // Send the first digit
+        sendData(temp % 10 + 48);  // Send the second digit
+        delay();                   // Delay before the next reading
     }
 }

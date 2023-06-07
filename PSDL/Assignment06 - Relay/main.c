@@ -22,7 +22,7 @@ void __interrupt() inr1_isr() {
     // Check if the external interrupt flag INT1IF is set
     if (INTCON3bits.INT1IF == 1) {
         INTCONbits.GIE = 0;  // Disable global interrupts
-        PORTAbits.RA4 = 1;   // Set RA4 high to activate the relay
+        PORTAbits.RA4 = 1;   // Set RA4 high to activate the buzzer
 
         for (unsigned int i = 0; i < 1000; i++) {
             for (unsigned int j = 0; j < 1000; j++) {
@@ -30,7 +30,7 @@ void __interrupt() inr1_isr() {
             }
         }
 
-        PORTAbits.RA4 = 0;      // Set RA4 low to deactivate the relay
+        PORTAbits.RA4 = 0;      // Set RA4 low to deactivate the buzzer
         INTCON3bits.INT1F = 0;  // Clear the external interrupt flag INT1IF
         INTCONbits.GIE = 1;     // Enable global interrupts
     }
