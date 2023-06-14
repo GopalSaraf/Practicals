@@ -8,83 +8,23 @@
 #include <queue>          // Include the queue container library
 using namespace std;      // Using the standard namespace
 
-// Define a struct to represent a point with x and y coordinates
-struct Point_ {
-    int x;
-    int y;
-};
-
-// Define a struct to represent the RGB color
-struct ColorRGB {
-    GLubyte r, g, b;
-
-    // Overload the equality operator for comparing colors
-    bool operator==(const ColorRGB &other) {
-        return (r == other.r && g == other.g && b == other.b);
-    }
-
-    // Overload the inequality operator for comparing colors
-    bool operator!=(const ColorRGB &other) { return !(*this == other); }
-};
+#include "structures.h"  // Include the structures header file
+#include "floodfill.h"   // Include the flood fill header file
+#include "palette.h"     // Include the palette header file
 
 int noOfPoints;         // Number of points for the polygon
 vector<Point_> points;  // Vector to store the points of the polygon
-
-bool fillingInProgress =
-    false;  // Flag to indicate if flood filling is in progress
 
 vector<vector<ColorRGB>> pixels;       // 2D vector to store the pixel colors
 ColorRGB backgroundColor = {0, 0, 0};  // Background color
 ColorRGB foregroundColor = {255, 255, 255};  // Foreground color
 ColorRGB selectedFillColor = {255, 0, 0};    // Selected fill color
 
-vector<ColorRGB> colorPalette = {
-    {254, 254, 254},  // White
-    {0, 0, 0},        // Black
-    {255, 0, 0},      // Red
-    {0, 255, 0},      // Green
-    {0, 0, 255},      // Blue
-    {255, 255, 0},    // Yellow
-    {255, 0, 255},    // Magenta
-    {0, 255, 255},    // Cyan
-    {128, 0, 0},      // Maroon
-    {0, 128, 0},      // Dark Green
-    {0, 0, 128},      // Navy
-    {128, 128, 128}   // Gray
-};
-
 // Function to get user input for the number of points
 void getUserInput() {
-    cout << "Enter the number of points: ";
-    cin >> noOfPoints;
-}
-
-// Function to draw the color palette
-void drawPalette() {
-    int width = glutGet(GLUT_WINDOW_WIDTH);
-    int height = glutGet(GLUT_WINDOW_HEIGHT);
-
-    int palleteBoxLength = min(width, height) / 20;
-    int palleteBoxPadding = palleteBoxLength / 10;
-
-    for (int i = 0; i < colorPalette.size(); i++) {
-        int row = i / 4;
-        int col = i % 4;
-
-        int startX = col * palleteBoxLength + palleteBoxPadding;
-        int startY =
-            height - ((row + 1) * palleteBoxLength) + palleteBoxPadding;
-        int endX = startX + palleteBoxLength - palleteBoxPadding;
-        int endY = startY + palleteBoxLength - palleteBoxPadding;
-
-        glBegin(GL_QUADS);
-        glColor3ub(colorPalette[i].r, colorPalette[i].g, colorPalette[i].b);
-        glVertex2i(startX, startY);
-        glVertex2i(endX, startY);
-        glVertex2i(endX, endY);
-        glVertex2i(startX, endY);
-        glEnd();
-    }
+    // cout << "Enter the number of points: ";
+    // cin >> noOfPoints;
+    noOfPoints = 4;
 }
 
 // Function to initialize the OpenGL settings
@@ -171,74 +111,6 @@ void display() {
     glFlush();
 }
 
-// Function to perform flood fill algorithm
-void floodFill(int x, int y, ColorRGB oldColor, ColorRGB boundaryColor,
-               ColorRGB newColor) {
-    if (fillingInProgress) {
-        return;
-    }
-
-    int width = glutGet(GLUT_WINDOW_WIDTH);
-    int height = glutGet(GLUT_WINDOW_HEIGHT);
-
-    vector<vector<bool>> visited(height, vector<bool>(width, false));
-
-    int dx[] = {0, 0, -1, 1};
-    int dy[] = {-1, 1, 0, 0};
-
-    queue<pair<int, int>> q;
-    q.push(make_pair(x, y));
-
-    fillingInProgress = true;
-
-    while (!q.empty()) {
-        pair<int, int> currentPoint = q.front();
-        q.pop();
-
-        int currentX = currentPoint.first;
-        int currentY = currentPoint.second;
-
-        if (currentX < 0 || currentY < 0 || currentX >= width ||
-            currentY >= height) {
-            continue;
-        }
-
-        if (visited[currentY][currentX] ||
-            pixels[currentY][currentX] == boundaryColor ||
-            pixels[currentY][currentX] == newColor) {
-            continue;
-        }
-
-        if (pixels[currentY][currentX] == oldColor) {
-            pixels[currentY][currentX] = newColor;
-            visited[currentY][currentX] = true;
-
-            bool insideBoundary = false;
-            for (int i = 0, j = points.size() - 1; i < points.size(); j = i++) {
-                if ((points[i].y > currentY) != (points[j].y > currentY) &&
-                    (currentX < (points[j].x - points[i].x) *
-                                        (currentY - points[i].y) /
-                                        (points[j].y - points[i].y) +
-                                    points[i].x)) {
-                    insideBoundary = !insideBoundary;
-                }
-            }
-
-            if (insideBoundary) {
-                for (int i = 0; i < 4; i++) {
-                    int newX = currentX + dx[i];
-                    int newY = currentY + dy[i];
-                    q.push(make_pair(newX, newY));
-                }
-            }
-        }
-    }
-
-    fillingInProgress = false;
-    backgroundColor = newColor;
-    glutPostRedisplay();
-}
-
 // Function to handle mouse events
 void mouse(int button, int state, int x, int y) {
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
@@ -269,7 +141,8 @@ void mouse(int button, int state, int x, int y) {
             } else {
                 // Perform flood fill algorithm on the clicked point
                 floodFill(x, glutGet(GLUT_WINDOW_HEIGHT) - y, backgroundColor,
-                          foregroundColor, selectedFillColor);
+                          foregroundColor, selectedFillColor, pixels, points);
+                backgroundColor = selectedFillColor;
             }
         }
     }

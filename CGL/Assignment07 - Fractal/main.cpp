@@ -59,14 +59,6 @@ void display() {
     glFlush();
 }
 
-// void reshape(int w, int h) {
-//     glViewport(0, 0, w, h);
-//     glMatrixMode(GL_PROJECTION);
-//     glLoadIdentity();
-//     gluOrtho2D(0, w, 0, h);
-//     glMatrixMode(GL_MODELVIEW);
-// }
-
 int main(int argv, char **argc) {
     glutInit(&argv, argc);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
@@ -85,7 +77,6 @@ int main(int argv, char **argc) {
     glutCreateWindow("KOCH CURVE");
 
     glutDisplayFunc(display);
-    // glutReshapeFunc(reshape);
 
     glutMainLoop();
 

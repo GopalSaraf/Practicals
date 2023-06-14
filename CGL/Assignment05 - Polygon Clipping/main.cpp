@@ -1,4 +1,12 @@
-#include <GL/glut.h>
+#define GL_SILENCE_DEPRECATION
+
+#include <GL/freeglut.h>
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
+#include <GL/gl.h>
+#endif
 
 float smallWindowMinX = 50, smallWindowMinY = 50;
 float smallWindowMaxX = 100, smallWindowMaxY = 100;
@@ -86,15 +94,10 @@ void clipLine(float x0, float y0, float x1, float y1) {
 }
 
 void display() {
-    gluOrtho2D(0.0, 500.0, 0.0, 500.0);
-
-    // float x0 = 60, y0 = 20, x1 = 80, y1 = 120;
-    // float x2 = 60, y2 = 20, x3 = 100, y3 = 80;
-    // float x4 = 100, y4 = 80, x5 = 40, y5 = 80;
-    // float x6 = 40, y6 = 80, x7 = 80, y7 = 120;
-
-    float poly_start_x = 60, poly_start_y = 40;
-    float poly_end_x = 80, poly_end_y = 110;
+    float x0 = 60, y0 = 20, x1 = 80, y1 = 120;
+    float x2 = 60, y2 = 20, x3 = 100, y3 = 80;
+    float x4 = 100, y4 = 80, x5 = 40, y5 = 80;
+    float x6 = 40, y6 = 80, x7 = 80, y7 = 120;
 
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -102,18 +105,14 @@ void display() {
 
     glColor3f(1.0, 0.0, 0.0);
     glBegin(GL_LINE_LOOP);
-    // glVertex2d(x0, y0);
-    // glVertex2d(x1, y1);
-    // glVertex2d(x2, y2);
-    // glVertex2d(x3, y3);
-    // glVertex2d(x4, y4);
-    // glVertex2d(x5, y5);
-    // glVertex2d(x6, y6);
-    // glVertex2d(x7, y7);
-    glVertex2d(poly_start_x, poly_start_y);
-    // glVertex2d(poly_end_x, poly_start_y);
-    glVertex2d(poly_end_x, poly_end_y);
-    // glVertex2d(poly_start_x, poly_end_y);
+    glVertex2d(x0, y0);
+    glVertex2d(x1, y1);
+    glVertex2d(x2, y2);
+    glVertex2d(x3, y3);
+    glVertex2d(x4, y4);
+    glVertex2d(x5, y5);
+    glVertex2d(x6, y6);
+    glVertex2d(x7, y7);
     glEnd();
 
     glColor3f(1.0, 0.0, 0.0);
@@ -133,17 +132,20 @@ void display() {
     glEnd();
 
     // Perform clipping for each line segment
-    // clipLine(x0, y0, x1, y1);
-    // clipLine(x2, y2, x3, y3);
-    // clipLine(x4, y4, x5, y5);
-    // clipLine(x6, y6, x7, y7);
-    // clipLine(poly_start_x, poly_start_y, poly_end_x, poly_start_y);
-    // clipLine(poly_end_x, poly_start_y, poly_end_x, poly_end_y);
-    // clipLine(poly_end_x, poly_end_y, poly_start_x, poly_end_y);
-    // clipLine(poly_start_x, poly_end_y, poly_start_x, poly_start_y);
-    clipLine(poly_start_x, poly_start_y, poly_end_x, poly_end_y);
+    clipLine(x0, y0, x1, y1);
+    clipLine(x2, y2, x3, y3);
+    clipLine(x4, y4, x5, y5);
+    clipLine(x6, y6, x7, y7);
 
     glFlush();
+}
+
+void reshape(int w, int h) {
+    glViewport(0, 0, w, h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0, 500, 0, 500);
+    glMatrixMode(GL_MODELVIEW);
 }
 
 int main(int argc, char **argv) {
@@ -153,6 +155,7 @@ int main(int argc, char **argv) {
     glutInitWindowPosition(0, 0);
     glutCreateWindow("Cohen-Sutherland Line Clipping Algorithm");
     glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
     glutMainLoop();
     return 0;
 }
