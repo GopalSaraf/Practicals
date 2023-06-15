@@ -17,4 +17,4 @@
 <p><a href="https://minhaskamal.github.io/DownGit/#/home" target="_blank"> <img width="720" alt="DOWNLOAD" src="https://user-images.githubusercontent.com/83419951/196021573-466887cd-20e1-40a4-910c-afa6a7944fce.png"></a></p>
 
 <br/>
-3. That’s it now your specified folder is successfully downloaded from GitHub.
+3. That’s it. Now your specified folder is successfully downloaded from GitHub.
