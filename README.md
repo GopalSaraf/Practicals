@@ -7,11 +7,11 @@
 
 #### 1. First, copy the URL of the specific folder from GitHub.
 
-<a href="https://github.com/GopalSaraf/Practicals/tree/main/OOPL/Assignment09%20-%20Banking" target="_blank"> <img width="500px" src="https://github.com/GopalSaraf/Practicals/assets/83419951/95c59ecb-b959-4f3f-9426-533df94b4159"></a>
+<a href="https://github.com/GopalSaraf/Practicals/tree/main/OOPL/Assignment09%20-%20Banking" target="_blank"> <img width="700px" src="https://github.com/GopalSaraf/Practicals/assets/83419951/95c59ecb-b959-4f3f-9426-533df94b4159"></a>
 
 #### 2. Then, paste the URL in the [DownGit](https://minhaskamal.github.io/DownGit/#/home) website and click on the Download button.
 
-<a href="https://minhaskamal.github.io/DownGit/#/home" target="_blank"> <img src="https://github.com/GopalSaraf/Practicals/assets/83419951/5dc35590-57a1-4c1b-b805-86c11e52e410"></a>
+<a href="https://minhaskamal.github.io/DownGit/#/home" target="_blank"> <img  width="700px" src="https://github.com/GopalSaraf/Practicals/assets/83419951/5dc35590-57a1-4c1b-b805-86c11e52e410"></a>
 
 #### 3. That's it. You have successfully downloaded the folder.
 
