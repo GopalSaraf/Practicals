@@ -1,4 +1,4 @@
-# My Practical Programs for BE IT
+# My Practical Programs
 
 #### How to download specific file OR folder ? [Read this](download_help.md)
 
