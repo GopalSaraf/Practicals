@@ -29,6 +29,16 @@
 
 ### `Sem 04`
 
+### [CGL - Computer Graphics Lab](CGL)
+
 ### [PSDL - Programming Skills Development Lab](PSDL)
 
-### [CGL - Computer Graphics Lab](CGL)
+## Third Year (Sem 05 & 06)
+
+### `Sem 05`
+
+### [ML - Machine Learning Lab](ML)
+
+### [OSL - Operating Systems Lab](OSL)
+
+### [DAA - Design and Analysis of Algorithms Lab](DAA)

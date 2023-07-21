@@ -33,12 +33,6 @@
 *.out
 *.app
 
-/DSAL/*/*
-!/DSAL/*/*.cpp
-!/DSAL/*/*.h
-!/DSAL/*/*.txt
-
-
 # Java
 
 # Compiled class file
@@ -84,4 +78,14 @@ hs_err_pid*
 !Makefile
 
 .idea
-*.csv
+/OOPL/*.csv
+
+/DSAL/*/*
+!/DSAL/*/*.cpp
+!/DSAL/*/*.h
+!/DSAL/*/*.txt
+
+/DAA/*/*
+!/DAA/*/*.cpp
+!/DAA/*/*.h
+!/DAA/*/*.txt
