@@ -1,10 +1,49 @@
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 #include "knapsack.h"
 #include "item.h"
 
 using namespace std;
+
+void useKnapSacks(vector<Item> items, double capacity) {
+    vector<Knapsack::Technique> techniques = {
+        Knapsack::ProfitPerWeight,
+        Knapsack::Profit,
+        Knapsack::Weight,
+        Knapsack::None,
+    };
+
+    vector<double> profits;
+
+    for (auto technique : techniques) {
+        Knapsack knapsack(items, capacity, Knapsack::Fractional, technique);
+        cout << "Using technique: " << knapsack.getTechnique() << endl << endl;
+        knapsack.fillSack();
+        vector<Item> filledItems = knapsack.getFilledItems();
+
+        cout << "Items in the knapsack:" << endl;
+        Item::printItems(filledItems);
+
+        cout << endl << "Total profit: " << knapsack.getProfit() << endl;
+        profits.push_back(knapsack.getProfit());
+
+        cout << endl << endl;
+    }
+
+    int space = 24;
+
+    cout << "Profits using different techniques:" << endl;
+    cout << left << setw(space) << "Technique"
+         << "  |  " << left << setw(space) << "Profit" << endl;
+    cout << string(space, '-') << "--|--" << string(space, '-') << endl;
+
+    for (int i = 0; i < techniques.size(); i++) {
+        cout << left << setw(space) << Knapsack::getTechniqueName(techniques[i])
+             << "  |  " << left << setw(space) << profits[i] << endl;
+    }
+}
 
 int main() {
     vector<Item> items;
@@ -28,13 +67,9 @@ int main() {
         items.push_back(Item(name, weight, profit));
     }
 
-    Knapsack knapsack(items, capacity);
-    knapsack.fillSack();
+    cout << endl;
 
-    cout << endl << "Items in the knapsack:" << endl;
-    for (Item item : knapsack.getFilledItems()) cout << item << endl;
-
-    cout << endl << "Total profit: " << knapsack.getProfit() << endl;
+    useKnapSacks(items, capacity);
 
     return 0;
 }

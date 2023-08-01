@@ -7,59 +7,110 @@
 using namespace std;
 
 class Knapsack {
+   public:
+    enum Type {
+        Fractional,
+        Zero_One,
+    };
+
+    enum Technique {
+        ProfitPerWeight,
+        Profit,
+        Weight,
+        None,
+    };
+
+   private:
     const vector<Item>& items;
     double capacity;
+
+    Type type;
+    Technique technique;
 
     int noOfItems;
     vector<Item> filledItems;
     double profit;
 
+    bool (*compare)(Item, Item);
+
    public:
-    Knapsack(const vector<Item>& items, double capacity)
-        : items(items), capacity(capacity) {
+    Knapsack(const vector<Item>& items, double capacity,
+             Type type = Type::Fractional,
+             Technique technique = Technique::ProfitPerWeight)
+        : items(items), capacity(capacity), type(type), technique(technique) {
         noOfItems = items.size();
         profit = 0.0f;
-
-        for (Item item : items) filledItems.push_back(Item(item.name));
     }
 
     void fillSack() {
-        vector<Item> sortedItems = sortItems(items);
+        vector<Item> sortedItems = sortItems();
+
+        double _capacity = this->capacity;
 
         int i = 0;
-        while (i < noOfItems && capacity > 0) {
-            if (sortedItems[i].weight <= capacity) {
-                filledItems[i] = sortedItems[i];
-                capacity -= sortedItems[i].weight;
+        while (i < noOfItems && _capacity > 0) {
+            if (sortedItems[i].weight <= _capacity) {
+                filledItems.push_back(sortedItems[i]);
+                _capacity -= sortedItems[i].weight;
                 profit += sortedItems[i].profit;
             } else {
-                filledItems[i] = Item(
-                    sortedItems[i].name, capacity,
-                    sortedItems[i].profit * capacity / sortedItems[i].weight);
-                profit += sortedItems[i].profitPerWeight() * capacity;
-                capacity = 0;
+                if (type == Type::Fractional) {
+                    filledItems.push_back(
+                        Item(sortedItems[i].name, _capacity,
+                             sortedItems[i].profit * _capacity /
+                                 sortedItems[i].weight));
+                    profit += sortedItems[i].profitPerWeight() * _capacity;
+                }
+                _capacity = 0;
             }
 
             i++;
         }
     }
 
-    vector<Item> getFilledItems() {
-        vector<Item> presentItems;
-        for (Item item : filledItems)
-            if (item.weight > 0) presentItems.push_back(item);
+    vector<Item> getFilledItems() { return filledItems; }
 
-        return presentItems;
+    double getProfit() { return round(profit * 100.0) / 100.0; }
+
+    static string getTechniqueName(Technique technique) {
+        switch (technique) {
+            case Technique::ProfitPerWeight:
+                return "Profit Per Weight";
+            case Technique::Profit:
+                return "Profit";
+            case Technique::Weight:
+                return "Weight";
+            case Technique::None:
+            default:
+                return "First Come First Serve";
+        }
     }
 
-    double getProfit() { return profit; }
+    string getTechnique() { return getTechniqueName(technique); }
 
    private:
-    vector<Item> sortItems(const vector<Item>& items) {
-        auto cmp = [](Item a, Item b) {
-            return a.profitPerWeight() > b.profitPerWeight();
-        };
+    vector<Item> sortItems() {
+        setCompare();
+        return Sort<Item>::sort(items, compare);
+    }
 
-        return Sort<Item>::sort(items, cmp);
+    void setCompare() {
+        switch (technique) {
+            case Technique::ProfitPerWeight:
+                compare = [](Item a, Item b) {
+                    return a.profitPerWeight() > b.profitPerWeight();
+                };
+                break;
+            case Technique::Profit:
+                compare = [](Item a, Item b) { return a.profit > b.profit; };
+                break;
+            case Technique::Weight:
+                compare = [](Item a, Item b) { return a.weight > b.weight; };
+                break;
+            case Technique::None:
+            default:
+                compare = [](Item a, Item b) { return true; };
+                break;
+        }
     }
 };

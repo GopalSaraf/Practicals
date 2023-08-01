@@ -1,0 +1,75 @@
+Enter the capacity of the knapsack: 15
+Enter the number of items: 7
+Enter the items in the format <name> <weight> <profit>:
+Item 1: Item_1 1 5
+Item 2: Item_2 3 10
+Item 3: Item_3 5 15
+Item 4: Item_4 4 7
+Item 5: Item_5 1 8
+Item 6: Item_6 3 9
+Item 7: Item_7 2 4
+
+Using technique: Profit Per Weight
+
+Items in the knapsack:
+No.   |  Name      |  Weight      |  Profit       |  Profit Per Weight  
+------|------------|--------------|---------------|---------------------
+1     |  Item_5    |  1           |  8            |  8                  
+2     |  Item_1    |  1           |  5            |  5                  
+3     |  Item_2    |  3           |  10           |  3.33               
+4     |  Item_6    |  3           |  9            |  3                  
+5     |  Item_3    |  5           |  15           |  3                  
+6     |  Item_7    |  2           |  4            |  2                  
+
+Total profit: 51
+
+
+Using technique: Profit
+
+Items in the knapsack:
+No.   |  Name      |  Weight      |  Profit       |  Profit Per Weight  
+------|------------|--------------|---------------|---------------------
+1     |  Item_3    |  5           |  15           |  3                  
+2     |  Item_2    |  3           |  10           |  3.33               
+3     |  Item_6    |  3           |  9            |  3                  
+4     |  Item_5    |  1           |  8            |  8                  
+5     |  Item_4    |  3           |  5.25         |  1.75               
+
+Total profit: 47.25
+
+
+Using technique: Weight
+
+Items in the knapsack:
+No.   |  Name      |  Weight      |  Profit       |  Profit Per Weight  
+------|------------|--------------|---------------|---------------------
+1     |  Item_3    |  5           |  15           |  3                  
+2     |  Item_4    |  4           |  7            |  1.75               
+3     |  Item_6    |  3           |  9            |  3                  
+4     |  Item_2    |  3           |  10           |  3.33               
+
+Total profit: 41
+
+
+Using technique: First Come First Serve
+
+Items in the knapsack:
+No.   |  Name      |  Weight      |  Profit       |  Profit Per Weight  
+------|------------|--------------|---------------|---------------------
+1     |  Item_1    |  1           |  5            |  5                  
+2     |  Item_2    |  3           |  10           |  3.33               
+3     |  Item_3    |  5           |  15           |  3                  
+4     |  Item_4    |  4           |  7            |  1.75               
+5     |  Item_5    |  1           |  8            |  8                  
+6     |  Item_6    |  1           |  3            |  3                  
+
+Total profit: 48
+
+
+Profits using different techniques:
+Technique                 |  Profit                  
+--------------------------|--------------------------
+Profit Per Weight         |  51                      
+Profit                    |  47.25                   
+Weight                    |  41                      
+First Come First Serve    |  48
