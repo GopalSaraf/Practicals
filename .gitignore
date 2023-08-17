@@ -89,3 +89,5 @@ hs_err_pid*
 !/DAA/*/*.cpp
 !/DAA/*/*.h
 !/DAA/*/*.txt
+
+__pycache__/

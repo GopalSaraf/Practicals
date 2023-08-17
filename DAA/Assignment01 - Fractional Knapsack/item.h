@@ -5,25 +5,35 @@
 
 using namespace std;
 
+// Definition of the Item struct representing an item to be considered in the
+// knapsack problem
 struct Item {
-    string name;
-    double weight;
-    double profit;
+    string name;    // Name of the item
+    double weight;  // Weight of the item
+    double profit;  // Profit (or value) of the item
 
+    // Constructor to initialize an item with the given name, weight, and profit
     Item(string name, double weight, double profit)
         : name(name), weight(weight), profit(profit) {
         itemNo++;
         if (name == "") name = "Item " + to_string(itemNo);
     }
 
+    // Constructor to initialize an item with the given weight and profit (name
+    // is set to empty)
     Item(double weight, double profit) : Item("", weight, profit) {}
 
+    // Constructor to initialize an item with the given name (weight and profit
+    // are set to 0.0)
     Item(string name) : Item(name, 0.0, 0.0) {}
 
+    // Default constructor to initialize an item with empty values
     Item() : Item("", 0.0, 0.0) {}
 
+    // Calculate the profit per weight ratio of the item
     double profitPerWeight() { return round(profit / weight * 100.0) / 100.0; }
 
+    // Assignment operator to copy the values from another item
     Item& operator=(const Item& other) {
         name = other.name;
         weight = other.weight;
@@ -31,19 +41,26 @@ struct Item {
         return *this;
     }
 
+    // Friend function to allow printing the item's information to an output
+    // stream
     friend ostream& operator<<(ostream& os, const Item& item) {
         os << item.name << " (weight: " << item.weight
            << ", profit: " << item.profit << ")";
         return os;
     }
 
+    // Static function to print a list of items in tabular format
     static void printItems(vector<Item> items) {
+        // Set the width of each column to the maximum width of the column
         int indexWidth = to_string(items.size()).size() + 3;
-        int nameWidth = getColWidth(items, "Name");
-        int weightWidth = getColWidth(items, "Weight");
-        int profitWidth = getColWidth(items, "Profit");
-        int profitPerWeightWidth = getColWidth(items, "Profit Per Weight");
 
+        vector<int> widths = colWidths(items);
+        int nameWidth = widths[0] + 3;
+        int weightWidth = widths[1] + 3;
+        int profitWidth = widths[2] + 3;
+        int profitPerWeightWidth = widths[3] + 3;
+
+        // Print the header row
         cout << left << setw(indexWidth) << "No."
              << "  |  " << left << setw(nameWidth) << "Name"
              << "  |  " << left << setw(weightWidth) << "Weight"
@@ -51,11 +68,13 @@ struct Item {
              << "  |  " << left << setw(profitPerWeightWidth)
              << "Profit Per Weight" << endl;
 
+        // Print the separator row
         cout << string((indexWidth), '-') << "--|--" << string((nameWidth), '-')
              << "--|--" << string((weightWidth), '-') << "--|--"
              << string((profitWidth), '-') << "--|--"
              << string((profitPerWeightWidth), '-') << endl;
 
+        // Print the items
         for (int index = 0; index < items.size(); index++) {
             Item item = items[index];
 
@@ -71,30 +90,24 @@ struct Item {
    private:
     static inline int itemNo = 0;
 
-    static int getColWidth(vector<Item> items, string colName) {
-        int colWidth = colName.size();
+    // Helper function to calculate the column widths for the table output
+    static vector<int> colWidths(vector<Item> items) {
+        // Initialize the widths to 0
+        vector<int> widths = {0, 0, 0, 0};
 
-        if (colName == "Name") {
-            for (Item item : items) {
-                int nameWidth = item.name.size();
-                colWidth = max(colWidth, nameWidth);
-            }
-        } else if (colName == "Profit" || colName == "Weight" ||
-                   colName == "Profit Per Weight") {
-            for (Item item : items) {
-                double col;
-                if (colName == "Profit")
-                    col = item.profit;
-                else if (colName == "Weight")
-                    col = item.weight;
-                else
-                    col = item.profitPerWeight();
+        // Calculate the maximum width for each column
+        for (Item item : items) {
+            int nameWidth = item.name.size();
+            int weightWidth = to_string(item.weight).size();
+            int profitWidth = to_string(item.profit).size();
+            int profitPerWeightWidth = to_string(item.profitPerWeight()).size();
 
-                int profitWidth = to_string(col).size();
-                colWidth = max(colWidth, profitWidth);
-            }
+            widths[0] = max(widths[0], nameWidth);
+            widths[1] = max(widths[1], weightWidth);
+            widths[2] = max(widths[2], profitWidth);
+            widths[3] = max(widths[3], profitPerWeightWidth);
         }
 
-        return colWidth + 2;
+        return widths;
     }
 };
