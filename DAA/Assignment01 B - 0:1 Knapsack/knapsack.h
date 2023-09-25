@@ -40,8 +40,7 @@ class Knapsack {
                     //    obtained by considering the remaining items and the
                     //    remaining capacity
                     // 2. The maximum profit obtained by considering the
-                    // remaining
-                    //    items and the current capacity
+                    //    remaining items and the current capacity
 
                     table[i][j] = max(items[i - 1].profit +
                                           table[i - 1][j - items[i - 1].weight],
