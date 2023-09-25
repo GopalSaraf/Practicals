@@ -1,0 +1,23 @@
+Enter number of edges : 8
+Enter edges in the format <source> <destination> <weight> : 
+Edge 1 : A B -1
+Edge 2 : A C 4
+Edge 3 : B C 3
+Edge 4 : B D 2
+Edge 5 : B E 2
+Edge 6 : D B 1
+Edge 7 : D C 5
+Edge 8 : E D -3
+
+Graph:
+Vertices: A B C D E 
+Edges: (A, B, -1) (A, C, 4) (B, C, 3) (B, D, 2) (B, E, 2) (D, B, 1) (D, C, 5) (E, D, -3) 
+
+Enter source vertex : A
+
+Paths and distances from A :
+A --> A  Distance : 0    Path : A
+A --> B  Distance : -1   Path : A - B
+A --> C  Distance : 2    Path : A - B - C
+A --> D  Distance : -2   Path : A - B - E - D
+A --> E  Distance : 1    Path : A - B - E
