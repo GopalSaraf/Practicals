@@ -1,0 +1,92 @@
+Enter the value of n: 4
+Iteration 1: Placed queen at (0, 0)
+
+ 1  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+
+Iteration 2: Placed queen at (2, 1)
+
+ 1  0  0  0 
+ 0  0  0  0 
+ 0  1  0  0 
+ 0  0  0  0 
+
+Iteration 2: Removed queen from (2, 1)
+
+ 1  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+
+Iteration 2: Placed queen at (3, 1)
+
+ 1  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+ 0  1  0  0 
+
+Iteration 3: Placed queen at (1, 2)
+
+ 1  0  0  0 
+ 0  0  1  0 
+ 0  0  0  0 
+ 0  1  0  0 
+
+Iteration 3: Removed queen from (1, 2)
+
+ 1  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+ 0  1  0  0 
+
+Iteration 2: Removed queen from (3, 1)
+
+ 1  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+
+Iteration 1: Removed queen from (0, 0)
+
+ 0  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+
+Iteration 1: Placed queen at (1, 0)
+
+ 0  0  0  0 
+ 1  0  0  0 
+ 0  0  0  0 
+ 0  0  0  0 
+
+Iteration 2: Placed queen at (3, 1)
+
+ 0  0  0  0 
+ 1  0  0  0 
+ 0  0  0  0 
+ 0  1  0  0 
+
+Iteration 3: Placed queen at (0, 2)
+
+ 0  0  1  0 
+ 1  0  0  0 
+ 0  0  0  0 
+ 0  1  0  0 
+
+Iteration 4: Placed queen at (2, 3)
+
+ 0  0  1  0 
+ 1  0  0  0 
+ 0  0  0  1 
+ 0  1  0  0 
+
+Final board:
+
+ 0  0  1  0 
+ 1  0  0  0 
+ 0  0  0  1 
+ 0  1  0  0 
+ 
