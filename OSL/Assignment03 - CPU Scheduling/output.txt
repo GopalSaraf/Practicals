@@ -1,0 +1,82 @@
+Enter the number of processes: 5
+Enter the arrival time and burst time of process 1: 0 5
+Enter the arrival time and burst time of process 2: 1 6
+Enter the arrival time and burst time of process 3: 2 3
+Enter the arrival time and burst time of process 4: 3 1
+Enter the arrival time and burst time of process 5: 4 5
+
+Which algorithm do you want to use?
+1. Round Robin
+2. Shortest Job First
+Enter your choice: 1
+
+Enter the time quantum: 2
+
+Round Robin Scheduling
+======================
+Processes: 
+PID     AT      BT
+P1      0       5
+P2      1       6
+P3      2       3
+P4      3       1
+P5      4       5
+
+Gantt Chart: IDLE (0) | P1 (2) | P2 (4) | P3 (6) | P4 (7) | P5 (9) | P1 (11) | P2 (13) | P3 (14) | P5 (16) | P1 (17) | P2 (19) | P5 (20) | 
+
+Processes: 
+PID     AT      BT      WT      TAT
+P1      0       5       12      17
+P2      1       6       12      18
+P3      2       3       9       12
+P4      3       1       3       4
+P5      4       5       11      16
+
+Total Waiting Time: 47
+Total Turn Around Time: 67
+
+Average Waiting Time: 9.40
+Average Turn Around Time: 13.40
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+Enter the number of processes: 5
+Enter the arrival time and burst time of process 1: 0 5
+Enter the arrival time and burst time of process 2: 1 6
+Enter the arrival time and burst time of process 3: 2 3
+Enter the arrival time and burst time of process 4: 3 1
+Enter the arrival time and burst time of process 5: 4 5
+
+Which algorithm do you want to use?
+1. Round Robin
+2. Shortest Job First
+Enter your choice: 2
+
+SJF Scheduling
+==============
+
+Processes: 
+PID     AT      BT
+P1      0       5
+P2      1       6
+P3      2       3
+P4      3       1
+P5      4       5
+
+Gantt Chart: IDLE (0) | P1 (1) | P1 (2) | P1 (3) | P4 (4) | P1 (5) | P1 (6) | P3 (7) | P3 (8) | P3 (9) | P5 (10) | P5 (11) | P5 (12) | P5 (13) | P5 (14) | P2 (15) | P2 (16) | P2 (17) | P2 (18) | P2 (19) | P2 (20) | 
+
+Processes: 
+PID     AT      BT      WT      TAT
+P4      3       1       0       1
+P1      0       5       1       6
+P3      2       3       4       7
+P5      4       5       5       10
+P2      1       6       13      19
+
+Total Waiting Time: 23
+Total Turn Around Time: 43
+
+Average Waiting Time: 4.60
+Average Turn Around Time: 8.60

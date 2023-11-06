@@ -1,0 +1,15 @@
+Enter the number of integers: 5 
+Enter 5 integers: 8 1 5 0 4
+
+Sorted array in parent process: 0 1 4 5 8 
+
+Writing sorted array to pipe...
+Wrote sorted array to pipe.
+
+Reading sorted array from pipe...
+Got sorted array from parent process. 
+
+Array in reverse order: 8 5 4 1 0 
+
+Child process terminated.
+Parent process terminated.
