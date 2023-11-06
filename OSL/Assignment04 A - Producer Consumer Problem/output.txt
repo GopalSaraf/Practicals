@@ -1,0 +1,63 @@
+Enter number of producers: 5
+Enter number of consumers: 5
+
+Producer 0 produced 7
+--------------------
+Buffer: 7 0 0 0 0 
+Index: 0
+
+--------------------
+Producer 1 produced 49
+--------------------
+Buffer: 7 49 0 0 0 
+Index: 1
+
+--------------------
+Producer 2 produced 73
+--------------------
+Buffer: 7 49 73 0 0 
+Index: 2
+
+--------------------
+Producer 3 produced 58
+--------------------
+Buffer: 7 49 73 58 0 
+Index: 3
+
+--------------------
+Producer 4 produced 30
+--------------------
+Buffer: 7 49 73 58 30 
+Index: 4
+
+--------------------
+Consumer 0 consumed 30
+--------------------
+Buffer: 7 49 73 58 0 
+Index: 4
+
+--------------------
+Consumer 1 consumed 58
+--------------------
+Buffer: 7 49 73 0 0 
+Index: 3
+
+--------------------
+Consumer 2 consumed 73
+--------------------
+Buffer: 7 49 0 0 0 
+Index: 2
+
+--------------------
+Consumer 3 consumed 49
+--------------------
+Buffer: 7 0 0 0 0 
+Index: 1
+
+--------------------
+Consumer 4 consumed 7
+--------------------
+Buffer: 0 0 0 0 0 
+Index: 0
+
+--------------------

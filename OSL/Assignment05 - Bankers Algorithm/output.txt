@@ -1,0 +1,71 @@
+Enter the number of processes: 5
+Enter the number of resources: 3
+
+Enter space separated values for available resources
+Enter the available resources: 3 3 2
+
+Enter the allocated resources for process 1: 0 1 0
+Enter the maximum resources for process 1: 7 5 3
+
+Enter the allocated resources for process 2: 2 0 0
+Enter the maximum resources for process 2: 3 2 2
+
+Enter the allocated resources for process 3: 3 0 2
+Enter the maximum resources for process 3: 9 0 2
+
+Enter the allocated resources for process 4: 2 1 1
+Enter the maximum resources for process 4: 2 2 2
+
+Enter the allocated resources for process 5: 0 0 2
+Enter the maximum resources for process 5: 4 3 3
+
+Processes information:
+PID     | Allocated     | Maximum       | Needed 
+P1      | 0 1 0         | 7 5 3         | 7 4 3 
+P2      | 2 0 0         | 3 2 2         | 1 2 2 
+P3      | 3 0 2         | 9 0 2         | 6 0 0 
+P4      | 2 1 1         | 2 2 2         | 0 1 1 
+P5      | 0 0 2         | 4 3 3         | 4 3 1 
+
+Safe sequence: P2 P4 P1 P3 P5 
+
+The system is in a safe state.
+Available resources: 10 5 7 
+
+
+----------------------------------------------------------------
+
+
+Enter the number of processes: 5
+Enter the number of resources: 3
+
+Enter space separated values for available resources
+Enter the available resources: 3 3 2
+
+Enter the allocated resources for process 1: 0 1 0
+Enter the maximum resources for process 1: 7 5 3
+
+Enter the allocated resources for process 2: 2 0 0
+Enter the maximum resources for process 2: 13 2 2
+
+Enter the allocated resources for process 3: 3 0 2
+Enter the maximum resources for process 3: 9 0 2
+
+Enter the allocated resources for process 4: 2 1 1
+Enter the maximum resources for process 4: 2 2 2
+
+Enter the allocated resources for process 5: 0 0 2
+Enter the maximum resources for process 5: 4 3 3
+
+Processes information:
+PID     | Allocated     | Maximum       | Needed 
+P1      | 0 1 0         | 7 5 3         | 7 4 3 
+P2      | 2 0 0         | 13 2 2        | 11 2 2
+P3      | 3 0 2         | 9 0 2         | 6 0 0 
+P4      | 2 1 1         | 2 2 2         | 0 1 1 
+P5      | 0 0 2         | 4 3 3         | 4 3 1 
+
+Safe sequence: P4 P5 
+
+The system is not in a safe state.
+Pending processes: P1 P2 P3 

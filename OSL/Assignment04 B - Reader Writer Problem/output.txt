@@ -1,0 +1,245 @@
+Enter the number of readers: 4
+Enter the number of writers: 10
+
+Reader 0 is in critical section
+Reader 0 read 0
+Reader 1 is in critical section
+Reader 1 read 0
+Reader 2 is in critical section
+Reader 2 read 0
+Reader 3 is in critical section
+Reader 3 read 0
+Writer 0 is in critical section
+Writer 0 wrote 1
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 2
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 3
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 4
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 5
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 6
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 7
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 8
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 9
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 10
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 11
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 12
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 13
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 14
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 15
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 16
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 17
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 18
+Writer 0 is out of critical section
+Writer 0 is in critical section
+Writer 0 wrote 19
+Writer 5 is in critical section
+Writer 0 is out of critical section
+Writer 5 wrote 20
+Writer 5 is out of critical section
+Writer 5 is in critical section
+Writer 5 wrote 21
+Writer 5 is out of critical section
+Writer 5 is in critical section
+Writer 5 wrote 22
+Writer 5 is out of critical section
+Writer 5 is in critical section
+Writer 5 wrote 23
+Writer 9 is in critical section
+Writer 5 is out of critical section
+Writer 9 wrote 24
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 25
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 26
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 27
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 28
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 29
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 30
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 31
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 32
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 33
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 34
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 35
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 36
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Reader 0 is out of critical section
+Writer 9 wrote 37
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 38
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 39
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 40
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 41
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 42
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 43
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 44
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 45
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 46
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 47
+Writer 9 is out of critical section
+Writer 9 is in critical section
+Writer 9 wrote 48
+Writer 9 is out of critical section
+Reader 1 is out of critical section
+Reader 0 is in critical section
+Reader 0 read 48
+Reader 1 is in critical section
+Reader 1 read 48
+Writer 1 is in critical section
+Writer 1 wrote 49
+Writer 1 is out of critical section
+Writer 1 is in critical section
+Writer 1 wrote 50
+Writer 1 is out of critical section
+Writer 1 is in critical section
+Writer 1 wrote 51
+Writer 1 is out of critical section
+Writer 1 is in critical section
+Writer 1 wrote 52
+Writer 1 is out of critical section
+Writer 1 is in critical section
+Writer 1 wrote 53
+Writer 4 is in critical section
+Writer 1 is out of critical section
+Writer 4 wrote 54
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 55
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 56
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 57
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 58
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 59
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 60
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 61
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 62
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 63
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Reader 0 is out of critical section
+Writer 4 wrote 64
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 65
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 66
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 67
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 68
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 69
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 70
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 71
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 72
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 73
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 74
+Writer 4 is out of critical section
+Writer 4 is in critical section
+Writer 4 wrote 75
+Writer 4 is out of critical section
+Writer 4 is in critical section
+^C
