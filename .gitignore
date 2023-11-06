@@ -90,4 +90,9 @@ hs_err_pid*
 !/DAA/*/*.h
 !/DAA/*/*.txt
 
+/OSL/*/*
+!/OSL/*/*.c
+!/OSL/*/*.h
+!/OSL/*/*.txt
+
 __pycache__/
