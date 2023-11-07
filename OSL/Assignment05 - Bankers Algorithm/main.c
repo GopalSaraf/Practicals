@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "./process.h"
-#include "./bankers.h"
+#include "process.h"
+#include "bankers.h"
 
 int main() {
     int noOfProcesses, noOfResources;
@@ -45,6 +45,9 @@ int main() {
     }
 
     bankersAlgorithm(processes, noOfProcesses, noOfResources, available);
+
+    free(available);
+    free(processes);
 
     return 0;
 }

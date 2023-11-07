@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#include "./process.h"
-#include "./rr.h"
-#include "./sjf.h"
+#include "process.h"
+#include "rr.h"
+#include "sjf.h"
 
 #define MAX_PROCESSES 100
 

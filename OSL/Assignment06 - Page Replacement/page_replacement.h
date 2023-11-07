@@ -10,6 +10,8 @@ enum Algorithm { FIFO = 1, LRU = 2, OPTIMAL = 3 };
 
 static const char* ALGORITHM_STRINGS[] = {"", "FIFO", "LRU", "OPTIMAL"};
 
+static const int INT_MAX = 5000;
+
 static int* _pageRequests;
 static int _numPageRequests;
 static int _frameSize;
@@ -136,7 +138,7 @@ static int __findPageReplacementIndex_OPTIMAL(int frameIndex) {
 
     for (int i = 0; i < _frameSize; i++) {
         futurePageOccurrenceOffset[i] =
-            _numPageRequests;  // Initialize to a large number
+            INT_MAX;  // Initialize with a large value
     }
 
     for (int i = 0; i < _frameSize; i++) {
@@ -184,7 +186,7 @@ static void _fillFrames_PageHit(int frameIndex, int pageInLastFrameIndex) {
 
 // Fill frames (page fault)
 static void _fillFrames_PageFault(int frameIndex, int pageReplacementIndex) {
-    if (frameIndex == 0) {
+    if (frameIndex == 0) {  // First frame
         _frames[frameIndex].frame[pageReplacementIndex] =
             _frames[frameIndex].page;                      // Page fault
         _frames[frameIndex].index = pageReplacementIndex;  // Update index

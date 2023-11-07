@@ -15,6 +15,9 @@ static const char* DIRECTION_STRINGS[] = {"", "LEFT", "RIGHT"};
 
 static const int MAX_POSITION = 4999;
 
+static const int START_ID = -1;
+static const int END_ID = -2;
+
 static Request* _requests;
 static Request* _path;
 
@@ -159,7 +162,7 @@ static void __schedule_SCAN() {
         ___seek(_currentIndex, 0, -1);
 
         // Add start
-        _path[_pathIndex] = (Request){-1, _start, 0};
+        _path[_pathIndex] = (Request){START_ID, _start, 0};
         _pathIndex++;
 
         _totalHeadMovement +=
@@ -172,7 +175,7 @@ static void __schedule_SCAN() {
         ___seek(_currentIndex, _numRequests - 1, 1);
 
         // Add end
-        _path[_pathIndex] = (Request){-2, _end, 0};
+        _path[_pathIndex] = (Request){END_ID, _end, 0};
         _pathIndex++;
 
         _totalHeadMovement +=
@@ -186,7 +189,7 @@ static void __schedule_SCAN() {
         ___seek(_currentIndex, _numRequests - 1, 1);
 
         // Add end
-        _path[_pathIndex] = (Request){-2, _end, 0};
+        _path[_pathIndex] = (Request){END_ID, _end, 0};
         _pathIndex++;
 
         _totalHeadMovement +=
@@ -199,7 +202,7 @@ static void __schedule_SCAN() {
         ___seek(_currentIndex, 0, -1);
 
         // Add start
-        _path[_pathIndex] = (Request){-1, _start, 0};
+        _path[_pathIndex] = (Request){START_ID, _start, 0};
         _pathIndex++;
 
         _totalHeadMovement +=
@@ -283,10 +286,10 @@ static void _printDetails() {
     for (int i = 0; i < lastIndexToPrint; i++) {
         char* pos;
         switch (_path[i].id) {
-            case -1:
+            case START_ID:
                 pos = " [START]";
                 break;
-            case -2:
+            case END_ID:
                 pos = " [END]";
                 break;
             default:

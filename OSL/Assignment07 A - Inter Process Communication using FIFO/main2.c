@@ -2,7 +2,7 @@
 #include <fcntl.h>
 #include <string.h>
 
-#include "./const.h"
+#include "const.h"
 
 int main() {
     int file1, file2;

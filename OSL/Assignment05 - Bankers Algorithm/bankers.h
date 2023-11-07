@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "./process.h"
+#include "process.h"
 
 static int* _availableResources;  // Available resources for each resource type
 static int _numberOfProcesses;    // Number of processes
@@ -165,6 +165,12 @@ void bankersAlgorithm(Process* processes, int numberOfProcesses,
     }
 
     printf("\n");
+
+    // Free the allocated memory
+    for (int i = 0; i < _numberOfProcesses; i++) {
+        free(_processes[i].neededResources);
+    }
+    free(_processes);
 }
 
 #endif  // BANKERS_H

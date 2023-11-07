@@ -2,7 +2,7 @@
 #define RR_H
 
 #include <stdio.h>
-#include "./process.h"
+#include "process.h"
 
 #define MAX_PROCESSES 100
 
