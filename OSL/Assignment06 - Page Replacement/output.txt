@@ -1,0 +1,121 @@
+Enter the number of page requests: 21
+Enter the frame size: 3
+Enter the algorithm (1: FIFO, 2: LRU, 3: OPTIMAL): 1
+Enter the page requests: 5 0 1 2 0 3 2 0 3 4 1 0 5 0 4 3 2 1 2 0 1
+
+Number of page requests: 21
+Page requests: 5 0 1 2 0 3 2 0 3 4 1 0 5 0 4 3 2 1 2 0 1 
+
+Algorithm: FIFO
+Frame size: 3
+
+Page     Frame           Page hit/fault
+5        [ 5 - - ]       Fault
+0        [ 5 0 - ]       Fault
+1        [ 5 0 1 ]       Fault
+2        [ 2 0 1 ]       Fault
+0        [ 2 0 1 ]       Hit
+3        [ 2 3 1 ]       Fault
+2        [ 2 3 1 ]       Hit
+0        [ 2 3 0 ]       Fault
+3        [ 2 3 0 ]       Hit
+4        [ 4 3 0 ]       Fault
+1        [ 4 1 0 ]       Fault
+0        [ 4 1 0 ]       Hit
+5        [ 4 1 5 ]       Fault
+0        [ 0 1 5 ]       Fault
+4        [ 0 4 5 ]       Fault
+3        [ 0 4 3 ]       Fault
+2        [ 2 4 3 ]       Fault
+1        [ 2 1 3 ]       Fault
+2        [ 2 1 3 ]       Hit
+0        [ 2 1 0 ]       Fault
+1        [ 2 1 0 ]       Hit
+
+Number of page hits: 6
+Number of page faults: 15
+Page fault rate: 71.43%
+
+
+----------------------------------------------------------------------------
+
+
+Enter the number of page requests: 21
+Enter the frame size: 3
+Enter the algorithm (1: FIFO, 2: LRU, 3: OPTIMAL): 2
+Enter the page requests: 5 0 1 2 0 3 2 0 3 4 1 0 5 0 4 3 2 1 2 0 1
+
+Number of page requests: 21
+Page requests: 5 0 1 2 0 3 2 0 3 4 1 0 5 0 4 3 2 1 2 0 1 
+
+Algorithm: LRU
+Frame size: 3
+
+Page     Frame           Page hit/fault
+5        [ 5 - - ]       Fault
+0        [ 5 0 - ]       Fault
+1        [ 5 0 1 ]       Fault
+2        [ 2 0 1 ]       Fault
+0        [ 2 0 1 ]       Hit
+3        [ 2 0 3 ]       Fault
+2        [ 2 0 3 ]       Hit
+0        [ 2 0 3 ]       Hit
+3        [ 2 0 3 ]       Hit
+4        [ 4 0 3 ]       Fault
+1        [ 4 1 3 ]       Fault
+0        [ 4 1 0 ]       Fault
+5        [ 5 1 0 ]       Fault
+0        [ 5 1 0 ]       Hit
+4        [ 5 4 0 ]       Fault
+3        [ 3 4 0 ]       Fault
+2        [ 3 4 2 ]       Fault
+1        [ 3 1 2 ]       Fault
+2        [ 3 1 2 ]       Hit
+0        [ 0 1 2 ]       Fault
+1        [ 0 1 2 ]       Hit
+
+Number of page hits: 7
+Number of page faults: 14
+Page fault rate: 66.67%
+
+
+----------------------------------------------------------------------------
+
+
+Enter the number of page requests: 21
+Enter the frame size: 3
+Enter the algorithm (1: FIFO, 2: LRU, 3: OPTIMAL): 3
+Enter the page requests: 5 0 1 2 0 3 2 0 3 4 1 0 5 0 4 3 2 1 2 0 1
+
+Number of page requests: 21
+Page requests: 5 0 1 2 0 3 2 0 3 4 1 0 5 0 4 3 2 1 2 0 1 
+
+Algorithm: OPTIMAL
+Frame size: 3
+
+Page     Frame           Page hit/fault
+5        [ 5 - - ]       Fault
+0        [ 5 0 - ]       Fault
+1        [ 5 0 1 ]       Fault
+2        [ 2 0 1 ]       Fault
+0        [ 2 0 1 ]       Hit
+3        [ 2 0 3 ]       Fault
+2        [ 2 0 3 ]       Hit
+0        [ 2 0 3 ]       Hit
+3        [ 2 0 3 ]       Hit
+4        [ 4 0 3 ]       Fault
+1        [ 4 0 1 ]       Fault
+0        [ 4 0 1 ]       Hit
+5        [ 4 0 5 ]       Fault
+0        [ 4 0 5 ]       Hit
+4        [ 4 0 5 ]       Hit
+3        [ 3 0 5 ]       Fault
+2        [ 2 0 5 ]       Fault
+1        [ 2 0 1 ]       Fault
+2        [ 2 0 1 ]       Hit
+0        [ 2 0 1 ]       Hit
+1        [ 2 0 1 ]       Hit
+
+Number of page hits: 10
+Number of page faults: 11
+Page fault rate: 52.38%
