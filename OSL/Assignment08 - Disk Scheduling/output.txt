@@ -1,0 +1,137 @@
+Enter number of requests: 11
+Enter requests: 45 21 67 90 4 50 89 52 61 87 25
+Enter head position: 50
+Enter start and end positions of disk: 0 100
+Enter algorithm (1: SSTF, 2: SCAN, 3: C-LOOK): 1
+
+Requests: 
+ID      Position
+1       45
+2       21
+3       67
+4       90
+5       4
+6       50
+7       89
+8       52
+9       61
+10      87
+11      25
+
+Algorithm: SSTF
+Head: 50
+Start: 0
+End: 100
+
+Current Head: 50, Next head: 52         Distance: 2
+Current Head: 52, Next head: 45         Distance: 7
+Current Head: 45, Next head: 61         Distance: 16
+Current Head: 61, Next head: 67         Distance: 6
+Current Head: 67, Next head: 87         Distance: 20
+Current Head: 87, Next head: 89         Distance: 2
+Current Head: 89, Next head: 90         Distance: 1
+Current Head: 90, Next head: 25         Distance: 65
+Current Head: 25, Next head: 21         Distance: 4
+Current Head: 21, Next head: 4          Distance: 17
+
+Path: 
+50 -> 52 -> 45 -> 61 -> 67 -> 87 -> 89 -> 90 -> 25 -> 21 -> 4
+
+Total Head Movement: 140
+
+
+----------------------------------------------------------------------
+
+
+Enter number of requests: 11
+Enter requests: 45 21 67 90 4 50 89 52 61 87 25
+Enter head position: 50
+Enter start and end positions of disk: 0 100
+Enter algorithm (1: SSTF, 2: SCAN, 3: C-LOOK): 2
+Enter direction (1: LEFT, 2: RIGHT): 1
+
+Requests: 
+ID      Position
+1       45
+2       21
+3       67
+4       90
+5       4
+6       50
+7       89
+8       52
+9       61
+10      87
+11      25
+
+Algorithm: SCAN
+Direction: LEFT
+Head: 50
+Start: 0
+End: 100
+
+Current Head: 50, Next head: 45         Distance: 5
+Current Head: 45, Next head: 25         Distance: 20
+Current Head: 25, Next head: 21         Distance: 4
+Current Head: 21, Next head: 4          Distance: 17
+Add start: 0    Distance: 8
+Current Head: 4, Next head: 52          Distance: 48
+Current Head: 52, Next head: 61         Distance: 9
+Current Head: 61, Next head: 67         Distance: 6
+Current Head: 67, Next head: 87         Distance: 20
+Current Head: 87, Next head: 89         Distance: 2
+Current Head: 89, Next head: 90         Distance: 1
+Add end: 100    Distance: 10
+
+Path: 
+50 -> 45 -> 25 -> 21 -> 4 -> 0 [START] -> 52 -> 61 -> 67 -> 87 -> 89 -> 90 -> 100 [END]
+
+Total Head Movement: 150
+
+
+----------------------------------------------------------------------
+
+
+Enter number of requests: 11
+Enter requests: 45 21 67 90 4 50 89 52 61 87 25
+Enter head position: 50
+Enter start and end positions of disk: 0 100
+Enter algorithm (1: SSTF, 2: SCAN, 3: C-LOOK): 3
+Enter direction (1: LEFT, 2: RIGHT): 1
+
+Requests: 
+ID      Position
+1       45
+2       21
+3       67
+4       90
+5       4
+6       50
+7       89
+8       52
+9       61
+10      87
+11      25
+
+Algorithm: C-LOOK
+Direction: LEFT
+Head: 50
+Start: 0
+End: 100
+
+Current Head: 50, Next head: 45         Distance: 5
+Current Head: 45, Next head: 25         Distance: 20
+Current Head: 25, Next head: 21         Distance: 4
+Current Head: 21, Next head: 4          Distance: 17
+Current Head: 4, Next head: 52          Distance: 48
+Current Head: 52, Next head: 61         Distance: 9
+Current Head: 61, Next head: 67         Distance: 6
+Current Head: 67, Next head: 87         Distance: 20
+Current Head: 87, Next head: 89         Distance: 2
+Current Head: 89, Next head: 90         Distance: 1
+Current Head: 90, Next head: 52         Distance: 38
+
+Path: 
+50 -> 45 -> 25 -> 21 -> 4 -> 52 -> 61 -> 67 -> 87 -> 89 -> 90
+
+Total Head Movement: 170
