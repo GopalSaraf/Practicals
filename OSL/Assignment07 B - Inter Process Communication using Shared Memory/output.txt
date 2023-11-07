@@ -1,0 +1,8 @@
+❯ ./writer
+Enter a message: This message is sent from writer using shared memory.
+Message written to shared memory: This message is sent from writer using shared memory.
+
+------------------------------------------------------------
+
+❯ ./reader
+Message read from shared memory: This message is sent from writer using shared memory.

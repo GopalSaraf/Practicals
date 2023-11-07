@@ -1,0 +1,18 @@
+❯ ./main1
+
+Enter a string: Hello there, how are you doing?
+
+Received string: 
+Number of characters: 32
+Number of words: 6
+Number of lines: 1
+
+---------------------------------------------
+
+❯ ./main2
+Received string: 
+Hello there, how are you doing?
+
+Number of characters: 32
+Number of words: 6
+Number of lines: 1
