@@ -94,5 +94,8 @@ hs_err_pid*
 !/OSL/*/*.c
 !/OSL/*/*.h
 !/OSL/*/*.txt
+!/OSL/*/*.sh
+!/OSL/*/*.tsv
+!/OSL/*/*.md
 
 __pycache__/
