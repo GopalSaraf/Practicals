@@ -16,6 +16,11 @@ def _get_numpy_data(data: Union[pd.DataFrame, np.ndarray]) -> np.ndarray:
     -------
     np.ndarray
         The data as numpy array
+
+    Raises
+    ------
+    TypeError
+        If the data is neither a pandas DataFrame nor a numpy array
     """
     if isinstance(data, pd.DataFrame):
         data = data.to_numpy()
