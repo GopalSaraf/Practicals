@@ -1,0 +1,2 @@
+Best TSP tour cost: 73
+Best TSP tour path: 0 2 1 3 
