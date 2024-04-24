@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="file"],
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Register</h1>
+    <form
+      action="http://localhost:8080/api/"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" />
+      <br />
+      <label for="avatar">Avatar</label>
+      <input type="file" id="avatar" name="avatar" />
+      <br />
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" />
+      <br />
+      <label for="password">Password</label>
+      <input type="text" id="password" name="password" />
+      <br />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

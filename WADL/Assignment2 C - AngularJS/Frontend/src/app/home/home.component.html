@@ -1,0 +1,10 @@
+<h1>&nbsp;</h1>
+<div class="container">
+  <h2>Welcome {{ name }}</h2>
+  <p *ngIf="isLoggedIn">Your ID is {{ id }}</p>
+  <p *ngIf="isLoggedIn">You are logged in as {{ email }}</p>
+  <p *ngIf="!isLoggedIn">You are not logged in</p>
+
+  <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+  <button *ngIf="!isLoggedIn" (click)="login()">Login</button>
+</div>

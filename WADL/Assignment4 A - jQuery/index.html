@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PICT Mobile Website</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mobile/1.4.5/jquery.mobile.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mobile/1.4.5/jquery.mobile.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        text-align: center;
+        background-color: #007bff;
+        color: #fff;
+        padding: 15px 0;
+        margin-bottom: 20px;
+      }
+
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .footer {
+        text-align: center;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .collapsible {
+        margin-top: 20px;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Start of Home Page -->
+    <div data-role="page" id="home">
+      <div class="header">
+        <h1>PICT</h1>
+      </div>
+
+      <img src="https://pict.edu/images/pic.jpg" alt="PICT" />
+
+      <div class="content">
+        <h2 style="text-align: center">
+          PUNE INSTITUTE OF COMPUTER TECHNOLOGY
+        </h2>
+        <div data-role="collapsible" class="collapsible">
+          <h3>Menu</h3>
+          <ul data-role="listview">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer">
+        <h4>&copy; 2024 PICT</h4>
+      </div>
+    </div>
+
+    <!-- Start of About Page -->
+    <div data-role="page" id="about">
+      <div class="header">
+        <a href="#home" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+        <h1>About Us</h1>
+      </div>
+
+      <div class="content">
+        <p>
+          Pune Institute of Computer Technology (PICT) is an autonomous
+          institute affiliated to the University of Pune. It offers
+          undergraduate and postgraduate programs in computer science and
+          engineering.
+        </p>
+      </div>
+
+      <div class="footer">
+        <h4>&copy; 2024 PICT</h4>
+      </div>
+    </div>
+
+    <!-- Start of Courses Page -->
+    <div data-role="page" id="courses">
+      <div class="header">
+        <a href="#home" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+        <h1>Courses</h1>
+      </div>
+
+      <div class="content">
+        <h2>Our Courses</h2>
+        <ul data-role="listview">
+          <li>
+            <a href="#">Bachelor of Engineering (Computer Engineering)</a>
+          </li>
+          <li>
+            <a href="#"
+              >Master of Engineering (Computer Science and Engineering)</a
+            >
+          </li>
+          <li><a href="#">Ph.D. in Computer Science and Engineering</a></li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <h4>&copy; 2024 PICT</h4>
+      </div>
+    </div>
+
+    <!-- Start of Contact Page -->
+    <div data-role="page" id="contact">
+      <div class="header">
+        <a href="#home" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+        <h1>Contact Us</h1>
+      </div>
+
+      <div class="content">
+        <h2>Contact Information</h2>
+        <p>Email: info@pict.edu</p>
+        <p>Phone: +91 123 456 7890</p>
+        <p>Address: Pune Institute of Computer Technology, Pune, India</p>
+      </div>
+
+      <div style="height: 100px"></div>
+
+      <div class="footer">
+        <h4>&copy; 2024 PICT</h4>
+      </div>
+    </div>
+  </body>
+</html>

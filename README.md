@@ -44,3 +44,7 @@
 ### [OSL - Operating Systems Lab](OSL)
 
 ### [DAA - Design and Analysis of Algorithms Lab](DAA)
+
+### `Sem 06`
+
+### [WADL - Web Application Development Lab](WADL)

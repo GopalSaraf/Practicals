@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="file"],
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form
+      action="http://localhost:8080/api/collections"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" />
+      <br />
+      <label for="cover">Cover Image</label>
+      <input type="file" id="cover" name="cover" />
+      <br />
+      <label for="portrait">Portrait Image</label>
+      <input type="file" id="portrait" name="portrait" />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
