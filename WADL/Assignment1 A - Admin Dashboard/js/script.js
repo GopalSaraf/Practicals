@@ -2,7 +2,7 @@ const charts = document.querySelectorAll(".chart");
 
 charts.forEach(function (chart) {
   var ctx = chart.getContext("2d");
-  var myChart = new Chart(ctx, {
+  new Chart(ctx, {
     type: "bar",
     data: {
       labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],

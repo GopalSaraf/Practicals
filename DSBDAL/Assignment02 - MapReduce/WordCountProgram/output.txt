@@ -1,0 +1,3 @@
+BUS	    6
+CAR	    4
+TRAIN	5

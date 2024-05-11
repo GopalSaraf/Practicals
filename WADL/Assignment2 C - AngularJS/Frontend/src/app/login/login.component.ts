@@ -1,20 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../auth.service';
-import { Login } from '../auth';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AuthService } from '../auth.service';
+import { Login } from '../auth';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    RouterLink,
-    HttpClientModule
-  ],
+  imports: [ReactiveFormsModule, RouterLink, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   providers: [AuthService, RouterLink],
@@ -22,10 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
 export class LoginComponent {
   loginForm = this.formBuilder.group({
     email: '',
-    password: ''
+    password: '',
   });
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   onSubmit() {
     const login = { ...this.loginForm.value };
