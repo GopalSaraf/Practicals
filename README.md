@@ -31,3 +31,5 @@ Need help in **downloading specific file** OR **folder**? [**Click here**](https
 ### `Sem 06`
 
 ### [WADL - Web Application Development Lab](WADL)
+
+### [DSBDAL - Data Science and Big Data Analytics Lab](DSBDAL)
