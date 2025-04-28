@@ -98,4 +98,8 @@ hs_err_pid*
 !/OSL/*/*.tsv
 !/OSL/*/*.md
 
+ReverseModule/
+orb.db/
+mpj-v0_44/
+
 __pycache__/
